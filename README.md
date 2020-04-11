@@ -34,6 +34,7 @@ Also missing is governments.  I've stripped out everything except Democracy and 
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
 * Land and sea units are very slow.  If you want to get anything done, you'll need to use planes to move stuff around.
+  - Roads don't speed up movement at all, and Railroads only reduce movement cost to 2/3.
 * Unit Hitpoints and Firepower vary a lot, as does Fuel; just looking at the A/D/M numbers won't give you an accurate picture of a unit's capabilities.
 * Buildings (Improvements and Wonders) have been almost entirely replaced with a set of air-themed ones, some with effects which resemble classic ones — and some which don't.
 * There is (currently) no Space Race victory.  You'll just have to conquer them!
