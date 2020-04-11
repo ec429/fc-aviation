@@ -671,6 +671,14 @@ value	= 100
 reqs	=
     { "type", "name", "range"
       "Building", "SAM Battery", "City"
+      "UnitClass", "Carrier-borne", "Local"
+    }
+[effect_sam_battery_2]
+type    = "Defend_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "SAM Battery", "City"
       "UnitClass", "Seaplane", "Local"
     }
 
