@@ -1,0 +1,940 @@
+
+; Modifying this file:
+; You should not modify this file except to make bugfixes or
+; for other "maintenance".  If you want to make custom changes,
+; you should create a new datadir subdirectory and copy this file
+; into that directory, and then modify that copy.  Then use the
+; command "rulesetdir <mysubdir>" in the server to have freeciv
+; use your new customized file.
+
+[datafile]
+description="Aviation technology data for Freeciv"
+options="+Freeciv-2.6-ruleset"
+
+[control]
+; Names for custom tech flags. There can be up to 8 of these.
+; name          = rule name; In some circumstances user may see this
+;                 as part of some sentences, so try to make it descriptive
+;                 and sensible.
+; helptxt       = displayed in the help for advances with this flag (optional)
+;flags =
+;  { "name", "helptxt"
+;  }
+
+; /* <-- avoid gettext warnings
+;
+; Below: The individual advances, one per section.
+; The number can be variable, up to 196.
+;
+; The actual tag used (the * in [advance_*]) does not matter, except 
+; it must be unique within this file, and it may be used in debug 
+; output when reading this file.
+;
+; Notes:
+;
+; name          = translatable name as seen by user
+; rule_name     = (optional) internal name for savegames, rulesets etc; if
+;                 not present, "name" is used for this purpose too. Since
+;                 the name used in savegames must not change, if you want
+;                 to rename an item after a ruleset has been released, you
+;                 should set "rule_name" to the original value of "name".
+; req1, req2    = advances required before researching this one
+; root_req      = tech required before acquiring this tech, by any means.
+;                 All techs with any direct or indirect dependency on this
+;                 one will *also* have this root_req, as well as their own
+;                 and any others they inherit.
+;                 Giving "None" explicitly here prevents a tech from
+;                 inheriting root_reqs in this way, and stops root_req
+;                 inheritance through that tech.
+;                 Specifying a tech's root_req as itself means that the tech
+;                 can only be acquired by special means (nation's init_techs,
+;                 scripting, etc).
+; flags         = special flag strings
+; graphic       = icon for technology
+; graphic_alt   = alternate icon
+; helptext      = optional help text string (set units ruleset for examples)
+; bonus_message = text seen when a player is the first to discover
+;                 an bonus tech. Must contain '%s' to mark place of the tech
+;                 gained.
+; cost          = if tech_cost_style is set to "Classic+" or "Experimental+",
+;                 this field is read for information on how much a tech
+;                 costs.
+;
+; Special values for req1 and req2 are "None" (first section below) 
+; and "Never" (never available).  If only one tech is required, 
+; it should be listed as req1.
+;
+; As well as custom flags defined above, the following flag strings are
+; possible:
+;
+; "Bonus_Tech" = player gets extra tech if reached first
+; "Bridge"   = "Settler" unit types can build roads with "RequiresBridge" flag
+;              over roads with "PreventsOtherRoads" flag (rivers)
+; "Build_Airborne" = from now on can build air units (for use by AI)
+; "Claim_Ocean"         = Player claims ocean tiles even if they are not
+;                         adjacent to border source
+; "Claim_Ocean_Limited" = Oceanic border sources claim ocean tiles even if
+;                         they are not adjacent to border source
+;
+; */ <-- avoid gettext warnings
+
+[advance_dirigible]
+name     = _("Dirigible Balloons")
+req1     = "None"
+req2     = "None"
+flags    = ""
+graphic     = "a.flight" ; it's actually a balloon
+graphic_alt = "-"
+helptext = _("Attaching an engine and rudder to a hydrogen balloon\
+ yielded a controllable lighter-than-air craft. \
+ Ferdinand Graf von Zeppelin, 1900.")
+
+[advance_powered_flight]
+name     = _("Powered Flight")
+req1     = "None"
+req2     = "None"
+flags    = "Build_Airborne"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Though their first heavier-than-air machines could\
+ carry no load beyond the pilot, aviation pioneers achieved the \
+ dream of human flight. \
+ Orville & Wilbur Wright, 1903.")
+
+[advance_passenger_carrying]
+name     = _("Passenger Carrying")
+req1     = "Powered Flight"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("More powerful engines enabled aircraft to carry\
+ passengers and other small payloads. \
+ Henri Farman, 1908.")
+
+[advance_hydroaeroplane]
+name     = _("Hydroaeroplane")
+req1     = "Powered Flight"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Mounting an aeroplane on floats allowed it to\
+ take off and alight on water, instead of land. \
+ Henri Fabre, 1910.")
+
+[advance_practical_aviation]
+name     = _("Practical Aviation")
+req1     = "Passenger Carrying"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("The ability to carry a useful load, and fly in\
+ imperfect weather conditions, made flying more than just a\
+ stunt.  1912.")
+
+[advance_practical_seaplanes]
+name     = _("Practical Seaplanes")
+req1     = "Hydroaeroplane"
+req2     = "Practical Aviation"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("The first floatplanes were unreliable freaks. \
+ Once they were developed to practicality, the world's navies\
+ began to take an interest in the possibilities.  1912.")
+
+[advance_aerial_weapons]
+name     = _("Aerial Weapons")
+req1     = "Practical Aviation"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Early attempts to arm aircraft, though generally\
+ crude, opened a new chapter in warfare by making air-to-air\
+ combat possible.  Designers experimented with a wide variety\
+ of layouts in search of the perfect fighting formula.  1914.")
+
+[advance_aircraft_industry]
+name     = _("Aircraft Industry")
+req1     = "Aerial Weapons"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("As flight began to acquire military significance,\
+ nations invested in industrialising aircraft production and\
+ maintenance.  1914.")
+
+[advance_military_seaplanes]
+name     = _("Military Seaplanes")
+req1     = "Practical Seaplanes"
+req2     = "Aerial Weapons"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Naval thinkers saw in the seaplane a way to extend\
+ the engagement range by carrying bombs.  1914.")
+
+[advance_interrupter_gear]
+name     = _("Interrupter Gear")
+req1     = "Aerial Weapons"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Synchronising machine guns with the propeller's\
+ rotation allowed aircraft to fire forwards without the unwieldy\
+ complications of pusher designs.  1915.")
+
+[advance_engines_1915]
+name     = _("Engines 1915")
+req1     = "Aerial Weapons"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Engine performance has always been the driving\
+ factor behind aviation advancement.  Developing more powerful\
+ engines will unlock new possibilities.")
+
+[advance_bombers_1915]
+name     = _("Bombers 1915")
+req1     = "Engines 1915"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Bombs dropped from landplanes added a new terror\
+ to the trench battles of World War I.  The actual military\
+ effectiveness of early bombing however was limited by the\
+ small size of the bombs and the poor accuracy with which they\
+ could be dropped.")
+
+[advance_zeppelin]
+name     = _("Zeppelin")
+req1     = "Dirigible Balloons"
+req2     = "Engines 1915"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("With engine power enough to make headway even in\
+ severe weather, rigid airships became the first long-range\
+ bombers.  1914-17.")
+
+[advance_effective_scouts]
+name     = _("Effective Scouts")
+req1     = "Interrupter Gear"
+req2     = "Engines 1915"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Two-seat fighter aircraft with both forward\
+-firing and defensive machine guns found some success in the\
+ air battles over the Front.  1915.")
+
+[advance_effective_seaplanes]
+name     = _("Effective Seaplanes")
+req1     = "Military Seaplanes"
+req2     = "Engines 1915"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1916]
+name     = _("Engines 1916")
+req1     = "Engines 1915"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_bombers_1916]
+name     = _("Bombers 1916")
+req1     = "Bombers 1915"
+req2     = "Engines 1916"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_anti_air_artillery]
+name     = _("Anti-Air Artillery")
+req1     = "Bombers 1916"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_early_blimp]
+name     = _("Early Blimp")
+req1     = "Dirigible Balloons"
+req2     = "Engines 1916"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_scouts_1916]
+name     = _("Scouts 1916")
+req1     = "Engines 1916"
+req2     = "Effective Scouts"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_flying_boat]
+name     = _("Flying Boat")
+req1     = "Military Seaplanes"
+req2     = "Engines 1916"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_triplanes]
+name     = _("Triplanes")
+req1     = "Engines 1916"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1917]
+name     = _("Engines 1917")
+req1     = "Engines 1916"
+req2     = "Aircraft Industry"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_bombers_1917]
+name     = _("Bombers 1917")
+req1     = "Bombers 1916"
+req2     = "Engines 1917"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_aircraft_carrier]
+name     = _("Aircraft Carrier")
+req1     = "Engines 1917"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_triplane_bombers]
+name     = _("Triplane Bombers")
+req1     = "Triplanes"
+req2     = "Bombers 1916"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_scouts_1917]
+name     = _("Scouts 1917")
+req1     = "Scouts 1916"
+req2     = "Engines 1917"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_seaplanes_1917]
+name     = _("Seaplanes 1917")
+req1     = "Effective Seaplanes"
+req2     = "Engines 1917"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_practical_flying_boat]
+name     = _("Practical Flying Boat")
+req1     = "Flying Boat"
+req2     = "Engines 1917"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_streamlining]
+name     = _("Streamlining")
+req1     = "Scouts 1916"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_engines]
+name     = _("Twenties Engines")
+req1     = "Engines 1917"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_mass_production]
+name     = _("Mass Production")
+req1     = "Aircraft Industry"
+req2     = "Twenties Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_bombers]
+name     = _("Twenties Bombers")
+req1     = "Bombers 1917"
+req2     = "Twenties Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_general_aviation]
+name     = _("General Aviation")
+req1     = "Twenties Engines"
+req2     = "Streamlining"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_carrier_aviation]
+name     = _("Twenties Carrier Aviation")
+req1     = "Aircraft Carrier"
+req2     = "General Aviation"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_airlift]
+name     = _("Twenties Airlift")
+req1     = "Twenties Bombers"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Transport aircraft are a valuable addition\
+ to military logistics, allowing assault troops (and even\
+ settlers) to be carried from one city or airbase to\
+ another at high speed."),
+_("Units of class Assault (that is, assault troops, \
+ paratroops and settlers) are transportable, whereas Land\
+ units (such as Troops) are not, owing to their heavy\
+ equipment (tanks)."),
+_("Also, airliners (which are technologically similar) are\
+ needed for opening up trade routes (like Caravans in the\
+ classic ruleset).")
+
+[advance_parachute_dropping]
+name     = _("Parachute Dropping")
+req1     = "Twenties Airlift"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Paratroopers can jump from transport aircraft\
+ to quickly reach objectives and surprise the defenders."),
+_("Unlike in the classic ruleset, paradropping is not an\
+ action performed from cities; rather, paratroops can load\
+ into a transport aircraft at a city or airbase and then,\
+ once the transport reaches the desired Drop Zone, 'unload'\
+ onto the ground below.")
+
+[advance_glider_assault]
+name     = _("Glider Assault")
+req1     = "Twenties Airlift"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Gliders allow assault troops to be quickly\
+ delivered into enemy territory.  The assault troops load\
+ into the glider, which then 'loads' into a tug (a medium\
+ or heavy bomber)."),
+_("After the tug has towed the glider to the desired Drop\
+ Zone, the glider 'unloads' from the tug, enabling the\
+ assault troops to unload in turn from the glider."),
+_("After use the glider cannot be moved, so you may as\
+ well disband it to save the upkeep."),
+_("Besides assault troops, gliders can also carry\
+ paratroopers and settlers, as those are also\
+ transportable units (class 'Assault').")
+
+[advance_radio]
+name     = _("Radio")
+req1     = "Twenties Airlift"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_fighters]
+name     = _("Twenties Fighters")
+req1     = "Scouts 1917"
+req2     = "General Aviation"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_seaplanes_1918]
+name     = _("Seaplanes 1918")
+req1     = "Seaplanes 1917"
+req2     = "Practical Flying Boat"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_seaplanes]
+name     = _("Twenties Seaplanes")
+req1     = "Seaplanes 1918"
+req2     = "General Aviation"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_aerodynamics_research]
+name     = _("Aerodynamics Research")
+req1     = "Streamlining"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1930]
+name     = _("Engines 1930")
+req1     = "Twenties Engines"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_thirties_bombers]
+name     = _("Thirties Bombers")
+req1     = "Twenties Bombers"
+req2     = "Engines 1930"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_thirties_carrier_aviation]
+name     = _("Thirties Carrier Aviation")
+req1     = "Twenties Carrier Aviation"
+req2     = "Engines 1930"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_thirties_airlift]
+name     = _("Thirties Airlift")
+req1     = "Twenties Airlift"
+req2     = "Engines 1930"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_high_speed]
+name     = _("High Speed")
+req1     = "Engines 1930"
+req2     = "Aerodynamics Research"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_thirties_fighters]
+name     = _("Thirties Fighters")
+req1     = "Twenties Fighters"
+req2     = "High Speed"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_thirties_seaplanes]
+name     = _("Thirties Seaplanes")
+req1     = "Twenties Seaplanes"
+req2     = "High Speed"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_military_industrial_complex]
+name     = _("Military-Industrial Complex")
+req1     = "Mass Production"
+req2     = "Thirties Bombers"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1935]
+name     = _("Engines 1935")
+req1     = "Engines 1930"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_large_monoplanes]
+name     = _("Large Monoplanes")
+req1     = "Engines 1935"
+req2     = "Aerodynamics Research"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_bombers_1935]
+name     = _("Bombers 1935")
+req1     = "Thirties Bombers"
+req2     = "Large Monoplanes"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_carrier_aviation_1935]
+name     = _("Carrier Aviation 1935")
+req1     = "Thirties Carrier Aviation"
+req2     = "Engines 1935"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_r_d_f_]
+name     = _("R.D.F.")
+req1     = "Radio"
+req2     = "Bombers 1935"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_electronics_1935]
+name     = _("Electronics 1935")
+req1     = "Radio"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_proximity_fuse]
+name     = _("Proximity Fuse")
+req1     = "R.D.F."
+req2     = "Electronics 1935"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_airlift_1935]
+name     = _("Airlift 1935")
+req1     = "Thirties Airlift"
+req2     = "Bombers 1935"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fighters_1935]
+name     = _("Fighters 1935")
+req1     = "Thirties Fighters"
+req2     = "Engines 1935"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_heavy_flying_boat]
+name     = _("Heavy Flying Boat")
+req1     = "Thirties Seaplanes"
+req2     = "Engines 1935"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_tracking_radar]
+name     = _("Tracking Radar")
+req1     = "R.D.F."
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1939]
+name     = _("Engines 1939")
+req1     = "Engines 1935"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_bombers_1939]
+name     = _("Bombers 1939")
+req1     = "Bombers 1935"
+req2     = "Engines 1939"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_higher_speed]
+name     = _("Higher Speed")
+req1     = "Engines 1939"
+req2     = "Thirties Seaplanes"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fighters_1939]
+name     = _("Fighters 1939")
+req1     = "Fighters 1935"
+req2     = "Higher Speed"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_carrier_aviation_1940]
+name     = _("Carrier Aviation 1940")
+req1     = "Carrier Aviation 1935"
+req2     = "Fighters 1939"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_airborne_radar]
+name     = _("Airborne Radar")
+req1     = "Electronics 1935"
+req2     = "R.D.F."
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1942]
+name     = _("Engines 1942")
+req1     = "Engines 1939"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_carrier_aviation_1942]
+name     = _("Carrier Aviation 1942")
+req1     = "Carrier Aviation 1940"
+req2     = "Engines 1942"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_heavy_bombers]
+name     = _("Heavy Bombers")
+req1     = "Bombers 1939"
+req2     = "Engines 1942"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_heavy_gliders]
+name     = _("Heavy Gliders")
+req1     = "Glider Assault"
+req2     = "Heavy Bombers"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_heavy_airlift]
+name     = _("Heavy Airlift")
+req1     = "Airlift 1935"
+req2     = "Engines 1942"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fighters_1942]
+name     = _("Fighters 1942")
+req1     = "Fighters 1939"
+req2     = "Engines 1942"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_superprop_engines]
+name     = _("Superprop Engines")
+req1     = "Engines 1942"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_bombers_1945]
+name     = _("Bombers 1945")
+req1     = "Heavy Bombers"
+req2     = "Superprop Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fighters_1944]
+name     = _("Fighters 1944")
+req1     = "Fighters 1942"
+req2     = "Superprop Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_carrier_aviation_1945]
+name     = _("Carrier Aviation 1945")
+req1     = "Carrier Aviation 1942"
+req2     = "Superprop Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_gas_turbine]
+name     = _("Gas Turbine")
+req1     = "Engines 1942"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_jet_fighter_prototypes]
+name     = _("Jet Fighter Prototypes")
+req1     = "Fighters 1942"
+req2     = "Gas Turbine"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_carrier_borne_jets]
+name     = _("Carrier-borne Jets")
+req1     = "Carrier Aviation 1942"
+req2     = "Gas Turbine"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_rocketry]
+name     = _("Rocketry")
+req1     = "Gas Turbine"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_jet_bomber_prototypes]
+name     = _("Jet Bomber Prototypes")
+req1     = "Bombers 1939"
+req2     = "Gas Turbine"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_engines_1949]
+name     = _("Engines 1949")
+req1     = "Gas Turbine"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_jet_flying_boat]
+name     = _("Jet Flying Boat")
+req1     = "Thirties Seaplanes"
+req2     = "Engines 1949"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_bombers_1949]
+name     = _("Bombers 1949")
+req1     = "Jet Bomber Prototypes"
+req2     = "Engines 1949"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_swept_wing]
+name     = _("Swept Wing")
+req1     = "Aerodynamics Research"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_early_missiles]
+name     = _("Early Missiles")
+req1     = "Rocketry"
+req2     = "Anti-Air Artillery"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_transonic_speed]
+name     = _("Transonic Speed")
+req1     = "Engines 1949"
+req2     = "Swept Wing"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_second_generation]
+name     = _("Second-Generation")
+req1     = "Transonic Speed"
+req2     = "Early Missiles"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_swept_wing_fighters]
+name     = _("Swept-wing Fighters")
+req1     = "Jet Fighter Prototypes"
+req2     = "Second-Generation"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_carrier_aviation_1950]
+name     = _("Carrier Aviation 1950")
+req1     = "Carrier-borne Jets"
+req2     = "Second-Generation"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_swept_wing_bombers]
+name     = _("Swept-wing Bombers")
+req1     = "Bombers 1949"
+req2     = "Swept Wing"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fifties_engines]
+name     = _("Fifties Engines")
+req1     = "Engines 1949"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_supersonic_aerodynamics]
+name     = _("Supersonic Aerodynamics")
+req1     = "Swept Wing"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_light_fighter]
+name     = _("Light Fighter")
+req1     = "Swept-wing Fighters"
+req2     = "Fifties Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_supersonic_flight]
+name     = _("Supersonic Flight")
+req1     = "Fifties Engines"
+req2     = "Supersonic Aerodynamics"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fifties_fighters]
+name     = _("Fifties Fighters")
+req1     = "Swept-wing Fighters"
+req2     = "Supersonic Flight"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fifties_bombers]
+name     = _("Fifties Bombers")
+req1     = "Swept-wing Bombers"
+req2     = "Fifties Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_fifties_airlift]
+name     = _("Fifties Airlift")
+req1     = "Heavy Airlift"
+req2     = "Fifties Engines"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Decreases one-time revenue from new trade routes.")
+

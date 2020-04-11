@@ -1,0 +1,774 @@
+
+; Modifying this file:
+; You should not modify this file except to make bugfixes or
+; for other "maintenance".  If you want to make custom changes,
+; you should create a new datadir subdirectory and copy this file
+; into that directory, and then modify that copy.  Then use the
+; command "rulesetdir <mysubdir>" in the server to have freeciv
+; use your new customized file.
+
+; Note that the freeciv AI may not cope well with anything more
+; than minor changes.
+
+[datafile]
+description="Classic buildings data for Freeciv"
+options="+Freeciv-2.6-ruleset"
+
+; /* <-- avoid gettext warnings
+;
+; Below: The individual buildings, one per section.
+; (Buildings = City Improvements and Wonders)
+;
+; The actual tag used (the * in [building_*]) does not matter, except 
+; it must be unique within this file, and it may be used in debug 
+; output when reading this file.
+;
+; Notes:
+;
+; name          = translatable name as seen by user
+; rule_name     = (optional) internal name for savegames, rulesets etc; if
+;                 not present, "name" is used for this purpose too. Since
+;                 the name used in savegames must not change, if you want
+;                 to rename an item after a ruleset has been released, you
+;                 should set "rule_name" to the original value of "name".
+; genus	        = genus; one of:
+;                 "GreatWonder", "SmallWonder", "Improvement", "Special".
+; reqs		= requirements to build the building (see effects.ruleset
+;		  and README.effects for help on requirements)
+; graphic	= icon of improvement (used in city dialog)
+; graphic_alt	= alternate icon of improvement
+; obsolete_by	= requirements for the building to become obsolete
+; build_cost	= production shields required to build
+; upkeep	= monetary upkeep value
+; sabotage	= percent chance of diplomat sabotage being successful
+; flags         = special flag strings
+;
+; ** Building flags **
+; "VisibleByOthers"  = Anyone who can see your city knows whether it has
+;                      this improvement. (Great and small wonders are
+;                      always visible.)
+; "SaveSmallWonder"  = If you lose the city with this building in, and the
+;                      "savepalace" server setting is enabled, another will
+;                      be built for free in a random city.
+;                      Should only be used with genus "SmallWonder".
+; "Gold"             = Not a real building; production turned into gold
+;                      indefinitely (capitalization/coinage).
+;                      Genus should be "Special".
+;
+; */ <-- avoid gettext warnings
+
+; *Buildings*
+
+; **Administrative**
+
+[building_hq]
+name		= _("HQ")
+genus		= "SmallWonder"
+flags		= "SaveSmallWonder"
+; No reqs
+graphic	= "b.palace"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 70
+upkeep		= 0
+sabotage	= 0
+sound		= "b_palace"
+sound_alt	= "b_generic"
+helptext	= _("\
+Makes a city the capital and the center of your government.\
+ Corruption in other cities is related to how far away from the\
+ capital they are, except when the government is Democracy or\
+ Communism. On top of this, corruption in your capital itself is\
+ half of what it would otherwise be (as if it had a Courthouse).\
+"), _("\
+Take good care of your capital, as its loss may result in your\
+ empire plunging into civil war.\
+"), _("\
+If the capital is in a dangerous location, or a more central capital\
+ would give a better corruption distribution, you can move your HQ\
+ by rebuilding it in another city.\
+")
+
+[building_faa]
+name		= _("FAA Branch")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
+graphic	= "b.courthouse"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_courthouse"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Reduces the corruption in a city by 50%, and makes the revolt cost\
+ of the city 4 times bigger. (These effects are redundant in your\
+ capital city.)\
+"), _("\
+Under a Democracy, an FAA Branch also makes 1 unhappy citizen content\
+ (unless that citizen is unhappy about military activity).\
+")
+
+[building_radar]
+name		= _("Radar Station")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "R.D.F.", "Player"
+    }
+graphic	= "b.eiffel_tower"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_sdi_defense"
+sound_alt	= "b_generic"
+helptext	= _("\
+Extends city view distance to 4 tiles.\
+")
+
+; **Research**
+
+[building_wind_tunnel]
+name		= _("Wind Tunnel")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Aerodynamics Research", "Player"
+    }
+graphic	= "b.library"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_library"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the science output in a city by 50%.\
+")
+
+; **Revenue**
+
+[building_airstrip]
+name		= _("Commercial Airstrip")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Twenties Airlift", "Player"
+    }
+graphic	= "b.airport"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 0
+sabotage	= 100
+sound		= "b_airport"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the tax output in a city by 50%. \
+ Also, allows the construction of Airliners\
+ (for creating trade routes).\
+")
+
+[building_airport]
+name		= _("Hub Airport")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Fifties Airlift", "Player"
+      "Building", "Commercial Airstrip", "City"
+    }
+graphic	= "b.airport"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 80
+upkeep		= 2
+sabotage	= 100
+sound		= "b_airport"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the tax output in a city by 50% (cumulative with\
+ Commercial Airstrip).\
+")
+
+[building_export]
+name		= _("Export")
+genus		= "Special"
+flags		= "Gold"
+reqs	=
+    { "type", "name", "range"
+
+    }
+graphic	= "b.capitalization"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 999
+upkeep		= 0
+sabotage	= 0
+helptext	= _("\
+This is not a normal improvement.  Instead, setting a city's\
+ production to Export means its shield production is\
+ converted to tax output.\
+")
+
+; **Luxury**
+
+[building_club]
+name		= _("Flying Club")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Practical Aviation", "Player"
+    }
+graphic	= "b.temple"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 30
+upkeep		= 1
+sabotage	= 100
+sound		= "b_temple"
+sound_alt	= "b_generic"
+helptext	= _("\
+Makes one unhappy citizen content.  The General Aviation advance\
+ doubles this effect.  Does not affect citizens made unhappy by\
+ military activity.\
+")
+
+[building_tours]
+name		= _("Air Tours")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
+graphic	= "b.marketplace"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 0
+sabotage	= 100
+sound		= "b_marketplace"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the luxury output in a city by 50%.\
+")
+
+[building_races]
+name		= _("Air Races")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Twenties Seaplanes", "Player"
+    }
+graphic	= "b.colosseum"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 70
+upkeep		= 2
+sabotage	= 100
+sound		= "b_colosseum"
+sound_alt	= "b_generic"
+helptext	= _("\
+Entertains the citizens of a city, making 2 unhappy citizens content. \
+ However, it does not affect citizens made unhappy by military activity.\
+")
+
+[building_memo]
+name		= _("War Memorial")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Bombers 1917", "Player"
+    }
+graphic	= "b.cathedral"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 50
+upkeep		= 1
+sabotage	= 100
+sound		= "b_cathedral"
+sound_alt	= "b_generic"
+helptext	= _("\
+Reduces the unhappiness caused by aggressively deployed military\
+ units owned by the city by 1 under Democracy\
+ -- in other words, it neutralizes the unhappiness caused by a single\
+ military unit. This improvement has no effect under other governments.\
+")
+
+; **Training, Repair**
+
+[building_barracks]
+name		= _("Barracks")
+genus		= "Improvement"
+; no reqs
+graphic	= "b.barracks_i"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 30
+upkeep		= 1
+sabotage	= 100
+sound		= "b_barracks_i"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+With a Barracks, each new land (or assault) unit built in a city will\
+ automatically have Veteran status, which means that its attack and\
+ defense strengths are increased by 50%.  Also, damaged land (or
+ assault) units which stay in town for one full turn without moving\
+ are completely restored.\
+")
+
+[building_shipyard]
+name		= _("Shipyard")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "TerrainClass", "Oceanic", "Adjacent"
+    }
+graphic	= "b.port_facility"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_port_facility"
+sound_alt	= "b_generic"
+helptext	= _("\
+Allows a city to build veteran sea units.  Also, damaged sea units\
+ which stay in town for one full turn without moving are completely\
+ restored.\
+")
+
+[building_school]
+name		= _("Flying School")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Passenger Carrying", "Player"
+    }
+graphic	= "b.library"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_library"
+sound_alt	= "b_generic"
+helptext	= _("\
+Air, Seaplane and Carrier-borne units produced in the city\
+ will be Veteran.\
+")
+
+[building_repair]
+name		= _("Repair Sheds")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Aircraft Industry", "Player"
+    }
+graphic	= "b.port_facility"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_port_facility"
+sound_alt	= "b_generic"
+helptext	= _("\
+Air and Carrier-borne units spending their turn in the city\
+ will be restored to full health.\
+")
+
+[building_slipway]
+name		= _("Aircraft Slipways")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Military Seaplanes", "Player"
+    }
+graphic	= "b.port_facility"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_port_facility"
+sound_alt	= "b_generic"
+helptext	= _("\
+Seaplane units spending their turn in the city\
+ will be restored to full health.\
+")
+
+; **Farming**
+
+[building_dusting]
+name		= _("Crop Dusting")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
+graphic	= "b.supermarket"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 2
+sabotage	= 100
+sound		= "b_supermarket"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the food resources by 50% on each farmland tile which\
+ is being used around the city.  Farmland tiles are those which\
+ have been irrigated a second time.\
+")
+
+; **Manufacturing**
+
+[building_engine_factory]
+name		= _("Engine Factory")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Mass Production", "Player"
+    }
+graphic	= "b.factory"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 140
+upkeep		= 3
+sabotage	= 100
+sound		= "b_factory"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the shield production in a city by 50%.  This increase may\
+ also contribute significantly to pollution.\
+")
+
+[building_aircraft_factory]
+name		= _("Aircraft Factory")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Military-Industrial Complex", "Player"
+      "Building", "Engine Factory", "City"
+    }
+graphic	= "b.mfg_plant"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 220
+upkeep		= 6
+sabotage	= 100
+sound		= "b_mfg_plant"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Together with an Engine Factory, an Aircraft Factory increases the\
+ shield production in a city by 100%. An Aircraft Factory on its\
+ own increases shield production by 50%.\
+")
+
+; **Defensive**
+
+[building_flak_battery]
+name		= _("Flak Battery")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Anti-Air Artillery", "Player"
+    }
+graphic	= "b.coastal_defense"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 30
+upkeep		= 1
+sabotage	= 100
+sound		= "b_coastal_defense"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the defense of all units inside the city by 20% (after\
+ Proximity Fuse, 50%) when attacked by aircraft.\
+")
+
+[building_sam_battery]
+name		= _("SAM Battery")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Early Missiles", "Player"
+    }
+graphic	= "b.sam_battery"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 90
+upkeep		= 2
+sabotage	= 100
+sound		= "b_sam_battery"
+sound_alt	= "b_generic"
+helptext	= _("\
+Doubles the defense of all units inside the city when attacked by\
+ aircraft.  Overrides the effect of Flak Battery.\
+")
+
+[building_sector_control]
+name		= _("Sector Control")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Tracking Radar", "Player"
+    }
+graphic	= "b.research_lab"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 80
+upkeep		= 2
+sabotage	= 100
+sound		= "b_research_lab"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Should give an attack bonus to aircraft, but Freeciv 2.6 doesn't\
+ support that.  Thus, this building does nothing.\
+")
+
+; *Wonders*
+
+; **Defensive**
+[building_dowding]
+name		= _("Dowding System")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Tracking Radar", "Player"
+    }
+graphic	= "b.colossus"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 300
+upkeep		= 0
+sabotage	= 0
+sound		= "w_colossus"
+sound_alt	= "w_generic"
+helptext	= _("\
+Acts as a Sector Control in every city on the same continent. \
+ Unfortunately, the Sector Control doesn't do anything, so\
+ neither does this.\
+")
+
+[building_chain_home]
+name		= _("Chain Home")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "R.D.F.", "Player"
+    }
+graphic	= "b.eiffel_tower"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_eiffel_tower"
+sound_alt	= "w_generic"
+helptext	= _("\
+Acts as a Radar Station in every city on the same continent.\
+")
+
+; **Economic**
+
+[building_airline]
+name		= _("National Airline")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Thirties Airlift", "Player"
+      "Building", "Commercial Airstrip", "City"
+    }
+graphic	= "b.asmiths_trading_co"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 200
+upkeep		= 2
+sabotage	= 0
+sound		= "w_asmiths_trading_co"
+sound_alt	= "w_generic"
+helptext	= _("\
+Doubles the effect of all your Commercial Airstrips. \
+ Requires Commercial Airstrip to build.\
+")
+
+[building_display]
+name		= _("Display Team")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Twenties Fighters", "Player"
+    }
+graphic	= "b.hanging_gardens"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_hanging_gardens"
+sound_alt	= "w_generic"
+helptext	= _("\
+Makes one content citizen happy in every city. \
+ In the unlikely event where there are no content citizens\
+ to get the effect of the Display Team, the wonder makes\
+ an unhappy citizen content instead.\
+")
+
+[building_super_tunnel]
+name		= _("Supersonic Wind Tunnel")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Supersonic Aerodynamics", "Player"
+      "Building", "Wind Tunnel", "City"
+    }
+graphic	= "b.copernicus_observatory"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 300
+upkeep		= 0
+sabotage	= 0
+sound		= "w_copernicus_observatory"
+sound_alt	= "w_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Boosts science production by 100% in the city where it is built.\
+")
+
+[building_janes]
+name		= _("Jane's All The World's Aircraft")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Practical Aviation", "Player"
+    }
+graphic	= "b.great_library"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_great_library"
+sound_alt	= "w_generic"
+helptext	= _("\
+The civilization which writes Jane's gets every advance\
+ that at least two other teams have achieved.\
+")
+
+[building_schneider]
+name		= _("Schneider Trophy")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Thirties Seaplanes", "Player"
+      "Building", "Air Races", "City"
+    }
+graphic	= "b.darwins_voyage"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_darwins_voyage"
+sound_alt	= "w_generic"
+helptext	= _("\
+Gives an immediate technology advance. \
+ Requires Air Races to build.\
+")
+
+[building_sound_barrier]
+name		= _("Sound Barrier")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Rocketry", "Player"
+    }
+graphic	= "b.darwins_voyage"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_darwins_voyage"
+sound_alt	= "w_generic"
+helptext	= _("\
+Gives two immediate technology advances.\
+")

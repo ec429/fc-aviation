@@ -1,0 +1,4288 @@
+; Modifying this file:
+; You should not modify this file except to make bugfixes or
+; for other "maintenance".  If you want to make custom changes,
+; you should create a new datadir subdirectory and copy this file
+; into that directory, and then modify that copy.  Then use the
+; command "rulesetdir <mysubdir>" in the server to have freeciv
+; use your new customized file.
+;
+; You should sort role units from worst to better, as often the best
+; available role unit of a given sort will be picked by choosing
+; the first available (not obsolete) such unit, or by picking the last
+; such unit directly. When determining starting units, the first 
+; unit with the relevant role that the player can build will be chosen.
+; If no such unit can be found (eg Explorers that require Seafaring),
+; then the first unit with this role will be chosen.
+
+[datafile]
+description="Aviation unit_type data for Freeciv"
+options="+Freeciv-2.6-ruleset"
+
+[control]
+; Names for custom unit type flags. There can be up to 32 of these.
+; name          = rule name; In some circumstances user may see this
+;                 as part of some sentences, so try to make it descriptive
+;                 and sensible.
+; helptxt       = displayed in the help for units with this flag (optional)
+flags =
+  { "name", "helptxt"
+    _("Airbase")
+    _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
+  }
+
+[veteran_system]
+; What are the names of the levels?
+veteran_names = _("green"), _("veteran"), _("ace"), _("elite")
+
+; The percentage chance of increasing level through combat
+veteran_raise_chance = 50, 33, 20, 0
+
+; The percentage chance of a settler/engineer increasing level through
+; performing useful work (per turn)
+veteran_work_raise_chance = 0, 0, 0, 0
+
+; Power factors are as a percentage.
+; +50% is represented by 150
+veteran_power_fact = 100, 160, 180, 200
+
+; The additional number of movement points granted for different veteran
+; levels. These are fractional move points as defined by move_fragments in
+; terrain.ruleset.
+veteran_move_bonus = 0, 0, 1, 1
+
+; /* <-- avoid gettext warnings
+;
+; Unit classes
+; The number can be variable, up to 32
+; When adding new classes, remember to check effects.ruleset also.
+; Eg. if you divide class 'Land' to two separate classes, you may
+; want add effect giving City Walls defence bonus against new class
+; too.
+;
+; The actual tag used (the * in [unitclass_*]) does not matter, except
+; it must be unique within this file, and it may be used in debug
+; output when reading this file.
+;
+; ** Fields **
+;
+; name                = translatable name as seen by user
+; rule_name           = (optional) internal name for savegames, rulesets etc;
+;                       if not present, "name" is used for this purpose too.
+;                       Since the name used in savegames must not change, if
+;                       you want to rename an item after a ruleset has been
+;                       released, you should set "rule_name" to the original
+;                       value of "name".
+; min_speed           = Minimum speed after damage and effects (whole movement points)
+; hp_loss_pct         = Hitpoints lost each turn if unit not in city or native base
+; non_native_def_pct  = Defense power percentage applying when defending on
+;                       non-native terrain (such as ship in harbour)
+; hut_behavior        = What happens to huts when unit enters tile:
+;                       "Normal", "Nothing", or "Frighten"
+; flags               = List of unit class flags (from the following list; you
+;                       cannot add custom unit class flags)
+; helptext            = optional help text string; should escape all raw newlines
+;                       so that xgettext parsing works
+;
+; ** Unit class Flags **
+;
+; "TerrainSpeed"   = Units use terrain specific speed
+; "TerrainDefense" = Units gain defense bonus from terrain
+; "DamageSlows"   = Damaged units are slowed down
+; "CanOccupyCity" = Military units of this class can occupy enemy cities
+; "Missile"       = Unit is destroyed when it attacks
+; "BuildAnywhere" = Unit can be built even in the middle of non-native terrain
+; "Unreachable"   = Unit can be attacked only by units explicitly listing this
+;                   class in its 'targets', unless on a city or native base.
+;                   For class members which are transports, cargo cannot load/
+;                   unload except in a city or native base, unless that unit
+;                   explicitly lists this class in its 'embarks'/'disembarks'.
+; "CollectRansom" = Unit can collect ransom when killing lone barbarian leader
+; "ZOC"           = Unit is subject to ZOC rules. Unit type flag "IgZOC" can
+;                   override this
+; "CanFortify"    = Unit can fortify at land tiles. Unit type flag
+;                   "Cant_Fortify" can override this
+; "CanPillage"    = Unit can pillage tile infrastructure
+; "DoesntOccupyTile"  = Even if this kind of enemy unit is on tile, cities can
+;                       still work that tile
+; "AttackNonNative"   = Unit can attack units on non-native tiles. Unit type
+;                       flag "Only_Native_Attack" can override this
+; "AttFromNonNative"  = Unit can launch attack from non-native tile (against
+;                       native one)
+;                       This applies for both attacking from transport or
+;                       cities. If only some unit types of the class should
+;                       get this property, use type flag "Marines"
+; "KillCitizen"       = Upon successful attack against a city, unit kills one
+;                       citizen. The effect "Unit_No_Lose_Pop" and the server
+;                       setting 'killcitizen' can disable this.
+; "Airliftable"       = Unit may be airlifted
+;
+; */ <-- avoid gettext warnings
+
+[unitclass_land]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Land")
+min_speed     = 1
+hp_loss_pct   = 0
+flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
+                "CollectRansom", "ZOC", "CanFortify", "CanPillage",
+                "TerrainDefense", "KillCitizen", "Unreachable"
+helptext = _("Regular Land units are not transportable by air or sea,\
+ as their equipment (tanks and artillery) is too heavy.")
+
+[unitclass_assault]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Assault")
+min_speed     = 1
+hp_loss_pct   = 0
+flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
+                "CollectRansom", "ZOC", "CanFortify", "CanPillage",
+                "TerrainDefense", "KillCitizen", "Unreachable"
+helptext = _("Assault-class land units travel light enough that they\
+ are transportable by suitable ships and aircraft.")
+
+[unitclass_sea]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Sea")
+min_speed     = 2
+hp_loss_pct   = 0
+flags         = "DamageSlows", "AttackNonNative", "AttFromNonNative", "Unreachable"
+
+[unitclass_air]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Air")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile"
+helptext = _("Regular Air units are unable to operate from carriers.")
+
+[unitclass_carried]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Carrier-borne")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile"
+helptext = _("Carrier-borne air units can be transported by, fly\
+ missions from, and refuel on aircraft carriers.")
+
+[unitclass_float]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Seaplane")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile"
+helptext = _("Floatplanes and flying-boats can be transported by, fly\
+ missions from, and refuel at Seaplane Tenders and\
+ Light Aircraft Carriers.")
+
+[unitclass_glider]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Glider")
+min_speed     = 0
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "DoesntOccupyTile"
+helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
+ units into combat areas.  Gliders are not capable of movement under\
+ their own power, so must be towed around behind other Air units.")
+
+; /* <-- avoid gettext warnings
+;
+; Below: The individual units, one per section.
+;
+; The number can be variable, up to 200.
+; However for the "official" rulesets, units should not be removed
+; because that would break backward compatability with savegames.
+;
+; The order here matters: later units are considered "better" for
+; a given flag or role.
+;
+; The actual tag used (the * in [unit_*]) does not matter, except
+; it must be unique within this file, and it may be used in debug
+; output when reading this file.
+;
+; ** Fields **
+;
+; name          = translatable name as seen by user
+; rule_name     = (optional) internal name for savegames, rulesets etc; if
+;                 not present, "name" is used for this purpose too. Since
+;                 the name used in savegames must not change, if you want
+;                 to rename an item after a ruleset has been released, you
+;                 should set "rule_name" to the original value of "name".
+; graphic       = tag specifying preferred graphic
+; graphic_alt   = tag for alternate graphic if preferred graphic is not
+;                 present; especially if preferred graphic is non-standard,
+;                 this should be a standard tag.  Otherwise can use eg "-"
+;                 for no alternate graphic.
+; tech_req      = required advance, names from techs.ruleset, or special:
+;                 "None" => available from start
+; impr_req	= required city improvement, names from buildings.ruleset
+; gov_req       = required government, names from governments.ruleset
+; obsolete_by   = can be upgraded to and made obsolete by another unit by name
+; build_cost    = production shields required to build
+; pop_cost      = population removed from city when built; for 'AddToCity'
+;                 units this is also the population added to the destination
+; attack        = base attack strength (0 = cannot attack)
+; defense       = base defense strength (0 = cannot defend)
+; hitpoints     = how much damage unit can withstand
+; firepower     = number of hitpoints removed per round of combat; at least 1
+; move_rate     = base move rate (whole movement points)
+; vision_radius_sq = base vision of unit: unit can see tile up to the square
+;                 root of this value away
+; convert_to    = can be converted to another type of unit by name
+; convert_time  = time it takes to convert to another unit type
+; class         = One of the classes listed above
+; transport_cap = Number of units (ground, or air/missiles, depending on flags)
+; fuel          = Number of turns unit can spend outside refuel points.
+;                 If more time passes without unit refueling over turn change,
+;                 they are lost. If this is zero, unit has no need to refuel
+; uk_*          = upkeep costs, these are used as base values in the game
+; cargo         = Unit classes this unit can transport
+; city_size     = Initial size of the cities built by 'Cities' type units
+;                 (but 'AddToCity' uses pop_cost)
+; targets       = list of unit classes this unit can attack against even
+;                 if they have Unreachable unit class flag
+; embarks       = list of unit classes this unit may load into while not in
+;                 native base or city even if transporter has Unreachable unit
+;                 class flag
+; disembarks    = list of unit classes this unit may unload from while not in
+;                 native base or city even if transporter has Unreachable unit
+;                 class flag
+; bonuses       = definitions of combat bonuses against specific other units
+; bonuses.flag  = flag of the unit that bonus applies against
+; bonuses.type  = type of the bonus. See below
+; bonuses.value = value of the bonus. Sum of these is used if multiple apply.
+; bonuses.quiet = don't auto generate help text for this bonus. Use this if
+;                 the bonus is documented in the unit type's help text.
+;                 This is useful when the combination of a unit's bonuses
+;                 becomes complex enough to make the auto generated help
+;                 ugly or inaccurate.
+; flags         = special flag strings; list of built-in flags described below
+;                 and/or user flags defined above
+;
+; veteran_names = Special veteran level for this unit. See the definitions in
+;                 game.ruleset. All of the veteran_* entries have to have the
+;                 same length!
+; veteran_raise_chance =
+; veteran_work_raise_chance =
+; veteran_power_fact =
+; veteran_move_bonus =
+;
+; roles         = special role strings
+; sound_move	= optional sound effect when the unit moves
+; sound_move_alt= optional alternative sound effect if above not
+;		  supported in client
+; sound_fight	= optional sound effect when the unit fights
+; sound_fight_alt= optional alternative sound effect if above not
+;		   supported in client
+; helptext	= optional help text string; should escape all raw newlines 
+;		  so that xgettext parsing works
+;
+;
+; ** Bonuses **
+;
+; "DefenseMultiplier" = Multiply defense value (1 + 'value') times.
+;                       Value of 1 means multiplication by 2, value 2 by 3...
+;                       Bonus is defined in defenders entry.
+; "DefenseDivider"    = Divide defense value with (1 + 'value').
+;                       Bonus is defined in attackers entry.
+; "FirePower1"        = Defender firepower is reduced to value 1 when
+;                       ever this has non-zero value.
+;                       Bonus is defined in attackers entry.
+;
+;
+; ** Flags **
+;
+; "IgZOC"       = ignore Zones of Control (ZOC) even if unit class has
+;                 "ZOC" flag
+; "HasNoZOC"	= unit has no Zone of Control (ZOC), thus any unit can move
+;		  around it freely
+; "NonMil"	= a non-military unit: no attacks; no martial law; can enter
+;                 peaceful borders; DoesntOccupyTile
+; "IgTer"       = use constant move cost defined in igter_cost (terrain.ruleset)
+;                 rather than terrain/road etc cost, unless terrain cost is
+;                 less
+; "OneAttack"	= can only make a single attack, regardless of movement points
+; "FieldUnit"	= cause unhappiness even when not being aggressive
+; "Marines"	= can attack from non-native tile (from transport or city)
+; "Partial_Invis" = visible only to adjancent units; does not hide transported
+;		  units other than missiles
+; "Settlers"	= can irrigate and build roads
+; "Diplomat"	= can defend against diplomat actions (see diplchance
+;                 server option)
+; "Spy"		= enhanced diplomat actions. _Must_ be "Diplomat" also
+; "Trireme"	= (sea only) cannot leave shoreline
+; "Nuclear"	= nuke!
+; "Paratroopers"= can paradrop
+; "Cities"      = can disband to produce a city (initial population city_size)
+; "Only_Native_Attack" = cannot attack targets on non-native tiles even if
+;                 unit class can
+; "Cant_Fortify" =  cannot fortify even if unit class has "CanFortify" flag
+; "AddToCity"   = can disband to add pop_cost population to a city
+;                 (see cities.ruleset for limitation of this ability)
+; "Fanatic"	= can only be built by governments that allow them
+;		  (see civ2/governments.ruleset, Fundamentalism government)
+; "Unique"	= a player can only have one of these units in the game at
+;		  the same time; barbarians cannot use this at present
+; "GameLoss"	= losing one of these units means you lose the game, but it
+;		  is produced without homecity and upkeep
+; "Undisbandable" = this unit cannot be disbanded, will not drown, and will not
+;		  disband due to lack of shields to upkeep it in homecity;
+;		  if not given enough food to upkeep it, homecity will shrink 
+;		  every turn it cannot do so, however
+; "SuperSpy"	= this unit always wins diplomatic contests, that is, unless
+;		  it encounters another SuperSpy, in which case defender wins;
+;		  can also be used on non-diplomat units, in which case it can
+;		  protect cities from diplomats; also 100% spy survival chance
+; "NoHome"	= this unit has no homecity and will be free of all upkeep, and
+;		  therefore will not revolt along with its city of origin should
+;		  it be incited
+; "NoVeteran"   = this unit cannot gain veteran levels through experience
+;                 (as if both raise_chance and work_raise_chance were zero);
+;                 it can still gain veterancy through Veteran_Build, etc
+; "Bombarder"   = this unit cannot kill other units, only damage them, but
+;                 also is not harmed by return fire when attacking; the field
+;                 bombard_rate regulates its number of shots
+; "CityBuster"  = this unit has double firepower against cities
+; "NoBuild"     = this unit cannot be built
+; "BadWallAttacker"	= the firepower of this unit is set to 1 if
+;                 attacking a city
+;		  defended by a city wall (or other city building defense)
+; "BadCityDefender"	= if attacked while in a city, firepower is set to 1
+;		  and firepower of attacker is doubled (the Pearl Harbour
+;                 rule)
+; "BarbarianOnly" = only barbarians can build this unit
+; "Shield2Gold" = Switch from shield upkeep to gold upkeep possible
+; "Capturable"  = can be captured by units with "Capturer" flag
+; "Capturer"    = can capture units with flag "Capturable" instead of
+;                 fighting them
+; "NewCityGamesOnly" = unit can't be built on scenarios where founding new cities
+;                 is not allowed. Give this flag to units that would make no sense
+;                 to have in a game with such a scenario
+;
+; Following flag strings require extra fields:
+;  "Paratroopers"
+;   paratroopers_range  = the maximal range the unit can be paradropped to.
+;                         Max range is 65534.
+;   paratroopers_mr_req = the move rate which is required at least for
+;                         paradropping (whole movement points)
+;   paratroopers_mr_sub = the move rate which is subtracted after paradropping
+;                         (whole movement points)
+;  "Bombarder"
+;   bombard_rate = the number of shots fired at enemy units when attacking
+;
+; ** Roles **
+;
+; "FirstBuild"	= first to be built when city founded
+; "Explorer"	= unit to use for exploring
+; "Hut"		= can be found in a hut
+; "HutTech"	= can be found in a hut, but its techs required
+; "Partisan"	= can be created as a partisan (only one unit can have this 
+;                 flag), see end of this file for its tech requirements option
+; "DefendOk"	= AI hint: ok for defending with
+; "DefendGood"	= AI hint: good for defending with
+; "Ferryboat"	= AI hint: useful for ferrying
+; "Barbarian"	       = can be created as land barbarian
+; "BarbarianTech"      = can be created as land barbarian, if someone has
+;		         researched its tech requirements
+; "BarbarianBoat"      = can be created as boat for sea barbarian
+; "BarbarianBuild"     = can be built by barbarians
+; "BarbarianBuildTech" = can be built by barbarians if someone has
+;		         researched its tech requirements
+; "BarbarianLeader"    = this unit is the barbarian leader (only one)
+; "BarbarianSea"       = can be created as a barbarian that disembarks from a barbarian boat
+; "BarbarianSeaTech"   = can be created as a barbarian that disembarks from a barbarian boat
+;                        if someone has researched its tech requirements
+; "Settlers"	= can irrigate and build roads
+; "Hunter"      = AI hint: good for hunting other units
+; "CitiesStartUnit"       = Gets granted as 'c' startunit
+; "WorkerStartUnit"       = Gets granted as 'w' startunit
+; "ExplorerStartUnit"     = Gets granted as 'x' startunit
+; "KingStartUnit"         = Gets granted as 'k' startunit
+; "DiplomatStartUnit"     = Gets granted as 's' startunit
+; "FerryStartUnit"        = Gets granted as 'f' startunit
+; "DefendOkStartUnit"     = Gets granted as 'd' startunit
+; "DefendGoodStartUnit"   = Gets granted as 'D' startunit
+; "AttackFastStartUnit"   = Gets granted as 'a' startunit
+; "AttackStrongStartUnit" = Gets granted as 'A' startunit
+;
+; */ <-- avoid gettext warnings
+
+[unit_settlers]
+name          = _("Settlers")
+class         = "Assault" ; so that they can be airlifted
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.settlers"
+graphic_alt   = "-"
+sound_move    = "m_settlers"
+sound_move_alt = "m_generic"
+sound_fight   = "f_settlers"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 1
+city_size     = 2
+attack        = 0
+defense       = 1
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 0
+flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "AddToCity", "Cities", "Airbase"
+; No veteran levels (level name is never displayed)
+veteran_names = _("green")
+veteran_raise_chance = 0
+veteran_work_raise_chance = 0
+veteran_power_fact = 100
+veteran_move_bonus = 0
+roles         = "CitiesStartUnit"
+helptext      = _("\
+Settlers are one of the key units in the game, as they are your main \
+means of founding new cities.\
+"), _("\
+Settlers can also improve terrain tiles. See the help on Terrain \
+and Terrain Alterations for the effects of their actions.\
+"), _("\
+Upkeep for Settlers is in food as well as production, and a Settler \
+can die if its supporting city runs out of food. Settlers in a \
+Republic or Democracy require twice as much food per turn.\
+")
+
+[unit_troops]
+name          = _("Troops")
+class         = "Land"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.riflemen"
+graphic_alt   = "-"
+sound_move    = "m_riflemen"
+sound_move_alt = "m_generic"
+sound_fight   = "f_riflemen"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
+helptext      = _("\
+Ordinary riflemen, tanks, artillery etc.  Very good at \
+defending your cities.\
+")
+
+[unit_assault]
+name          = _("Assault Troops")
+class         = "Assault"
+tech_req      = "Glider Assault"
+obsolete_by   = "None"
+graphic       = "u.marines"
+graphic_alt   = "-"
+sound_move    = "m_marines"
+sound_move_alt = "m_generic"
+sound_fight   = "f_marines"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 5
+defense       = 2
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "AttackStrongStartUnit"
+helptext      = _("\
+Airliftable riflemen, light tanks, artillery etc.  Can travel by \
+transport or glider.\
+")
+
+[unit_paratroopers]
+name          = _("Paratroops")
+class         = "Assault"
+tech_req      = "Parachute Dropping"
+obsolete_by   = "None"
+graphic       = "u.paratroopers"
+graphic_alt   = "-"
+sound_move    = "m_paratroopers"
+sound_move_alt = "m_generic"
+sound_fight   = "f_paratroopers"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 5
+defense       = 1
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+disembarks    = "Air"
+flags         = "Marines"
+roles         = "AttackFastStartUnit"
+helptext      = _("\
+Paratroops are experts at airborne attacks. \
+From a transport aircraft, Paratroops can paradrop directly to the \
+tile below, and be immediately ready to act there.  However, they \
+lack heavy weapons, making them poor at defence; be sure to have \
+other forces ready to reinforce them before the counter-attack. \
+")
+
+[unit_zepp_scout]
+name          = _("Zeppelin Scout")
+class         = "Air"
+tech_req      = "Dirigible Balloons"
+obsolete_by   = "Zeppelin Bomber"
+graphic       = "u.zeppscout"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 4
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 6
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+roles         = "Explorer"
+helptext      = _("\
+Zeppelin Scouts are your first lighter-than-air units. Their long \
+endurance makes them effective (if slow) reconnaissance platforms, \
+but they have no combat or cargo capability.  \
+Historical examples include the Zeppelin Z I, Z II and Z IV.\
+")
+
+[unit_zeppelin]
+name          = _("Zeppelin Bomber")
+class         = "Air"
+tech_req      = "Zeppelin"
+obsolete_by   = "None"
+graphic       = "u.zeppelin"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 1
+defense       = 0
+hitpoints     = 6
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 6
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+roles         = "Hunter"
+helptext      = _("\
+Zeppelin Bombers are slow but have long range, allowing them \
+to strike at distant ground targets.  \
+Historical examples include the Zeppelin M-X.\
+")
+
+[unit_blimp_c]
+name          = _("Coastal Blimp")
+class         = "Seaplane"
+tech_req      = "Early Blimp"
+obsolete_by   = "None"
+graphic       = "u.cblimp"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 24
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 4
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+roles         = "Explorer"
+helptext      = _("\
+Blimps are a cheaper alternative to the rigid Zeppelin, but \
+have shorter range and aren't (yet) armed.  \
+Historical examples include the RNAS C-class.\
+")
+
+[unit_pioneer]
+name          = _("Pioneer")
+class         = "Air"
+tech_req      = "Powered Flight"
+obsolete_by   = "Two-seat Pioneer"
+graphic       = "u.wright3"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 15
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 6
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+roles         = "Explorer", "ExplorerStartUnit"
+helptext      = _("\
+Pioneers are your first heavier-than-air units. They can \
+move anywhere, but have no combat or cargo capability, so \
+are mainly for recon.  \
+Historical examples include the Wright Flyer III, \
+Antoinette IV, and Roe IV Triplane.\
+")
+
+[unit_2pioneer]
+name          = _("Two-seat Pioneer")
+class         = "Air"
+tech_req      = "Passenger Carrying"
+obsolete_by   = "Early Recon"
+graphic       = "u.boxkite"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 6
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+roles         = "Explorer"
+helptext      = _("\
+With more powerful engines, Two-seat Pioneers have a considerably \
+longer endurance than their predecessors, but are still non-combatant.  \
+Historical examples include the Wright Military Flyer, Farman III, \
+Bristol Boxkite and Short S.27.\
+")
+
+[unit_recon]
+name          = _("Early Recon")
+class         = "Air"
+tech_req      = "Practical Aviation"
+obsolete_by   = "Recon / Light Bomber"
+graphic       = "u.be2"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 8
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+roles         = "Explorer"
+helptext      = _("\
+As the basic layout of the tractor biplane with conventional \
+tail settles down, many militaries build practical reconnaissance \
+machines on similar designs.  \
+Historical examples include the RAF B.E.2, Avro 500, and Albatros B.I.\
+")
+
+[unit_recon_bomber]
+name          = _("Recon / Light Bomber")
+class         = "Air"
+tech_req      = "Bombers 1915"
+obsolete_by   = "Early Light Bomber"
+graphic       = "u.tabloid"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 1
+defense       = 0
+hitpoints     = 8
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+With increasing engine power, recon aircraft begin to be able \
+to carry bombs.  Only small bombs, but still - deadly enough.  \
+Historical examples include the Sopwith Tabloid and RAF R.E.7.\
+")
+
+[unit_early_light_bomber]
+name          = _("Early Light Bomber")
+class         = "Air"
+tech_req      = "Bombers 1916"
+obsolete_by   = "Biplane Light Bomber"
+graphic       = "u.dh4"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+With an effective defensive MG, and a bombload increased \
+to 400-500lb, this is a militarily useful light bomber.  \
+Historical examples include the Airco DH.4.\
+")
+
+[unit_biplane_light_bomber]
+name          = _("Biplane Light Bomber")
+class         = "Air"
+tech_req      = "Bombers 1917"
+obsolete_by   = "Twenties Light Bomber"
+graphic       = "u.dh9a"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+A more powerful engine allows carrying a heavier bomb load \
+(circa 750lb) as well as more fuel for greater range.  \
+Historical examples include the Airco DH.9a.\
+")
+
+[unit_20s_light_bomber]
+name          = _("Twenties Light Bomber")
+class         = "Air"
+tech_req      = "Twenties Bombers"
+obsolete_by   = "Thirties Light Bomber"
+graphic       = "u.hart"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 12
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+Slightly faster and more rugged, the biplane light bombers of \
+the 1920s are but an incremental improvement.  \
+Historical examples include the Fokker C.V, Fairey Fox, \
+Westland Wapiti and Hawker Hart.\
+")
+
+[unit_30s_light_bomber]
+name          = _("Thirties Light Bomber")
+class         = "Air"
+tech_req      = "Thirties Bombers"
+obsolete_by   = "None"
+graphic       = "u.battle"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 16
+firepower     = 2
+move_rate     = 10
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+Built along similar lines to the Early Monoplane Fighter, \
+these monoplane light bombers are faster than older models \
+but still (owing to the weight of the payload) slower than \
+fighters.  \
+Historical examples include the Northrop A-17 Nomad, Fairey \
+Battle, and Sukhoi Su-2.\
+")
+
+[unit_light_bomber_twin]
+name          = _("Light Bomber Twin")
+class         = "Air"
+tech_req      = "Bombers 1935"
+obsolete_by   = "None"
+graphic       = "u.blenheim"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 11
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+Twin engines allow near-fighter speed while carrying the \
+extra weight of 1000lb of bombs, but make for a bigger \
+and more expensive aircraft.  \
+Historical examples include the Dornier Do 17E and \
+Bristol Blenheim.\
+")
+
+[unit_armscout]
+name          = _("Armed Scout")
+class         = "Air"
+tech_req      = "Aerial Weapons"
+obsolete_by   = "Monoplane Scout"
+graphic       = "u.scout"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 1
+defense       = 1
+hitpoints     = 4
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Rifles pivoted to the fuselage side, firing at an angle to \
+avoid the propeller arc, give the first 'fighter' scouts a \
+very slight combat capability.  \
+Historical examples include the RAF S.E.2 and Bristol Scout.\
+")
+
+[unit_monoscout]
+name          = _("Monoplane Scout")
+class         = "Air"
+tech_req      = "Interrupter Gear"
+obsolete_by   = "Sesquiplane Scout"
+graphic       = "u.eindecker"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 1
+defense       = 1
+hitpoints     = 8
+firepower     = 2
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+The first fighters to be equipped with an interrupter gear \
+(or functional equivalent) have poor performance but \
+nonetheless an advantage in combat.  \
+Historical examples include the Fokker Eindecker and \
+Morane Type N 'Bullet'.\
+")
+
+[unit_pusher_scout]
+name          = _("Pusher Scout")
+class         = "Air"
+tech_req      = "Engines 1915"
+obsolete_by   = "Sesquiplane Scout"
+graphic       = "u.dh2"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Pusher configuration biplanes can mount a forward-firing gun \
+without the need for synchronisation gear.  \
+Historical examples include the Airco DH2.\
+")
+
+[unit_sesquiscout]
+name          = _("Sesquiplane Scout")
+class         = "Air"
+tech_req      = "Scouts 1916"
+obsolete_by   = "Biplane Scout"
+graphic       = "u.nieuport"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 8
+firepower     = 2
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+A narrow-chord lower wing gives these scouts some of the \
+advantages of both biplane and monoplane designs.  \
+Historical examples include the Nieuport 17 and Albatros \
+D.III; while not a sesquiplane, the contemporaneus Sopwith \
+Pup is broadly comparable.\
+")
+
+[unit_triscout]
+name          = _("Triplane Scout")
+class         = "Air"
+tech_req      = "Triplanes"
+obsolete_by   = "Twenties Scout"
+graphic       = "u.triplane"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+The triplane wing configuration gives great climb rate and \
+manoeuvrability, but uninspiring speed.  \
+Historical examples include the Sopwith Triplane and \
+Fokker Dr.I.\
+")
+
+[unit_biscout]
+name          = _("Biplane Scout")
+class         = "Air"
+tech_req      = "Scouts 1917"
+obsolete_by   = "Twenties Scout"
+graphic       = "u.camel"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 10
+firepower     = 2
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+The classic First World War fighter layout is a single-bay \
+equal-span biplane with a rotary engine.  \
+Historical examples include the Sopwith Camel.\
+")
+
+[unit_20s_scout]
+name          = _("Twenties Scout")
+class         = "Air"
+tech_req      = "Twenties Fighters"
+obsolete_by   = "Thirties Scout"
+graphic       = "u.bulldog"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 12
+firepower     = 2
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Though faster and stronger than the Biplane Scout, to the \
+uninitiated it looks much the same.  \
+Historical examples include the Bristol Bulldog, Fiat CR.1, \
+Fokker D.XIII, and Fiat CR.20.\
+")
+
+[unit_30s_scout]
+name          = _("Thirties Scout")
+class         = "Air"
+tech_req      = "Thirties Fighters"
+obsolete_by   = "Early Monoplane Fighter"
+graphic       = "u.fury"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 12
+firepower     = 2
+move_rate     = 12
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Continued evolutionary development of biplane scouts pushes \
+speeds above 200 mph.  \
+Historical examples include the Hawker Fury, Fokker D.XVII, \
+Fiat CR.30, Heinkel He 51, and Gloster Gladiator.\
+")
+
+[unit_early_mono_fighter]
+name          = _("Early Monoplane Fighter")
+class         = "Air"
+tech_req      = "Fighters 1935"
+obsolete_by   = "Monoplane Fighter"
+graphic       = "u.hurricane"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 16
+firepower     = 3
+move_rate     = 16
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Trading off manoeuvrability for increased speed and armament, \
+designers began to switch to the cantilever monoplane fighter.  \
+Historical examples include the Hawker Hurricane, Dewoitine \
+D.500, Curtiss P-36 Hawk, Messerschmitt Bf 109A, and Morane-\
+Saulnier M.S.406.\
+")
+
+[unit_mono_fighter]
+name          = _("Monoplane Fighter")
+class         = "Air"
+tech_req      = "Fighters 1939"
+obsolete_by   = "Cannon Fighter"
+graphic       = "u.spitfire"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 16
+firepower     = 3
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Stressed aluminium skins and improved aerodynamics allowed \
+higher-performing monoplane fighters.  \
+Historical examples include the Supermarine Spitfire Mk I, \
+Dewoitine D.520, Curtiss P-40 Warhawk, and Messerschmitt \
+Bf 109E.\
+")
+
+[unit_cannon_fighter]
+name          = _("Cannon Fighter")
+class         = "Air"
+tech_req      = "Fighters 1942"
+obsolete_by   = "Superprop Fighter"
+graphic       = "u.spitix"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 16
+firepower     = 4
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Heavier armament was found necessary to take down bombers as \
+the latter were beginning to carry appreciable armour plate.  \
+Historical examples include the Supermarine Spitfire Mk IX, \
+Messerschmitt Bf 109G, and North American P-51D.\
+")
+
+[unit_superprop_fighter]
+name          = _("Superprop Fighter")
+class         = "Air"
+tech_req      = "Fighters 1944"
+obsolete_by   = "Swept-wing Fighter"
+graphic       = "u.p51h"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 16
+firepower     = 4
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+The pinnacle of piston-engined fighter development.  \
+More manœuvrable than jets, but not as fast.  \
+Historical examples include the Supermarine Spitfire Mk 24 \
+and North American P-51H.\
+")
+
+[unit_jet1fighter]
+name          = _("First-gen Jet Fighter")
+class         = "Air"
+tech_req      = "Jet Fighter Prototypes"
+obsolete_by   = "Swept-wing Fighter"
+graphic       = "u.me262"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 10
+firepower     = 4
+move_rate     = 25
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Twin wing-mounted turbojets allow high top speed but \
+acceleration is poor.  Heavy nose-mounted armament.  \
+Historical examples include the Messerschmitt Me 262 \
+and Gloster Meteor.\
+")
+
+[unit_jet1light]
+name          = _("First-gen Light Fighter")
+class         = "Air"
+tech_req      = "Jet Fighter Prototypes"
+obsolete_by   = "Transonic Light Fighter"
+graphic       = "u.vampire"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 35
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 8
+firepower     = 3
+move_rate     = 25
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Single-engined 'light fighters' present a cheap and \
+manœuvrable variation on jet fighter design.  \
+Historical examples include the Heinkel He 162, \
+de Havilland Vampire and Lockheed F-80 Shooting Star.\
+")
+
+[unit_swept_fighter]
+name          = _("Swept-wing Fighter")
+class         = "Air"
+tech_req      = "Swept-wing Fighters"
+obsolete_by   = "Supersonic Fighter"
+graphic       = "u.mig15"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 12
+firepower     = 5
+move_rate     = 28
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Maturing transonic design allows higher performance, while \
+air-to-air missiles greatly increase lethality.  \
+Historical examples include the North American F-86 Sabre, \
+Mikoyan-Gurevich MiG-15, Hawker Hunter and \
+Supermarine Swift.\
+")
+
+[unit_interceptor]
+name          = _("Supersonic Interceptor")
+class         = "Air"
+tech_req      = "Fifties Fighters"
+obsolete_by   = "None"
+graphic       = "u.lightning"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 64
+pop_cost      = 0
+attack        = 6
+defense       = 4
+hitpoints     = 12
+firepower     = 5
+move_rate     = 30
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Point-defence jet fighters attain supersonic speed through the \
+use of reheat, but their endurance is limited.  \
+Historical examples include the English Electric Lightning, \
+Dassault Mirage III and Lockheed F-104 Starfighter.\
+")
+
+[unit_superfighter]
+name          = _("Supersonic Fighter")
+class         = "Air"
+tech_req      = "Fifties Fighters"
+obsolete_by   = "None"
+graphic       = "u.f100"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 12
+firepower     = 5
+move_rate     = 20
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Air-superiority fighters have the ability to penetrate deep \
+into enemy airspace, but they're more expensive than interceptors \
+and sacrifice a little combat capability.  \
+Historical examples include the North American F-100 Super Sabre \
+and Mikoyan-Gurevich MiG-19.\
+")
+
+[unit_trans_fighter]
+name          = _("Transonic Light Fighter")
+class         = "Air"
+tech_req      = "Light Fighter"
+obsolete_by   = "None"
+graphic       = "u.gnat"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 10
+firepower     = 5
+move_rate     = 25
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Developed light fighters offer Mach 0.95 on the cheap.  \
+Historical examples include the Fiat G.91 and Follant Gnat.\
+")
+
+[unit_pusher_fighter]
+name          = _("Pusher Fighter")
+class         = "Air"
+tech_req      = "Aerial Weapons"
+obsolete_by   = "Two-seat Scout"
+graphic       = "u.gunbus"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 1
+defense       = 1
+hitpoints     = 6
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+An observer in front of the pilot operates the pintle-mounted \
+machine gun.  \
+Historical examples include the Vickers F.B.5 Gunbus.\
+")
+
+[unit_twoscout]
+name          = _("Two-seat Scout")
+class         = "Air"
+tech_req      = "Effective Scouts"
+obsolete_by   = "Fighter Biplane"
+graphic       = "u.strutter"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 6
+firepower     = 2
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Combining a synchronised offensive machine gun with a ring-\
+mounted defensive gun.  \
+Historical examples include the Sopwith 1½ Strutter.\
+")
+
+[unit_bifighter]
+name          = _("Fighter Biplane")
+class         = "Air"
+tech_req      = "Scouts 1916"
+obsolete_by   = "Thirties Fighter"
+graphic       = "u.brisfit"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 6
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+A more manoeuvrable and capable two-seater scout.  \
+Historical examples include the Bristol F.2 Fighter and \
+Hannover CL.II.\
+")
+
+[unit_30s_fighter]
+name          = _("Thirties Fighter")
+class         = "Air"
+tech_req      = "Thirties Fighters"
+obsolete_by   = "Turret Fighter"
+graphic       = "u.demon"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+A conversion of a biplane light bomber into an updated \
+Fighter Biplane.  \
+Historical examples include the Hawker Demon.\
+")
+
+[unit_turret_fighter]
+name          = _("Turret Fighter")
+class         = "Air"
+tech_req      = "Fighters 1935"
+obsolete_by   = "None"
+graphic       = "u.defiant"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 48
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 8
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Applying the Fighter Biplane concept to a modern monoplane, \
+with a powered enclosed turret.  \
+Historical examples include the Boulton Paul Defiant.\
+")
+
+[unit_trench_fighter]
+name          = _("Trench Fighter")
+class         = "Air"
+tech_req      = "Scouts 1917"
+obsolete_by   = "Twenties Attacker"
+graphic       = "u.salamander"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Essentially a Biplane Scout with some armour plating at the \
+front, as specialisation for ground attack.  \
+Historical examples include the Sopwith Salamander and \
+Junkers J.1.\
+")
+
+[unit_20s_attacker]
+name          = _("Twenties Attacker")
+class         = "Air"
+tech_req      = "Twenties Fighters"
+obsolete_by   = "Thirties Attacker"
+graphic       = "u.falcon"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 12
+firepower     = 1
+move_rate     = 9
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Two-seat ground attack biplane, outwardly resembling a \
+larger Twenties Fighter.  \
+Historical examples include the Curtiss Falcon.\
+")
+
+[unit_30s_attacker]
+name          = _("Thirties Attacker")
+class         = "Air"
+tech_req      = "Thirties Fighters"
+obsolete_by   = "Attacker"
+graphic       = "u.curtiss"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 16
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Streamlined ground attack aircraft; depending on \
+national design doctrine, may be either monoplane \
+or biplane.  \
+Historical examples include the Heinkel He 51C, \
+Curtiss A-8, and Breda Ba.64.\
+")
+
+[unit_attacker]
+name          = _("Attacker")
+class         = "Air"
+tech_req      = "Fighters 1939"
+obsolete_by   = "First-gen Jet Attacker"
+graphic       = "u.il2"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Tank-destroyer monoplane.  \
+Historical examples include the Ilyushin Il-2, \
+Junkers Ju 87D-5, Hawker Typhoon, and North \
+American A-36.\
+")
+
+[unit_jet1attacker]
+name          = _("First-gen Jet Attacker")
+class         = "Air"
+tech_req      = "Jet Fighter Prototypes"
+obsolete_by   = "Attack Jet"
+graphic       = "u.thunderjet"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 64
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 16
+firepower     = 2
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Fighter-bomber using early jet engine.  \
+Historical examples include the Republic F-84 Thunderjet.\
+")
+
+[unit_attack_jet]
+name          = _("Attack Jet")
+class         = "Air"
+tech_req      = "Swept-wing Fighters"
+obsolete_by   = "Supersonic Attacker"
+graphic       = "u.thunderstreak"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 64
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 16
+firepower     = 3
+move_rate     = 20
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Swept-wing jet fighter-bomber.  \
+Historical examples include the Republic F-84F Thunderstreak \
+and Dassault Mystère IV.\
+")
+
+[unit_super_attacker]
+name          = _("Supersonic Attacker")
+class         = "Air"
+tech_req      = "Fifties Fighters"
+obsolete_by   = "None"
+graphic       = "u.thunderchief"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 16
+firepower     = 3
+move_rate     = 30
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Fighter-bomber with reheat for supersonic speed.  \
+Historical examples include the Republic F-105 Thunderchief.\
+")
+
+[unit_early_heavy_fighter]
+name          = _("Early Heavy Fighter")
+class         = "Air"
+tech_req      = "Fighters 1935"
+obsolete_by   = "Heavy Fighter"
+graphic       = "u.bf110"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 8
+firepower     = 3
+move_rate     = 12
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Twin-engined bomber-destroyer and/or escort fighter, \
+with heavy armament and long range.  \
+Historical examples include the Messerschmitt Bf 110 \
+and Bristol Beaufighter.\
+")
+
+[unit_heavy_fighter]
+name          = _("Heavy Fighter")
+class         = "Air"
+tech_req      = "Fighters 1942"
+obsolete_by   = "None" ; "All-Weather Jet Fighter"
+graphic       = "u.mosquito"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 10
+firepower     = 4
+move_rate     = 14
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+High-performance twin-engine fighter.  \
+Historical examples include the Lockheed P-38 Lightning \
+and de Havilland Mosquito.\
+")
+
+[unit_all_weather_fighter]
+name          = _("All-Weather Jet Fighter")
+class         = "Air"
+tech_req      = "Swept-wing Fighters"
+obsolete_by   = "None"
+graphic       = "u.javelin"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 10
+firepower     = 5
+move_rate     = 15
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Twin-engined jet fighters with heavy radar equipment can be \
+formidable, but they're quite expensive to build.  \
+Historical examples include the Gloster Javelin.\
+")
+
+[unit_shipborne_fighter]
+name          = _("Shipborne Fighter")
+class         = "Carrier-borne"
+tech_req      = "Aircraft Carrier"
+obsolete_by   = "Twenties Naval Fighter"
+graphic       = "u.shipcamel"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 8
+firepower     = 2
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Lightly navalised versions of Biplane Scouts can be operated \
+from the earliest aircraft carriers.  \
+Historical examples include the Sopwith Ship's Camel.\
+")
+
+[unit_20s_naval_fighter]
+name          = _("Twenties Naval Fighter")
+class         = "Carrier-borne"
+tech_req      = "Twenties Carrier Aviation"
+obsolete_by   = "Thirties Naval Fighter"
+graphic       = "u.flycatcher"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 10
+firepower     = 2
+move_rate     = 9
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Lightly navalised Twenties Scout.  \
+Historical examples include the Fairey Flycatcher and \
+Curtiss F6C Hawk.\
+")
+
+[unit_30s_naval_fighter]
+name          = _("Thirties Naval Fighter")
+class         = "Carrier-borne"
+tech_req      = "Thirties Carrier Aviation"
+obsolete_by   = "Monoplane Naval Fighter"
+graphic       = "u.nimrod"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 11
+firepower     = 2
+move_rate     = 11
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Lightly navalised Thirties Scout.  \
+Historical examples include the Hawker Nimrod and \
+Grumman F2F.\
+")
+
+[unit_naval_monofighter]
+name          = _("Monoplane Naval Fighter")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1935"
+obsolete_by   = "Naval Strike Fighter"
+graphic       = "u.wildcat"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 15
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+CATOBAR fighter monoplane.  \
+Historical examples include the Fairey Fulmar and \
+Grumman F4F Wildcat.\
+")
+
+[unit_naval_striker]
+name          = _("Naval Strike Fighter")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1940"
+obsolete_by   = "Naval Attacker"
+graphic       = "u.firefly"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+CATOBAR fighter monoplane with strike capability.  \
+Historical examples include the Fairey Fulmar and \
+Grumman F4F Wildcat.\
+")
+
+[unit_naval_dog]
+name          = _("Naval Dogfighter")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1940"
+obsolete_by   = "Naval Cannon Fighter"
+graphic       = "u.seafire"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 12
+firepower     = 3
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+High-performance CATOBAR fighter monoplane.  \
+Historical examples include the Supermarine Seafire I and \
+Vought F4U Corsair.\
+")
+
+[unit_naval_cannon]
+name          = _("Naval Cannon Fighter")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1942"
+obsolete_by   = "Naval Superprop"
+graphic       = "u.bearcat"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 16
+firepower     = 4
+move_rate     = 16
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Both high-performance and heavily armed.  \
+Historical examples include the Supermarine Seafire XV and \
+Grumman F8F Bearcat.\
+")
+
+[unit_naval_superprop]
+name          = _("Naval Superprop")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1945"
+obsolete_by   = "Early Naval Jet"
+graphic       = "u.seafury"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 12
+firepower     = 4
+move_rate     = 20
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Carrier-borne Superprop Fighter.  \
+Historical examples include the Hawker Sea Fury.\
+")
+
+[unit_naval_attack]
+name          = _("Naval Attacker")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1945"
+obsolete_by   = "Naval Attack Jet"
+graphic       = "u.skyraider"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 16
+firepower     = 2
+move_rate     = 16
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Carrier-borne ground-attack aircraft.  \
+Historical examples include the Supermarine Seafire XV and \
+Grumman F8F Bearcat.\
+")
+
+[unit_naval1jet]
+name          = _("Early Naval Jet")
+class         = "Carrier-borne"
+tech_req      = "Carrier-borne Jets"
+obsolete_by   = "Swept-wing Naval Fighter"
+graphic       = "u.attacker"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 10
+firepower     = 3
+move_rate     = 24
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+First-generation shipborne jet fighter.  \
+Historical examples include the Supermarine Attacker \
+and Grumman F9F Panther.\
+")
+
+[unit_naval_swept]
+name          = _("Swept-wing Naval Fighter")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1950"
+obsolete_by   = "None"
+graphic       = "u.venom"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 12
+firepower     = 5
+move_rate     = 26
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Transonic shipborne jet fighter.  \
+Historical examples include the de Havilland Sea Venom \
+and Douglas F4D Skyray.\
+")
+
+[unit_naval_attack_jet]
+name          = _("Naval Attack Jet")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1950"
+obsolete_by   = "None"
+graphic       = "u.skyhawk"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 16
+firepower     = 3
+move_rate     = 20
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+Swept-wing shipborne strike aircraft, capable of attacking \
+both ground troops and shipping.  \
+Historical examples include the North American FJ-4, \
+Douglas A-4 Skyhawk, and Blackburn Buccaneer.\
+")
+
+[unit_hydravion]
+name          = _("Hydravion")
+class         = "Seaplane"
+tech_req      = "Hydroaeroplane"
+obsolete_by   = "Floatplane Scout"
+graphic       = "u.hydravion"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 15
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 6
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+helptext      = _("\
+The first seaplanes have no combat capability; like the Pioneer, \
+they're only suitable for short-range reconnaissance.  \
+Historical examples include the Fabre Hydravion.\
+")
+
+[unit_floatscout]
+name          = _("Floatplane Scout")
+class         = "Seaplane"
+tech_req      = "Practical Seaplanes"
+obsolete_by   = "Floatplane Fighter"
+graphic       = "u.short41"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 6
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Explorer"
+helptext      = _("\
+Slow and barely able to defend itself, the two-seater Floatplane \
+Scout at least has a better range than the old Hydravion.  \
+Historical examples include the Short S.41.\
+")
+
+[unit_floatarm]
+name          = _("Armed Floatplane")
+class         = "Seaplane"
+tech_req      = "Military Seaplanes"
+obsolete_by   = "Torpedo Floatplane"
+graphic       = "u.short81"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 1
+defense       = 0
+hitpoints     = 7
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+roles         = "Hunter"
+helptext      = _("\
+The Armed Floatplane can bomb land or sea targets, but isn't \
+capable of air-to-air combat.  \
+Historical examples include the Short Type 81.\
+")
+
+[unit_floatfight]
+name          = _("Floatplane Fighter")
+class         = "Seaplane"
+tech_req      = "Effective Seaplanes"
+obsolete_by   = "None"
+graphic       = "u.baby"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 24
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 7
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
+flags         = ""
+roles         = "Hunter"
+helptext      = _("\
+The Floatplane Fighter is a seaplane with offensive guns, \
+allowing it to provide some air cover for seaplane carriers.  \
+Historical examples include the Sopwith Baby and Port \
+Victoria P.V.2bis.\
+")
+
+[unit_floattorp]
+name          = _("Torpedo Floatplane")
+class         = "Seaplane"
+tech_req      = "Effective Seaplanes"
+obsolete_by   = "Large Torpedo Floatplane"
+graphic       = "u.short184"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+roles         = "Hunter"
+helptext      = _("\
+With the ability to carry a torpedo, attack floatplanes \
+become far more effective at taking out enemy ships.  \
+Historical examples include the Short Type 184.\
+")
+
+[unit_floatlarge]
+name          = _("Large Torpedo Floatplane")
+class         = "Seaplane"
+tech_req      = "Seaplanes 1917"
+obsolete_by   = "Coastal Seaplane"
+graphic       = "u.short320"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 2
+defense       = 0
+hitpoints     = 10
+firepower     = 2
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+roles         = "Hunter"
+helptext      = _("\
+Increasing engine power allows a larger (hence more \
+destructive) torpedo to be carried.  \
+Historical examples include the Short Type 320.\
+")
+
+[unit_coastal]
+name          = _("Coastal Seaplane")
+class         = "Seaplane"
+tech_req      = "Twenties Seaplanes"
+obsolete_by   = "None"
+graphic       = "u.velos"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 12
+firepower     = 2
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+roles         = "Hunter"
+helptext      = _("\
+The post-war torpedo seaplane has a machine gun \
+to defend itself.  \
+Historical examples include the Blackburn Velos.\
+")
+
+[unit_early_flying_boat]
+name          = _("Early Flying Boat")
+class         = "Seaplane"
+tech_req      = "Flying Boat"
+obsolete_by   = "Patrol Boat"
+graphic       = "u.felix2a"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 4
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+roles         = ""
+helptext      = _("\
+Bomb-carrying flying-boat; long range but vulnerable.  \
+Historical examples include the Felixstowe F.2A.\
+")
+
+[unit_flying_boat]
+name          = _("Patrol Boat")
+class         = "Seaplane"
+tech_req      = "Practical Flying Boat"
+obsolete_by   = "Twenties Flying Boat"
+graphic       = "u.felix5"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 6
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+roles         = ""
+helptext      = _("\
+Larger and more powerful than the Early Flying Boat, \
+but still highly vulnerable.  \
+Historical examples include the Felixstowe F.5.\
+")
+
+[unit_20s_boat]
+name          = _("Twenties Flying Boat")
+class         = "Seaplane"
+tech_req      = "Twenties Seaplanes"
+obsolete_by   = "Thirties Flying Boat"
+graphic       = "u.southampton"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+roles         = ""
+helptext      = _("\
+Long-range maritime reconnaissance.  \
+Historical examples include the Blackburn Iris \
+and Supermarine Southampton.\
+")
+
+[unit_30s_boat]
+name          = _("Thirties Flying Boat")
+class         = "Seaplane"
+tech_req      = "Thirties Seaplanes"
+obsolete_by   = "Heavy Flying Boat"
+graphic       = "u.singapore"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 12
+firepower     = 2
+move_rate     = 9
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+roles         = ""
+helptext      = _("\
+Ocean patrol flying-boat.  \
+Historical examples include the Short Singapore \
+and Supermarine Stranraer.\
+")
+
+[unit_heavy_boat]
+name          = _("Heavy Flying Boat")
+class         = "Seaplane"
+tech_req      = "Heavy Flying Boat"
+obsolete_by   = "None"
+graphic       = "u.sunderland"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 10
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+roles         = ""
+helptext      = _("\
+Long-endurance ocean patrol flying-boat, with ample \
+defensive weaponry.  \
+Historical examples include the Short Sunderland \
+and Blohm+Voss BV 238.\
+")
+
+[unit_jet_boat]
+name          = _("Jet Flying Boat")
+class         = "Seaplane"
+tech_req      = "Jet Flying Boat"
+obsolete_by   = "None"
+graphic       = "u.sra1"
+graphic_alt   = "-"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 16
+firepower     = 2
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = ""
+roles         = ""
+helptext      = _("\
+Avoiding the need for propeller clearance allows a \
+lower hull on this strike fighter flying-boat.  \
+Historical examples include the Saunders-Roe SR/A.1.\
+")
+
+[unit_early_torper]
+name          = _("Early Torpedo Bomber")
+class         = "Carrier-borne"
+tech_req      = "Aircraft Carrier"
+obsolete_by   = "Twenties Torpedo Bomber"
+graphic       = "u.cuckoo"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Torpedo-carrying landplane capable of operation \
+from an aircraft carrier.  \
+Historical examples include the Sopwith Cuckoo \
+and Short Shirl.\
+")
+
+[unit_20s_torper]
+name          = _("Twenties Torpedo Bomber")
+class         = "Carrier-borne"
+tech_req      = "Twenties Carrier Aviation"
+obsolete_by   = "Thirties Torpedo Bomber"
+graphic       = "u.dart"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 10
+firepower     = 2
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Naval counterpart to the Twenties Light Bomber.  \
+Historical examples include the Blackburn Dart, \
+Mitsubishi B1M and Handley Page Hendon.\
+")
+
+[unit_30s_torper]
+name          = _("Thirties Torpedo Bomber")
+class         = "Carrier-borne"
+tech_req      = "Thirties Carrier Aviation"
+obsolete_by   = "Torpedo Monoplane"
+graphic       = "u.swordfish"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 10
+firepower     = 2
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+The last viable biplane torpedo-bombers.  \
+Historical examples include the Fairey Swordfish \
+and Kugisho B3Y.\
+")
+
+[unit_mono_torper]
+name          = _("Torpedo Monoplane")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1935"
+obsolete_by   = "Torpedo Bomber"
+graphic       = "u.devastator"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 12
+firepower     = 2
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Naval counterpart to the Thirties Light Bomber.  \
+Historical examples include the Douglas TBD Devastator \
+and Nakajima B5N.\
+")
+
+[unit_torper]
+name          = _("Torpedo Bomber")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1942"
+obsolete_by   = "Naval Attack Jet"
+graphic       = "u.avenger"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 5
+defense       = 2
+hitpoints     = 15
+firepower     = 2
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+High-performance torpedo bomber.  \
+Historical examples include the Grumman TBF Avenger, \
+Nakajima B6N and Blackburn Firebrand.\
+")
+
+[unit_20s_diver]
+name          = _("Twenties Dive Bomber")
+class         = "Carrier-borne"
+tech_req      = "Twenties Bombers"
+obsolete_by   = "Thirties Dive Bomber"
+graphic       = "u.f8c"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 6
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+Dive bombers are effective attackers, but vulnerable to \
+enemy fighters.  They can fly from carriers, but don't \
+have the ability to strike shipping.  \
+Historical examples include the Curtiss F8C Falcon.\
+")
+
+[unit_30s_diver]
+name          = _("Thirties Dive Bomber")
+class         = "Carrier-borne"
+tech_req      = "Thirties Bombers"
+obsolete_by   = "Dive Bomber"
+graphic       = "u.hs123"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+Though more robust, the thirties Dive Bomber is still \
+quite vulnerable.  \
+Historical examples include the Heinkel He 50 and \
+Henschel Hs 123.\
+")
+
+[unit_diver]
+name          = _("Dive Bomber")
+class         = "Carrier-borne"
+tech_req      = "Bombers 1935"
+obsolete_by   = "Naval Attacker"
+graphic       = "u.stuka"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 5
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+A monoplane, the Dive Bomber is faster and more capable \
+— it can attack shipping as well as land targets — but \
+still has only limited ability to defend itself.  \
+Historical examples include the Junkers Ju 87, \
+Blackburn Skua and Curtiss SB2C Helldiver.\
+")
+
+[unit_20s_medium]
+name          = _("Twenties Medium Bomber")
+class         = "Air"
+tech_req      = "Twenties Bombers"
+obsolete_by   = "Thirties Medium Bomber"
+graphic       = "u.sidestrand"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 12
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "OneAttack"
+helptext      = _("\
+A new category opened up between the light and heavy bombers, \
+medium bombers can fight their way through at least some \
+opposition to deliver a worthwhile payload.  \
+Historical examples include the Boulton Paul Sidestrand.\
+")
+
+[unit_30s_medium]
+name          = _("Thirties Medium Bomber")
+class         = "Air"
+tech_req      = "Thirties Bombers"
+obsolete_by   = "Medium Bomber"
+graphic       = "u.anson"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 4
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 10
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Monoplane medium bombers using new construction techniques \
+are more effective fighting machines.  They can also make \
+shipping strikes.  \
+Historical examples include the Avro Anson.\
+")
+
+[unit_medium]
+name          = _("Medium Bomber")
+class         = "Air"
+tech_req      = "Bombers 1935"
+obsolete_by   = "None" ; would be "Prototype Jet Bomber", but we need to keep glider tugs around
+graphic       = "u.wellington"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 16
+firepower     = 2
+move_rate     = 12
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+The best propellor-driven medium bombers are rugged and \
+surprisingly fast, with a payload of around two tons.  \
+Historical examples include the Vickers Wellington \
+and Handley Page Hampden.\
+")
+
+[unit_protojet]
+name          = _("Prototype Jet Bomber")
+class         = "Air"
+tech_req      = "Jet Bomber Prototypes"
+obsolete_by   = "Small Jet Bomber"
+graphic       = "u.arado"
+graphic_alt   = "-"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 100
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 20
+firepower     = 2
+move_rate     = 15
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Early jet-engine technology applied to tactical bomber \
+design produces a useful interim aircraft.  \
+Historical examples include the Arado Ar 234.\
+")
+
+[unit_smalljet]
+name          = _("Small Jet Bomber")
+class         = "Air"
+tech_req      = "Bombers 1949"
+obsolete_by   = "None"
+graphic       = "u.canberra"
+graphic_alt   = "-"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 8
+defense       = 4
+hitpoints     = 24
+firepower     = 2
+move_rate     = 16
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+The first truly practical jet-powered medium bombers \
+are effective tactical interdictor strike aircraft.  \
+Historical examples include the English Electric Canberra \
+and Ilyushin Il-28.\
+")
+
+[unit_early_bomber]
+name          = _("Early Bomber")
+class         = "Air"
+tech_req      = "Bombers 1916"
+obsolete_by   = "Biplane Bomber"
+graphic       = "u.caproni3"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+The first aircraft designed for long-range bombing were \
+slow, lumbering biplanes.  \
+Historical examples include the Caproni Ca.3 and \
+Handley Page O/100.\
+")
+
+[unit_triplane_bomber]
+name          = _("Triplane Bomber")
+class         = "Air"
+tech_req      = "Triplane Bombers"
+obsolete_by   = "Twenties Bomber"
+graphic       = "u.caproni4"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 6
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Large triplane bombers carried a heavy payload but \
+at a very slow speed.  \
+Historical examples include the Caproni Ca.4.\
+")
+
+[unit_biplane_bomber]
+name          = _("Biplane Bomber")
+class         = "Air"
+tech_req      = "Bombers 1917"
+obsolete_by   = "Twenties Bomber"
+graphic       = "u.vimy"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 5
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 4
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+More powerful engines allowed heavier biplane bombers — \
+still not so massive as the triplanes, but big enough.  \
+Historical examples include the Handley Page V/1500 and \
+Vickers Vimy.\
+")
+
+[unit_20s_bomber]
+name          = _("Twenties Bomber")
+class         = "Air"
+tech_req      = "Twenties Bombers"
+obsolete_by   = "Thirties Bomber"
+graphic       = "u.virginia"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 6
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Applying post-war engineering to the basic biplane bomber \
+yielded a more robust and powerful aircraft.  \
+Historical examples include the Vickers Virginia.\
+")
+
+[unit_30s_bomber]
+name          = _("Thirties Bomber")
+class         = "Air"
+tech_req      = "Thirties Bombers"
+obsolete_by   = "Four-engine Bomber"
+graphic       = "u.heyford"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 6
+defense       = 1
+hitpoints     = 12
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Metal-framed heavy bombers were faster and stronger.  \
+Depending on national design doctrine, they might be \
+monoplanes or biplanes.  \
+Historical examples include the Handley Page Heyford \
+and Tupolev TB-3.\
+")
+
+[unit_four_bomber]
+name          = _("Four-engine Bomber")
+class         = "Air"
+tech_req      = "Bombers 1939"
+obsolete_by   = "Heavy Bomber"
+graphic       = "u.stirling"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 8
+defense       = 2
+hitpoints     = 16
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Pre-war four-engined heavy.  Increased payload and speed.  \
+Historical examples include the Short Stirling and \
+Petlyakov Pe-8.\
+")
+
+[unit_heavy_bomber]
+name          = _("Heavy Bomber")
+class         = "Air"
+tech_req      = "Heavy Bombers"
+obsolete_by   = "Superprop Bomber"
+graphic       = "u.lancaster"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 8
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 13
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider"
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Four-engined strategic bomber.  \
+Historical examples include the Avro Lancaster and \
+Boeing B-17F.\
+")
+
+[unit_super_bomber]
+name          = _("Superprop Bomber")
+class         = "Air"
+tech_req      = "Bombers 1945"
+obsolete_by   = "Jet Bomber"
+graphic       = "u.b29"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 180
+pop_cost      = 0
+attack        = 10
+defense       = 2
+hitpoints     = 16
+firepower     = 2
+move_rate     = 15
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Highly supercharged engines and high aspect ratio wings \
+made heavy bombers faster and stronger.  \
+Historical examples include the Avro Lincoln and \
+Boeing B-29 Superfortress.\
+")
+
+[unit_early_jet_bomber]
+name          = _("Early Jet Bomber")
+class         = "Air"
+tech_req      = "Swept-wing Bombers"
+obsolete_by   = "Jet Bomber"
+graphic       = "u.valiant"
+graphic_alt   = "-"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 10
+defense       = 3
+hitpoints     = 16
+firepower     = 1
+move_rate     = 16
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Turbojet-powered strategic bomber with swept wing.  \
+Historical examples include the Vickers Valiant and \
+Boeing B-47 Stratojet.\
+")
+
+[unit_jet_bomber]
+name          = _("Jet Bomber")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.vulcan"
+graphic_alt   = "-"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 12
+defense       = 3
+hitpoints     = 20
+firepower     = 2
+move_rate     = 18
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "OneAttack"
+helptext      = _("\
+Transonic heavy bombers were for a time the preferred \
+delivery mechanism for nuclear weapons, though they are \
+also more than capable of conventional bombing.  \
+Historical examples include the Avro Vulcan and \
+Boeing B-52 Stratofortress.\
+")
+
+[unit_airliner]
+name          = _("Airliner")
+class         = "Air"
+tech_req      = "Twenties Airlift"
+impr_req      = "Commercial Airstrip"
+obsolete_by   = "None"
+graphic       = "u.caravan"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 50
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 9
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+An Airliner carries goods or material for trading with distant cities\
+ and foreign countries.  It can only be build in a city with a\
+ Commercial Airstrip.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
+[unit_20s_transport]
+name          = _("Twenties Transport")
+class         = "Air"
+tech_req      = "Twenties Airlift"
+obsolete_by   = "Thirties Transport"
+graphic       = "u.victoria"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 50
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 9
+vision_radius_sq = 4
+transport_cap = 2
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+cargo         = "Assault"
+helptext      = _("\
+Large biplane for troop transport.  \
+Historical examples include the Vickers Victoria.\
+")
+
+[unit_30s_transport]
+name          = _("Thirties Transport")
+class         = "Air"
+tech_req      = "Thirties Airlift"
+obsolete_by   = "Monoplane Transport"
+graphic       = "u.valentia"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 60
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 4
+transport_cap = 2
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+cargo         = "Assault"
+helptext      = _("\
+Slightly longer-range troop transport.  \
+Historical examples include the Vickers Valentia.\
+")
+
+[unit_mono_transport]
+name          = _("Monoplane Transport")
+class         = "Air"
+tech_req      = "Airlift 1935"
+obsolete_by   = "Turboprop Transport"
+graphic       = "u.ju52"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 75
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 4
+transport_cap = 2
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+cargo         = "Assault"
+helptext      = _("\
+Monoplane transport aircraft are faster and longer-ranged.  \
+Historical examples include the Junkers Ju 52, \
+Bristol Bombay and Douglas C-47 Skytrain (better known as \
+the 'Dakota').\
+")
+
+[unit_strat_transport]
+name          = _("Strategic Transport")
+class         = "Air"
+tech_req      = "Heavy Airlift"
+obsolete_by   = "Jet Transport"
+graphic       = "u.skymaster"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 100
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 15
+vision_radius_sq = 5
+transport_cap = 4
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+cargo         = "Assault"
+helptext      = _("\
+This large four-prop transport aircraft, though expensive, \
+can carry a large cargo over a long range.  \
+Historical examples include the Douglas C-54 Skymaster and \
+Avro York.\
+")
+
+[unit_turbo_transport]
+name          = _("Turboprop Transport")
+class         = "Air"
+tech_req      = "Fifties Airlift"
+obsolete_by   = "None"
+graphic       = "u.hercules"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 80
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 5
+transport_cap = 3
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+cargo         = "Assault"
+; /* xgettext:no-c-format */
+helptext      = _("\
+Tactical airlift.  50% more cargo than the Monoplane Transport.  \
+Historical examples include the Lockheed C-130 Hercules.\
+")
+
+[unit_jet_transport]
+name          = _("Jet Transport")
+class         = "Air"
+tech_req      = "Fifties Airlift"
+obsolete_by   = "None"
+graphic       = "u.c135"
+graphic_alt   = "-"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 120
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 18
+vision_radius_sq = 5
+transport_cap = 5
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = ""
+cargo         = "Assault"
+helptext      = _("\
+This massive strategic jet airlifter can transport even more \
+cargo, at a high speed.  \
+Historical examples include the Boeing C-135 Stratolifter.\
+")
+
+[unit_glider]
+name          = _("Glider")
+class         = "Glider"
+tech_req      = "Glider Assault"
+obsolete_by   = "None"
+graphic       = "u.dfs"
+graphic_alt   = "-"
+sound_move    = "m_galleon"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 10
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 2
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Assault"
+disembarks    = "Air"
+flags         = "BadCityDefender"
+helptext      = _("\
+Wooden glider for airlanding infantry.  Must be towed to the \
+Drop Zone by a suitable bomber aircraft.  \
+Historical examples include the DFS 230 and Airspeed Horsa.\
+")
+
+[unit_heavy_glider]
+name          = _("Heavy Glider")
+class         = "Glider"
+tech_req      = "Heavy Gliders"
+obsolete_by   = "None"
+graphic       = "u.hamilcar"
+graphic_alt   = "-"
+sound_move    = "m_galleon"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 20
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 4
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Assault"
+disembarks    = "Air"
+flags         = "BadCityDefender"
+helptext      = _("\
+Large wooden glider for airlanding infantry.  Must be towed \
+to the Drop Zone by a suitable bomber aircraft.  \
+Historical examples include the General Aircraft Hamilcar.\
+")
+
+[unit_lpd]
+name          = _("Landing Craft")
+class         = "Sea"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.transport"
+graphic_alt   = "-"
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Assault"
+flags         = "BadCityDefender"
+roles         = "Ferryboat"
+helptext      = _("\
+Landing Craft can be used to transport assault troops (or \
+settlers) across water, albeit much more slowly than by air.\
+")
+
+[unit_seatend]
+name          = _("Seaplane Tender")
+class         = "Sea"
+tech_req      = "Hydroaeroplane"
+obsolete_by   = "None"
+graphic       = "u.caravel" ; placeholder
+graphic_alt   = "-"
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 12
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 3
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Seaplane"
+flags         = "BadCityDefender"
+roles         = "Ferryboat", "FerryStartUnit"
+helptext      = _("\
+The Seaplane Tender is the earliest form of aviation ship.  \
+It can carry and launch seaplanes, but its slow speed means \
+it's hard to get in position for a strike.\
+")
+
+[unit_cvl]
+name          = _("Light Aircraft Carrier")
+class         = "Sea"
+tech_req      = "Aircraft Carrier"
+obsolete_by   = "None"
+graphic       = "u.caravel" ; placeholder
+graphic_alt   = "-"
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 12
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 3
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Carrier-borne", "Seaplane"
+flags         = "BadCityDefender"
+roles         = "Ferryboat"
+helptext      = _("\
+Early aircraft carriers can transport and launch a small number \
+of naval aeroplanes and seaplanes.\
+")
+
+[unit_cv]
+name          = _("Aircraft Carrier")
+class         = "Sea"
+tech_req      = "Twenties Carrier Aviation"
+obsolete_by   = "None"
+graphic       = "u.carrier" ; placeholder
+graphic_alt   = "-"
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 6
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Carrier-borne"
+flags         = "BadCityDefender"
+roles         = "Ferryboat", "FerryStartUnit"
+helptext      = _("\
+Aircraft carriers can transport and launch naval \
+aeroplanes in large numbers.\
+")
+
+[unit_cvn]
+name          = _("Nuclear Aircraft Carrier")
+class         = "Sea"
+tech_req      = "Carrier Aviation 1950"
+obsolete_by   = "None"
+graphic       = "u.carrier"
+graphic_alt   = "-"
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 320
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 30
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 12
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Carrier-borne"
+flags         = "BadCityDefender"
+roles         = "Ferryboat"
+helptext      = _("\
+Nuclear-powered aircraft carriers can transport and launch \
+extremely large strike groups of naval aeroplanes.\
+")

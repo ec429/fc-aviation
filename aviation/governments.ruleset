@@ -1,0 +1,106 @@
+; Note that the freeciv AI may not cope well with anything more
+; than minor changes.
+
+[datafile]
+description="Aviation governments data for Freeciv"
+options="+Freeciv-2.6-ruleset"
+
+[governments]
+during_revolution="Revolution"
+
+; /* <-- avoid gettext warnings
+;
+; Below: The individual government types, one per section.
+;
+; The actual tag used (the * in [government_*]) does not matter, except 
+; it must be unique within this file, and it may be used in debug 
+; output when reading this file.
+;
+; For the "official" rulesets, the order of these sections should not
+; be changed because that would break backward compatability with 
+; savegames.  (In particular, if Fundamentalism is added to default
+; ruleset, should be added at end.)
+;
+; Notes on fields:
+;
+; name         = translatable name as seen by user
+; rule_name    = (optional) internal name for savegames, rulesets etc; if
+;                not present, "name" is used for this purpose too. Since
+;                the name used in savegames must not change, if you want
+;                to rename an item after a ruleset has been released, you
+;                should set "rule_name" to the original value of "name".
+; reqs         = requirements for this government (see README.effects)
+; graphic      = tag specifing preferred graphic
+; graphic_alt  = alternate graphics tag if preferred is not found;
+;                should be a standard tag if preferred is not;
+;                otherwise may be "-"
+; ai_better    = AI will not consider this government for use if the
+;                government listed here is available
+; ruler_titles = ruler titles by nation, "-" is default, and non-matched
+;                nations are ignored
+; helptext     = optional help text string; should escape all raw newlines
+;                so that xgettext parsing works
+;
+; */ <-- avoid gettext warnings
+
+;------------------------------------------------------------------------
+[government_revolution]
+
+name        = _("Revolution")
+; No reqs
+graphic     = "gov.anarchy"
+graphic_alt = "-"
+
+ruler_male_title = _("Warlord %s")
+ruler_female_title = _("Warlady %s")
+
+helptext = _("\
+During a revolution,\
+ citizens are disorganized and unproductive, and will spend all\
+ income as quickly as possible, rather than paying taxes or\
+ conducting research.\
+")
+
+;------------------------------------------------------------------------
+[government_democracy]
+
+name        = _("Democracy")
+; No reqs
+graphic     = "gov.democracy"
+graphic_alt = "-"
+
+ruler_male_title = _("Prime Minister %s")
+ruler_female_title = _("?female:Prime Minister %s")
+
+helptext = _("\
+Under Democracy, citizens govern directly by voting on issues.\
+ Democracy offers the highest possible level of trade, but also\
+ offers the most potential for unhappiness.  There is no corruption\
+ during Democracy, but citizens become very upset during\
+ wars.\
+")
+
+; /* <-- avoid gettext warnings
+;
+; Multipliers (aka policies)
+;
+; name                    = translatable name as seen by user
+; rule_name               = (optional) internal name for savegames, rulesets
+;                           etc; if not present, "name" is used for this
+;                           purpose too. Since the name used in savegames must
+;                           not change, if you want to rename an item after a
+;                           ruleset has been released, you should set
+;                           "rule_name" to the original value of "name".
+; default                 = default value (as presented in UI)
+; start                   = minimum value (as presented in UI)
+; stop                    = maximum value (as presented in UI)
+; step                    = minimum increase/decrease (as presented in UI)
+; offset                  = offset/factor control how UI values are turned
+; factor                  =  into effect values for use in effects.ruleset.
+;                            effect_value = (ui_value + offset) * (factor/100)
+;                            Optional; by default offset=0, factor=100, so
+;                            that UI values are used as-is.
+; helptext                = optional help text string; should escape all raw 
+;                           newlines so that xgettext parsing works
+;
+; */ <-- avoid gettext warnings

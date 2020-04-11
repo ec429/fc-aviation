@@ -1,0 +1,906 @@
+; Modifying this file:
+; You should not modify this file except to make bugfixes or
+; for other "maintenance".  If you want to make custom changes,
+; you should create a new datadir subdirectory and copy this file
+; into that directory, and then modify that copy.  Then use the
+; command "rulesetdir <mysubdir>" in the server to have freeciv
+; use your new customized file.
+
+[datafile]
+description="Aviation effects data for Freeciv"
+options="+Freeciv-2.6-ruleset"
+
+; /* <-- avoid gettext warnings
+;
+; Effects
+;
+; type                    = What the effect does. Values of multiple active effects
+;                           of the same type get summed for the total.
+;                           See README.effects for list of possible types
+; value                   = Value added for the effect type when this effect is active,
+;                           i.e., all requirements are fulfilled
+; multiplier              = Name of the policy that gives a multiplier for effect's value
+; reqs                    = Requirements for the effect to be active.
+;                           See README.effects for help on requirements
+;
+; */ <-- avoid gettext warnings
+
+; Cheating AI effects are in separate file
+*include "default/ai_effects.ruleset"
+
+[effect_unhappysize]
+type    = "City_Unhappy_Size"
+value   = 4
+
+; Barbarian effects
+
+[effect_barb1]
+type    = "No_Diplomacy"
+value   = 1
+reqs    =
+    { "type",   "name", "range"
+      "NationGroup", "Barbarian", "Player"
+    }
+
+; Barbarian disappearance
+
+[effect_barb_disappear]
+type    = "Retire_Pct"
+value   = 10
+reqs    =
+    { "type", "name", "range", "present"
+      "NationGroup", "Barbarian", "Player", TRUE
+      "Age", "5", "Local", TRUE
+      "CityTile", "Center", "Local", FALSE
+    }
+
+; Specialist output bonuses
+
+[effect_elvis]
+type    = "Specialist_Output"
+value   = 2
+reqs    =
+    { "type", "name", "range"
+      "Specialist", "elvis", "Local"
+      "OutputType", "luxury", "Local"
+    }
+
+[effect_scientist]
+type    = "Specialist_Output"
+value   = 3
+reqs    =
+    { "type", "name", "range"
+      "Specialist", "scientist", "Local"
+      "OutputType", "science", "Local"
+    }
+
+[effect_taxman]
+type    = "Specialist_Output"
+value   = 3
+reqs    =
+    { "type", "name", "range"
+      "Specialist", "taxman", "Local"
+      "OutputType", "gold", "Local"
+    }
+
+
+; Vision benefit from fortress watchtowers
+[effect_fortress_vision]
+type    = "Unit_Vision_Radius_Sq"
+value   = 8
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Fortress", "tile"
+      "UnitClass", "Land", "Local"
+    }
+[effect_fortress_vision_2]
+type    = "Unit_Vision_Radius_Sq"
+value   = 8
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Fortress", "tile"
+      "UnitClass", "Assault", "Local"
+    }
+
+; basic free tech upkeep
+[effect_upkeep_tech_free]
+type    = "Tech_Upkeep_Free"
+value   = 3
+
+; Fortress HP regen
+[effect_fortress_hp_regen]
+type    = "HP_Regen"
+value   = 25
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Fortress", "Tile"
+      "UnitClass", "Land", "Local"
+    }
+[effect_fortress_hp_regen_2]
+type    = "HP_Regen"
+value   = 25
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Fortress", "Tile"
+      "UnitClass", "Assault", "Local"
+    }
+
+; Base vision range - radius of vision is sqrt(5) = 2.24
+[effect_city_vision]
+type    = "City_Vision_Radius_Sq"
+value   = 5
+
+[effect_trade_routes_base]
+type    = "Max_Trade_Routes"
+value   = 2
+
+[effect_trade_revenue_reduce]
+type    = "Trade_Revenue_Bonus"
+value   = -585
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Fifties Airlift", "Player"
+    }
+
+; Government effects
+
+[effect_revolt_upkeep]
+type    = "Upkeep_Free"
+value	= 99
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+    }
+
+[effect_revolt_upkeep_tech_free]
+type    = "Tech_Upkeep_Free"
+value   = 9999
+reqs    =
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+    }
+
+[effect_corruption_revolt0]
+type    = "Output_Waste"
+value	= 25
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+      "OutputType", "Trade", "Local"
+    }
+
+[effect_corruption_revolt1]
+type    = "Output_Waste_By_Distance"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+      "OutputType", "Trade", "Local"
+    }
+
+[effect_upkeep_free_units_revolt]
+type    = "Unit_Upkeep_Free_Per_City"
+value	= 3
+reqs   =
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_base_unit_upkeep]
+type    = "Upkeep_Factor"
+value	= 1
+
+[effect_democracy_unit_unhappiness]
+type    = "Unhappy_Factor"
+value	= 1
+reqs   =
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_civil_war_0]
+type    = "Civil_War_Chance"
+value   = 90
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution",   "Player"
+    }
+
+[effect_civil_war_5]
+type    = "Civil_War_Chance"
+value   = 30
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_empire_size_base_0]
+type    = "Empire_Size_Base"
+value   = 9
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution",   "Player"
+    }
+
+[effect_empire_size_base_5]
+type    = "Empire_Size_Base"
+value   = 14
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy",  "Player"
+    }
+
+[effect_empire_size_step_0]
+type    = "Empire_Size_Step"
+value   = 6
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution", "Player"
+    }
+
+[effect_empire_size_step_4]
+type    = "Empire_Size_Step"
+value   = 16
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_max_rates_0]
+type    = "Max_Rates"
+value   = 100
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution",   "Player"
+    }
+
+[effect_max_rates_5]
+type    = "Max_Rates"
+value   = 100
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_martial_law_each_0]
+type    = "Martial_Law_Each"
+value   = 1
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution",   "Player"
+    }
+
+[effect_martial_law_max_0]
+type    = "Martial_Law_Max"
+value   = 100
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution",   "Player"
+    }
+
+[effect_rapture_grow_1]
+type    = "Rapture_Grow"
+value   = 3
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_gov_tile_bonus_0]
+type    = "Output_Penalty_Tile"
+value   = 2
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Revolution", "Player"
+    }
+
+[effect_gov_tile_bonus_5]
+type    = "Output_Inc_Tile"
+value   = 1
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+      "OutputType", "Trade", "Local"
+    }
+
+[effect_revolution_0]
+type    = "Revolution_Unhappiness"
+value   = 2
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_senate_1]
+type    = "Has_Senate"
+value   = 1
+reqs	=
+    { "type",       "name",      "range"
+      "Gov", "Democracy", "Player"
+    }
+
+; We have no Size_Adj limits/buildings
+[effect_city_size]
+type    = "Size_Unlimit"
+value   = 1
+
+[effect_hq_1]
+type    = "Output_Waste_Pct"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "HQ", "City"
+      "OutputType", "Trade", "Local"
+    }
+
+[effect_hq_2]
+type    = "Capital_City"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "HQ", "City"
+    }
+
+[effect_hq_gov_center]
+type    = "Gov_Center"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "HQ", "City"
+    }
+
+[effect_faa_1]
+type    = "Output_Waste_Pct"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "FAA Branch", "City", TRUE
+      "OutputType", "Trade", "Local", TRUE
+      "Building", "HQ", "City", FALSE
+    }
+
+[effect_faa_2]
+type    = "Make_Content"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+      "Building", "FAA Branch", "City"
+    }
+
+; Extended vision range
+[effect_radar]
+type    = "City_Vision_Radius_Sq"
+value   = 17
+reqs	=
+    { "type", "name", "range"
+      "Building", "Radar Station", "City"
+    }
+
+[effect_wind_tunnel]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Wind Tunnel", "City"
+      "OutputType", "Science", "Local"
+    }
+
+[effect_airstrip]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Commercial Airstrip", "City"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_airport]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Commercial Airstrip", "City"
+      "Building", "Hub Airport", "City"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_club]
+type    = "Make_Content"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Flying Club", "City"
+    }
+
+[effect_club_2]
+type    = "Make_Content"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Flying Club", "City"
+      "Tech", "General Aviation", "Player"
+    }
+
+[effect_tours]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Air Tours", "City"
+      "OutputType", "Luxury", "Local"
+    }
+
+[effect_races]
+type    = "Make_Content"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Building", "Air Races", "City"
+    }
+
+[effect_memo]
+type    = "Make_Content_Mil"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Gov", "Democracy", "Player", TRUE
+      "Building", "War Memorial", "City", TRUE
+    }
+
+[effect_barracks]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barracks", "City", TRUE
+      "UnitClass", "Land", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+[effect_barracks_a]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barracks", "City", TRUE
+      "UnitClass", "Assault", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_barracks_1]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barracks", "City", TRUE
+      "UnitClass", "Land", "Local", TRUE
+    }
+[effect_barracks_1a]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barracks", "City", TRUE
+      "UnitClass", "Assault", "Local", TRUE
+    }
+
+[effect_shipyard]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Shipyard", "City", TRUE
+      "UnitClass", "Sea", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_shipyard_1]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Shipyard", "City"
+      "UnitClass", "Sea", "Local"
+    }
+
+[effect_harbour]
+type    = "Output_Add_Tile"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "TerrainClass", "Oceanic", "Local"
+;      "Building", "Harbour", "City" ; let's just give it for free, rather than having a building
+      "OutputType", "Food", "Local"
+    }
+
+[effect_school]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flying School", "City", TRUE
+      "UnitClass", "Air", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_school_1]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flying School", "City", TRUE
+      "UnitClass", "Seaplane", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_school_2]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flying School", "City", TRUE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_repair_1]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Repair Sheds", "City"
+      "UnitClass", "Air", "Local"
+    }
+
+[effect_repair_2]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Repair Sheds", "City"
+      "UnitClass", "Carrier-borne", "Local"
+    }
+
+[effect_slipway]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aircraft Slipways", "City"
+      "UnitClass", "Seaplane", "Local"
+    }
+
+[effect_dusting]
+type    = "Output_Per_Tile"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Extra", "Farmland", "Local"
+      "Building", "Crop Dusting", "City"
+      "OutputType", "Food", "Local"
+    }
+
+[effect_engine_factory]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Engine Factory", "City"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_flak_battery_1]
+type    = "Defend_Bonus"
+value	= 20
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Air", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", FALSE
+    }
+[effect_flak_battery_1a]
+type    = "Defend_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Air", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", TRUE
+    }
+[effect_flak_battery_2]
+type    = "Defend_Bonus"
+value	= 20
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", FALSE
+    }
+[effect_flak_battery_2a]
+type    = "Defend_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", TRUE
+    }
+[effect_flak_battery_3]
+type    = "Defend_Bonus"
+value	= 20
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Seaplane", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", FALSE
+    }
+[effect_flak_battery_3a]
+type    = "Defend_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Seaplane", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", TRUE
+    }
+
+[effect_sam_battery]
+type    = "Defend_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "SAM Battery", "City"
+      "UnitClass", "Air", "Local"
+    }
+[effect_sam_battery_1]
+type    = "Defend_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "SAM Battery", "City"
+      "UnitClass", "Seaplane", "Local"
+    }
+
+[effect_chain_home]
+type    = "City_Vision_Radius_Sq"
+value   = 17
+reqs	=
+    { "type", "name", "range"
+      "Building", "Chain Home", "Continent"
+    }
+
+[effect_airline]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Commercial Airstrip", "City", TRUE
+      "Building", "National Airline", "Player", TRUE
+      "OutputType", "Gold", "Local", TRUE
+    }
+
+[effect_display]
+type    = "Make_Happy"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Display Team", "Player"
+    }
+
+[effect_super_tunnel]
+type    = "Output_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Supersonic Wind Tunnel", "City"
+      "OutputType", "Science", "Local"
+    }
+
+[effect_janes]
+type    = "Tech_Parasite"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Building", "Jane's All The World's Aircraft", "Player"
+    }
+
+[effect_schneider]
+type    = "Give_Imm_Tech"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Schneider Trophy", "Player"
+    }
+
+[effect_sound_barrier]
+type    = "Give_Imm_Tech"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Building", "Sound Barrier", "Player"
+    }
+
+[effect_calendar_year]
+type    = "Turn_Years"
+value   = 0
+
+[effect_calendar_frag]
+type    = "Turn_Fragments"
+value   = 1
+
+[effect_tech_cost_base]
+type    = "Tech_Cost_Factor"
+value   = 1
+
+; Cities can always work tiles
+[effect_tile_workable]
+type    = "Tile_Workable"
+value   = 1
+reqs    =
+    { "type", "name", "range", "present"
+      "Terrain", "Inaccessible", "Local", FALSE
+    }
+
+; each city has at least one slot to build units
+[effect_city_build_slots_basic]
+type    = "City_Build_Slots"
+value   = 1
+
+[effect_city_image_1]
+type    = "City_Image"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "MinSize", "4", "City"
+    }
+
+[effect_city_image_2]
+type    = "City_Image"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "MinSize", "8", "City"
+    }
+
+[effect_city_image_3]
+type    = "City_Image"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "MinSize", "12", "City"
+    }
+
+[effect_city_image_4]
+type    = "City_Image"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "MinSize", "16", "City"
+    }
+
+[effect_irrigate_src_ocean]
+type    = "Irrig_Possible"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "TerrainClass", "Oceanic", "CAdjacent"
+    }
+
+[effect_irrigate_src_river]
+type    = "Irrig_Possible"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Extra", "River", "CAdjacent"
+    }
+
+[effect_irrigate_src_irrigation]
+type    = "Irrig_Possible"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Irrigation", "CAdjacent"
+    }
+
+[effect_irrigation]
+type    = "Irrigation_Pct"
+value   = 100
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Irrigation", "Local"
+    }
+
+[effect_irrigation_center]
+type    = "Irrigation_Pct"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "CityTile", "Center", "Local", TRUE
+      "Extra", "Irrigation", "Local", FALSE
+      "TerrainAlter", "CanIrrigate", "Local", TRUE
+      "Extra", "Mine", "Local", FALSE
+      "Extra", "Oil Well", "Local", FALSE
+    }
+
+[effect_mine]
+type    = "Mining_Pct"
+value   = 100
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Mine", "Local"
+    }
+
+[effect_oil_well]
+type    = "Mining_Pct"
+value   = 100
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Oil Well", "Local"
+    }
+
+[effect_mining]
+type    = "Mining_Possible"
+value   = 1
+reqs    =
+    { "type", "name", "range", "present"
+    }
+
+[effect_irrig_tf]
+type    = "Irrig_TF_Possible"
+value   = 1
+
+[effect_mining_tf]
+type    = "Mining_TF_Possible"
+value   = 1
+
+[effect_pollution]
+type	= "Output_Tile_Punish_Pct"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Extra", "Pollution", "Local", TRUE
+      "Extra", "Fallout", "Local", FALSE
+    }
+
+[effect_fallout]
+type	= "Output_Tile_Punish_Pct"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Extra", "Fallout", "Local", TRUE
+     "Extra", "Pollution", "Local", FALSE
+    }
+
+[effect_pollution_fallout]
+type	= "Output_Tile_Punish_Pct"
+value	= 75
+reqs	=
+    { "type", "name", "range"
+      "Extra", "Fallout", "Local"
+      "Extra", "Pollution", "Local"
+    }
+
+[effect_unit_bribe_cost_settlers]
+type	= "Unit_Bribe_Cost_Pct"
+value	= -50
+reqs	=
+    { "type", "name", "range"
+      "UnitFlag", "Cities", "Local"
+    }
+
+[effect_illegal_action_move_cost_base]
+type	= "Illegal_Action_Move_Cost"
+value	= 1
