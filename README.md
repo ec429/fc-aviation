@@ -25,6 +25,7 @@ Also missing is governments.  I've stripped out everything except Democracy and 
     + Assault units can load into Gliders, which in turn load into another aircraft (the tug: a medium or heavy bomber).  The tug flies to the drop zone, then the Glider unloads from the tug, then the Assault unit unloads from the Glider; the Glider is now stuck on the ground, so disband it.  (Unfortunately, it's possible to cheat by unloading from the Glider while it's still on tow.  I haven't figured out how to fix that yet.)
     + Assault units can load and unload from transport aircraft at cities and airbases.
     + Paratroops can unload from transport aircraft while in flight.
+    + Some heavy bombers and flying-boats also have a small transport capacity.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
 * Aircraft are split into four unit classes:
   - Air.  Ordinary landplanes refuel-at-cities-and-airbases, but can't use aircraft carriers.
