@@ -585,7 +585,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon"
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 Zeppelin Scouts are your first lighter-than-air units. Their long \
@@ -657,7 +657,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon"
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 Blimps are a cheaper alternative to the rigid Zeppelin, but \
@@ -690,7 +690,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon"
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer", "ExplorerStartUnit"
 helptext      = _("\
 Pioneers are your first heavier-than-air units. They can \
@@ -725,7 +725,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon"
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 With more powerful engines, Two-seat Pioneers have a considerably \
@@ -759,7 +759,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon"
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 As the basic layout of the tractor biplane with conventional \
@@ -997,7 +997,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon", "Diplomat", "Spy", "NonMil"
+flags         = "Recon", "Diplomat", "Spy", "NonMil", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 High-altitude jet for reconnaissance.  Can overfly \
@@ -2609,7 +2609,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "Recon", "HasNoZOC"
 helptext      = _("\
 The first seaplanes have no combat capability; like the Pioneer, \
 they're only suitable for short-range reconnaissance.  \
@@ -2644,7 +2644,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
-flags         = ""
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 Slow and barely able to defend itself, the two-seater Floatplane \
@@ -3916,7 +3916,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "HasNoZOC"
 cargo         = "Assault"
 helptext      = _("\
 Large biplane for troop transport.  \
@@ -3948,7 +3948,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "HasNoZOC"
 cargo         = "Assault"
 helptext      = _("\
 Slightly longer-range troop transport.  \
@@ -3980,7 +3980,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "HasNoZOC"
 cargo         = "Assault"
 helptext      = _("\
 Monoplane transport aircraft are faster and longer-ranged.  \
@@ -4014,7 +4014,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "HasNoZOC"
 cargo         = "Assault"
 helptext      = _("\
 This large four-prop transport aircraft, though expensive, \
@@ -4048,7 +4048,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "HasNoZOC"
 cargo         = "Assault"
 ; /* xgettext:no-c-format */
 helptext      = _("\
@@ -4081,7 +4081,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "HasNoZOC"
 cargo         = "Assault"
 helptext      = _("\
 This massive strategic jet airlifter can transport even more \
@@ -4116,7 +4116,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
 disembarks    = "Air"
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "HasNoZOC"
 helptext      = _("\
 Wooden glider for airlanding infantry.  Must be towed to the \
 Drop Zone by a suitable bomber aircraft.  \
@@ -4150,7 +4150,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
 disembarks    = "Air"
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "HasNoZOC"
 helptext      = _("\
 Large wooden glider for airlanding infantry.  Must be towed \
 to the Drop Zone by a suitable bomber aircraft.  \
@@ -4183,7 +4183,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "HasNoZOC"
 roles         = "Ferryboat"
 helptext      = _("\
 Landing Craft can be used to transport assault troops (or \
@@ -4216,7 +4216,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 cargo         = "Seaplane"
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "HasNoZOC"
 roles         = "Ferryboat", "FerryStartUnit"
 helptext      = _("\
 The Seaplane Tender is the earliest form of aviation ship.  \
