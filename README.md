@@ -5,7 +5,7 @@
 In this ruleset, there are only a handful of ground and sea unit types — but over a hundred air units!
 As well as a 50-year span of technology (from the pioneer era to the early supersonic age), there are an efflorescence of different _categories_ of aeroplane, many with their own special rules.
 
-Bombers, dive bombers, torpedo bombers and strike aircraft attack ground (or in some cases sea) units.  Ground units can make airborne assaults either by parachute or by glider.  Gliders are towed by bombers, and expended once dropped; paratroops jump from transport aircraft.  Sea units can transport either carrier-capable aeroplanes, seaplanes or ground units.  Airliners create trade routes between cities.  Reconnaissance planes watch the enemy to find out what he's up to...
+Bombers, dive bombers, torpedo bombers and strike aircraft attack ground (or in some cases sea) units.  Ground units can make airborne assaults either by parachute or by glider.  Gliders are towed by bombers, and expended once dropped; paratroops jump from transport aircraft.  Sea units can transport either carrier-capable aeroplanes, seaplanes or ground units.  Airliners create trade routes between cities.  Blimps and flying-boats patrol the seas, hunting submarines.  Reconnaissance planes watch the enemy to find out what he's up to...
 
 ... and Fighters try to shoot down everything else!
 
@@ -33,6 +33,7 @@ The main thing that's missing is tiles (and other art).  I made _one_ unit tile 
 * Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
+  - The exception is the Submersible, which has a weak bombard attack.  Preventing subs from harassing your shipping is the main purpose of blimps (and to a lesser extent flying-boats).
 * Land and sea units are very slow.  If you want to get anything done, you'll need to use planes to move stuff around.
   - Roads don't speed up movement at all, and Railroads only reduce movement cost to 2/3.
 * Unit Hitpoints and Firepower vary a lot, as does Fuel; just looking at the A/D/M numbers won't give you an accurate picture of a unit's capabilities.
