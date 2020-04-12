@@ -75,9 +75,58 @@ ruler_female_title = _("?female:Prime Minister %s")
 helptext = _("\
 Under Democracy, citizens govern directly by voting on issues.\
  Democracy offers the highest possible level of trade, but also\
- offers the most potential for unhappiness.  There is no corruption\
- during Democracy, but citizens become very upset during\
- wars.\
+ offers the most potential for unhappiness, and experiences some\
+ corruption.  However, since control is provided through market\
+ mechanisms rather than force, that corruption does not vary with\
+ distance from the capital.  Unlike other governments, military\
+ units cannot impose martial law.\
+")
+
+;------------------------------------------------------------------------
+[government_communism]
+
+name        = _("Communism")
+; No reqs
+graphic     = "gov.communism"
+graphic_alt = "-"
+
+ruler_male_title = _("General Secretary %s")
+ruler_female_title = _("?female:General Secretary %s")
+
+helptext = _("\
+A Communist government is theoretically based on the ideal that all\
+ people are equal, with all goods are owned by the state, rather than\
+ by private citizens.  In practice the bureaucratic central control\
+ leads to waste and inefficiency, and individuals have almost no\
+ freedom — although this does limit their ability to complain."), _("\
+Communism is especially bad for scientific research, as ideological\
+ constraints prevent scientists from speaking the truth."), _("\
+Cities under Communism also give off more pollution from shields.\
+"),
+; /* xgettext:no-c-format */
+_("\
+* Base science production is 60% that of other governments.\n\
+* Pollution from production (shields) is increased by 50%.\n\
+")
+
+;------------------------------------------------------------------------
+[government_fascism]
+
+name        = _("Fascism")
+; No reqs
+graphic     = "gov.fascism"
+graphic_alt = "-"
+
+ruler_male_title = _("Leader %s")
+ruler_female_title = _("?female:Leader %s")
+
+helptext = _("\
+Fascism is a system of totalitarianism under which all the resources\
+ of a nation are, through control (often indirect) by the State,\
+ harnessed to the Will of the Nation as defined by (and,\
+ psychologically, personified in) the Glorious Leader."), _("\
+Corruption is often rampant, but military production is rapid\
+ (no upkeep for certain units) and morale is strong.\
 ")
 
 ; /* <-- avoid gettext warnings

@@ -15,8 +15,6 @@ The rules all seem to be working, although we're a bit short on City Improvement
 
 The main thing that's missing is tiles (and other art).  I made _one_ unit tile (the Pioneer), and it took a whole night; so I've decided to use a bunch of placeholders for now (units are two-letter codes, vaguely reminiscent of hull symbols, while buildings are just using vaguely-appropriate-looking classic building images) while I get the ruleset sorted out.
 
-Also missing is governments.  I've stripped out everything except Democracy and Anarchy (which I've renamed _Revolution_), but I intend to add Communism back in and also add Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
-
 ## Significant Rule Changes
 
 * Ground units have been split into two classes, Land and Assault.  The difference is that Land units can't be transported, either by sea or by air, whereas Assault units can.
@@ -46,6 +44,10 @@ Also missing is governments.  I've stripped out everything except Democracy and 
   - Recon aircraft (including light bombers and some heavy fighters) can Investigate City; most (but not the very earliest ones) can survive it (unit flag "Spy").
     + However, game engine limitations mean that aircraft with Recon capability can't be ordered to attack units in a city (the dialogue box has no option for 'Attack').
     + Also, Spy flag requires Diplomat flag, meaning those aircraft will defend against enemy diplomatic actions.
+* The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
+  - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments.
+  - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.
+  - Fascism has rampant corruption, but pays no upkeep for certain military units.
 
 ### Insignificant Rule Changes
 
@@ -56,6 +58,6 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * The calendar turns by season (i.e. 4 turns per year).
 * Newly founded cities have 2 population.
   - But settlers still only cost 1, so you can quickly spread across your continent.
-* Unhappiness from units in the field is only 1, even under Democracy.
+* Unhappiness from units in the field is only 1 under Democracy (and zero for other governments).
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
 * Workers are called Seabees.
