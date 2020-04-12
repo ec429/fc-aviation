@@ -24,5 +24,6 @@ dy = 48
 pixel_border = 1
 
 tiles = { "row", "column", "tag"
-  0,  0, "u.wright3"
+  0,  0, "u.wright3"     ; P0
+  0,  1, "u.boxkite"     ; PP
 }
