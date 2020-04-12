@@ -56,3 +56,4 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
   - But settlers still only cost 1, so you can quickly spread across your continent.
 * Unhappiness from units in the field is only 1, even under Democracy.
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
+* Workers are called Seabees.

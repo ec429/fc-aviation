@@ -457,6 +457,49 @@ can die if its supporting city runs out of food. Settlers in a \
 Republic or Democracy require twice as much food per turn.\
 ")
 
+[unit_seabees]
+name          = _("Seabees")
+class         = "Assault" ; so that they can be airlifted
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.engineers"
+graphic_alt   = "-"
+sound_move    = "m_engineers"
+sound_move_alt = "m_generic"
+sound_fight   = "f_engineers"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "Airbase"
+; No veteran levels (level name is never displayed)
+veteran_names = _("green")
+veteran_raise_chance = 0
+veteran_work_raise_chance = 0
+veteran_power_fact = 100
+veteran_move_bonus = 0
+roles         = "Settlers", "WorkerStartUnit"
+helptext      = _("\
+Construction Battalions (colloquially known as Seabees, from the\
+ acronym 'CB') have the ability to improve terrain tiles. See the\
+ help on Terrain and Terrain Alterations for the effects of their\
+ actions.  CBs can also build airbases."), _("\
+A popular use for the CB is to airland them and quickly build an\
+ airbase, which can then be used by transport aircraft to airlift\
+ in additional units.\
+")
+
 [unit_troops]
 name          = _("Troops")
 class         = "Land"
