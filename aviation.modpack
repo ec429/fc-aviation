@@ -1,0 +1,32 @@
+[info]
+options = "+Freeciv-2.6-modpack"
+baseURL = "."
+name    = "Aviation"
+type    = "Modpack"
+version = "2.6-0.1"
+
+[files]
+list =
+{ "src", "dest"
+  "aviation.serv"
+  "aviation.tilespec"
+  "aviation/buildings.ruleset"
+  "aviation/cities.ruleset"
+  "aviation/effects.ruleset"
+  "aviation/fascism.png"
+  "aviation/game.ruleset"
+  "aviation/governments.ruleset"
+  "aviation/governments.spec"
+  "aviation/nations.ruleset"
+  "aviation/placeholders.png"
+  "aviation/script.lua"
+  "aviation/styles.ruleset"
+  "aviation/techs.ruleset"
+  "aviation/terrain.ruleset"
+  "aviation/units.png"
+  "aviation/units.ruleset"
+  "aviation/units.spec"
+  "aviation/units-ph.spec"
+  "aviation/units-XYZ.spec"
+  "aviation/XYZamplio.png"
+}
