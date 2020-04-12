@@ -658,6 +658,14 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
 
+[advance_helicopters]
+name     = _("Helicopters")
+req1     = "Engines 1939"
+req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
 [advance_bombers_1939]
 name     = _("Bombers 1939")
 req1     = "Bombers 1935"
@@ -782,6 +790,14 @@ helptext = _("")
 name     = _("Gas Turbine")
 req1     = "Engines 1942"
 req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_turbo_helis]
+name     = _("Turbine Helicopters")
+req1     = "Helicopters"
+req2     = "Gas Turbine"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
