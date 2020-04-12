@@ -40,6 +40,10 @@ Also missing is governments.  I've stripped out everything except Democracy and 
 * There is (currently) no Space Race victory.  You'll just have to conquer them!
 * The tech tree includes a core of 'pure' research (the Engines series, and various aerodynamics techs), with branches for different aircraft categories tracking along.  This tends to make it especially inefficient to race ahead with one category while neglecting others.
   - Don't ignore the seaplanes branch — you can't develop World War II fighters without Thirties Seaplanes.  This is because, historically, the impetus for high-speed aerodynamics research came from the Schneider Trophy seaplane races (most famously in the case of Supermarine).
+* There is no Diplomat or Spy unit.  Instead, some aircraft are capable of some of their actions:
+  - Recon aircraft (including light bombers and some heavy fighters) can Investigate City; most (but not the very earliest ones) can survive it (unit flag "Spy").
+    + However, game engine limitations mean that aircraft with Recon capability can't be ordered to attack units in a city (the dialogue box has no option for 'Attack').
+    + Also, Spy flag requires Diplomat flag, meaning those aircraft will defend against enemy diplomatic actions.
 
 ### Insignificant Rule Changes
 

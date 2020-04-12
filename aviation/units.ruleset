@@ -28,6 +28,7 @@ flags =
   { "name", "helptxt"
     _("Airbase")
     _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
+    _("Recon"), _("Can investigate foreign cities (must travel to target city).")
   }
 
 [veteran_system]
@@ -584,7 +585,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "Recon"
 roles         = "Explorer"
 helptext      = _("\
 Zeppelin Scouts are your first lighter-than-air units. Their long \
@@ -624,6 +625,8 @@ roles         = "Hunter"
 helptext      = _("\
 Zeppelin Bombers are slow but have long range, allowing them \
 to strike at distant ground targets.  \
+Because they typically operate at night, they're not capable \
+of reconnaissance.  \
 Historical examples include the Zeppelin M-X.\
 ")
 
@@ -654,7 +657,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "Recon"
 roles         = "Explorer"
 helptext      = _("\
 Blimps are a cheaper alternative to the rigid Zeppelin, but \
@@ -687,7 +690,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "Recon"
 roles         = "Explorer", "ExplorerStartUnit"
 helptext      = _("\
 Pioneers are your first heavier-than-air units. They can \
@@ -722,7 +725,7 @@ uk_happy      = 0
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "Recon"
 roles         = "Explorer"
 helptext      = _("\
 With more powerful engines, Two-seat Pioneers have a considerably \
@@ -756,7 +759,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = ""
+flags         = "Recon"
 roles         = "Explorer"
 helptext      = _("\
 As the basic layout of the tractor biplane with conventional \
@@ -791,7 +794,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "Recon", "OneAttack"
 helptext      = _("\
 With increasing engine power, recon aircraft begin to be able \
 to carry bombs.  Only small bombs, but still - deadly enough.  \
@@ -824,7 +827,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
 to 400-500lb, this is a militarily useful light bomber.  \
@@ -857,7 +860,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
@@ -890,7 +893,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
 the 1920s are but an incremental improvement.  \
@@ -924,7 +927,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 Built along similar lines to the Early Monoplane Fighter, \
 these monoplane light bombers are faster than older models \
@@ -960,7 +963,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
 extra weight of 1000lb of bombs, but make for a bigger \
@@ -2072,7 +2075,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider"
-flags         = ""
+flags         = "Recon", "Diplomat", "Spy"
 roles         = "Hunter"
 helptext      = _("\
 High-performance twin-engine fighter.  \
@@ -3429,7 +3432,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -3462,7 +3465,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \

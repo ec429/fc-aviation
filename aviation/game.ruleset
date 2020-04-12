@@ -240,6 +240,15 @@ ui_name_help_wonder = _("Help %sbuild Wonder%s")
 ; Can make the help text less redundant when you document it your self.
 ;quiet_actions = "Targeted Sabotage City", "Targeted Steal Tech"
 
+[actionenabler_investigate_city]
+action       = "Investigate City"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Recon", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+
 [actionenabler_traderoute]
 action = "Establish Trade Route"
 actor_reqs    =
