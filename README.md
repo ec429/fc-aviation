@@ -31,6 +31,7 @@ Also missing is governments.  I've stripped out everything except Democracy and 
   - Carrier-borne.  Can operate from aircraft carriers (but not the Seaplane Tender).
   - Seaplane.  Floatplanes and flying-boats can operate from the Seaplane Tender (also the Light Aircraft Carrier).
   - Glider.  See airlanding-assault rules above.  Note that Gliders cannot land in Mountains.
+* Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
 * Land and sea units are very slow.  If you want to get anything done, you'll need to use planes to move stuff around.

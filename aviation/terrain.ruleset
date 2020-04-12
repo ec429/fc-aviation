@@ -1028,7 +1028,7 @@ shield      = 3 ; glacier used to have 4
 
 ; Player visible names of the base gui types.
 ui_name_base_fortress = _("?gui_type:Build Fortress")
-ui_name_base_airbase = _("?gui_type:Build Airbase")
+ui_name_base_airbase = _("?gui_type:Build Airbase/Buoy")
 
 ; /* <-- avoid gettext warnings
 ;
@@ -1412,6 +1412,35 @@ Airbases allow your air units to land and refuel outside cities. \
 Air units in an airbase may be attacked by land units.\
 ")
 
+[extra_buoy]
+name           = _("Buoy")
+category       = "Infra"
+causes         = "Base"
+rmcauses       = "Pillage"
+graphic        = "base.buoy"
+graphic_alt    = "base.airbase"
+activity_gfx   = "unit.buoy"
+act_gfx_alt    = "unit.airbase"
+act_gfx_alt2   = "-"
+rmact_gfx      = "None"
+rmact_gfx_alt  = "-"
+reqs           =
+    { "type", "name", "range", "present", "quiet"
+      "Tech", "Practical Seaplanes", "Player", TRUE, FALSE
+      "TerrainClass", "Oceanic", "Local", TRUE, FALSE
+      "UnitFlag", "Airbase", "Local", TRUE, FALSE
+      "CityTile", "Center", "Local", FALSE, TRUE
+    }
+build_time     = 3
+removal_time   = 0
+native_to      = "Seaplane"
+flags          = "Refuel"
+helptext       = _("\
+Buoys may be built in the ocean (by units on a sea-going vessel).  \
+They allow your seaplanes to land and refuel outside cities.  \
+Unlike Airbases, they do not prevent stack death.\
+")
+
 [extra_ruins]
 name           = _("Ruins")
 category       = "Bonus"
@@ -1558,6 +1587,10 @@ flags          = "NoAggressive", "NoStackDeath", "DiplomatDefense"
 extra          = "Airbase"
 gui_type       = "Airbase"
 flags          = "NoStackDeath", "ParadropFrom"
+
+[base_buoy]
+extra          = "Buoy"
+gui_type       = "Airbase"
 
 [base_ruins]
 extra          = "Ruins"
