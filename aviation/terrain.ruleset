@@ -267,7 +267,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "Swamp"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Tundra"
-native_to            = "Sea", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+native_to            = "Sea", "Air", "Carrier-borne", "Seaplane", "Helicopter"
 flags                = "NoCities", "NoBarbs", "NoPollution", "FreshWater", "NoZoc", "NoFortify"
 property_ocean_depth = 0
 color.r              = 46
@@ -310,7 +310,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "Swamp"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Glacier"
-native_to            = "Sea", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+native_to            = "Sea", "Air", "Carrier-borne", "Seaplane", "Helicopter"
 flags                = "NoCities", "NoPollution", "UnsafeCoast", "NoZoc", "NoFortify"
 property_ocean_depth = 32
 color.r              = 0
@@ -354,7 +354,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "no"
 cooler_wetter_result = "no"
 cooler_drier_result  = "no"
-native_to            = "Sea", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+native_to            = "Sea", "Air", "Carrier-borne", "Seaplane", "Helicopter"
 flags                = "NoCities", "NoPollution", "UnsafeCoast", "NoZoc", "NoFortify"
 property_ocean_depth = 87
 color.r              = 0
@@ -493,7 +493,7 @@ warmer_wetter_result = "Jungle"
 warmer_drier_result  = "Plains"
 cooler_wetter_result = "Swamp"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Air", "Carrier-borne", "Seaplane", "Helicopter"
 flags                = "Starter", "CanHaveRiver"
 property_cold        = 20
 property_wet         = 20
@@ -505,7 +505,7 @@ color.b              = 19
 helptext             = _("\
 Forests are densely wooded, making agriculture somewhat\
  problematic.\
-")
+"), _("Gliders cannot land in forests.")
 
 [terrain_grassland]
 name                 = _("Grassland")
@@ -629,7 +629,7 @@ warmer_wetter_result = "Lake"
 warmer_drier_result  = "Desert"
 cooler_wetter_result = "Swamp"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Air", "Carrier-borne", "Seaplane", "Helicopter"
 flags                = "CanHaveRiver"
 property_foliage     = 50
 property_tropical    = 50
@@ -640,7 +640,7 @@ color.b              = 38
 helptext             = _("\
 Jungles are densely overgrown, making agriculture somewhat\
  problematic.\
-")
+"), _("Gliders cannot land in jungles.")
 
 [terrain_mountains]
 name                 = _("Mountains")
@@ -675,7 +675,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "no"
 cooler_wetter_result = "no"
 cooler_drier_result  = "no"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Seaplane", "Helicopter"
+native_to            = "Air", "Carrier-borne", "Seaplane", "Helicopter"
 flags                = "CanHaveRiver"
 property_mountainous = 70
 color.r              = 129
@@ -685,7 +685,7 @@ helptext             = _("\
 Mountains are regions of extreme altitude, making agriculture and\
  trade very difficult.\
 "), _("\
-Gliders cannot be towed across mountain ranges.\
+Ground units cannot cross mountain ranges, and Gliders cannot land there.\
 ")
 
 [terrain_plains]
