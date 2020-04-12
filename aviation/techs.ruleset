@@ -589,7 +589,7 @@ helptext = _("")
 [advance_electronics_1935]
 name     = _("Electronics 1935")
 req1     = "Radio"
-req2     = "None"
+req2     = "Anti-Air Artillery" ; doesn't make thematic sense, but needed further downstream
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -837,7 +837,7 @@ helptext = _("")
 [advance_early_missiles]
 name     = _("Early Missiles")
 req1     = "Rocketry"
-req2     = "Anti-Air Artillery"
+req2     = "Airborne Radar"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
