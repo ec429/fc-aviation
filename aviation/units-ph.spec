@@ -55,6 +55,8 @@ tiles = { "row", "column", "tag"
   1, 12, "u.ph-FB" ; Fighter, Biplane
   1, 13, "u.ph-F3" ; Fighter, 30s
   1, 14, "u.ph-FT" ; Fighter, Turret
+  1, 18, "u.ph-RJ" ; Recon Jet
+  1, 19, "u.ph-RS" ; Recon, Supersonic
   2,  0, "u.ph-TF" ; Trench Fighter
   2,  1, "u.ph-A2" ; Attacker, 20s
   2,  2, "u.ph-A3" ; Attacker, 30s
