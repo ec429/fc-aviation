@@ -533,6 +533,40 @@ Ordinary riflemen, tanks, artillery etc.  Very good at \
 defending your cities.\
 ")
 
+[unit_artillery]
+name          = _("Artillery")
+class         = "Land"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.howitzer"
+graphic_alt   = "-"
+sound_move    = "m_howitzer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_howitzer"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 6
+defense       = 1
+hitpoints     = 6
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault", "Sea"
+flags         = "Cant_Fortify", "Bombarder", "CityBuster"
+bombard_rate  = 12
+roles         = ""
+helptext      = _("\
+Ordinary heavy artillery.  Its bombard attack is powerful, \
+but if caught out in the open it's vulnerable.\
+")
+
 [unit_assault]
 name          = _("Assault Troops")
 class         = "Assault"
@@ -564,6 +598,41 @@ roles         = "AttackStrongStartUnit"
 helptext      = _("\
 Airliftable riflemen, light tanks, artillery etc.  Can travel by \
 transport or glider.\
+")
+
+[unit_2pdr]
+name          = _("Assault Gun")
+class         = "Assault"
+tech_req      = "Glider Assault"
+obsolete_by   = "None"
+graphic       = "u.2pdr"
+graphic_alt   = "-"
+sound_move    = "m_artillery"
+sound_move_alt = "m_generic"
+sound_fight   = "f_artillery"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 5
+defense       = 1
+hitpoints     = 4
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+flags         = "Cant_Fortify", "Bombarder", "CityBuster"
+bombard_rate  = 8
+roles         = ""
+helptext      = _("\
+Airliftable light artillery.  Its bombard attack is fairly \
+powerful, but if caught out in the open it's extremely \
+vulnerable.  Can travel by transport or glider.\
 ")
 
 [unit_paratroopers]
