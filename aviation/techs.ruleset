@@ -789,7 +789,7 @@ helptext = _("")
 [advance_rocketry]
 name     = _("Rocketry")
 req1     = "Gas Turbine"
-req2     = "None"
+req2     = "Higher Speed"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
