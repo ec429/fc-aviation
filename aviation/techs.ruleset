@@ -263,6 +263,14 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
 
+[advance_effective_airships]
+name     = _("Effective Airships")
+req1     = "Early Blimp"
+req2     = "Zeppelin"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
 [advance_scouts_1916]
 name     = _("Scouts 1916")
 req1     = "Engines 1916"
@@ -355,6 +363,14 @@ helptext = _("")
 name     = _("Twenties Engines")
 req1     = "Engines 1917"
 req2     = "None"
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_twenties_airships]
+name     = _("Twenties Airships")
+req1     = "Effective Airships"
+req2     = "Twenties Engines"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")

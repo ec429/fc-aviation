@@ -746,7 +746,7 @@ Historical examples include the Zeppelin M-X.\
 name          = _("Coastal Blimp")
 class         = "Seaplane"
 tech_req      = "Early Blimp"
-obsolete_by   = "None"
+obsolete_by   = "Twenties Blimp"
 graphic       = "u.cblimp"
 graphic_alt   = "u.ph-ZC"
 sound_move    = "m_fighter"
@@ -777,6 +777,42 @@ Blimps are a cheaper alternative to the rigid Zeppelin, but \
 have shorter range.  They're used for coastal reconnaissance \
 and sub-hunting.  \
 Historical examples include the RNAS C-class.\
+")
+
+[unit_blimp_d]
+name          = _("Twenties Blimp")
+class         = "Seaplane"
+tech_req      = "Twenties Airships"
+obsolete_by   = "None"
+graphic       = "u.dblimp"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 25
+pop_cost      = 0
+attack        = 2
+defense       = 0
+hitpoints     = 5
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "Recon", "HasNoZOC"
+targets       = "Sea"
+roles         = "Explorer"
+helptext      = _("\
+Faster, more capable non-rigid airships are an effective \
+way to counter submarines.  \
+Historical examples include the US Navy D-6.\
 ")
 
 [unit_pioneer]

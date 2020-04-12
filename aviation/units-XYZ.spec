@@ -42,6 +42,6 @@ tiles = { "row", "column", "tag"
   0, 12, "u.thunderchief"; AS
   0, 13, "u.b2spirit"    ; currently unused
   0, 14, "u.skyhawk"     ; AN
-  0, 18, "u.cblimp"      ; ZC.  Was probably intended as a Zeppelin, but it's a late model (teardrop/icthyoid hull); ZS and ZB are straight-sided
+  0, 18, "u.dblimp"      ; ZD.  Was probably intended as a Zeppelin, but it's a late model (teardrop/icthyoid hull); ZS and ZB are straight-sided
   0, 19, "u.e3dsentry"   ; currently unused
 }
