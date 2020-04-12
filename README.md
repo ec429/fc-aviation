@@ -21,15 +21,17 @@ The main thing that's missing is tiles (and other art).  I made _one_ unit tile 
   - The idea is that Land units are defensive, and have heavy weapons (tanks, artillery), whereas Assault units can be brought rapidly into an attack but don't have as much equipment with them, making them weaker defenders.  Paratroops in particular will struggle to hold their gains unless quickly reinforced.
   - Neither the Airlift nor Paradrop actions are used.  Instead, units are loaded into specialised aircraft.
     + Assault units can load into Gliders, which in turn load into another aircraft (the tug: a medium or heavy bomber).  The tug flies to the drop zone, then the Glider unloads from the tug, then the Assault unit unloads from the Glider; the Glider is now stuck on the ground, so disband it.  (Unfortunately, it's possible to cheat by unloading from the Glider while it's still on tow.  I haven't figured out how to fix that yet.)
-    + Assault units can load and unload from transport aircraft at cities and airbases.
+    + Assault units can load and unload from transport aircraft at cities and airbases, or from helicopters anywhere.
     + Paratroops can unload from transport aircraft while in flight.
     + Some heavy bombers and flying-boats also have a small transport capacity.
+* Ground units cannot cross Mountain tiles.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
-* Aircraft are split into four unit classes:
+* Aircraft are split into five unit classes:
   - Air.  Ordinary landplanes refuel-at-cities-and-airbases, but can't use aircraft carriers.
   - Carrier-borne.  Can operate from aircraft carriers (but not the Seaplane Tender).
+  - Helicopter.  Can operate from aircraft carriers and the Helicopter Assault Carrier.  Can load and unload units in the field (without an airbase).
   - Seaplane.  Floatplanes and flying-boats can operate from the Seaplane Tender (also the Light Aircraft Carrier).
-  - Glider.  See airlanding-assault rules above.  Note that Gliders cannot land in Mountains.
+  - Glider.  See airlanding-assault rules above.  Note that Gliders cannot land in Mountains, Forests or Jungles.
 * Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).

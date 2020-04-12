@@ -197,7 +197,8 @@ hut_behavior  = "Frighten"
 flags         = "DoesntOccupyTile"
 helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
  units into combat areas.  Gliders are not capable of movement under\
- their own power, so must be towed around behind other Air units.")
+ their own power, so must be towed around behind other Air units. \
+ They cannot land in Mountains, Forests or Jungles.")
 
 ; /* <-- avoid gettext warnings
 ;
