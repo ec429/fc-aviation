@@ -719,7 +719,7 @@ sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 1
+attack        = 2
 defense       = 0
 hitpoints     = 6
 firepower     = 1
@@ -755,9 +755,9 @@ sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
 build_cost    = 24
 pop_cost      = 0
-attack        = 0
+attack        = 1
 defense       = 0
-hitpoints     = 4
+hitpoints     = 5
 firepower     = 1
 move_rate     = 4
 vision_radius_sq = 2
@@ -770,10 +770,12 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 flags         = "Recon", "HasNoZOC"
+targets       = "Sea"
 roles         = "Explorer"
 helptext      = _("\
 Blimps are a cheaper alternative to the rigid Zeppelin, but \
-have shorter range and aren't (yet) armed.  \
+have shorter range.  They're used for coastal reconnaissance \
+and sub-hunting.  \
 Historical examples include the RNAS C-class.\
 ")
 
@@ -4341,6 +4343,40 @@ helptext      = _("\
 The Seaplane Tender is the earliest form of aviation ship.  \
 It can carry and launch seaplanes, but its slow speed means \
 it's hard to get in position for a strike.\
+")
+
+[unit_sub]
+name          = _("Submersible")
+class         = "Sea"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.submarine"
+graphic_alt   = "-"
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 4
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "Only_Native_Attack", "Bombarder"
+bombard_rate  = 6
+targets       = "Sea"
+helptext      = _("\
+Submersible torpedo boats can use their stealthiness to damage \
+enemy shipping, but they're extremely vulnerable to attack from \
+the air — blimps and patrol boats are ideal sub hunters.\
 ")
 
 [unit_cvl]
