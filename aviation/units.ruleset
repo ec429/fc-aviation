@@ -559,7 +559,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = ""
+flags         = "Fanatic"
 roles         = "AttackStrongStartUnit"
 helptext      = _("\
 Airliftable riflemen, light tanks, artillery etc.  Can travel by \
@@ -593,7 +593,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 disembarks    = "Air"
-flags         = "Marines"
+flags         = "Marines", "Fanatic"
 roles         = "AttackFastStartUnit"
 helptext      = _("\
 Paratroops are experts at airborne attacks. \
@@ -3300,7 +3300,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "OneAttack", "Fanatic"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -3336,7 +3336,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "OneAttack", "Fanatic"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -3372,7 +3372,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Fanatic"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \
