@@ -753,7 +753,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = "OneAttack"
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Zeppelin Bombers are slow but have long range, allowing them \
 to strike at distant ground targets.  \
@@ -1276,7 +1276,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Rifles pivoted to the fuselage side, firing at an angle to \
 avoid the propeller arc, give the first 'fighter' scouts a \
@@ -1311,7 +1311,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The first fighters to be equipped with an interrupter gear \
 (or functional equivalent) have poor performance but \
@@ -1347,7 +1347,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Pusher configuration biplanes can mount a forward-firing gun \
 without the need for synchronisation gear.  \
@@ -1381,7 +1381,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 A narrow-chord lower wing gives these scouts some of the \
 advantages of both biplane and monoplane designs.  \
@@ -1417,7 +1417,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The triplane wing configuration gives great climb rate and \
 manoeuvrability, but uninspiring speed.  \
@@ -1452,7 +1452,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The classic First World War fighter layout is a single-bay \
 equal-span biplane with a rotary engine.  \
@@ -1486,7 +1486,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Though faster and stronger than the Biplane Scout, to the \
 uninitiated it looks much the same.  \
@@ -1521,7 +1521,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Continued evolutionary development of biplane scouts pushes \
 speeds above 200 mph.  \
@@ -1556,7 +1556,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Trading off manoeuvrability for increased speed and armament, \
 designers began to switch to the cantilever monoplane fighter.  \
@@ -1592,7 +1592,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Stressed aluminium skins and improved aerodynamics allowed \
 higher-performing monoplane fighters.  \
@@ -1628,7 +1628,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Heavier armament was found necessary to take down bombers as \
 the latter were beginning to carry appreciable armour plate.  \
@@ -1663,7 +1663,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The pinnacle of piston-engined fighter development.  \
 More manœuvrable than jets, but not as fast.  \
@@ -1698,7 +1698,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Twin wing-mounted turbojets allow high top speed but \
 acceleration is poor.  Heavy nose-mounted armament.  \
@@ -1733,7 +1733,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Single-engined 'light fighters' present a cheap and \
 manœuvrable variation on jet fighter design.  \
@@ -1768,7 +1768,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Maturing transonic design allows higher performance, while \
 air-to-air missiles greatly increase lethality.  \
@@ -1804,7 +1804,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Point-defence jet fighters attain supersonic speed through the \
 use of reheat, but their endurance is limited.  \
@@ -1839,7 +1839,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Air-superiority fighters have the ability to penetrate deep \
 into enemy airspace, but they're more expensive than interceptors \
@@ -1875,7 +1875,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Developed light fighters offer Mach 0.95 on the cheap.  \
 Historical examples include the Fiat G.91 and Follant Gnat.\
@@ -1908,7 +1908,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 An observer in front of the pilot operates the pintle-mounted \
 machine gun.  \
@@ -1942,7 +1942,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Combining a synchronised offensive machine gun with a ring-\
 mounted defensive gun.  \
@@ -1976,7 +1976,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 A more manoeuvrable and capable two-seater scout.  \
 Historical examples include the Bristol F.2 Fighter and \
@@ -2010,7 +2010,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 A conversion of a biplane light bomber into an updated \
 Fighter Biplane.  \
@@ -2044,7 +2044,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Applying the Fighter Biplane concept to a modern monoplane, \
 with a powered enclosed turret.  \
@@ -2078,7 +2078,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Essentially a Biplane Scout with some armour plating at the \
 front, as specialisation for ground attack.  \
@@ -2113,7 +2113,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Two-seat ground attack biplane, outwardly resembling a \
 larger Twenties Fighter.  \
@@ -2148,7 +2148,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Streamlined ground attack aircraft; depending on \
 national design doctrine, may be either monoplane \
@@ -2184,7 +2184,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Tank-destroyer monoplane.  \
 Historical examples include the Ilyushin Il-2, \
@@ -2219,7 +2219,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Fighter-bomber using early jet engine.  \
 Historical examples include the Republic F-84 Thunderjet.\
@@ -2252,7 +2252,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Swept-wing jet fighter-bomber.  \
 Historical examples include the Republic F-84F Thunderstreak \
@@ -2286,7 +2286,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Fighter-bomber with reheat for supersonic speed.  \
 Historical examples include the Republic F-105 Thunderchief.\
@@ -2319,7 +2319,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Twin-engined bomber-destroyer and/or escort fighter, \
 with heavy armament and long range.  \
@@ -2354,7 +2354,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = "Recon", "Diplomat", "Spy"
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 High-performance twin-engine fighter.  \
 Historical examples include the Lockheed P-38 Lightning \
@@ -2388,7 +2388,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Twin-engined jet fighters with heavy radar equipment can be \
 formidable, but they're quite expensive to build.  \
@@ -2424,7 +2424,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Lightly navalised versions of Biplane Scouts can be operated \
 from the earliest aircraft carriers.  \
@@ -2460,7 +2460,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Lightly navalised Twenties Scout.  \
 Historical examples include the Fairey Flycatcher and \
@@ -2496,7 +2496,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Lightly navalised Thirties Scout.  \
 Historical examples include the Hawker Nimrod and \
@@ -2532,7 +2532,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 CATOBAR fighter monoplane.  \
 Historical examples include the Fairey Fulmar and \
@@ -2568,7 +2568,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter", "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 CATOBAR fighter monoplane with strike capability.  \
 Historical examples include the Fairey Firefly and \
@@ -2604,7 +2604,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 High-performance CATOBAR fighter monoplane.  \
 Historical examples include the Supermarine Seafire I and \
@@ -2640,7 +2640,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Both high-performance and heavily armed.  \
 Historical examples include the Supermarine Seafire XV and \
@@ -2676,7 +2676,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Carrier-borne Superprop Fighter.  \
 Historical examples include the Hawker Sea Fury.\
@@ -2711,7 +2711,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Carrier-borne ground-attack aircraft.  \
 Historical examples include the Supermarine Seafire XV and \
@@ -2747,7 +2747,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 First-generation shipborne jet fighter.  \
 Historical examples include the Supermarine Attacker \
@@ -2783,7 +2783,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Transonic shipborne jet fighter.  \
 Historical examples include the de Havilland Sea Venom \
@@ -2819,7 +2819,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Swept-wing shipborne strike aircraft, capable of attacking \
 both ground troops and shipping.  \
@@ -2926,7 +2926,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
 flags         = "OneAttack"
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The Armed Floatplane can bomb land or sea targets, but isn't \
 capable of air-to-air combat.  \
@@ -2962,7 +2962,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = ""
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The Floatplane Fighter is a seaplane with offensive guns, \
 allowing it to provide some air cover for seaplane carriers.  \
@@ -2999,7 +2999,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Sea"
 flags         = "OneAttack"
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 With the ability to carry a torpedo, attack floatplanes \
 become far more effective at taking out enemy ships.  \
@@ -3035,7 +3035,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Sea"
 flags         = "OneAttack"
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 Increasing engine power allows a larger (hence more \
 destructive) torpedo to be carried.  \
@@ -3071,7 +3071,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Sea"
 flags         = "OneAttack"
-roles         = "Hunter"
+roles         = ""
 helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
 to defend itself.  \
@@ -4469,7 +4469,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Seaplane"
 flags         = "BadCityDefender", "HasNoZOC"
-roles         = "Ferryboat", "FerryStartUnit"
+roles         = "FerryStartUnit"
 helptext      = _("\
 The Seaplane Tender is the earliest form of aviation ship.  \
 It can carry and launch seaplanes, but its slow speed means \
@@ -4537,7 +4537,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Helicopter"
 flags         = "BadCityDefender", "HasNoZOC"
-roles         = "Ferryboat"
+roles         = ""
 helptext      = _("\
 Helicopter Assault Carriers can be used to transport helicopters \
 across water; the helicopters can in turn be carrying assault \
@@ -4571,7 +4571,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Seaplane", "Helicopter"
 flags         = "BadCityDefender"
-roles         = "Ferryboat"
+roles         = ""
 helptext      = _("\
 Early aircraft carriers can transport and launch a small number \
 of naval aeroplanes and seaplanes.\
@@ -4604,7 +4604,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Helicopter"
 flags         = "BadCityDefender"
-roles         = "Ferryboat", "FerryStartUnit"
+roles         = ""
 helptext      = _("\
 Aircraft carriers can transport and launch naval \
 aeroplanes in large numbers.\
@@ -4637,7 +4637,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Helicopter"
 flags         = "BadCityDefender"
-roles         = "Ferryboat"
+roles         = ""
 helptext      = _("\
 Nuclear-powered aircraft carriers can transport and launch \
 extremely large strike groups of naval aeroplanes.\
