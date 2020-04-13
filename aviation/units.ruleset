@@ -2091,7 +2091,7 @@ name          = _("Twenties Attacker")
 class         = "Air"
 tech_req      = "Twenties Fighters"
 obsolete_by   = "Thirties Attacker"
-graphic       = "u.falcon"
+graphic       = "u.potez25"
 graphic_alt   = "u.ph-A2"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
@@ -2117,7 +2117,8 @@ roles         = "Hunter"
 helptext      = _("\
 Two-seat ground attack biplane, outwardly resembling a \
 larger Twenties Fighter.  \
-Historical examples include the Curtiss Falcon.\
+Historical examples include the Curtiss O-1B Falcon and \
+Potez 25.\
 ")
 
 [unit_30s_attacker]
@@ -2125,7 +2126,7 @@ name          = _("Thirties Attacker")
 class         = "Air"
 tech_req      = "Thirties Fighters"
 obsolete_by   = "Attacker"
-graphic       = "u.curtiss"
+graphic       = "u.he51c"
 graphic_alt   = "u.ph-A3"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
@@ -2330,7 +2331,7 @@ and Bristol Beaufighter.\
 name          = _("Heavy Fighter")
 class         = "Air"
 tech_req      = "Fighters 1942"
-obsolete_by   = "None" ; "All-Weather Jet Fighter"
+obsolete_by   = "All-Weather Jet Fighter"
 graphic       = "u.mosquito"
 graphic_alt   = "u.ph-FH"
 sound_move    = "m_fighter"
@@ -2395,7 +2396,7 @@ Historical examples include the Gloster Javelin.\
 ")
 
 [unit_shipborne_fighter]
-name          = _("Shipborne Fighter")
+name          = _("Shipboard Fighter")
 class         = "Carrier-borne"
 tech_req      = "Aircraft Carrier"
 obsolete_by   = "Twenties Naval Fighter"
@@ -2471,7 +2472,7 @@ name          = _("Thirties Naval Fighter")
 class         = "Carrier-borne"
 tech_req      = "Thirties Carrier Aviation"
 obsolete_by   = "Monoplane Naval Fighter"
-graphic       = "u.nimrod"
+graphic       = "u.fifi"
 graphic_alt   = "u.ph-N3"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
@@ -2570,8 +2571,8 @@ flags         = ""
 roles         = "Hunter"
 helptext      = _("\
 CATOBAR fighter monoplane with strike capability.  \
-Historical examples include the Fairey Fulmar and \
-Grumman F4F Wildcat.\
+Historical examples include the Fairey Firefly and \
+Grumman F6F Hellcat.\
 ")
 
 [unit_naval_dog]

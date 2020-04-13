@@ -67,7 +67,7 @@ tiles = { "row", "column", "tag"
   2, 10, "u.ph-EF" ; Early Heavy Fighter / Escort Fighter
   2, 11, "u.ph-FH" ; Fighter, Heavy
   2, 12, "u.ph-JA" ; Jet Fighter, All Weather
-  3,  0, "u.ph-SF" ; Shipborne Fighter
+  3,  0, "u.ph-SF" ; Shipboard Fighter
   3,  1, "u.ph-N2" ; Naval Fighter, 20s
   3,  2, "u.ph-N3" ; Naval Fighter, 30s
   3,  3, "u.ph-NM" ; Naval Fighter, Monoplane
