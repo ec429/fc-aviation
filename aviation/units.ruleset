@@ -2723,7 +2723,7 @@ name          = _("Early Naval Jet")
 class         = "Carrier-borne"
 tech_req      = "Carrier-borne Jets"
 obsolete_by   = "Swept-wing Naval Fighter"
-graphic       = "u.attacker"
+graphic       = "u.panther"
 graphic_alt   = "u.ph-NJ"
 sound_move    = "m_stealth_fighter"
 sound_move_alt = "m_generic"
@@ -2866,7 +2866,7 @@ name          = _("Floatplane Scout")
 class         = "Seaplane"
 tech_req      = "Practical Seaplanes"
 obsolete_by   = "Floatplane Fighter"
-graphic       = "u.short41"
+graphic       = "u.schneider"
 graphic_alt   = "u.ph-HS"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
@@ -3515,7 +3515,7 @@ name          = _("Thirties Dive Bomber")
 class         = "Carrier-borne"
 tech_req      = "Thirties Bombers"
 obsolete_by   = "Dive Bomber"
-graphic       = "u.hs123"
+graphic       = "u.sbchell"
 graphic_alt   = "u.ph-D3"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
@@ -3542,8 +3542,8 @@ flags         = "OneAttack", "Fanatic"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
-Historical examples include the Heinkel He 50 and \
-Henschel Hs 123.\
+Historical examples include the Heinkel He 50, \
+Henschel Hs 123 and Curtiss SBC Helldiver.\
 ")
 
 [unit_diver]
@@ -3760,7 +3760,7 @@ name          = _("Early Bomber")
 class         = "Air"
 tech_req      = "Bombers 1916"
 obsolete_by   = "Biplane Bomber"
-graphic       = "u.caproni3"
+graphic       = "u.o400"
 graphic_alt   = "u.ph-BE"
 sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
@@ -3852,8 +3852,8 @@ flags         = "OneAttack"
 helptext      = _("\
 More powerful engines allowed heavier biplane bombers — \
 still not so massive as the triplanes, but big enough.  \
-Historical examples include the Handley Page V/1500 and \
-Vickers Vimy.\
+Historical examples include the Handley Page V/1500, \
+Vickers Vimy and Gotha G.IV.\
 ")
 
 [unit_20s_bomber]
@@ -3933,7 +3933,7 @@ name          = _("Four-engine Bomber")
 class         = "Air"
 tech_req      = "Bombers 1939"
 obsolete_by   = "Heavy Bomber"
-graphic       = "u.b17"
+graphic       = "u.stirling"
 graphic_alt   = "u.ph-B4"
 sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
