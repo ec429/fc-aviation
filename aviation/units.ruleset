@@ -703,7 +703,7 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
-build_cost    = 40
+build_cost    = 30
 pop_cost      = 0
 attack        = 0
 defense       = 0
@@ -752,7 +752,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 6
 roles         = ""
 helptext      = _("\
 Zeppelin Bombers are slow but have long range, allowing them \
@@ -1038,7 +1039,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "Recon", "OneAttack"
+flags         = "Recon", "OneAttack", "Bombarder"
+bombard_rate  = 4
 helptext      = _("\
 With increasing engine power, recon aircraft begin to be able \
 to carry bombs.  Only small bombs, but still - deadly enough.  \
@@ -1071,7 +1073,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 4
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
 to 400-500lb, this is a militarily useful light bomber.  \
@@ -1092,7 +1095,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 30
 pop_cost      = 0
 attack        = 3
-defense       = 1
+defense       = 2
 hitpoints     = 10
 firepower     = 1
 move_rate     = 5
@@ -1104,7 +1107,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 4
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
@@ -1125,7 +1129,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 30
 pop_cost      = 0
 attack        = 3
-defense       = 1
+defense       = 3
 hitpoints     = 12
 firepower     = 1
 move_rate     = 6
@@ -1137,7 +1141,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 5
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
 the 1920s are but an incremental improvement.  \
@@ -1159,9 +1164,9 @@ sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
 attack        = 3
-defense       = 1
+defense       = 3
 hitpoints     = 16
-firepower     = 2
+firepower     = 1
 move_rate     = 10
 vision_radius_sq = 5
 transport_cap = 0
@@ -1171,7 +1176,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 5
 helptext      = _("\
 Built along similar lines to the Early Monoplane Fighter, \
 these monoplane light bombers are faster than older models \
@@ -1195,7 +1201,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
 attack        = 4
-defense       = 2
+defense       = 3
 hitpoints     = 16
 firepower     = 2
 move_rate     = 11
@@ -1206,8 +1212,9 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+targets       = "Land", "Assault", "Sea"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 3
 helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
 extra weight of 1000lb of bombs, but make for a bigger \
@@ -2925,7 +2932,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 3
 roles         = ""
 helptext      = _("\
 The Armed Floatplane can bomb land or sea targets, but isn't \
@@ -3106,7 +3114,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 4
 roles         = ""
 helptext      = _("\
 Bomb-carrying flying-boat; long range but vulnerable.  \
@@ -3141,7 +3150,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 4
 roles         = ""
 helptext      = _("\
 Larger and more powerful than the Early Flying Boat, \
@@ -3502,7 +3512,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack", "Fanatic"
+flags         = "OneAttack", "Fanatic", "Bombarder"
+bombard_rate  = 10
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -3538,7 +3549,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack", "Fanatic"
+flags         = "OneAttack", "Fanatic", "Bombarder"
+bombard_rate  = 12
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -3574,7 +3586,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "Fanatic"
+flags         = "OneAttack", "Fanatic", "Bombarder"
+bombard_rate  = 16
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \
@@ -3610,7 +3623,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 6
 helptext      = _("\
 A new category opened up between the light and heavy bombers, \
 medium bombers can fight their way through at least some \
@@ -3645,7 +3659,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 6
 helptext      = _("\
 Monoplane medium bombers using new construction techniques \
 are more effective fighting machines.  They can also make \
@@ -3680,7 +3695,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 The best propellor-driven medium bombers are rugged and \
 surprisingly fast, with a payload of around two tons.  \
@@ -3714,7 +3730,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -3747,7 +3764,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "Recon", "Diplomat", "Spy", "OneAttack"
+flags         = "Recon", "Diplomat", "Spy", "OneAttack", "Bombarder"
+bombard_rate  = 6
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
@@ -3781,7 +3799,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 6
 helptext      = _("\
 The first aircraft designed for long-range bombing were \
 slow, lumbering biplanes.  \
@@ -3815,7 +3834,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Large triplane bombers carried a heavy payload but \
 at a very slow speed.  \
@@ -3848,7 +3868,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 7
 helptext      = _("\
 More powerful engines allowed heavier biplane bombers — \
 still not so massive as the triplanes, but big enough.  \
@@ -3883,7 +3904,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Applying post-war engineering to the basic biplane bomber \
 yielded a more robust and powerful aircraft.  Also capable \
@@ -3919,7 +3941,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Metal-framed heavy bombers were faster and stronger.  \
 Depending on national design doctrine, they might be \
@@ -3955,7 +3978,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 10
 helptext      = _("\
 Pre-war four-engined heavy.  Increased payload and speed.  \
 Historical examples include the Short Stirling and \
@@ -3989,7 +4013,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Four-engined strategic bomber.  Being optimised for the \
 bombing role, it cannot transport troops.  \
@@ -4023,7 +4048,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
@@ -4057,7 +4083,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 8
 helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
 Historical examples include the Vickers Valiant and \
@@ -4090,7 +4117,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack"
+flags         = "OneAttack", "Bombarder"
+bombard_rate  = 10
 helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
 delivery mechanism for nuclear weapons, though they are \
@@ -4420,7 +4448,7 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 30
 pop_cost      = 0
 attack        = 0
 defense       = 1
@@ -4453,7 +4481,7 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 50
 pop_cost      = 0
 attack        = 0
 defense       = 1
@@ -4487,7 +4515,7 @@ sound_move    = "m_submarine"
 sound_move_alt = "m_generic"
 sound_fight   = "f_submarine"
 sound_fight_alt = "f_generic"
-build_cost    = 50
+build_cost    = 30
 pop_cost      = 0
 attack        = 2
 defense       = 1
@@ -4521,7 +4549,7 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 50
+build_cost    = 40
 pop_cost      = 0
 attack        = 0
 defense       = 1
