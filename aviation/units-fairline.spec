@@ -10,8 +10,9 @@ options = "+Freeciv-2.6-spec"
 ; Modified for freeciv (mainly transparency) by ec429
 ; Used with permission.
 
-; Fairline's WW2 unit compilations (from
+; Includes images from Fairline's WW2 unit compilations (from
 ; https://forums.civfanatics.com/threads/ww2-unit-graphics.409277/page-43)
+; which may include some by other artists
 ; Images credited ec429 are kitbashed from Fairline originals
 artists = "
     Fairline [GB]
