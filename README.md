@@ -64,3 +64,61 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * Unhappiness from units in the field is only 1 under Democracy (and zero for other governments).
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
 * Workers are called Seabees.
+
+## Aircraft category usage
+
+There are a lot of different kinds of aircraft, and it's important to know how they're used.
+
+### Level Bombers
+
+Light, Medium and Heavy Bombers all have bombard attacks.  The larger bombers do progressively more damage, but are more vulnerable to fighters — attacking ends their movement for the turn, giving fighters a chance at them.  Try to 'use up' the enemy's fighters with sweeps before sending in your heavy bombers.
+
+### Dive Bombers
+
+These also have bombard attacks, but are very powerful for their size — on average they do slightly more damage than comparable heavy bombers.  However, they're short-ranged and _very_ vulnerable — even a Biplane Scout has a decent chance to shoot down a Dive Bomber.  If you have air superiority, though, dive-bombing can throw the enemy's ground forces into total disarray.
+
+### Attackers and Strike Fighters
+
+These fight regular combat, but attacking does _not_ end their turn (they only have 1 fuel).  They can take out assault units in the field (especially if weakened by bombing), but are unlikely to survive attacks on defensive Troops or units fortified in cities.
+
+### Torpedo Bombers
+
+These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  They fight regular combat, and are quite effective on the attack.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence).
+
+After TBs become obsolete, the Naval Attack Jet can take on the same role (it can also operate as an Attacker).
+
+### Flying Boats
+
+The first two (Early Flying Boat and Patrol Boat) operate like slightly longer-ranged light bombers (with a bombard attack), but the Twenties, Thirties and Heavy Flying Boat all fight regular combat and can attack ships.  Combined with their long endurance, this makes them great sub-hunters.  And (like all seaplanes) they can use Buoys and Seaplane Tenders as refuelling bases.
+
+### Lighter Than Air
+
+The Zeppelin Scout is pure recon, but the Zeppelin Bomber is a long-range (though slow) level bomber, while the blimps attack naval units, making them the _other_ great sub-hunters — much cheaper than flying-boats but not quite as powerful.
+
+### Transports
+
+Transport aircraft are a fast way to move Assault-class units around, but can only land in cities or at prepared airbases.  (Getting some Seabees onto a beachhead and having them build an airbase can be an effective way to pour units into an invasion.)  Transports have no combat strength, so make sure to provide plenty of air cover!  Some bombers can transport a small number of units, as can some flying-boats — and the latter can unload units from a Buoy in coastal waters (which **might** be slightly safer than trying to build a base ashore).
+
+Also, paratroopers can deploy from transports in flight.
+
+### Gliders
+
+When you need to land troops somewhere, and you don't have any airbases there, you can't land transports — but you _can_ land _gliders_.  You won't get them back, though; but hey, they're cheap to build, and if the invasion goes according to plan you'll only need them once.  They do need to be towed to the LZ, though, which is a good use for obsolescent bombers (and you _do_ get the bombers back.  Unless the enemy shoots them down).
+
+### Helicopters
+
+The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!
+
+### Fighters
+
+Fighters can be used to hack down enemy bombers — even if you're not quick enough to catch them before they bomb, they'll be stuck where they are for the rest of the turn so you've got plenty of time to attack them.
+
+Fighters can also escort attackers on strike missions (since the strike doesn't end the attacker's turn): move the fighter next to the target, then move the attacker onto the same square.  After the strike, move the attacker home and then follow with the fighter.
+
+#### Escort Fighters
+
+These heavier fighters aren't quite as good in a dogfight as their single-engined brethren, but their big advantage is that they have 2 turns of fuel, meaning they can cover a bombing raid, staying with the bombers after the turn ends.
+
+### Carrier Wing
+
+An aircraft carrier's loadout will probably be some mix of TBs, DBs, attackers and fighters.  The TBs go after enemy carriers, the fighters (CAP, Combat Air Patrol) deal with any strikes the enemy carriers launched, and the DBs and attackers support operations on land.  (The fighters might also fly some escort missions.)  The proportions of the different types will depend on what you expect to be fighting against — if the enemy has a lot of carriers, you'll need sizeable TB and CAP contingents, but if the enemy's airpower is weak in the theatre of operations you might be able to fill up with strike aircraft instead.
