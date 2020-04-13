@@ -13,7 +13,7 @@ Bombers, dive bombers, torpedo bombers and strike aircraft attack ground (or in 
 
 The rules all seem to be working, although we're a bit short on City Improvements and (especially) Wonders.  The tech-tree goes up to the 1950s, but will be extended up to the present day in later versions.  Balancing has been done by rule-of-thumb only — there has not been much playtesting yet, so some units might be useless while others are overpowered.
 
-The main thing that's missing is tiles (and other art).  I made _one_ unit tile (the Pioneer), and it took a whole night; so I've decided to use a bunch of placeholders for now (units are two-letter codes, vaguely reminiscent of hull symbols, while buildings are just using vaguely-appropriate-looking classic building images) while I get the ruleset sorted out.
+The main thing that's missing is tiles (and other art).  Making art takes a long time, and though Fairline kindly allowed me to use some of his unit sprites, there are a few gaps that I couldn't find anything suitable for; so I've decided to use a bunch of placeholders for now (units are two-letter codes, vaguely reminiscent of hull symbols, while buildings are just using vaguely-appropriate-looking classic building images) while I get the ruleset sorted out.
 
 ## Significant Rule Changes
 
