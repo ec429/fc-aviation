@@ -93,4 +93,11 @@ tiles = { "row", "column", "tag"
   2, 17, "u.stirling"    ; B4 Four-engine Bomber (Short Stirling) [GB]
   2, 18, "u.lancaster"   ; BH Heavy Bomber (Avro Lancaster) [GB]
   2, 19, "u.b29"         ; BS Superprop Bomber (Boeing B-29 Superfortress) [GB]
+  3,  0, "u.vulcan"      ; BJ Jet Bomber (Avro Vulcan) [GB]
+  3,  1, "u.ju52"        ; CM Monoplane Transport (Junkers Ju 52) [GB]
+  3,  2, "u.dfs"         ; GG Assault Glider (DFS 230) [GB]
+  3,  3, "u.seaplane-tender" ; Seaplane Tender (Auxiliary ship of some sort) [GB]
+  3,  4, "u.cvl"         ; CVL Early Aircraft Carrier (HMS Furious) [GB]
+  3,  5, "u.cv"          ; CV Aircraft Carrier (HMS Ark Royal) [GB]
+  3,  6, "u.lcmboat"     ; Landing Craft (LCM) [GB]
 }

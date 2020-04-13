@@ -33,7 +33,7 @@ tiles = { "row", "column", "tag"
   0,  3, "u.p51h"        ; FF
   0,  4, "u.stuka"       ; DB
 ; 0,  5, "u.b17"         ; B4.  Probably a B17E or F (which would strictly be BH but I want a Lancaster dammit).
-  0,  6, "u.c47"         ; CM
+; 0,  6, "u.c47"         ; CM
 ; 0,  7, "u.mig15"       ; FW
   0,  8, "u.b47"         ; B1.  It might be meant as a B-52 (but again, I want a Vulcan in that slot).
   0,  9, "u.eurofighter" ; currently unused
