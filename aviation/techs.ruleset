@@ -196,7 +196,7 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Engine performance has always been the driving\
  factor behind aviation advancement.  Developing more powerful\
- engines will unlock new possibilities.")
+ engines unlocked new possibilities.")
 
 [advance_bombers_1915]
 name     = _("Bombers 1915")
@@ -238,7 +238,9 @@ req2     = "Engines 1915"
 cost     = 164
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The development of air-droppable torpedoes\
+ turned the floatplane into a viable threat to surface\
+ ships.  1915.")
 
 [advance_engines_1916]
 name     = _("Engines 1916")
@@ -246,7 +248,9 @@ req1     = "Engines 1915"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The power and reliability of aero-engines\
+ such as the Clerget air-cooled rotary continued to\
+ increase.")
 
 [advance_bombers_1916]
 name     = _("Bombers 1916")
@@ -254,7 +258,8 @@ req1     = "Bombers 1915"
 req2     = "Engines 1916"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Large, multi-engined bombers with the ability\
+ to deliver heavy loads made strategic airpower a reality.")
 
 [advance_anti_air_artillery]
 name     = _("Anti-Air Artillery")
@@ -262,7 +267,9 @@ req1     = "Bombers 1916"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Fearing the possible effects of heavy bombing,\
+ nations converted artillery pieces into new weapons for\
+ defense against air attack.")
 
 [advance_early_blimp]
 name     = _("Early Blimp")
@@ -271,7 +278,8 @@ req2     = "Engines 1916"
 cost     = 72
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The non-rigid airship was developed for military\
+ use as an inexpensive maritime reconnaissance platform.  1916.")
 
 [advance_effective_airships]
 name     = _("Effective Airships")
@@ -280,7 +288,9 @@ req2     = "Zeppelin"
 cost     = 156
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The combined efforts of the rigid and non-rigid\
+ airship advocates led to more viable lighter-than-air craft. \
+ 1919.")
 
 [advance_scouts_1916]
 name     = _("Scouts 1916")
@@ -288,15 +298,19 @@ req1     = "Engines 1916"
 req2     = "Effective Scouts"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("New design techniques for fighter aircraft made\
+ the skies that much deadlier a place for everyone else.")
 
 [advance_flying_boat]
 name     = _("Flying Boat")
 req1     = "Military Seaplanes"
 req2     = "Engines 1916"
+cost     = 200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("With their large hulls, flying-boats represented\
+ a more rugged approach to seaplane design, more suited to long-\
+range bombers.  1916.")
 
 [advance_triplanes]
 name     = _("Triplanes")
@@ -304,7 +318,9 @@ req1     = "Engines 1916"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Taking the structural advantages of the biplane one\
+ step further, triplane fighters proved highly agile, although\
+ involving compromises in other areas.  Early 1917.")
 
 [advance_engines_1917]
 name     = _("Engines 1917")
@@ -312,7 +328,8 @@ req1     = "Engines 1916"
 req2     = "Aircraft Industry"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Still more powerful aero-engines were developed by\
+ the burgeoning aircraft industries of air-minded nations.")
 
 [advance_bombers_1917]
 name     = _("Bombers 1917")
@@ -320,7 +337,8 @@ req1     = "Bombers 1916"
 req2     = "Engines 1917"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Biplane bombers increased in load-carrying ability,\
+ posing a greater threat to enemies on land and sea.")
 
 [advance_aircraft_carrier]
 name     = _("Aircraft Carrier")
@@ -328,7 +346,10 @@ req1     = "Engines 1917"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("After early experiments demonstrated the practicability\
+ of operating aeroplanes from the decks of ships, navies began to\
+ convert vessels for use as aircraft carriers.  The carrier-borne\
+ torpedo bomber posed a particular threat to surface ships.  1918.")
 
 [advance_triplane_bombers]
 name     = _("Triplane Bombers")
@@ -337,7 +358,8 @@ req2     = "Bombers 1916"
 cost     = 240
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Some designers chose to apply the triplane principle\
+ to the construction of bombers, allowing even greater size.  1917.")
 
 [advance_scouts_1917]
 name     = _("Scouts 1917")
@@ -345,23 +367,29 @@ req1     = "Scouts 1916"
 req2     = "Engines 1917"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Ever-more-powerful engines (especially rotaries)\
+ made the twin-gun biplane scout the defining image of World\
+ War One in the air.")
 
 [advance_seaplanes_1917]
 name     = _("Seaplanes 1917")
 req1     = "Effective Seaplanes"
 req2     = "Engines 1917"
+cost     = 250
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Floatplanes continued to increase in power and\
+ load-carrying ability.")
 
 [advance_practical_flying_boat]
 name     = _("Practical Flying Boat")
 req1     = "Flying Boat"
 req2     = "Engines 1917"
+cost     = 256
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The flying-boat developed into a useful maritime\
+ patrol aircraft.  1918.")
 
 [advance_streamlining]
 name     = _("Streamlining")
@@ -369,7 +397,8 @@ req1     = "Scouts 1916"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("New techniques for reducing drag allowed airspeeds\
+ to rise.  1920.")
 
 [advance_twenties_engines]
 name     = _("Twenties Engines")
@@ -377,7 +406,9 @@ req1     = "Engines 1917"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Postwar engines were reliable enough that flight\
+ began to lose its 'daredevil' image, and ordinary people took\
+ seriously the idea of civilian air travel.")
 
 [advance_twenties_airships]
 name     = _("Twenties Airships")
@@ -386,7 +417,8 @@ req2     = "Twenties Engines"
 cost     = 240
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Lighter-than-air craft continued to improve, as\
+ the future did not yet obviously belong to the aeroplane.")
 
 [advance_mass_production]
 name     = _("Mass Production")
@@ -394,7 +426,9 @@ req1     = "Aircraft Industry"
 req2     = "Twenties Engines"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The mass-production methods developed in the car\
+ industry began to be applied to the growing aviation sector. \
+ 1924.")
 
 [advance_twenties_bombers]
 name     = _("Twenties Bombers")
@@ -402,7 +436,9 @@ req1     = "Bombers 1917"
 req2     = "Twenties Engines"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("As bomber designers absorbed the lessons of the\
+ Great War, new concepts like the 'fighting' medium bomber and\
+ carrier-capable dive bomber entered the lexicon.")
 
 [advance_general_aviation]
 name     = _("General Aviation")
@@ -410,7 +446,8 @@ req1     = "Twenties Engines"
 req2     = "Streamlining"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The post-war barnstormers began to find economic\
+ niches for small aircraft operated by small businesses.  1921.")
 
 [advance_twenties_carrier_aviation]
 name     = _("Twenties Carrier Aviation")
@@ -418,7 +455,8 @@ req1     = "Aircraft Carrier"
 req2     = "General Aviation"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Post-war aviation technology went to sea, giving\
+ aircraft carriers a useful increase in capability.")
 
 [advance_twenties_airlift]
 name     = _("Twenties Airlift")
@@ -426,7 +464,10 @@ req1     = "Twenties Bombers"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("Transport aircraft are a valuable addition\
+helptext = _("Converted bombers were among the first\
+ aeroplanes to ply the civil routes as entrepreneurs\
+ brought the airline industry into existence."),
+_("Transport aircraft are a valuable addition\
  to military logistics, allowing assault troops (and even\
  settlers) to be carried from one city or airbase to\
  another at high speed."),
@@ -477,7 +518,9 @@ req1     = "Twenties Airlift"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Miniaturising radios sufficiently to routinely\
+ carry them aboard aircraft increased the utility of both\
+ devices.")
 
 [advance_twenties_fighters]
 name     = _("Twenties Fighters")
@@ -491,6 +534,7 @@ helptext = _("")
 name     = _("Seaplanes 1918")
 req1     = "Seaplanes 1917"
 req2     = "Practical Flying Boat"
+cost     = 400
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -499,6 +543,7 @@ helptext = _("")
 name     = _("Twenties Seaplanes")
 req1     = "Seaplanes 1918"
 req2     = "General Aviation"
+cost     = 600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -523,6 +568,7 @@ helptext = _("")
 name     = _("Thirties Bombers")
 req1     = "Twenties Bombers"
 req2     = "Engines 1930"
+cost     = 760
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -563,6 +609,7 @@ helptext = _("")
 name     = _("Thirties Seaplanes")
 req1     = "Twenties Seaplanes"
 req2     = "High Speed"
+cost     = 800
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -579,6 +626,7 @@ helptext = _("")
 name     = _("Engines 1935")
 req1     = "Engines 1930"
 req2     = "None"
+cost     = 480
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -611,6 +659,7 @@ helptext = _("")
 name     = _("R.D.F.")
 req1     = "Radio"
 req2     = "Bombers 1935"
+cost     = 720
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -651,6 +700,7 @@ helptext = _("")
 name     = _("Heavy Flying Boat")
 req1     = "Thirties Seaplanes"
 req2     = "Engines 1935"
+cost     = 980
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -667,6 +717,7 @@ helptext = _("")
 name     = _("Engines 1939")
 req1     = "Engines 1935"
 req2     = "None"
+cost     = 640
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -691,6 +742,7 @@ helptext = _("")
 name     = _("Higher Speed")
 req1     = "Engines 1939"
 req2     = "Thirties Seaplanes"
+cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -699,6 +751,7 @@ helptext = _("")
 name     = _("Fighters 1939")
 req1     = "Fighters 1935"
 req2     = "Higher Speed"
+cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -707,6 +760,7 @@ helptext = _("")
 name     = _("Carrier Aviation 1940")
 req1     = "Carrier Aviation 1935"
 req2     = "Fighters 1939"
+cost     = 1300
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -723,6 +777,7 @@ helptext = _("")
 name     = _("Engines 1942")
 req1     = "Engines 1939"
 req2     = "None"
+cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -731,6 +786,7 @@ helptext = _("")
 name     = _("Carrier Aviation 1942")
 req1     = "Carrier Aviation 1940"
 req2     = "Engines 1942"
+cost     = 1500
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -747,6 +803,7 @@ helptext = _("")
 name     = _("Heavy Gliders")
 req1     = "Glider Assault"
 req2     = "Heavy Bombers"
+cost     = 930
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -763,6 +820,7 @@ helptext = _("")
 name     = _("Fighters 1942")
 req1     = "Fighters 1939"
 req2     = "Engines 1942"
+cost     = 1450
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -771,6 +829,7 @@ helptext = _("")
 name     = _("Superprop Engines")
 req1     = "Engines 1942"
 req2     = "None"
+cost     = 1100
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -787,6 +846,7 @@ helptext = _("")
 name     = _("Fighters 1944")
 req1     = "Fighters 1942"
 req2     = "Superprop Engines"
+cost     = 950
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -795,6 +855,7 @@ helptext = _("")
 name     = _("Carrier Aviation 1945")
 req1     = "Carrier Aviation 1942"
 req2     = "Superprop Engines"
+cost     = 1100
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -803,6 +864,7 @@ helptext = _("")
 name     = _("Gas Turbine")
 req1     = "Engines 1942"
 req2     = "None"
+cost     = 2200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -819,6 +881,7 @@ helptext = _("")
 name     = _("Jet Fighter Prototypes")
 req1     = "Fighters 1942"
 req2     = "Gas Turbine"
+cost     = 1350
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -827,6 +890,7 @@ helptext = _("")
 name     = _("Carrier-borne Jets")
 req1     = "Carrier Aviation 1942"
 req2     = "Gas Turbine"
+cost     = 1500
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -835,6 +899,7 @@ helptext = _("")
 name     = _("Rocketry")
 req1     = "Gas Turbine"
 req2     = "Higher Speed"
+cost     = 1400
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -851,6 +916,7 @@ helptext = _("")
 name     = _("Engines 1949")
 req1     = "Gas Turbine"
 req2     = "None"
+cost     = 1000
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -859,6 +925,7 @@ helptext = _("")
 name     = _("Jet Flying Boat")
 req1     = "Thirties Seaplanes"
 req2     = "Engines 1949"
+cost     = 1320
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -875,6 +942,7 @@ helptext = _("")
 name     = _("Swept Wing")
 req1     = "Aerodynamics Research"
 req2     = "None"
+cost     = 615
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -883,6 +951,7 @@ helptext = _("")
 name     = _("Early Missiles")
 req1     = "Rocketry"
 req2     = "Airborne Radar"
+cost     = 2050
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -899,6 +968,7 @@ helptext = _("")
 name     = _("Second-Generation")
 req1     = "Transonic Speed"
 req2     = "Early Missiles"
+cost     = 2400
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -907,6 +977,7 @@ helptext = _("")
 name     = _("Swept-wing Fighters")
 req1     = "Jet Fighter Prototypes"
 req2     = "Second-Generation"
+cost     = 2500
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -915,6 +986,7 @@ helptext = _("")
 name     = _("Carrier Aviation 1950")
 req1     = "Carrier-borne Jets"
 req2     = "Second-Generation"
+cost     = 2700
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -923,6 +995,7 @@ helptext = _("")
 name     = _("Swept-wing Bombers")
 req1     = "Bombers 1949"
 req2     = "Swept Wing"
+cost     = 2600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -931,6 +1004,7 @@ helptext = _("")
 name     = _("Fifties Engines")
 req1     = "Engines 1949"
 req2     = "None"
+cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -939,6 +1013,7 @@ helptext = _("")
 name     = _("Supersonic Aerodynamics")
 req1     = "Swept Wing"
 req2     = "None"
+cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -947,6 +1022,7 @@ helptext = _("")
 name     = _("Light Fighter")
 req1     = "Swept-wing Fighters"
 req2     = "Fifties Engines"
+cost     = 1600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -963,6 +1039,7 @@ helptext = _("")
 name     = _("Fifties Fighters")
 req1     = "Swept-wing Fighters"
 req2     = "Supersonic Flight"
+cost     = 2800
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
@@ -971,6 +1048,7 @@ helptext = _("")
 name     = _("Fifties Bombers")
 req1     = "Swept-wing Bombers"
 req2     = "Fifties Engines"
+cost     = 3200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
