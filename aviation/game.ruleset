@@ -8,7 +8,8 @@
 
 [datafile]
 description="Aviation rules for Freeciv"
-options="+Freeciv-2.6-ruleset"
+options="+Freeciv-3.0-ruleset"
+format_version=10
 
 ; This section contains meta information for freeciv-ruledit to recreate the ruleset
 ; file in a form wanted. These have no in-game effect whatsoever
@@ -20,6 +21,7 @@ options="+Freeciv-2.6-ruleset"
 [about]
 ; Ruleset name
 name = _("Aviation ruleset")
+capabilities = ""
 
 ; There`s no separate versioning in rulesets part of main freeciv distribution
 ;version = ""
@@ -183,6 +185,9 @@ slow_invasions = TRUE
 ; have only fractional moves left.
 tired_attack = FALSE
 
+[goods_good]
+name = _("Goods")
+
 [actions]
 ; If force_trade_route is set to TRUE it is illegal for an actor unit to
 ; enter the marketplace of a city if it can establish a trade route to it
@@ -241,12 +246,13 @@ ui_name_help_wonder = _("Help %sbuild Wonder%s")
 ;quiet_actions = "Targeted Sabotage City", "Targeted Steal Tech"
 
 [actionenabler_investigate_city]
-action       = "Investigate City"
+action       = "Investigate City" ; unit is not spent
 actor_reqs    =
     { "type",   "name", "range"
       "UnitFlag", "Recon", "Local"
       "UnitState", "OnLivableTile", "Local"
       "MinMoveFrags", "1", "Local"
+      "DiplRel", "Is foreign", "Local"
     }
 
 [actionenabler_traderoute]
@@ -255,6 +261,149 @@ actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitFlag", "TradeRoute", "Local", TRUE
     }
+
+[actionenabler_build_city_pioneer]
+action = "Found City"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Cities", "Local", TRUE
+      "UnitState", "OnLivableTile", "Local", TRUE
+      "MinMoveFrags", "1", "Local", TRUE
+      "UnitState", "Transported", "Local", FALSE
+    }
+target_reqs    =
+    { "type",   "name", "range", "present"
+      "CityTile", "Claimed", "Local", FALSE
+      "UnitState", "Transported", "Local", FALSE
+    }
+
+[actionenabler_build_city_domestic]
+action = "Found City"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Cities", "Local", TRUE
+      "UnitState", "OnLivableTile", "Local", TRUE
+      "MinMoveFrags", "1", "Local", TRUE
+      "DiplRel", "Is foreign", "Local", FALSE
+      "UnitState", "Transported", "Local", FALSE
+    }
+ui_name_found_city = _("%sBuild City%s")
+
+[actionenabler_join_city]
+action = "Join City"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "Unitflag", "AddToCity", "Local", TRUE
+      "DiplRel", "Is foreign", "Local", FALSE
+      "MinMoveFrags", "1", "Local", TRUE
+    }
+ui_name_join_city = _("%sAdd to City%s")
+
+[actionenabler_bombard]
+action = "Bombard"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Bombarder",   "Local", TRUE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs    =
+    { "type",   "name", "range", "present"
+      "TerrainClass", "Oceanic", "Local", FALSE
+    }
+ui_name_bombard = _("%sBombard%s")
+
+[actionenabler_attack_native]
+action = "Attack"
+actor_reqs    =
+    { "type",         "name",         "range", "present"
+      "UnitFlag",     "NonMil",       "Local", FALSE
+      "MinMoveFrags", "1",            "Local", TRUE
+      "UnitState",    "OnNativeTile", "Local", TRUE
+      "DiplRel",      "War",          "Local", TRUE
+    }
+[actionenabler_attack_att_from_non_native]
+action = "Attack"
+actor_reqs    =
+    { "type",          "name",             "range", "present"
+      "UnitFlag",      "NonMil",           "Local", FALSE
+      "MinMoveFrags",  "1",                "Local", TRUE
+      "UnitClassFlag", "AttFromNonNative", "Local", TRUE
+      "DiplRel",      "War",               "Local", TRUE
+    }
+ui_name_attack = _("%sAttack%s")
+
+[actionenabler_conquer_city_native]
+action = "Conquer City"
+actor_reqs    =
+    { "type",           "name",          "range", "present"
+      "UnitClassFlag",  "CanOccupyCity", "Local", TRUE
+      "UnitFlag",       "NonMil",        "Local", FALSE
+      "DiplRel",        "War",           "Local", TRUE
+      "MinMoveFrags",   "1",             "Local", TRUE
+      "UnitState",      "OnLivableTile", "Local", TRUE
+    }
+target_reqs    =
+    { "type",           "name",          "range", "present"
+      "MaxUnitsOnTile", "0",             "Local", TRUE
+    }
+
+[actionenabler_conquer_city_att_from_non_native]
+action = "Conquer City"
+actor_reqs    =
+    { "type",           "name",             "range", "present"
+      "UnitClassFlag",  "CanOccupyCity",    "Local", TRUE
+      "UnitFlag",       "NonMil",           "Local", FALSE
+      "DiplRel",        "War",              "Local", TRUE
+      "MinMoveFrags",   "1",                "Local", TRUE
+      "UnitClassFlag",  "AttFromNonNative", "Local", TRUE
+    }
+target_reqs    =
+    { "type",           "name",          "range", "present"
+      "MaxUnitsOnTile", "0",             "Local", TRUE
+    }
+ui_conquer_city = _("%Conquer City%s")
+
+[actionenabler_disband_unit]
+action = "Disband Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "EvacuateFirst", "Local", FALSE
+    }
+
+[actionenabler_recycle_unit]
+action = "Recycle Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "EvacuateFirst", "Local", FALSE
+      "DiplRel",  "War",        "Local", FALSE
+      "DiplRel",  "Cease-fire", "Local", FALSE
+      "DiplRel",  "Armistice",  "Local", FALSE
+      "DiplRel",  "Peace",      "Local", FALSE
+    }
+
+[actionenabler_change_home_city]
+action = "Home City"
+actor_reqs    =
+    { "type",      "name",        "range", "present"
+      "UnitFlag",  "NoHome",      "Local", FALSE
+      "UnitState", "HasHomeCity", "Local", TRUE
+      "DiplRel",   "Is foreign",  "Local", FALSE
+    }
+ui_name_home_city = _("Set %sHome City%s")
+
+[actionenabler_upgrade_unit]
+action = "Upgrade Unit"
+actor_reqs    =
+    { "type",    "name",       "range", "present"
+      "DiplRel", "Is foreign", "Local", FALSE
+    }
+ui_upgrade_unit = _("%sUpgrade Unit%s")
+
+[effect_conquer_techs_base]
+type    = "Conquest_Tech_Pct"
+value   = 60
 
 [borders]
 ; Base border radius from city.

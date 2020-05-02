@@ -9,7 +9,8 @@
 
 [datafile]
 description="Classic cities data for Freeciv"
-options="+Freeciv-2.6-ruleset"
+options="+Freeciv-3.0-ruleset"
+format_version=10
 
 ; /* <-- avoid gettext warnings
 ;
@@ -45,6 +46,7 @@ options="+Freeciv-2.6-ruleset"
 [specialist_elvis]
 name            = _("Entertainers")
 rule_name       = "elvis"
+graphic         = "specialist.entertainer"
 short_name	= _("?Elvis:E")
 reqs		=
     { "type", "name", "range"
@@ -58,6 +60,7 @@ See the section on Happiness for the effects of luxury points.\
 [specialist_scientist]
 name            = _("Scientists")
 rule_name       = "scientist"
+graphic         = "specialist.scientist"
 short_name	= _("?Scientist:S")
 reqs		=
     { "type", "name", "range"
@@ -71,6 +74,7 @@ per turn.\
 [specialist_taxman]
 name            = _("Taxmen")
 rule_name       = "taxman"
+graphic         = "specialist.taxman"
 short_name	= _("?Taxman:T")
 reqs		=
     { "type", "name", "range"
@@ -80,6 +84,19 @@ helptext        = _("\
 Each tax collector produces three extra gold for your treasury \
 per turn.\
 ")
+
+[missing_unit_upkeep]
+food_protected    = "EvacuateFirst"
+; food_unit_act   =
+food_wipe         = TRUE
+
+; gold_protected  =
+; gold_unit_act   =
+gold_wipe         = TRUE
+
+shield_protected  = "EvacuateFirst"
+shield_unit_act   = "Help Wonder", "Recycle Unit", "Disband Unit"
+shield_wipe       = FALSE
 
 [parameters]
 add_to_size_limit  = 8		; cities >= this cannot be added to.
@@ -100,3 +117,4 @@ nationality   = TRUE            ; account for the nationality of the citizens
 convert_speed = 50              ; base probability 50/1000 -> once every 20 turns
 partisans_pct = 0               ; percentage of own nationality to inspire partisans
                                 ; if 0, original city owner information is used instead
+conquest_convert_pct = 0

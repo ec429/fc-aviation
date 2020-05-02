@@ -2,7 +2,8 @@
 [tilespec]
 
 ; Format and options of this tilespec file:
-options = "+Freeciv-2.6-tilespec"
+options = "+Freeciv-3.0-tilespec"
+format_version=10
 
 ; A simple name for the tileset specified by this file:
 name = "Aviation"

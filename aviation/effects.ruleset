@@ -8,7 +8,8 @@
 
 [datafile]
 description="Aviation effects data for Freeciv"
-options="+Freeciv-2.6-ruleset"
+options="+Freeciv-3.0-ruleset"
+format_version=10
 
 ; /* <-- avoid gettext warnings
 ;
@@ -134,6 +135,18 @@ value   = 5
 type    = "Max_Trade_Routes"
 value   = 2
 
+[effect_enter_marketplace_bonus_reduction]
+type	= "Trade_Revenue_Bonus"
+value	= -1585
+reqs	=
+    { "type", "name", "range"
+      "Action", "Enter Marketplace", "Local"
+    }
+
+[effect_trade_bonus_fudge_factor]
+type	= "Trade_Revenue_Bonus"
+value	= 1585
+
 [effect_trade_revenue_reduce]
 type    = "Trade_Revenue_Bonus"
 value   = -585
@@ -171,7 +184,7 @@ reqs	=
 
 [effect_corruption_revolt1]
 type    = "Output_Waste_By_Distance"
-value	= 2
+value	= 200
 reqs	=
     { "type", "name", "range"
       "Gov", "Revolution", "Player"
@@ -198,7 +211,7 @@ reqs	=
 
 [effect_corruption_communism1]
 type    = "Output_Waste_By_Distance"
-value	= 1
+value	= 90
 reqs	=
     { "type", "name", "range"
       "Gov", "Communism", "Player"
@@ -225,7 +238,7 @@ reqs	=
 
 [effect_corruption_fascism1]
 type    = "Output_Waste_By_Distance"
-value	= 3
+value	= 270
 reqs	=
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
@@ -1042,5 +1055,10 @@ reqs	=
     }
 
 [effect_illegal_action_move_cost_base]
-type	= "Illegal_Action_Move_Cost"
-value	= 1
+type    = "Illegal_Action_Move_Cost"
+value   = 1
+reqs    =
+    { "type", "name", "range", "present"
+      "Action", "Found City", "Local", FALSE
+      "Action", "Join City", "Local", FALSE
+    }
