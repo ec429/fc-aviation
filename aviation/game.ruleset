@@ -606,5 +606,5 @@ colorlist =
 
 set =
     { "name", "value", "lock"
-      "startunits", "cc", FALSE
+      "startunits", "ccc", FALSE ; start with three settlers, to get going quickly
     }
