@@ -607,4 +607,5 @@ colorlist =
 set =
     { "name", "value", "lock"
       "startunits", "ccc", FALSE ; start with three settlers, to get going quickly
+      "topology", "ISO", FALSE ; there's no hex tileset
     }

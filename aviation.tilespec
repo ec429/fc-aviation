@@ -3,7 +3,6 @@
 
 ; Format and options of this tilespec file:
 options = "+Freeciv-3.0-tilespec"
-format_version=10
 
 ; A simple name for the tileset specified by this file:
 name = "Aviation"
@@ -32,8 +31,6 @@ is_hex = FALSE
 ; Blended fog
 fog_style      = "Darkness"
 darkness_style = "Corner"
-; Which terrain layer darkness is drawn top of (0-2)
-darkness_layer = 0
 
 ; offset the flags by this amount when drawing units
 unit_flag_offset_x = 25
@@ -53,9 +50,18 @@ unit_offset_y = 18
 activity_offset_x = 49
 activity_offset_y = 0
 
+; offset of the selected unit sprites
+select_offset_x = 0
+select_offset_y = 0
+
 ; offset the cities by this amount
 city_offset_x = 0
 city_offset_y = 0
+
+; offset the city size number by this amount
+; This is relative to full sprite origin.
+city_size_offset_x = 0
+city_size_offset_y = 0
 
 ; offset the city bar text by this amount (from the city tile origin)
 citybar_offset_y = 30
@@ -75,15 +81,9 @@ tilelabel_offset_y = 15
 ; not having alternative layout.
 ;unit_upkeep_small_offset_y = 0
 
-; Font size (points) to use to draw city names and productions.
-; (Deprecated, and ignored by many clients.)
-city_names_font_size = 10
-city_productions_font_size = 8
-
 ; These are special because they get freed and reloaded
 ; as required:
 main_intro_file    = "misc/intro"
-minimap_intro_file = "misc/radar"
 
 ; Below, the graphics spec files; must be somewhere (anywhere) in 
 ; the data path. Order may be important for color allocation on 
@@ -279,5 +279,27 @@ styles =
       "base.airstrip", "3Layer"
       "base.airbase",  "3Layer"
       "base.buoy",     "3Layer"
-      "base.ruins",    "3Layer"
+      "extra.ruins",   "3Layer"
+      "ts.gold",       "Single1"
+      "ts.iron",       "Single1"
+      "ts.tundra_game", "Single1"
+      "ts.furs",       "Single1"
+      "ts.coal",       "Single1"
+      "ts.fish",       "Single1"
+      "ts.fruit",      "Single1"
+      "ts.gems",       "Single1"
+      "ts.buffalo",    "Single1"
+      "ts.wheat",      "Single1"
+      "ts.oasis",      "Single1"
+      "ts.peat",       "Single1"
+      "ts.pheasant",   "Single1"
+      "ts.grassland_resources", "Single1"
+      "ts.arctic_ivory", "Single1"
+      "ts.silk",       "Single1"
+      "ts.spice",      "Single1"
+      "ts.whales",     "Single1"
+      "ts.wine",       "Single1"
+      "ts.oil",        "Single1"
+      "ts.horses",     "Single1"
+      "ts.seals",      "Single1"
     }
