@@ -3542,7 +3542,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack", "Fanatic", "CRlight"
+flags         = "OneAttack", "Fanatic", "CRmedium"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -3578,7 +3578,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
-flags         = "OneAttack", "Fanatic", "CRlight"
+flags         = "OneAttack", "Fanatic", "CRmedium"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -3601,8 +3601,8 @@ build_cost    = 45
 pop_cost      = 0
 attack        = 5
 defense       = 3
-hitpoints     = 6
-firepower     = 2 ; doubles effective Combat_Rounds
+hitpoints     = 12
+firepower     = 1
 move_rate     = 8
 vision_radius_sq = 2
 transport_cap = 0
@@ -3614,7 +3614,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "Fanatic", "CRlight"
+flags         = "OneAttack", "Fanatic", "CRmedium"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \
