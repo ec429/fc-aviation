@@ -43,6 +43,7 @@ tiles = { "row", "column", "tag"
   0, 13, "u.b2spirit"    ; currently unused
   0, 14, "u.skyhawk"     ; AN
   0, 18, "u.dblimp"      ; ZD.  Was probably intended as a Zeppelin, but it's a late model (teardrop/icthyoid hull); ZS and ZB are straight-sided
+  0, 18, "u.zeppeliner"  ; LZ.  Currently the same image as ZD, as I got tired of kitbashing airships.
   0, 19, "u.e3dsentry"   ; currently unused
   1,  0, "u.hoverfly"    ; early heli
   1,  2, "u.huey"        ; heli
