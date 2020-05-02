@@ -607,5 +607,10 @@ colorlist =
 set =
     { "name", "value", "lock"
       "startunits", "ccc", FALSE ; start with three settlers, to get going quickly
-      "topology", "ISO", FALSE ; there's no hex tileset
+      "topology", "ISO|WRAPX", FALSE ; there's no hex tileset
+      "mapsize", "PLAYER", FALSE
+      "tilesperplayer", 64, FALSE ; smallish map by default
+      "startpos", "SINGLE", FALSE ; one player per continent, if possible
+      "rapturedelay", 2, FALSE ; make Democracy less OP
+      "citymindist", 3, FALSE ; ensure distances are large enough to favour aircraft more
     }
