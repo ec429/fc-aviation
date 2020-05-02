@@ -308,10 +308,6 @@ actor_reqs    =
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
     }
-target_reqs    =
-    { "type",   "name", "range", "present"
-      "TerrainClass", "Oceanic", "Local", FALSE
-    }
 ui_name_bombard = _("%sBombard%s")
 
 [actionenabler_attack_native]

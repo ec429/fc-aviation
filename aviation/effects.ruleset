@@ -1062,3 +1062,67 @@ reqs    =
       "Action", "Found City", "Local", FALSE
       "Action", "Join City", "Local", FALSE
     }
+
+[effect_cr_scout]
+type    = "Combat_Rounds"
+value   = 3 ; scouts get few rounds per attack but can multiattack (so they're more effective when intercepting at shorter range)
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRscout", "Local"
+    }
+
+[effect_cr_fighter]
+type    = "Combat_Rounds"
+value   = 5 ; fighters get few rounds per attack but can multiattack (so they're more effective when intercepting at shorter range).  Also, they're better than early scouts
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRfighter", "Local"
+    }
+
+[effect_cr_trench_fighter]
+type    = "Combat_Rounds"
+value   = 4 ; trench-fighters get few rounds per attack but can multiattack (so they're more effective at shorter range)
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRtf", "Local"
+    }
+
+[effect_cr_attacker]
+type    = "Combat_Rounds"
+value   = 6 ; attackers get limited rounds per attack but can multiattack (so they're more effective at shorter range)
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRattack", "Local"
+    }
+
+[effect_cr_torpedo_bomber]
+type    = "Combat_Rounds"
+value   = 9 ; attack ends turn
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRtb", "Local"
+    }
+
+[effect_cr_light_bomber]
+type    = "Combat_Rounds"
+value   = 8 ; attack ends turn
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRlight", "Local"
+    }
+
+[effect_cr_medium_bomber]
+type    = "Combat_Rounds"
+value   = 12 ; attack ends turn
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRmedium", "Local"
+    }
+
+[effect_cr_heavy_bomber]
+type    = "Combat_Rounds"
+value   = 20 ; attack ends turn
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "CRheavy", "Local"
+    }
