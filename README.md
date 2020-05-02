@@ -67,8 +67,6 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * There is no Harbour building, but its effect is permanently applied.
 * You start the game as a Democracy.
 * The calendar turns by season (i.e. 4 turns per year).
-* Newly founded cities have 2 population.
-  - But settlers still only cost 1, so you can quickly spread across your continent.
 * Unhappiness from units in the field is only 1 under Democracy (and zero for other governments).
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
 * Workers are called Seabees.
