@@ -1125,7 +1125,7 @@ reqs    =
 
 [effect_cr_heavy_bomber]
 type    = "Combat_Rounds"
-value   = 20 ; attack ends turn
+value   = 10 ; extra FP.  attack ends turn
 reqs    =
     { "type", "name", "range"
       "UnitFlag", "CRheavy", "Local"

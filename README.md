@@ -47,7 +47,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
     + Attacker: CR 6.  Attack aircraft from the late 1930s onwards (including naval attackers and the Jet Flying Boat).
     + Light: CR 8.  Light bombers, dive bombers, airships, Armed Floatplane, Early Flying Boat and Patrol Boat.
     + Medium: CR 12.  Medium bombers, and flying boats from the 1920s to the Heavy Flying Boat.
-    + Heavy: CR 20.  Heavy bombers (the names usually omit "Heavy", it's implicit).
+    + Heavy: CR 10.  Heavy bombers (the names usually omit "Heavy", it's implicit).  Generally one step higher FirePower than other bombers, allowing them to do more damage than a (CR 12) medium.
     + Torpedo: CR 9.  Torpedo bombers and torpedo-carrying floatplanes.
 * Buildings (Improvements and Wonders) have been almost entirely replaced with a set of air-themed ones, some with effects which resemble classic ones — and some which don't.
 * There is (currently) no Space Race victory.  You'll just have to conquer them!
