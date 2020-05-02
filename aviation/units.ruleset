@@ -4139,6 +4139,49 @@ Historical examples include the Avro Vulcan and \
 Boeing B-52 Stratofortress.\
 ")
 
+[unit_zeppelin_liner]
+name          = _("Zeppelin Liner")
+class         = "Air"
+tech_req      = "Effective Airships"
+obsolete_by   = "Airliner"
+graphic       = "u.zeppelin" ; It's the same graphic as the ZB, which might lead some players to over-react... we should probably change that
+graphic_alt   = "u.caravan"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 6
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+Zeppelin Liners carry goods or material for trading with distant\
+ cities and foreign countries.  \
+Historical examples include the LZ 120 Bodensee and R33.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
 [unit_airliner]
 name          = _("Airliner")
 class         = "Air"
