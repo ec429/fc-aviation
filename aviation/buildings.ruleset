@@ -646,8 +646,8 @@ reqs	=
       "Tech", "Thirties Airlift", "Player"
       "Building", "Commercial Airstrip", "City"
     }
-graphic	= "b.asmiths_trading_co"
-graphic_alt	= "-"
+graphic	= "b.natair"
+graphic_alt	= "b.asmiths_trading_co"
 obsolete_by	=
     { "type", "name", "range"
     }
