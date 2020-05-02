@@ -668,8 +668,8 @@ reqs	=
     { "type", "name", "range"
       "Tech", "Twenties Fighters", "Player"
     }
-graphic	= "b.hanging_gardens"
-graphic_alt	= "-"
+graphic	= "b.dispteam"
+graphic_alt	= "b.hanging_gardens"
 obsolete_by	=
     { "type", "name", "range", "survives"
     }
