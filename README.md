@@ -55,7 +55,6 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Don't ignore the seaplanes branch — you can't develop World War II fighters without Thirties Seaplanes.  This is because, historically, the impetus for high-speed aerodynamics research came from the Schneider Trophy seaplane races (most famously in the case of Supermarine).
 * There is no Diplomat or Spy unit.  Instead, some aircraft are capable of some of their actions:
   - Recon aircraft (including light bombers and some heavy fighters) can Investigate City.
-    + However, game engine limitations mean that aircraft with Recon capability can't be ordered to attack units in a city (the dialogue box has no option for 'Attack').
 * The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
   - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments.
   - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.
