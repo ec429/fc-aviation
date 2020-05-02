@@ -1,4 +1,4 @@
-# Aviation Ruleset for freeciv-2.6
+# Aviation Ruleset for freeciv-3.0
 
 ## Empire building in the Age of Flight
 
