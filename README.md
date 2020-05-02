@@ -65,6 +65,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 Mostly because the game starts in 1900, so quite a few things that would be reasonable for a Bronze Age civilisation to need to build should just already be ubiquitous.
 
 * There is no Harbour building, but its effect is permanently applied.
+* A city retains 30% of its foodbox when changing size (there is no Granary building).
 * You start the game as a Democracy.
 * The calendar turns by season (i.e. 4 turns per year).
 * Unhappiness from units in the field is only 1 under Democracy (and zero for other governments).

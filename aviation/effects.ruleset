@@ -155,6 +155,10 @@ reqs    =
       "Tech", "Fifties Airlift", "Player"
     }
 
+[effect_foodbox]
+type    = "Growth_Food"
+value   = 30 ; make growing cities without rapture not _too_ painful.  Also we don't have Granaries
+
 ; Government effects
 
 [effect_revolt_upkeep]
