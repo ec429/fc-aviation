@@ -17,4 +17,5 @@ sprites =
 	{	"tag", "file"
 		"b.dispteam", "aviation/dispteam" ; derived from Fairline u.hart
 		"b.natair", "aviation/natair"
+		"b.sheds", "aviation/sheds" ; contains Fairline u.be2
 	}

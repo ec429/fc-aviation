@@ -406,8 +406,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Aircraft Industry", "Player"
     }
-graphic	= "b.port_facility"
-graphic_alt	= "-"
+graphic	= "b.sheds"
+graphic_alt	= "b.port_facility"
 obsolete_by	=
     { "type", "name", "range"
     }
