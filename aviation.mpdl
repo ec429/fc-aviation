@@ -1,5 +1,5 @@
 [info]
-options = "+Freeciv-3.0-modpack"
+options = "+Freeciv-3.0-mpdl"
 baseURL = "."
 name    = "Aviation"
 type    = "Modpack"
