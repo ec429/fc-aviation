@@ -622,6 +622,43 @@ Ordinary heavy artillery.  Its bombard attack is powerful, \
 but if caught out in the open it's vulnerable.\
 ")
 
+[unit_marines]
+name          = _("Marines")
+class         = "Assault"
+tech_req      = "None"
+obsolete_by   = "Assault Troops"
+graphic       = "u.partisan"
+graphic_alt   = "-"
+sound_move    = "m_marines"
+sound_move_alt = "m_generic"
+sound_fight   = "f_marines"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 12
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Land", "Assault"
+embarks       = "Helicopter"
+disembarks    = "Sea", "Helicopter"
+flags         = ""
+roles         = ""
+helptext      = _("\
+Lightly-equipped troops, able to travel by landing-craft.  Before \
+the development of airborne assault techniques, marines provide a \
+way to threaten undefended cities, but are unable to dislodge \
+meaningful opposition forces.\
+")
+
 [unit_assault]
 name          = _("Assault Troops")
 class         = "Assault"

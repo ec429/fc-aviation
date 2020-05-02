@@ -24,6 +24,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
     + Assault units can load and unload from transport aircraft at cities and airbases, or from helicopters anywhere.
     + Paratroops can unload from transport aircraft while in flight.
     + Some heavy bombers and flying-boats also have a small transport capacity.
+  - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
 * Ground units cannot cross Mountain tiles.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
 * Aircraft are split into five unit classes:
