@@ -100,4 +100,5 @@ tiles = { "row", "column", "tag"
   3,  4, "u.cvl"         ; CVL Early Aircraft Carrier (HMS Furious) [GB]
   3,  5, "u.cv"          ; CV Aircraft Carrier (HMS Ark Royal) [GB]
   3,  6, "u.lcmboat"     ; Landing Craft (LCM) [GB]
+  3,  7, "u.zeppeliner"  ; LZ Zeppelin Liner [GB]
 }
