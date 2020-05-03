@@ -41,6 +41,9 @@ flags =
     _("CRlight")
     _("CRmedium")
     _("CRheavy")
+    _("AntiGround"), _("Can attack ground units (Land, Assault).")
+    _("AntiSea"), _("Can attack Sea units.")
+    _("AntiAir"), _("Can attack flying units (Air, Seaplane, Carrier-borne, Helicopter, Glider).")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -51,7 +54,8 @@ flags =
 ;                 with this flag (optional)
 class_flags =
   { "name", "helptxt"
-    _("AttFromNonNative"), _("Can launch attack from non-native tiles.")
+    _("Ground")
+    _("Flying")
   }
 
 [veteran_system]
@@ -149,7 +153,7 @@ min_speed     = 1
 hp_loss_pct   = 0
 flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
                 "CollectRansom", "ZOC", "CanFortify", "CanPillage",
-                "TerrainDefense", "KillCitizen", "Unreachable"
+                "TerrainDefense", "KillCitizen", "Ground"
 helptext = _("Regular Land units are not transportable by air or sea,\
  as their equipment (tanks and artillery) is too heavy.")
 
@@ -160,7 +164,7 @@ min_speed     = 1
 hp_loss_pct   = 0
 flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
                 "CollectRansom", "ZOC", "CanFortify", "CanPillage",
-                "TerrainDefense", "KillCitizen", "Unreachable"
+                "TerrainDefense", "KillCitizen", "Ground"
 helptext = _("Assault-class land units travel light enough that they\
  are transportable by suitable ships and aircraft.")
 
@@ -169,7 +173,7 @@ helptext = _("Assault-class land units travel light enough that they\
 name          = _("?unitclass:Sea")
 min_speed     = 2
 hp_loss_pct   = 0
-flags         = "DamageSlows", "AttackNonNative", "AttFromNonNative", "Unreachable"
+flags         = "DamageSlows"
 
 [unitclass_air]
 ; /* TRANS: Unit class: used adjectivally */
@@ -177,7 +181,7 @@ name          = _("?unitclass:Air")
 min_speed     = 1
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Unreachable", "DoesntOccupyTile"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Regular Air units are unable to operate from carriers.")
 
 [unitclass_carried]
@@ -186,7 +190,7 @@ name          = _("?unitclass:Carrier-borne")
 min_speed     = 1
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Unreachable", "DoesntOccupyTile"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Carrier-borne air units can be transported by, fly\
  missions from, and refuel on aircraft carriers.")
 
@@ -195,7 +199,7 @@ helptext = _("Carrier-borne air units can be transported by, fly\
 name          = _("?unitclass:Helicopter")
 min_speed     = 1
 hp_loss_pct   = 0
-flags         = "Unreachable", "DoesntOccupyTile"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Helicopters can operate from carriers, including\
  dedicated helicopter ships, and can load and unload cargo in\
  the field.")
@@ -206,7 +210,7 @@ name          = _("?unitclass:Seaplane")
 min_speed     = 1
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Unreachable", "DoesntOccupyTile"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Floatplanes and flying-boats can be transported by, fly\
  missions from, and refuel at Seaplane Tenders and\
  Light Aircraft Carriers.")
@@ -217,7 +221,7 @@ name          = _("?unitclass:Glider")
 min_speed     = 0
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "DoesntOccupyTile"
+flags         = "DoesntOccupyTile", "Flying"
 helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
  units into combat areas.  Gliders are not capable of movement under\
  their own power, so must be towed around behind other Air units. \
@@ -580,8 +584,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = ""
+flags         = "AntiGround"
 roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
 helptext      = _("\
 Ordinary riflemen, tanks, artillery etc.  Very good at \
@@ -613,8 +616,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "Cant_Fortify", "Bombarder", "CityBuster"
+flags         = "Cant_Fortify", "Bombarder", "CityBuster", "AntiGround", "AntiSea"
 bombard_rate  = 12
 roles         = ""
 helptext      = _("\
@@ -647,10 +649,9 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
-flags         = ""
+flags         = "AntiGround"
 roles         = ""
 helptext      = _("\
 Lightly-equipped troops, able to travel by landing-craft.  Before \
@@ -684,10 +685,9 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
-flags         = "Fanatic"
+flags         = "Fanatic", "AntiGround"
 roles         = "AttackStrongStartUnit"
 helptext      = _("\
 Airliftable riflemen, light tanks, artillery etc.  Can travel by \
@@ -719,7 +719,6 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 flags         = "Cant_Fortify", "Bombarder", "CityBuster", "Fanatic"
@@ -756,10 +755,9 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
 embarks       = "Helicopter"
 disembarks    = "Air", "Sea", "Helicopter"
-flags         = "Fanatic"
+flags         = "Fanatic", "AntiGround"
 roles         = "AttackFastStartUnit"
 helptext      = _("\
 Paratroops are experts at airborne attacks. \
@@ -828,8 +826,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "OneAttack", "CRlight"
+flags         = "OneAttack", "CRlight", "AntiGround"
 roles         = ""
 helptext      = _("\
 Zeppelin Bombers are slow but have long range, allowing them \
@@ -866,8 +863,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon", "HasNoZOC", "CRlight"
-targets       = "Sea"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
 roles         = "Explorer"
 helptext      = _("\
 Blimps are a cheaper alternative to the rigid Zeppelin, but \
@@ -903,8 +899,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon", "HasNoZOC", "CRlight"
-targets       = "Sea"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
 roles         = "Explorer"
 helptext      = _("\
 Faster, more capable non-rigid airships are an effective \
@@ -937,10 +932,9 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon", "HasNoZOC", "CRlight"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
 embarks       = "Sea"
 disembarks    = "Sea"
-targets       = "Sea"
 roles         = "Explorer"
 helptext      = _("\
 The earliest military helicopters replace blimps in the \
@@ -973,10 +967,9 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Recon", "HasNoZOC", "CRlight"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
 embarks       = "Sea"
 disembarks    = "Sea"
-targets       = "Sea"
 cargo         = "Assault"
 roles         = "Explorer"
 helptext      = _("\
@@ -1114,8 +1107,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "Recon", "OneAttack", "CRlight"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 With increasing engine power, recon aircraft begin to be able \
 to carry bombs.  Only small bombs, but still - deadly enough.  \
@@ -1147,8 +1139,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "Recon", "OneAttack", "CRlight"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
 to 400-500lb, this is a militarily useful light bomber.  \
@@ -1180,8 +1171,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "Recon", "OneAttack", "CRlight"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
@@ -1213,8 +1203,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "Recon", "OneAttack", "CRlight"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
 the 1920s are but an incremental improvement.  \
@@ -1247,8 +1236,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "Recon", "OneAttack", "CRlight"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 Built along similar lines to the Early Monoplane Fighter, \
 these monoplane light bombers are faster than older models \
@@ -1283,8 +1271,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "Recon", "OneAttack", "CRlight"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
 helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
 extra weight of 1000lb of bombs, but make for a bigger \
@@ -1352,7 +1339,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 Rifles pivoted to the fuselage side, firing at an angle to \
@@ -1387,7 +1374,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 The first fighters to be equipped with an interrupter gear \
@@ -1423,7 +1410,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 Pusher configuration biplanes can mount a forward-firing gun \
@@ -1457,7 +1444,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 A narrow-chord lower wing gives these scouts some of the \
@@ -1493,7 +1480,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 The triplane wing configuration gives great climb rate and \
@@ -1528,7 +1515,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 The classic First World War fighter layout is a single-bay \
@@ -1562,7 +1549,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 Though faster and stronger than the Biplane Scout, to the \
@@ -1597,7 +1584,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Continued evolutionary development of biplane scouts pushes \
@@ -1632,7 +1619,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Trading off manoeuvrability for increased speed and armament, \
@@ -1668,7 +1655,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Stressed aluminium skins and improved aerodynamics allowed \
@@ -1704,7 +1691,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Heavier armament was found necessary to take down bombers as \
@@ -1739,7 +1726,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 The pinnacle of piston-engined fighter development.  \
@@ -1774,7 +1761,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Twin wing-mounted turbojets allow high top speed but \
@@ -1809,7 +1796,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Single-engined 'light fighters' present a cheap and \
@@ -1844,7 +1831,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Maturing transonic design allows higher performance, while \
@@ -1880,7 +1867,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Point-defence jet fighters attain supersonic speed through the \
@@ -1915,7 +1902,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Air-superiority fighters have the ability to penetrate deep \
@@ -1951,7 +1938,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Developed light fighters offer Mach 0.95 on the cheap.  \
@@ -1984,7 +1971,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 An observer in front of the pilot operates the pintle-mounted \
@@ -2018,7 +2005,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 Combining a synchronised offensive machine gun with a ring-\
@@ -2052,7 +2039,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 A more manoeuvrable and capable two-seater scout.  \
@@ -2086,7 +2073,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 A conversion of a biplane light bomber into an updated \
@@ -2120,7 +2107,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Applying the Fighter Biplane concept to a modern monoplane, \
@@ -2153,8 +2140,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRtf"
+flags         = "CRtf", "AntiGround"
 roles         = ""
 helptext      = _("\
 Essentially a Biplane Scout with some armour plating at the \
@@ -2188,8 +2174,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRtf"
+flags         = "CRtf", "AntiGround"
 roles         = ""
 helptext      = _("\
 Two-seat ground attack biplane, outwardly resembling a \
@@ -2223,8 +2208,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRtf"
+flags         = "CRtf", "AntiGround"
 roles         = ""
 helptext      = _("\
 Streamlined ground attack aircraft; depending on \
@@ -2259,8 +2243,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Tank-destroyer monoplane.  \
@@ -2294,8 +2277,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Fighter-bomber using early jet engine.  \
@@ -2327,8 +2309,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Swept-wing jet fighter-bomber.  \
@@ -2361,8 +2342,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Fighter-bomber with reheat for supersonic speed.  \
@@ -2395,7 +2375,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Twin-engined bomber-destroyer and/or escort fighter, \
@@ -2430,7 +2410,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "Recon", "CRfighter"
+flags         = "Recon", "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 High-performance twin-engine fighter.  \
@@ -2464,7 +2444,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Twin-engined jet fighters with heavy radar equipment can be \
@@ -2500,7 +2480,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 Lightly navalised versions of Biplane Scouts can be operated \
@@ -2536,7 +2516,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 Lightly navalised Twenties Scout.  \
@@ -2572,7 +2552,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Lightly navalised Thirties Scout.  \
@@ -2608,7 +2588,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 CATOBAR fighter monoplane.  \
@@ -2643,8 +2623,8 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter", "Land", "Assault"
-flags         = "CRfighter"
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+flags         = "CRfighter", "AntiAir", "AntiGround"
 roles         = ""
 helptext      = _("\
 CATOBAR fighter monoplane with strike capability.  \
@@ -2680,7 +2660,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 High-performance CATOBAR fighter monoplane.  \
@@ -2716,7 +2696,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Both high-performance and heavily armed.  \
@@ -2752,7 +2732,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Carrier-borne Superprop Fighter.  \
@@ -2786,8 +2766,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Carrier-borne ground-attack aircraft.  \
@@ -2823,7 +2802,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 First-generation shipborne jet fighter.  \
@@ -2859,7 +2838,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter"
+flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Transonic shipborne jet fighter.  \
@@ -2894,8 +2873,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 Swept-wing shipborne strike aircraft, capable of attacking \
@@ -2965,8 +2943,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "Recon", "HasNoZOC", "CRscout"
+flags         = "Recon", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 Slow and barely able to defend itself, the two-seater Floatplane \
@@ -3001,8 +2978,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRlight"
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 The Armed Floatplane can bomb land or sea targets, but isn't \
@@ -3038,7 +3014,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRscout"
+flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
 The Floatplane Fighter is a seaplane with offensive guns, \
@@ -3074,8 +3050,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 roles         = ""
 helptext      = _("\
 With the ability to carry a torpedo, attack floatplanes \
@@ -3110,8 +3085,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 roles         = ""
 helptext      = _("\
 Increasing engine power allows a larger (hence more \
@@ -3146,8 +3120,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 roles         = ""
 helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
@@ -3182,8 +3155,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "OneAttack", "CRlight"
+flags         = "OneAttack", "CRlight", "AntiGround"
 roles         = ""
 helptext      = _("\
 Bomb-carrying flying-boat; long range but vulnerable.  \
@@ -3217,8 +3189,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRlight"
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 Larger and more powerful than the Early Flying Boat, \
@@ -3254,8 +3225,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRmedium"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 Long-range maritime reconnaissance.  Can also \
@@ -3292,8 +3262,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRmedium"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 Ocean patrol flying-boat.  \
@@ -3329,8 +3298,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRmedium"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 Long-endurance ocean patrol flying-boat, with ample \
@@ -3366,8 +3334,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "CRattack"
+flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Avoiding the need for propeller clearance allows a \
@@ -3402,8 +3369,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 helptext      = _("\
 Torpedo-carrying landplane capable of operation \
 from an aircraft carrier.  \
@@ -3438,8 +3404,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 helptext      = _("\
 Naval counterpart to the Twenties Light Bomber.  \
 Historical examples include the Blackburn Dart, \
@@ -3473,8 +3438,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 helptext      = _("\
 The last viable biplane torpedo-bombers.  \
 Historical examples include the Fairey Swordfish \
@@ -3508,8 +3472,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 helptext      = _("\
 Naval counterpart to the Thirties Light Bomber.  \
 Historical examples include the Douglas TBD Devastator \
@@ -3543,8 +3506,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Sea"
-flags         = "OneAttack", "CRtb"
+flags         = "OneAttack", "CRtb", "AntiSea"
 helptext      = _("\
 High-performance torpedo bomber.  \
 Historical examples include the Grumman TBF Avenger, \
@@ -3578,8 +3540,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "OneAttack", "Fanatic", "CRmedium"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -3614,8 +3575,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "OneAttack", "Fanatic", "CRmedium"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -3650,8 +3610,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "Fanatic", "CRmedium"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \
@@ -3686,8 +3645,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault"
-flags         = "OneAttack", "CRmedium"
+flags         = "OneAttack", "CRmedium", "AntiGround"
 helptext      = _("\
 A new category opened up between the light and heavy bombers, \
 medium bombers can fight their way through at least some \
@@ -3721,8 +3679,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRmedium"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 Monoplane medium bombers using new construction techniques \
 are more effective fighting machines.  They can also make \
@@ -3756,8 +3713,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRmedium"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 The best propellor-driven medium bombers are rugged and \
 surprisingly fast, with a payload of around two tons.  \
@@ -3790,8 +3746,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "Recon", "OneAttack", "CRmedium"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -3823,8 +3778,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "Recon", "OneAttack", "CRmedium"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
@@ -3857,8 +3811,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy"
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
 helptext      = _("\
 The first aircraft designed for long-range bombing were \
 slow, lumbering biplanes.  \
@@ -3891,8 +3844,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy"
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
 helptext      = _("\
 Large triplane bombers carried a heavy payload but \
 at a very slow speed.  \
@@ -3924,8 +3876,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy"
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
 helptext      = _("\
 More powerful engines allowed heavier biplane bombers — \
 still not so massive as the triplanes, but big enough.  \
@@ -3959,8 +3910,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Applying post-war engineering to the basic biplane bomber \
 yielded a more robust and powerful aircraft.  Also capable \
@@ -3995,8 +3945,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Metal-framed heavy bombers were faster and stronger.  \
 Depending on national design doctrine, they might be \
@@ -4031,8 +3980,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Pre-war four-engined heavy.  Increased payload and speed.  \
 Historical examples include the Short Stirling and \
@@ -4065,8 +4013,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Four-engined strategic bomber.  Being optimised for the \
 bombing role, it cannot transport troops.  \
@@ -4099,8 +4046,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
@@ -4133,8 +4079,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
 Historical examples include the Vickers Valiant and \
@@ -4166,8 +4111,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-targets       = "Land", "Assault", "Sea"
-flags         = "OneAttack", "CRheavy", "Provoking"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
 delivery mechanism for nuclear weapons, though they are \
@@ -4658,7 +4602,6 @@ uk_food       = 0
 uk_gold       = 0
 flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "Only_Native_Attack", "Bombarder"
 bombard_rate  = 6
-targets       = "Sea"
 helptext      = _("\
 Submersible torpedo boats can use their stealthiness to damage \
 enemy shipping, but they're extremely vulnerable to attack from \
