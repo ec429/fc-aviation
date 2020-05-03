@@ -902,6 +902,10 @@ value   = 1
 type    = "Tech_Cost_Factor"
 value   = 1
 
+[effect_conquer_techs_base]
+type    = "Conquest_Tech_Pct"
+value   = 60
+
 ; Cities can always work tiles
 [effect_tile_workable]
 type    = "Tile_Workable"

@@ -239,6 +239,14 @@ ui_name_enter_marketplace = _("Sell %sGoods%s")
 ; /* TRANS: Help _build Wonder (100% chance of success). */
 ui_name_help_wonder = _("Help %sbuild Wonder%s")
 
+ui_name_found_city = _("%sBuild City%s")
+ui_name_join_city = _("%sAdd to City%s")
+ui_name_bombard = _("%sBombard%s")
+ui_name_attack = _("%sAttack%s")
+ui_name_conquer_city = _("%Conquer City%s")
+ui_name_home_city = _("Set %sHome City%s")
+ui_name_upgrade_unit = _("%sUpgrade Unit%s")
+
 ; Suppress automatic help text generation about what enables and/or
 ; disables the following actions.
 ;
@@ -286,7 +294,6 @@ actor_reqs    =
       "DiplRel", "Is foreign", "Local", FALSE
       "UnitState", "Transported", "Local", FALSE
     }
-ui_name_found_city = _("%sBuild City%s")
 
 [actionenabler_join_city]
 action = "Join City"
@@ -296,7 +303,6 @@ actor_reqs    =
       "DiplRel", "Is foreign", "Local", FALSE
       "MinMoveFrags", "1", "Local", TRUE
     }
-ui_name_join_city = _("%sAdd to City%s")
 
 [actionenabler_bombard]
 action = "Bombard"
@@ -307,7 +313,6 @@ actor_reqs    =
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
     }
-ui_name_bombard = _("%sBombard%s")
 
 [actionenabler_attack_native]
 action = "Attack"
@@ -328,7 +333,6 @@ actor_reqs    =
       "UnitClassFlag", "AttFromNonNative", "Local", TRUE
       "DiplRel",       "War",              "Local", TRUE
     }
-ui_name_attack = _("%sAttack%s")
 
 [actionenabler_conquer_city_native]
 action = "Conquer City"
@@ -359,7 +363,6 @@ target_reqs    =
     { "type",           "name",          "range", "present"
       "MaxUnitsOnTile", "0",             "Local", TRUE
     }
-ui_conquer_city = _("%Conquer City%s")
 
 [actionenabler_disband_unit]
 action = "Disband Unit"
@@ -387,7 +390,6 @@ actor_reqs    =
       "UnitState", "HasHomeCity", "Local", TRUE
       "DiplRel",   "Is foreign",  "Local", FALSE
     }
-ui_name_home_city = _("Set %sHome City%s")
 
 [actionenabler_upgrade_unit]
 action = "Upgrade Unit"
@@ -395,11 +397,6 @@ actor_reqs    =
     { "type",    "name",       "range", "present"
       "DiplRel", "Is foreign", "Local", FALSE
     }
-ui_upgrade_unit = _("%sUpgrade Unit%s")
-
-[effect_conquer_techs_base]
-type    = "Conquest_Tech_Pct"
-value   = 60
 
 [borders]
 ; Base border radius from city.
