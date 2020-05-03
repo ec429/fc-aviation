@@ -4263,6 +4263,41 @@ Airliners can establish trade routes with your own cities or those of other\
 Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
  used to build Wonders.")
 
+[unit_ambassador]
+name          = _("Ambassador")
+class         = "Air"
+tech_req      = "Engines 1917"
+obsolete_by   = "None"
+graphic       = "u.diplomat"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 4
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 0
+flags         = "Diplomat", "IgZOC", "NonMil", "HasNoZOC"
+roles         = "DiplomatStartUnit"
+helptext      = _("\
+An Ambassador (not to be confused with the Airspeed AS.57 airliner!)\
+ is everything you need to establish an embassy, all packed up inside\
+ a transport 'plane.  Move it to a foreign city and perform the\
+ Establish Embassy action, to gain permanent contact with the city's\
+ owner, as well as intelligence on their tax rates and technology.\
+")
+
 [unit_20s_transport]
 name          = _("Twenties Transport")
 class         = "Air"
