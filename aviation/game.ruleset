@@ -646,7 +646,7 @@ set =
       "startunits", "ccc", FALSE ; start with three settlers, to get going quickly
       "topology", "ISO|WRAPX", FALSE ; there's no hex tileset
       "mapsize", "PLAYER", FALSE
-      "tilesperplayer", 64, FALSE ; smallish map by default
+      "tilesperplayer", 160, FALSE ; smallish map by default
       "startpos", "SINGLE", FALSE ; one player per continent, if possible
       "rapturedelay", 2, FALSE ; make Democracy less OP
       "citymindist", 3, FALSE ; ensure distances are large enough to favour aircraft more
