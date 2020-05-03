@@ -70,7 +70,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * The calendar turns by season (i.e. 4 turns per year).
 * Unhappiness from units in the field is only 1 under Democracy (and zero for other governments).
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
-* Workers are called Seabees.
+* Workers are called Seabees.  Improvement build times are around 0.6 of classic (so, somewhere in between Workers and Engineers).  Transform Terrain is unavailable.
 
 ## Aircraft category usage
 
