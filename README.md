@@ -55,6 +55,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Don't ignore the seaplanes branch — you can't develop World War II fighters without Thirties Seaplanes.  This is because, historically, the impetus for high-speed aerodynamics research came from the Schneider Trophy seaplane races (most famously in the case of Supermarine).
 * There is no Diplomat or Spy unit.  Instead, some aircraft are capable of some of their actions:
   - Recon aircraft (including light bombers and some heavy fighters) can Investigate City.
+  - The Ambassador (an air unit, despite its Diplomat sprite) can Establish Embassy.
 * The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
   - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments.
   - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.
@@ -109,7 +110,7 @@ Transport aircraft are a fast way to move Assault-class units around, but can on
 
 Also, paratroopers can deploy from transports in flight.
 
-Somewhat related, the Airliner is a non-military unit which can establish trade routes — it's a bit like the classic Caravan, except it flies.
+Somewhat related, the Airliner is a non-military unit which can establish trade routes — it's a bit like the classic Caravan, except it flies.  The Ambassador is another non-military unit, which establishes embassies (it's not capable of other Diplomat actions, though, so no need to fear it).
 
 ### Gliders
 
