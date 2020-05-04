@@ -103,4 +103,5 @@ tiles = { "row", "column", "tag"
   3,  6, "u.lcmboat"     ; Landing Craft (LCM) [GB]
   3,  7, "u.zeppeliner"  ; LZ Zeppelin Liner [GB]
   3,  8, "u.heyford"     ; B3 Thirties Bomber (Handley Page Heyford) [T]
+  3,  9, "u.faireyiii"   ; HC Coastal Seaplane (Fairey IIIF) [T]
 }
