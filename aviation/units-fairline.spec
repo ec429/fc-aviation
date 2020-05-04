@@ -13,6 +13,7 @@ options = "+Freeciv-3.0-spec"
 ; Includes images from Fairline's WW2 unit compilations (from
 ; https://forums.civfanatics.com/threads/ww2-unit-graphics.409277/page-43)
 ; which may include some by other artists
+; Crediting generally based on signature logos in the source images
 ; Images credited ec429 are kitbashed from Fairline originals
 artists = "
     Fairline [GB]
@@ -101,4 +102,5 @@ tiles = { "row", "column", "tag"
   3,  5, "u.cv"          ; CV Aircraft Carrier (HMS Ark Royal) [GB]
   3,  6, "u.lcmboat"     ; Landing Craft (LCM) [GB]
   3,  7, "u.zeppeliner"  ; LZ Zeppelin Liner [GB]
+  3,  8, "u.heyford"     ; B3 Thirties Bomber (Handley Page Heyford) [T]
 }
