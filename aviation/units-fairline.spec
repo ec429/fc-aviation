@@ -6,7 +6,7 @@ options = "+Freeciv-3.0-spec"
 
 [info]
 
-; Aviation unit tiles by Fairline (of the Civ2 Scenario League on forums.civfanatics.com)
+; Aviation unit tiles by the Civ2 Scenario League on forums.civfanatics.com
 ; Modified for freeciv (mainly transparency) by ec429
 ; Used with permission.
 
