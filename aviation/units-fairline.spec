@@ -60,7 +60,7 @@ tiles = { "row", "column", "tag"
   1,  3, "u.gunbus"      ; FP Pusher Fighter (RAF F.E.2b) [GB]
   1,  4, "u.strutter"    ; FS Two-seat Scout (Sopwith 1½ Strutter) [EC]: kitbashed brisfit [GB]
   1,  5, "u.brisfit"     ; FB Fighter Biplane (Bristol F.2 Fighter) [GB]
-  1,  6, "u.demon"       ; F3 Thirties Fighter (Hawker Demon) [EC]: kitbashed hart [GB]
+; 1,  6, "u.demon"       ; F3 Thirties Fighter (Hawker Demon) [EC]: kitbashed hart [GB]
   1,  7, "u.defiant"     ; FT Turret Fighter (Boulton Paul Defiant) [T] & [GB]
   1,  8, "u.salamander"  ; TF Trench Fighter (Airco DH.5) [GB]
   1,  9, "u.potez25"     ; A2 Twenties Attacker (Potez 25) [GB]
@@ -104,4 +104,5 @@ tiles = { "row", "column", "tag"
   3,  7, "u.zeppeliner"  ; LZ Zeppelin Liner [GB]
   3,  8, "u.heyford"     ; B3 Thirties Bomber (Handley Page Heyford) [T]
   3,  9, "u.faireyiii"   ; HC Coastal Seaplane (Fairey IIIF) [T]
+  3, 10, "u.demon"       ; F3 Thirties Fighter (Hawker Demon) [T]
 }
