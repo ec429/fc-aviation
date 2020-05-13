@@ -105,4 +105,7 @@ tiles = { "row", "column", "tag"
   3,  8, "u.heyford"     ; B3 Thirties Bomber (Handley Page Heyford) [T]
   3,  9, "u.faireyiii"   ; HC Coastal Seaplane (Fairey IIIF) [T]
   3, 10, "u.demon"       ; F3 Thirties Fighter (Hawker Demon) [T]
+  3, 11, "u.buccaneer"   ; AN Naval Attack Jet (Blackburn Buccaneer) [T]
+  3, 12, "u.thunderjet"  ; A1 First-gen Jet Attacker (Republic F-84 Thunderjet) [T]
+  3, 13, "u.thunderstreak";AJ Attack Jet (Republic F-84F Thunderstreak) [T]
 }

@@ -41,7 +41,7 @@ tiles = { "row", "column", "tag"
   0, 11, "u.warthog"     ; currently unused
 ; 0, 12, "u.thunderchief"; AS
   0, 13, "u.b2spirit"    ; currently unused
-  0, 14, "u.skyhawk"     ; AN
+  0, 14, "u.skyhawk"     ; currently unused (was AN)
   0, 18, "u.dblimp"      ; ZD.  Was probably intended as a Zeppelin, but it's a late model (teardrop/icthyoid hull); ZS and ZB are straight-sided
   0, 19, "u.e3dsentry"   ; currently unused
   1,  0, "u.hoverfly"    ; early heli
