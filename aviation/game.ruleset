@@ -327,66 +327,81 @@ actor_reqs    =
       "DiplRel",      "War",         "Local", TRUE
     }
 
-[actionenabler_attack_ground]
+; Attack actionenablers: these are intended to prevent the "destroy air units
+; on the ground" 'feature' of cities/bases, but we can't use them in 3.0
+; because of overzealous stackprotect; for details see
+; http://www.hostedredmine.com/issues/873418
+;[actionenabler_attack_ground]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiGround",   "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "UnitClassFlag", "Ground", "Local"
+;    }
+;
+;[actionenabler_attack_in_harbour]
+;; allow AntiGround units to attack ships in port
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiGround",   "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "TerrainClass",  "Land",   "City"
+;      "UnitClass",     "Sea",    "Local"
+;    }
+;
+;[actionenabler_attack_sea]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiSea",      "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "UnitClass",     "Sea",    "Local"
+;    }
+;
+;[actionenabler_attack_air]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiAir",      "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "UnitClassFlag", "Flying", "Local"
+;    }
+;
+;; Default attack actionenabler instead
+[actionenabler_attack_native]
 action = "Attack"
 actor_reqs    =
-    { "type",         "name",         "range", "present"
-      "UnitFlag",     "NonMil",       "Local", FALSE
-      "MinMoveFrags", "1",            "Local", TRUE
-      "DiplRel",      "War",          "Local", TRUE
-      "UnitState",    "Transported",  "Local", FALSE
-      "UnitFlag",     "AntiGround",   "Local", TRUE
-    }
-target_reqs   =
-    { "type",          "name",   "range"
-      "UnitClassFlag", "Ground", "Local"
-    }
-
-[actionenabler_attack_in_harbour]
-; allow AntiGround units to attack ships in port
-action = "Attack"
-actor_reqs    =
-    { "type",         "name",         "range", "present"
-      "UnitFlag",     "NonMil",       "Local", FALSE
-      "MinMoveFrags", "1",            "Local", TRUE
-      "DiplRel",      "War",          "Local", TRUE
-      "UnitState",    "Transported",  "Local", FALSE
-      "UnitFlag",     "AntiGround",   "Local", TRUE
-    }
-target_reqs   =
-    { "type",          "name",   "range"
-      "TerrainClass",  "Land",   "City"
-      "UnitClass",     "Sea",    "Local"
-    }
-
-[actionenabler_attack_sea]
-action = "Attack"
-actor_reqs    =
-    { "type",         "name",         "range", "present"
-      "UnitFlag",     "NonMil",       "Local", FALSE
-      "MinMoveFrags", "1",            "Local", TRUE
-      "DiplRel",      "War",          "Local", TRUE
-      "UnitState",    "Transported",  "Local", FALSE
-      "UnitFlag",     "AntiSea",      "Local", TRUE
-    }
-target_reqs   =
-    { "type",          "name",   "range"
-      "UnitClass",     "Sea",    "Local"
-    }
-
-[actionenabler_attack_air]
-action = "Attack"
-actor_reqs    =
-    { "type",         "name",         "range", "present"
-      "UnitFlag",     "NonMil",       "Local", FALSE
-      "MinMoveFrags", "1",            "Local", TRUE
-      "DiplRel",      "War",          "Local", TRUE
-      "UnitState",    "Transported",  "Local", FALSE
-      "UnitFlag",     "AntiAir",      "Local", TRUE
-    }
-target_reqs   =
-    { "type",          "name",   "range"
-      "UnitClassFlag", "Flying", "Local"
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "NonMil",       "Local", FALSE
+      "MinMoveFrags",  "1",            "Local", TRUE
+      "UnitState",     "OnNativeTile", "Local", TRUE
+      "DiplRel",       "War",          "Local", TRUE
     }
 
 [actionenabler_conquer_city_native]
