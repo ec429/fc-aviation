@@ -864,6 +864,14 @@ reqs	=
       "Building", "Chain Home", "Continent"
     }
 
+[effect_spy_sats]
+type    = "Reveal_Map"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Spy Satellites", "Player"
+    }
+
 [effect_airline]
 type    = "Output_Bonus"
 value	= 50
@@ -913,6 +921,14 @@ value	= -50
 reqs	=
     { "type", "name", "range"
       "Building", "S.B.A.C. Airshow", "Player"
+    }
+
+[effect_gagarin]
+type    = "Make_Happy"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Building", "Human In Orbit", "Player"
     }
 
 [effect_sound_barrier]

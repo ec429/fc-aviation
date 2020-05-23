@@ -682,6 +682,29 @@ helptext	= _("\
 Acts as a Radar Station in every city on the same continent.\
 ")
 
+[building_spy_sats]
+name		= _("Spy Satellites")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Space Flight", "Player"
+    }
+graphic	= "b.sdi_defense"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "b_space_component"
+sound_alt	= "w_generic"
+helptext	= _("\
+The entire map becomes permanently visible -- the player always has\
+ up-to-date knowledge of all terrain and cities (but not units)\
+ despite fog-of-war.\
+")
+
 ; **Economic**
 
 [building_airline]
@@ -774,6 +797,30 @@ sound_alt	= "w_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Reduces the cost to upgrade obsolete units by 50%.\
+")
+
+[building_gagarin]
+name		= _("Human In Orbit")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Space Flight", "Player"
+    }
+graphic	= "b.apollo_program"
+graphic_alt	= "b.hanging_gardens"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+    }
+build_cost	= 400
+upkeep		= 0
+sabotage	= 0
+sound		= "w_apollo_program"
+sound_alt	= "w_generic"
+helptext	= _("\
+Makes two content citizens happy in every city. \
+ In the unlikely event where there are no content citizens\
+ to get the effect of the Human In Orbit, the wonder makes\
+ unhappy citizens content instead.\
 ")
 
 ; **Research

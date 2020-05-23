@@ -929,6 +929,16 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
 
+[advance_space_flight]
+name     = _("Space Flight")
+req1     = "Rocketry"
+req2     = "None"
+cost     = 2100
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("The sky is no longer the limit as men and machines\
+ enter orbit around the globe.  1961.")
+
 [advance_jet_bomber_prototypes]
 name     = _("Jet Bomber Prototypes")
 req1     = "Bombers 1939"
