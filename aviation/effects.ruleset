@@ -527,6 +527,14 @@ reqs	=
       "Building", "Radar Station", "City"
     }
 
+[effect_tramways]
+type    = "Pollu_Pop_Pct"
+value	= -100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Tramways", "City"
+    }
+
 [effect_wind_tunnel]
 type    = "Output_Bonus"
 value	= 50
