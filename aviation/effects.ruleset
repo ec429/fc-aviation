@@ -753,6 +753,23 @@ reqs	=
       "OutputType", "Shield", "Local"
     }
 
+[effect_aircraft_factory]
+type    = "Output_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aircraft Factory", "City"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_electrification]
+type    = "Pollu_Prod_Pct"
+value	= -50
+reqs	=
+    { "type", "name", "range"
+      "Building", "Electrification", "City"
+    }
+
 [effect_flak_battery_1]
 type    = "Defend_Bonus"
 value	= 20
