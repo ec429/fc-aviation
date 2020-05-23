@@ -528,7 +528,11 @@ req1     = "Scouts 1917"
 req2     = "General Aviation"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("In the immediate aftermath of the Great War, the\
+ basic arrangement of fighter aircraft saw little change;\
+ improvements mainly consisted of sturdier structures and more\
+ reliable engines.  These did however distinctly improve the\
+ effectiveness of similar ground-attack aircraft.")
 
 [advance_seaplanes_1918]
 name     = _("Seaplanes 1918")
@@ -537,7 +541,9 @@ req2     = "Practical Flying Boat"
 cost     = 400
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Combining the experience of floatplane and flying-\
+boat builders in areas such as hydrodynamic design laid the\
+ foundations for ongoing seaplane development.")
 
 [advance_twenties_seaplanes]
 name     = _("Twenties Seaplanes")
@@ -546,7 +552,9 @@ req2     = "General Aviation"
 cost     = 600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The post-war floatplane and flying-boat were best\
+ known to the public through air races such as the Schneider\
+ Trophy, but they also had military and civil applications.")
 
 [advance_aerodynamics_research]
 name     = _("Aerodynamics Research")
@@ -554,7 +562,11 @@ req1     = "Streamlining"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("To push forward the frontiers of aviation, it was\
+ no longer sufficient to rely solely on a designer's flair for\
+ good 'shapes'; painstaking technical work with models in wind\
+ tunnels enabled the development of better aerofoils, as well\
+ as innovations such as slots, flaps, and Frise ailerons.")
 
 [advance_engines_1930]
 name     = _("Engines 1930")
@@ -562,7 +574,10 @@ req1     = "Twenties Engines"
 req2     = "None"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Improvements in metallurgy and fuel chemistry\
+ made engines able to survive higher compression ratios, and\
+ experiments with supercharging showed a way to retain that\
+ power in the thin air at high altitude.")
 
 [advance_thirties_bombers]
 name     = _("Thirties Bombers")
