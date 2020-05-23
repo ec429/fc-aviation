@@ -1094,6 +1094,7 @@ reqs    =
     { "type", "name", "range", "present"
       "Action", "Found City", "Local", FALSE
       "Action", "Join City", "Local", FALSE
+      "Action", "Attack", "Local", FALSE
     }
 
 [effect_cr_scout]
