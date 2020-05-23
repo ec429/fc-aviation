@@ -518,13 +518,15 @@ reqs	=
       "Building", "FAA Branch", "City"
     }
 
-; Extended vision range
+; Extended vision range.  Base is 5, add 13 = 18; (4,1) or (3,3)
+; Not cumulative with Chain Home!
 [effect_radar]
 type    = "City_Vision_Radius_Sq"
-value   = 17
+value   = 13
 reqs	=
-    { "type", "name", "range"
-      "Building", "Radar Station", "City"
+    { "type", "name", "range", "present"
+      "Building", "Radar Station", "City", TRUE
+      "Building", "Chain Home", "Continent", FALSE
     }
 
 [effect_tramways]
@@ -856,9 +858,10 @@ reqs	=
       "UnitClass", "Seaplane", "Local"
     }
 
+; Extended vision range.  Base is 5, add 13 = 18; (4,1) or (3,3)
 [effect_chain_home]
 type    = "City_Vision_Radius_Sq"
-value   = 17
+value   = 13
 reqs	=
     { "type", "name", "range"
       "Building", "Chain Home", "Continent"
