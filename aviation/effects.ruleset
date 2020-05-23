@@ -907,6 +907,14 @@ reqs	=
       "Building", "Schneider Trophy", "Player"
     }
 
+[effect_farnborough]
+type    = "Upgrade_Price_Pct"
+value	= -50
+reqs	=
+    { "type", "name", "range"
+      "Building", "S.B.A.C. Airshow", "Player"
+    }
+
 [effect_sound_barrier]
 type    = "Give_Imm_Tech"
 value	= 2

@@ -754,6 +754,30 @@ helptext	= _("\
 Boosts science production by 100% in the city where it is built.\
 ")
 
+[building_sbac_airshow]
+name		= _("S.B.A.C. Airshow")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Engines 1930", "Player"
+    }
+graphic	= "b.leonardos_workshop"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 250
+upkeep		= 0
+sabotage	= 0
+sound		= "w_leonardos_workshop"
+sound_alt	= "w_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Reduces the cost to upgrade obsolete units by 50%.\
+")
+
+; **Research
+
 [building_janes]
 name		= _("Jane's All The World's Aircraft")
 genus		= "GreatWonder"
@@ -811,7 +835,7 @@ graphic_alt	= "-"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 200
+build_cost	= 300
 upkeep		= 0
 sabotage	= 0
 sound		= "w_darwins_voyage"
