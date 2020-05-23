@@ -915,6 +915,77 @@ reqs	=
       "Building", "Sound Barrier", "Player"
     }
 
+[effect_beam_bombing_1]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Electronics 1935", "Player"
+      "UnitClass", "Air", "Local"
+; Really we want to test that the defender is a Ground unit,
+; but there's currently no way to do that
+      "UnitFlag", "AntiGround", "Local"
+      "MinSize", "1", "City"
+    }
+
+[effect_beam_bombing_2]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Electronics 1935", "Player"
+      "UnitClass", "Seaplane", "Local"
+; Really we want to test that the defender is a Ground unit,
+; but there's currently no way to do that
+      "UnitFlag", "AntiGround", "Local"
+      "MinSize", "1", "City"
+    }
+
+[effect_beam_bombing_3]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Electronics 1935", "Player"
+      "UnitClass", "Carrier-borne", "Local"
+; Really we want to test that the defender is a Ground unit,
+; but there's currently no way to do that
+      "UnitFlag", "AntiGround", "Local"
+      "MinSize", "1", "City"
+    }
+
+[effect_airborne_radar_1]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Airborne Radar", "Player"
+      "UnitClass", "Air", "Local"
+; Really we want to test that the defender is an Air unit too,
+; but there's currently no way to do that
+      "UnitFlag", "AntiAir", "Local"
+    }
+
+[effect_airborne_radar_2]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Airborne Radar", "Player"
+      "UnitClass", "Seaplane", "Local"
+      "UnitFlag", "AntiAir", "Local"
+    }
+
+[effect_airborne_radar_3]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Airborne Radar", "Player"
+      "UnitClass", "Carrier-borne", "Local"
+      "UnitFlag", "AntiAir", "Local"
+    }
+
 [effect_calendar_year]
 type    = "Turn_Years"
 value   = 0

@@ -685,7 +685,8 @@ req1     = "Radio"
 req2     = "Anti-Air Artillery" ; doesn't make thematic sense, but needed further downstream
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+; /* xgettext:no-c-format */
+helptext = _("Increases bomber attack strength against cities by 20% (beam bombing).")
 
 [advance_proximity_fuse]
 name     = _("Proximity Fuse")
@@ -693,7 +694,7 @@ req1     = "R.D.F."
 req2     = "Electronics 1935"
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Increases effect of Flak Battery.")
 
 [advance_airlift_1935]
 name     = _("Airlift 1935")
@@ -786,7 +787,8 @@ req1     = "Electronics 1935"
 req2     = "R.D.F."
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+; /* xgettext:no-c-format */
+helptext = _("Increases air-to-air attack strength by 20%.")
 
 [advance_engines_1942]
 name     = _("Engines 1942")
