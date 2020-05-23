@@ -48,7 +48,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
     + Light: CR 8.  Light bombers, dive bombers, airships, Armed Floatplane, Early Flying Boat and Patrol Boat.
     + Medium: CR 12.  Medium bombers, and flying boats from the 1920s to the Heavy Flying Boat.
     + Heavy: CR 10.  Heavy bombers (the names usually omit "Heavy", it's implicit).  Generally one step higher FirePower than other bombers, allowing them to do more damage than a (CR 12) medium.
-    + Torpedo: CR 9.  Torpedo bombers and torpedo-carrying floatplanes.
+    + Torpedo: CR 9.  Torpedo bombers and torpedo-carrying floatplanes.  These can only attack oceanic tiles (so no bombing cities or ships in port).
 * Buildings (Improvements and Wonders) have been almost entirely replaced with a set of air-themed ones, some with effects which resemble classic ones — and some which don't.
 * There is (currently) no Space Race victory.  You'll just have to conquer them!
 * The tech tree includes a core of 'pure' research (the Engines series, and various aerodynamics techs), with branches for different aircraft categories tracking along.  This tends to make it especially inefficient to race ahead with one category while neglecting others.

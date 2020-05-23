@@ -401,7 +401,29 @@ actor_reqs    =
       "UnitFlag",      "NonMil",       "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
       "DiplRel",       "War",          "Local", TRUE
+; TBs can only attack ships at sea
+      "UnitFlag",      "CRtb",         "Local", FALSE
+    }
+
+; TB's target tile must be Oceanic.
+; We don't require target units to be Sea, because I'm not sure
+; what effect transported units might have on that.
+[actionenabler_attack_torp]
+action = "Attack"
+actor_reqs    =
+    { "type",         "name",         "range", "present"
+      "UnitFlag",      "NonMil",       "Local", FALSE
+      "MinMoveFrags",  "1",            "Local", TRUE
+      "UnitState",     "OnNativeTile", "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
+      "DiplRel",       "War",          "Local", TRUE
+      "UnitFlag",      "CRtb",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",          "name",   "range"
+      "TerrainClass",  "Oceanic","Local"
     }
 
 [actionenabler_conquer_city_native]
