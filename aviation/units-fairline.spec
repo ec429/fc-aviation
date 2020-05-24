@@ -108,4 +108,10 @@ tiles = { "row", "column", "tag"
   3, 11, "u.buccaneer"   ; AN Naval Attack Jet (Blackburn Buccaneer) [T]
   3, 12, "u.thunderjet"  ; A1 First-gen Jet Attacker (Republic F-84 Thunderjet) [T]
   3, 13, "u.thunderstreak";AJ Attack Jet (Republic F-84F Thunderstreak) [T]
+  3, 14, "u.harrier"     ; AV VTOL Attack Jet (Hawker Siddeley Harrier GR.3) [GB]
+  3, 15, "u.phantom"     ; AF Jet Fighter-Bomber (McDD F-4 Phantom II) [GB]
+  3, 16, "u.sukhoi15"    ; FJ Jet Fighter (Sukhoi Su-15) [T]
+  3, 17, "u.g91"         ; FL Transonic Light Fighter (Fiat G91) [T]
+  3, 18, "u.f5"          ; F5 Supersonic Light Fighter (Northrop F-5 Freedom Fighter) [T]
+  3, 19, "u.f8crusader"  ; NI Supersonic Naval Fighter (Vought F8U Crusader) [T]
 }

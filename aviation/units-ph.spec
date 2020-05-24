@@ -126,4 +126,5 @@ tiles = { "row", "column", "tag"
   7, 10, "u.ph-ZS" ; Zeppelin Scout
   7, 11, "u.ph-ZB" ; Zeppelin Bomber
   7, 12, "u.ph-ZC" ; Blimp, Coastal
+  7, 17, "u.ph-BC" ; Bomber, Heavy, Supersonic
 }

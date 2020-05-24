@@ -1865,7 +1865,7 @@ Supermarine Swift.\
 name          = _("Supersonic Interceptor")
 class         = "Air"
 tech_req      = "Fifties Fighters"
-obsolete_by   = "None"
+obsolete_by   = "Sixties Fighter"
 graphic       = "u.lightning"
 graphic_alt   = "u.ph-FI"
 sound_move    = "m_stealth_fighter"
@@ -1900,7 +1900,7 @@ Dassault Mirage III and Lockheed F-104 Starfighter.\
 name          = _("Supersonic Fighter")
 class         = "Air"
 tech_req      = "Fifties Fighters"
-obsolete_by   = "None"
+obsolete_by   = "Sixties Fighter"
 graphic       = "u.f100"
 graphic_alt   = "u.ph-FA"
 sound_move    = "m_stealth_fighter"
@@ -1936,8 +1936,8 @@ and Mikoyan-Gurevich MiG-19.\
 name          = _("Transonic Light Fighter")
 class         = "Air"
 tech_req      = "Light Fighter"
-obsolete_by   = "None"
-graphic       = "u.gnat"
+obsolete_by   = "Supersonic Light Fighter"
+graphic       = "u.g91"
 graphic_alt   = "u.ph-FL"
 sound_move    = "m_stealth_fighter"
 sound_move_alt = "m_generic"
@@ -1963,6 +1963,72 @@ roles         = ""
 helptext      = _("\
 Developed light fighters offer Mach 0.95 on the cheap.  \
 Historical examples include the Fiat G.91 and Follant Gnat.\
+")
+
+[unit_60s_fighter]
+name          = _("Sixties Fighter")
+class         = "Air"
+tech_req      = "Sixties Fighters"
+obsolete_by   = "None"
+graphic       = "u.sukhoi15"
+graphic_alt   = "u.ph-FJ"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 7
+defense       = 4
+hitpoints     = 16
+firepower     = 5
+move_rate     = 25
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "CRfighter", "AntiAir"
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+roles         = ""
+helptext      = _("\
+Fighter/interceptor aircraft reaching Mach 2 or so.  \
+Historical examples include the Sukhoi Su-15.\
+")
+
+[unit_superlight_fighter]
+name          = _("Supersonic Light Fighter")
+class         = "Air"
+tech_req      = "Sixties Fighters"
+obsolete_by   = "None"
+graphic       = "u.f5"
+graphic_alt   = "u.ph-F5"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 15
+firepower     = 5
+move_rate     = 28
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "CRfighter", "AntiAir"
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+roles         = ""
+helptext      = _("\
+Cost-effective supersonic fighter for cash-strapped airforces.  \
+Historical examples include the Northrop F-5 Freedom Fighter.\
 ")
 
 [unit_pusher_fighter]
@@ -2347,7 +2413,7 @@ and Dassault Mystère IV.\
 name          = _("Supersonic Attacker")
 class         = "Air"
 tech_req      = "Fifties Fighters"
-obsolete_by   = "None"
+obsolete_by   = "Jet Fighter-Bomber"
 graphic       = "u.thunderchief"
 graphic_alt   = "u.ph-AS"
 sound_move    = "m_stealth_fighter"
@@ -2374,6 +2440,39 @@ roles         = ""
 helptext      = _("\
 Fighter-bomber with reheat for supersonic speed.  \
 Historical examples include the Republic F-105 Thunderchief.\
+")
+
+[unit_jet_fighter_bomber]
+name          = _("Jet Fighter-Bomber")
+class         = "Air"
+tech_req      = "Sixties Fighters"
+obsolete_by   = "None"
+graphic       = "u.phantom"
+graphic_alt   = "u.ph-AF"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 7
+defense       = 3
+hitpoints     = 16
+firepower     = 4
+move_rate     = 30
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
+targets       = "Land", "Assault", "Sea", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+roles         = ""
+helptext      = _("\
+Supersonic interceptor and strike aircraft.  \
+Historical examples include the McDonnell-Douglas F-4 Phantom II.\
 ")
 
 [unit_early_heavy_fighter]
@@ -2842,7 +2941,7 @@ and Grumman F9F Panther.\
 name          = _("Swept-wing Naval Fighter")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1950"
-obsolete_by   = "None"
+obsolete_by   = "Supersonic Naval Fighter"
 graphic       = "u.venom"
 graphic_alt   = "u.ph-NF"
 sound_move    = "m_stealth_fighter"
@@ -2878,7 +2977,7 @@ and Douglas F4D Skyray.\
 name          = _("Naval Attack Jet")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1950"
-obsolete_by   = "None"
+obsolete_by   = "VTOL Attack Jet"
 graphic       = "u.buccaneer"
 graphic_alt   = "u.ph-AN"
 sound_move    = "m_stealth_fighter"
@@ -2909,6 +3008,77 @@ Swept-wing shipborne strike aircraft, capable of attacking \
 both ground troops and shipping.  \
 Historical examples include the North American FJ-4, \
 Douglas A-4 Skyhawk, and Blackburn Buccaneer.\
+")
+
+[unit_naval_super]
+name          = _("Supersonic Naval Fighter")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1957"
+obsolete_by   = "None"
+graphic       = "u.f8crusader"
+graphic_alt   = "u.ph-NI"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 12
+firepower     = 5
+move_rate     = 30
+vision_radius_sq = 5
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+flags         = "CRfighter", "AntiAir"
+roles         = ""
+helptext      = _("\
+Supersonic shipborne jet fighter.  \
+Historical examples include the Vought F8U Crusader.\
+")
+
+[unit_harrier]
+name          = _("VTOL Attack Jet")
+class         = "Carrier-borne"
+tech_req      = "VTOL"
+obsolete_by   = "None"
+graphic       = "u.harrier"
+graphic_alt   = "u.ph-AV"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 16
+firepower     = 3
+move_rate     = 20
+vision_radius_sq = 5
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
+targets       = "Land", "Assault", "Sea", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+roles         = ""
+helptext      = _("\
+Vertical-takeoff-and-landing strike fighter, capable of operating \
+from carriers and attacking ground troops, shipping, and aircraft.  \
+Historical examples include the Hawker Siddeley Harrier.\
 ")
 
 [unit_hydravion]
@@ -4151,7 +4321,7 @@ Boeing B-47 Stratojet.\
 name          = _("Jet Bomber")
 class         = "Air"
 tech_req      = "Fifties Bombers"
-obsolete_by   = "None"
+obsolete_by   = "Supersonic Bomber"
 graphic       = "u.vulcan"
 graphic_alt   = "u.ph-BJ"
 sound_move    = "m_stealth_bomber"
@@ -4180,6 +4350,39 @@ delivery mechanism for nuclear weapons, though they are \
 also more than capable of conventional bombing.  \
 Historical examples include the Avro Vulcan and \
 Boeing B-52 Stratofortress.\
+")
+
+[unit_supersonic_bomber]
+name          = _("Supersonic Bomber")
+class         = "Air"
+tech_req      = "Sixties Bombers"
+obsolete_by   = "None"
+graphic       = "u.hustler"
+graphic_alt   = "u.ph-BC"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 240
+pop_cost      = 0
+attack        = 13
+defense       = 6
+hitpoints     = 21
+firepower     = 3
+move_rate     = 24
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+targets       = "Land", "Assault", "Sea"
+helptext      = _("\
+Mach 2 capable heavy bombers competed with ballistic missiles for \
+the strategic deterrent role.  \
+Historical examples include the Convair B-58 Hustler.\
 ")
 
 [unit_zeppelin_liner]

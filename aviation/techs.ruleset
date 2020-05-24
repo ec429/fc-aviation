@@ -1079,6 +1079,15 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("")
 
+[advance_carrier_aviation_1957]
+name     = _("Carrier Aviation 1957")
+req1     = "Carrier Aviation 1950"
+req2     = "Supersonic Flight"
+cost     = 3000
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
 [advance_fifties_bombers]
 name     = _("Fifties Bombers")
 req1     = "Swept-wing Bombers"
@@ -1096,3 +1105,47 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Decreases one-time revenue from new trade routes.")
 
+[advance_sixties_engines]
+name     = _("Sixties Engines")
+req1     = "Supersonic Flight"
+req2     = "None"
+cost     = 1800
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_sixties_fighters]
+name     = _("Sixties Fighters")
+req1     = "Fifties Fighters"
+req2     = "Sixties Engines"
+cost     = 3200
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_sixties_light_fighter]
+name     = _("Sixties Light Fighter")
+req1     = "Light Fighter"
+req2     = "Sixties Engines"
+cost     = 2400
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_vtol]
+name     = _("VTOL")
+req1     = "Carrier Aviation 1957"
+req2     = "Sixties Engines"
+cost     = 3600
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
+
+[advance_sixties_bombers]
+name     = _("Sixties Bombers")
+req1     = "Fifties Bombers"
+req2     = "Sixties Engines"
+cost     = 4000
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("")
