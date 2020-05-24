@@ -537,6 +537,16 @@ reqs	=
       "Building", "Tramways", "City"
     }
 
+[effect_recruiter]
+type    = "Unit_Upkeep_Free_Per_City"
+value	= 2
+reqs   =
+    { "type", "name", "range", "present"
+      "Gov", "Revolution", "Player", FALSE
+      "Building", "Recruiting Office", "City", TRUE
+      "OutputType", "Shield", "Local", TRUE
+    }
+
 [effect_wind_tunnel]
 type    = "Output_Bonus"
 value	= 50
