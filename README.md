@@ -3,7 +3,7 @@
 ## Empire building in the Age of Flight
 
 In this ruleset, there are only a handful of ground and sea unit types — but over a hundred air units!
-As well as a 50-year span of technology (from the pioneer era to the early supersonic age), there are an efflorescence of different _categories_ of aeroplane, many with their own special rules.
+As well as a 60-year span of technology (from the pioneer era to the early supersonic age), there are an efflorescence of different _categories_ of aeroplane, many with their own special rules.
 
 Bombers, dive bombers, torpedo bombers and strike aircraft attack ground (or in some cases sea) units.  Ground units can make airborne assaults either by parachute or by glider.  Gliders are towed by bombers, and expended once dropped; paratroops jump from transport aircraft.  Sea units can transport either carrier-capable aeroplanes, seaplanes or ground units.  Airliners create trade routes between cities.  Blimps and flying-boats patrol the seas, hunting submarines.  Reconnaissance planes watch the enemy to find out what he's up to...
 
@@ -11,7 +11,7 @@ Bombers, dive bombers, torpedo bombers and strike aircraft attack ground (or in 
 
 ## Development Status
 
-The rules all seem to be working, although we're a bit short on City Improvements and (especially) Wonders.  The tech-tree goes up to the 1950s, but will be extended up to the present day in later versions.  Balancing has been done by rule-of-thumb only — there has not been much playtesting yet, so some units might be useless while others are overpowered.
+The rules all seem to be working, although we're a bit short on City Improvements and (especially) Wonders.  The tech-tree goes up to the 1960s, but will be extended up to the present day in later versions.  Balancing has been done by rule-of-thumb only — there has not been much playtesting yet, so some units might be useless while others are overpowered.
 
 The main thing that's missing is tiles (and other art).  Making art takes a long time, and though Fairline kindly allowed me to use some of his unit sprites, there are a few gaps that I couldn't find anything suitable for; so I've decided to use a bunch of placeholders for now (units are two-letter codes, vaguely reminiscent of hull symbols, while buildings are just using vaguely-appropriate-looking classic building images) while I get the ruleset sorted out.
 
@@ -88,7 +88,7 @@ These also attack ground units (and the Dive Bomber can attack ships), but are p
 
 ### Attackers and Strike Fighters
 
-These attack ground units, but attacking does _not_ end their turn (they only have 1 fuel).  They can take out assault units in the field (especially if weakened by bombing), but are unlikely to survive attacks on defensive Troops or units fortified in cities.
+These attack ground units, but attacking does _not_ end their turn (they only have 1 fuel).  They can take out assault units in the field (especially if weakened by bombing), but are unlikely to do much damage to defensive Troops or units fortified in cities.  Some later models gain the ability to attack sea units, and in the 1960s they develop into multi-rôle combat aircraft that can also handle air-to-air fighting.
 
 ### Torpedo Bombers
 
