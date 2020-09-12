@@ -1168,7 +1168,7 @@ Historical examples include the Airco DH.4.\
 
 [unit_biplane_light_bomber]
 name          = _("Biplane Light Bomber")
-class         = "Air"
+class         = "Carrier-borne"
 tech_req      = "Bombers 1917"
 obsolete_by   = "Twenties Light Bomber"
 graphic       = "u.dh9a"
@@ -1196,12 +1196,14 @@ targets       = "Land", "Assault"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
+It's also carrier-capable, which is useful for reconnaissance \
+of distant enemy cities.  \
 Historical examples include the Airco DH.9a.\
 ")
 
 [unit_20s_light_bomber]
 name          = _("Twenties Light Bomber")
-class         = "Air"
+class         = "Carrier-borne"
 tech_req      = "Twenties Bombers"
 obsolete_by   = "Thirties Light Bomber"
 graphic       = "u.hart"
@@ -1235,7 +1237,7 @@ Westland Wapiti and Hawker Hart.\
 
 [unit_30s_light_bomber]
 name          = _("Thirties Light Bomber")
-class         = "Air"
+class         = "Carrier-borne"
 tech_req      = "Thirties Bombers"
 obsolete_by   = "None"
 graphic       = "u.battle"
@@ -1300,6 +1302,8 @@ helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
 extra weight of 1000lb of bombs, but make for a bigger \
 and more expensive aircraft.  \
+By dint of its larger size, the Twin cannot operate from \
+aircraft carriers.  \
 Historical examples include the Dornier Do 17E and \
 Bristol Blenheim.\
 ")
