@@ -133,3 +133,11 @@ These heavier fighters aren't quite as good in a dogfight as their single-engine
 ### Carrier Wing
 
 An aircraft carrier's loadout will probably be some mix of TBs, DBs, attackers and fighters.  The TBs go after enemy carriers, the fighters (CAP, Combat Air Patrol) deal with any strikes the enemy carriers launched, and the DBs and attackers support operations on land.  (The fighters might also fly some escort missions.)  The proportions of the different types will depend on what you expect to be fighting against — if the enemy has a lot of carriers, you'll need sizeable TB and CAP contingents, but if the enemy's airpower is weak in the theatre of operations you might be able to fill up with strike aircraft instead.
+
+## Known cheesy tricks
+
+Seabees can build improvements while transported.  This is needed in order to allow building Buoys at all — from boats like the Landing-craft — but it also means that they can build them while on a plane.  So, a Twenties Flying Boat with a Seabees on board has essentially unlimited range over water: when fuel gets low, just drop a Buoy (it only takes one turn) then spend a turn moored at the Buoy to refuel.
+
+Pulling the same trick with Airbases is a little harder, since they take two turns to build whereas transport aircraft only have two fuel (so can only loiter over the building site for one turn).  However, even the Twenties Transport has room to carry _two_ Seabees, who by working together can drop an Airbase out of the back of the plane in one turn.
+
+So what about using this trick to land assault troops on an enemy island?  Well, unless you're very quick or have total air supremacy, the enemy will probably be able to get ground troops onto the airbase, denying it to you.  But assault troops can _also_ disembark from a seaplane moored at a Buoy, so if you drop one on the coast, you can use flying-boats to land an invasion force.  However, the assault units can't attack (or bombard) from offshore, so they will need an empty land tile to move onto.  Still, it could be a useful way to get extra value out of strong seaplane forces.
