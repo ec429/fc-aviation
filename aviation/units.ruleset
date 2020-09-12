@@ -4905,7 +4905,7 @@ sound_fight   = "f_submarine"
 sound_fight_alt = "f_generic"
 build_cost    = 30
 pop_cost      = 0
-attack        = 2
+attack        = 4
 defense       = 1
 hitpoints     = 8
 firepower     = 1
@@ -4917,10 +4917,10 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "Only_Native_Attack", "Bombarder"
-bombard_rate  = 6
+targets       = "Sea"
+flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "CRtb"
 helptext      = _("\
-Submersible torpedo boats can use their stealthiness to damage \
+Submersible torpedo boats can use their stealthiness to ambush \
 enemy shipping, but they're extremely vulnerable to attack from \
 the air — blimps and patrol boats are ideal sub hunters.\
 ")
