@@ -399,6 +399,7 @@ action = "Attack"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
+      "UnitFlag",      "Bombarder",    "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -415,6 +416,7 @@ action = "Attack"
 actor_reqs    =
     { "type",         "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
+      "UnitFlag",      "Bombarder",    "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
