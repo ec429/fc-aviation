@@ -54,7 +54,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 * The tech tree includes a core of 'pure' research (the Engines series, and various aerodynamics techs), with branches for different aircraft categories tracking along.  This tends to make it especially inefficient to race ahead with one category while neglecting others.
   - Don't ignore the seaplanes branch — you can't develop World War II fighters without Thirties Seaplanes.  This is because, historically, the impetus for high-speed aerodynamics research came from the Schneider Trophy seaplane races (most famously in the case of Supermarine).
 * There is no Diplomat or Spy unit.  Instead, some aircraft are capable of some of their actions:
-  - Recon aircraft (including light bombers and some heavy fighters) can Investigate City.
+  - Recon aircraft (including light bombers, some floatplanes, and some heavy fighters) can Investigate City.
   - The Ambassador (an air unit, despite its Diplomat sprite) can Establish Embassy.
 * The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
   - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments; and it has a senate which may prevent aggressive wars.

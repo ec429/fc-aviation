@@ -3162,7 +3162,7 @@ Historical examples include the Short S.41.\
 name          = _("Armed Floatplane")
 class         = "Seaplane"
 tech_req      = "Military Seaplanes"
-obsolete_by   = "Torpedo Floatplane"
+obsolete_by   = "Coastal Seaplane"
 graphic       = "u.short81"
 graphic_alt   = "u.ph-HA"
 sound_move    = "m_fighter"
@@ -3185,7 +3185,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
 targets       = "Land", "Assault", "Sea"
 roles         = ""
 helptext      = _("\
@@ -3264,6 +3264,7 @@ roles         = ""
 helptext      = _("\
 With the ability to carry a torpedo, attack floatplanes \
 become far more effective at taking out enemy ships.  \
+However, they're unsuitable for reconnaissance.  \
 Historical examples include the Short Type 184.\
 ")
 
@@ -3330,12 +3331,12 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "Recon", "OneAttack", "CRtb", "AntiSea"
 targets       = "Sea"
 roles         = ""
 helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
-to defend itself.  \
+to defend itself.  It's also capable of recon.  \
 Historical examples include the Blackburn Velos.\
 ")
 
