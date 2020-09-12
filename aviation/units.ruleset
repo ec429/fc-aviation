@@ -782,7 +782,7 @@ other forces ready to reinforce them before the counter-attack. \
 name          = _("Zeppelin Scout")
 class         = "Air"
 tech_req      = "Dirigible Balloons"
-obsolete_by   = "Zeppelin Bomber"
+obsolete_by   = "None"
 graphic       = "u.zeppscout"
 graphic_alt   = "u.ph-ZS"
 sound_move    = "m_bomber"
@@ -809,6 +809,8 @@ helptext      = _("\
 Zeppelin Scouts are your first lighter-than-air units. Their long \
 endurance makes them effective (if slow) reconnaissance platforms, \
 but they have no combat or cargo capability.  \
+On the other hand, as non-combat units, they cause no unhappiness \
+when deployed outside your borders.  \
 Historical examples include the Zeppelin Z I, Z II and Z IV.\
 ")
 
