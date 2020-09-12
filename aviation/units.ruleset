@@ -4914,6 +4914,8 @@ defense       = 1
 hitpoints     = 8
 firepower     = 1
 move_rate     = 1
+convert_to    = "Submersible (surfaced)"
+convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -4927,6 +4929,42 @@ helptext      = _("\
 Submersible torpedo boats can use their stealthiness to ambush \
 enemy shipping, but they're extremely vulnerable to attack from \
 the air — blimps and patrol boats are ideal sub hunters.\
+A submerged boat is slow — you can surface it to move faster.\
+")
+
+[unit_subsurface]
+name          = _("Submersible (surfaced)")
+class         = "Sea"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.submarine"
+graphic_alt   = "u.ph-su"
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 8
+firepower     = 1
+move_rate     = 2
+convert_to    = "Submersible"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Sea"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
+helptext      = _("\
+When on the surface, a Submersible is much less stealthy, but can \
+move more quickly to get into position for an attack.\
+You can then submerge it again to attack more effectively.\
 ")
 
 [unit_lph]
