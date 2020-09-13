@@ -615,7 +615,11 @@ req2     = "Engines 1930"
 cost     = 760
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("A new generation of bombers, many of them monoplanes,\
+ were faster and stronger than any before them.  The adage that 'the\
+ bomber will always get through' entered the political lexicon, and\
+ nations began to fear mutually assured destruction by bomber fleets\
+ would be the inevitable consequence of any European war.")
 
 [advance_thirties_carrier_aviation]
 name     = _("Thirties Carrier Aviation")
@@ -624,7 +628,9 @@ req2     = "Engines 1930"
 cost     = 720
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The admirals were not left out of the progression of\
+ aeronautics in the 1930s, as faster and more powerful aircraft were\
+ developed to fly from carrier decks.")
 
 [advance_thirties_airlift]
 name     = _("Thirties Airlift")
@@ -633,7 +639,9 @@ req2     = "Engines 1930"
 cost     = 540
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Improvements to transport aircraft in the 1930s were\
+ mostly in the field of reliability; but range and speed did continue\
+ to creep up as well.")
 
 [advance_high_speed]
 name     = _("High Speed")
@@ -642,7 +650,8 @@ req2     = "Aerodynamics Research"
 cost     = 540
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Combining advances in engines and aerodynamics, the\
+ 'thirties saw aircraft speeds begin to rise rapidly.")
 
 [advance_thirties_fighters]
 name     = _("Thirties Fighters")
@@ -651,7 +660,9 @@ req2     = "High Speed"
 cost     = 800
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Speeds above 200mph were the last gasp of biplane\
+ fighter development.  While the resulting aircraft were a marked\
+ improvement, it was clear that something new would be needed.")
 
 [advance_thirties_seaplanes]
 name     = _("Thirties Seaplanes")
@@ -660,7 +671,9 @@ req2     = "High Speed"
 cost     = 750
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Large, long-range flying-boats and high-speed racing\
+ floatplanes were the two poles of sea-plane development in the\
+ early 30s.  Both were ultimately to pay military dividends.")
 
 [advance_military_industrial_complex]
 name     = _("Military-Industrial Complex")
@@ -669,7 +682,9 @@ req2     = "Thirties Bombers"
 cost     = 640
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("As nations re-armed in preparation for the next great\
+ war, armament firms grew large enough to wield considerable influence\
+ on public policy.")
 
 [advance_engines_1935]
 name     = _("Engines 1935")
@@ -678,7 +693,9 @@ req2     = "None"
 cost     = 480
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Supercharging finally became a mature technology, enabling\
+ aero-engines to develop over 1,000hp in a compact package and opening\
+ the way to further improvements in aeroplanes of all types.")
 
 [advance_large_monoplanes]
 name     = _("Large Monoplanes")
@@ -687,7 +704,9 @@ req2     = "Aerodynamics Research"
 cost     = 480
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Improvements in structural know-how, such as stressed skin\
+ and the geodetic system, allowed cantilever monoplane wings to replace\
+ the braced biplane as the preferred design for large aircraft.")
 
 [advance_bombers_1935]
 name     = _("Bombers 1935")
@@ -696,7 +715,11 @@ req2     = "Large Monoplanes"
 cost     = 1080
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The small and medium bombers developed in the late 'thirties\
+ were to bear the brunt of the fighting in the opening phases of the Second\
+ World War, from the tactical Blitzkrieg of the German Stukas on the front\
+ lines to the strategic campaigns of medium bombers against industrial\
+ centres.")
 
 [advance_carrier_aviation_1935]
 name     = _("Carrier Aviation 1935")
@@ -705,7 +728,9 @@ req2     = "Engines 1935"
 cost     = 960
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("When monoplane fighters and torpedo-bombers finally became\
+ rugged enough for shipboard use, naval air forces around the world leapt\
+ at the chance for an upgrade.")
 
 [advance_r_d_f_]
 name     = _("R.D.F.")
@@ -714,7 +739,12 @@ req2     = "Bombers 1935"
 cost     = 720
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Radio Direction Finding, also known as radar (from RAdio\
+ Detection And Ranging), is the technique of reflecting radio waves\
+ off a distant object (such as an aeroplane) and observing it by the\
+ returned signal.  Its development swung the pendulum in favour of\
+ defence by allowing fighters to be 'scrambled' to face an air raid\
+ before it arrived.")
 
 [advance_electronics_1935]
 name     = _("Electronics 1935")
@@ -733,7 +763,11 @@ req2     = "Electronics 1935"
 cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("Increases effect of Flak Battery.")
+helptext = _("The VT (variable time) fuse for anti-aircraft shells\
+ used capacitive coupling to detect nearby metal bodies.  In effect\
+ it was a short-range radar, and greatly increased the accuracy of\
+ heavy flak, which now only needed to aim in two dimensions rather\
+ than three."), _("Increases effect of Flak Battery.")
 
 [advance_airlift_1935]
 name     = _("Airlift 1935")
@@ -742,7 +776,10 @@ req2     = "Bombers 1935"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Early monoplane medium bombers, on becoming obsolete\
+ in their original role, found a new lease of life as transport\
+ aircraft, faster and longer-ranged than the wooden biplanes they
+ were replacing.")
 
 [advance_fighters_1935]
 name     = _("Fighters 1935")
@@ -751,7 +788,10 @@ req2     = "Engines 1935"
 cost     = 1080
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The fast cantilever monoplane formed the basis of the\
+ new breed of fighters that entered service just before the Second\
+ World War.  Designers experimented with powered turrets and even\
+ long-range twin-engined 'heavy fighters'.")
 
 [advance_heavy_flying_boat]
 name     = _("Heavy Flying Boat")
@@ -760,7 +800,10 @@ req2     = "Engines 1935"
 cost     = 980
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The long range ocean-going flying boats of Imperial\
+ Airways became the basis for the design of large maritime patrol\
+ aircraft, vital to suppressing German submarines in the Battle of\
+ the Atlantic.")
 
 [advance_tracking_radar]
 name     = _("Tracking Radar")
@@ -769,7 +812,11 @@ req2     = "None"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Ignore this tech; it's for a building that doesn't\
+ work yet."), _("\
+Beyond merely detecting approaching raids, advanced radars like\
+ the German Wurzburg or the British PPI could be used to guide\
+ friendly fighters to an interception.")
 
 [advance_engines_1939]
 name     = _("Engines 1939")
@@ -778,7 +825,8 @@ req2     = "None"
 cost     = 640
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Aircraft designers demanded ever more power, and\
+ the engineers found ways to provide it.")
 
 [advance_helicopters]
 name     = _("Helicopters")
@@ -787,7 +835,9 @@ req2     = "None"
 cost     = 720
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Power-to-weight ratios finally grew high enough to\
+ allow vertical take-off with a useful, albeit small, payload. \
+ These early helicopters found various, mostly naval, roles.")
 
 [advance_bombers_1939]
 name     = _("Bombers 1939")
@@ -796,7 +846,9 @@ req2     = "Engines 1939"
 cost     = 1320
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("By scaling up monoplane bomber design to use four\
+ 1,000+ horsepower engines, new heavies were able to deliver\
+ several tons of bombs over long ranges.")
 
 [advance_higher_speed]
 name     = _("Higher Speed")
@@ -805,7 +857,10 @@ req2     = "Thirties Seaplanes"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("From when 200mph had seemed fast, it took a\
+ surprisingly short time for even 300mph to begin sounding a\
+ little slow.  Designing for these great speeds brought new\
+ challenges.")
 
 [advance_fighters_1939]
 name     = _("Fighters 1939")
@@ -814,7 +869,8 @@ req2     = "Higher Speed"
 cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The advances built up over the decade at last paid\
+ dividends in the design of fighter and attack aircraft.")
 
 [advance_carrier_aviation_1940]
 name     = _("Carrier Aviation 1940")
@@ -823,7 +879,10 @@ req2     = "Fighters 1939"
 cost     = 1300
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Naval fighters and strike fighters shared in the new\
+ technology of the high-performance monoplane, and strike aircraft\
+ began to replace dive-bombers as the main way for carriers to\
+ project power ashore.")
 
 [advance_airborne_radar]
 name     = _("Airborne Radar")
@@ -833,7 +892,11 @@ cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 ; /* xgettext:no-c-format */
-helptext = _("Increases air-to-air attack strength by 20%.")
+helptext = _("Advances like the cavity magnetron allowed radar\
+ equipment to be miniaturised enough to carry it aboard an aeroplane. \
+ Night-fighters used this to find bombers, while terrain radars such \
+ as the British 'H2S' helped guide the bombers to their targets."), _("\
+Increases air-to-air attack strength by 20%.")
 
 [advance_engines_1942]
 name     = _("Engines 1942")
@@ -842,7 +905,9 @@ req2     = "None"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Two-stage superchargers enabled even more power to be\
+ squeezed out of engine designs, some of which eventually reached\
+ double the horsepower of their pre-war prototypes.")
 
 [advance_carrier_aviation_1942]
 name     = _("Carrier Aviation 1942")
@@ -851,7 +916,8 @@ req2     = "Engines 1942"
 cost     = 1500
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("More powerful naval aeroplanes continued to increase the\
+ striking power of aircraft carriers.")
 
 [advance_heavy_bombers]
 name     = _("Heavy Bombers")
@@ -860,7 +926,10 @@ req2     = "Engines 1942"
 cost     = 1500
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("With the benefit of wartime experience, Allied aircraft\
+ designers were able to develop the great heavy bombers which, in RAF\
+ Bomber Command and the US Eighth Army Air Force, flattened Germany\
+ and destroyed her warmaking capability.")
 
 [advance_heavy_gliders]
 name     = _("Heavy Gliders")
@@ -869,7 +938,9 @@ req2     = "Heavy Bombers"
 cost     = 930
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Larger, more capacious gliders could bring more troops\
+ into action in airborne assaults.  In some cases they were even able\
+ to bring small tanks!")
 
 [advance_heavy_airlift]
 name     = _("Heavy Airlift")
@@ -878,7 +949,9 @@ req2     = "Engines 1942"
 cost     = 1080
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Transport aircraft were able to grow in size to support\
+ the strategic movement and logistical support of large numbers of\
+ troops over long distances.")
 
 [advance_fighters_1942]
 name     = _("Fighters 1942")
@@ -887,7 +960,9 @@ req2     = "Engines 1942"
 cost     = 1450
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("High-performance cannon-armed fighters, in both single-\
+ and twin-engined forms, made the skies increasingly dangerous for\
+ everyone else.")
 
 [advance_superprop_engines]
 name     = _("Superprop Engines")
@@ -896,7 +971,8 @@ req2     = "None"
 cost     = 1100
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Bigger and heavier piston engines began to top 2,000hp\
+ in the latter years of World War Two.")
 
 [advance_bombers_1945]
 name     = _("Bombers 1945")
@@ -905,7 +981,9 @@ req2     = "Superprop Engines"
 cost     = 1080
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The apogee of piston-engined bomber design produced\
+ heavies that could range over an entire continent, and deliver payloads\
+ up to and including the first nuclear bombs.")
 
 [advance_fighters_1944]
 name     = _("Fighters 1944")
