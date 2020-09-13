@@ -29,6 +29,7 @@ flags =
   { "name", "helptxt"
     _("Airbase")
     _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
+    _("Merchant"), _("Can make single-shot trade (but not ongoing trade routes) by travelling to target city.")
     _("Recon"), _("Can investigate foreign cities (must travel to target city).")
     _("Cities")
     _("AddToCity")
@@ -4933,6 +4934,42 @@ roles         = "Ferryboat"
 helptext      = _("\
 Landing Craft can be used to transport assault troops (or \
 settlers) across water, albeit much more slowly than by air.\
+")
+
+[unit_merchie]
+name          = _("Merchant Ship")
+class         = "Sea"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.liberty"
+graphic_alt   = "u.transport"
+;phcode=ms
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 12
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 6
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 0
+flags         = "Merchant", "NonMil", "HasNoZOC"
+helptext      = _("\
+A Merchant ship carries goods or material for trading with distant cities\
+ and foreign countries.\
+"), _("\
+Merchants can earn gold and science, trading with your own cities or those\
+ of other nations (even enemies) by traveling to them.  However, unlike\
+ airliners, they cannot create persistent trade routes with ongoing revenue.\
 ")
 
 [unit_seatend]

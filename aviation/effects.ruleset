@@ -146,7 +146,7 @@ value   = 2
 
 [effect_enter_marketplace_bonus_reduction]
 type	= "Trade_Revenue_Bonus"
-value	= -1585
+value	= -2000
 reqs	=
     { "type", "name", "range"
       "Action", "Enter Marketplace", "Local"

@@ -118,4 +118,5 @@ tiles = { "row", "column", "tag"
   4,  1, "u.banshee"     ; N1 Naval Jet Attacker (McDonnell F2H-2 Banshee) [GB]
   4,  2, "u.skymaster"   ; CS Strategic Transport (Consolidated B-24J Liberator) [GB], gun turrets removed by [EC] to turn it into a C-87 Liberator Express
   4,  3, "u.bulldog"     ; S2 Twenties Scout (Bristol Bulldog) [EC]
+  4,  4, "u.liberty"     ; MS Merchant Ship (Liberty Ship) [GB]
 }

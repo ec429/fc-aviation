@@ -283,6 +283,20 @@ actor_reqs    =
       "UnitFlag", "TradeRoute", "Local", TRUE
     }
 
+[actionenabler_marketplace]
+action       = "Enter Marketplace"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "TradeRoute", "Local"
+    }
+
+[actionenabler_marketplace_2]
+action       = "Enter Marketplace"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Merchant", "Local"
+    }
+
 [actionenabler_build_city_pioneer]
 action = "Found City"
 actor_reqs    =
