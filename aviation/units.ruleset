@@ -5111,7 +5111,7 @@ flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "CRtb"
 helptext      = _("\
 Submersible torpedo boats can use their stealthiness to ambush \
 enemy shipping, but they're extremely vulnerable to attack from \
-the air — blimps and patrol boats are ideal sub hunters.\
+the air — blimps and patrol boats are ideal sub hunters.  \
 A submerged boat is slow — you can surface it to move faster.\
 ")
 
@@ -5146,7 +5146,7 @@ targets       = "Sea"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \
-move more quickly to get into position for an attack.\
+move more quickly to get into position for an attack.  \
 You can then submerge it again to attack more effectively.\
 ")
 
