@@ -2911,20 +2911,20 @@ Historical examples include the Hawker Sea Fury.\
 name          = _("Naval Attacker")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1945"
-obsolete_by   = "Naval Attack Jet"
+obsolete_by   = "Naval Jet Attacker"
 graphic       = "u.skyraider"
 graphic_alt   = "u.ph-NA"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 50
 pop_cost      = 0
 attack        = 4
 defense       = 3
-hitpoints     = 16
-firepower     = 2
-move_rate     = 16
+hitpoints     = 18
+firepower     = 1
+move_rate     = 14
 vision_radius_sq = 4
 transport_cap = 0
 embarks       = "Sea"
@@ -2979,6 +2979,41 @@ Historical examples include the Supermarine Attacker \
 and Grumman F9F Panther.\
 ")
 
+[unit_naval1attack]
+name          = _("Naval Jet Attacker")
+class         = "Carrier-borne"
+tech_req      = "Carrier-borne Jets"
+obsolete_by   = "Naval Attack Jet"
+graphic       = "u.banshee"
+graphic_alt   = "u.ph-N1"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 18
+vision_radius_sq = 4
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "CRattack", "AntiGround"
+targets       = "Land", "Assault"
+roles         = ""
+helptext      = _("\
+First-generation shipborne ground-attack jet.  \
+Historical examples include the McDonnell F2H-2 Banshee.\
+")
+
 [unit_naval_swept]
 name          = _("Swept-wing Naval Fighter")
 class         = "Carrier-borne"
@@ -3030,7 +3065,7 @@ build_cost    = 70
 pop_cost      = 0
 attack        = 5
 defense       = 3
-hitpoints     = 16
+hitpoints     = 15
 firepower     = 2
 move_rate     = 20
 vision_radius_sq = 4
