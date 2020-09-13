@@ -14,7 +14,7 @@ options = "+Freeciv-3.0-spec"
 ; https://forums.civfanatics.com/threads/ww2-unit-graphics.409277/page-43)
 ; which may include some by other artists
 ; Crediting generally based on signature logos in the source images
-; Images credited ec429 are kitbashed from Fairline originals
+; Images credited ec429 are mostly kitbashed from Fairline originals
 artists = "
     Fairline [GB]
     Tanelorn [T]
@@ -114,4 +114,8 @@ tiles = { "row", "column", "tag"
   3, 17, "u.g91"         ; FL Transonic Light Fighter (Fiat G91) [T]
   3, 18, "u.f5"          ; F5 Supersonic Light Fighter (Northrop F-5 Freedom Fighter) [T]
   3, 19, "u.f8crusader"  ; NI Supersonic Naval Fighter (Vought F8U Crusader) [T]
+  4,  0, "u.p47"         ; AP Superprop Attacker (Republic P-47D Thunderbolt) [GB]
+  4,  1, "u.banshee"     ; N1 Naval Jet Attacker (McDonnell F2H-2 Banshee) [GB]
+  4,  2, "u.skymaster"   ; CS Strategic Transport (Consolidated B-24J Liberator) [GB], gun turrets removed by [EC] to turn it into a C-87 Liberator Express
+  4,  3, "u.bulldog"     ; S2 Twenties Scout (Bristol Bulldog) [EC]
 }
