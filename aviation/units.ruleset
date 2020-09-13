@@ -2319,7 +2319,7 @@ Curtiss A-8, and Breda Ba.64.\
 name          = _("Attacker")
 class         = "Air"
 tech_req      = "Fighters 1939"
-obsolete_by   = "First-gen Jet Attacker"
+obsolete_by   = "Superprop Attacker"
 graphic       = "u.il2"
 graphic_alt   = "u.ph-AK"
 sound_move    = "m_fighter"
@@ -2350,6 +2350,40 @@ Junkers Ju 87D-5, Hawker Typhoon, and North \
 American A-36.\
 ")
 
+[unit_40s_attacker]
+name          = _("Superprop Attacker")
+class         = "Air"
+tech_req      = "Fighters 1944"
+obsolete_by   = "First-gen Jet Attacker"
+graphic       = "u.p47"
+graphic_alt   = "u.ph-AP"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 56
+pop_cost      = 0
+attack        = 5
+defense       = 2
+hitpoints     = 18
+firepower     = 1
+move_rate     = 14
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "CRattack", "AntiGround"
+targets       = "Land", "Assault"
+roles         = ""
+helptext      = _("\
+Strike fighter armed with armour-piercing rockets.  \
+Historical examples include the Republic P-47D Thunderbolt \
+and Hawker Tempest Mk V.\
+")
+
 [unit_jet1attacker]
 name          = _("First-gen Jet Attacker")
 class         = "Air"
@@ -2365,8 +2399,8 @@ build_cost    = 64
 pop_cost      = 0
 attack        = 5
 defense       = 3
-hitpoints     = 20
-firepower     = 1
+hitpoints     = 12
+firepower     = 2
 move_rate     = 18
 vision_radius_sq = 4
 transport_cap = 0
@@ -2398,8 +2432,8 @@ build_cost    = 64
 pop_cost      = 0
 attack        = 5
 defense       = 3
-hitpoints     = 24
-firepower     = 1
+hitpoints     = 15
+firepower     = 2
 move_rate     = 20
 vision_radius_sq = 4
 transport_cap = 0
