@@ -702,6 +702,11 @@ sound		= "w_eiffel_tower"
 sound_alt	= "w_generic"
 helptext	= _("\
 Acts as a Radar Station in every city on the same continent.\
+"), _("\
+The British 'Chain Home' radar system was one of the first\
+ R.D.F. networks in the world, and gave the RAF a massive\
+ advantage in the Battle of Britain by eliminating the need\
+ for standing patrols.\
 ")
 
 [building_spy_sats]
@@ -725,6 +730,14 @@ helptext	= _("\
 The entire map becomes permanently visible -- the player always has\
  up-to-date knowledge of all terrain and cities (but not units)\
  despite fog-of-war.\
+"), _("\
+Photographic reconnaissance and electronic intelligence (ELINT) were\
+ among the first applications of artificial Earth satellites. \
+ These 'eyes in the sky', such as the CORONA and HEXAGON programs,\
+ allowed technologically advanced nations to observe goings-on\
+ anywhere in the world. \
+ However, while strategically valuable, satellite imagery is still\
+ no substitute for close-in tactical recon cover.\
 ")
 
 ; **Economic**
@@ -750,6 +763,10 @@ sound_alt	= "w_generic"
 helptext	= _("\
 Doubles the effect of all your Commercial Airstrips. \
  Requires Commercial Airstrip to build.\
+"), _("\
+As both a prestige symbol and an economic accelerant, national airlines\
+ such as Lufthansa, British Airways and Air France have long been major\
+ brands of the countries which sponsor them.\
 ")
 
 [building_display]
@@ -774,6 +791,11 @@ Makes one content citizen happy in every city. \
  In the unlikely event where there are no content citizens\
  to get the effect of the Display Team, the wonder makes\
  an unhappy citizen content instead.\
+"), _("\
+Aerobatic flying displays are a popular entertainment, and\
+ many national air forces maintain teams of pilots for this\
+ purpose.  Today, perhaps the best known are the Red Arrows\
+ of the RAF.\
 ")
 
 [building_super_tunnel]
@@ -797,6 +819,12 @@ sound_alt	= "w_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Boosts science production by 100% in the city where it is built.\
+"), _("\
+Early wind tunnel designs failed to reach supersonic speeds owing\
+ to choking in the venturi.  When the behaviour of supersonic flow\
+ was at last well-enough understood to develop the inverse venturi,\
+ the design of supersonic aircraft could finally proceed on a firm\
+ foundation of hard data.\
 ")
 
 [building_sbac_airshow]
@@ -819,6 +847,10 @@ sound_alt	= "w_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Reduces the cost to upgrade obsolete units by 50%.\
+"), _("\
+The Farnborough Airshow, a trade fair organised by the Society of\
+ British Aircraft Constructors, is where many of Britain's most\
+ iconic aeroplanes were first revealed to the public.\
 ")
 
 [building_gagarin]
@@ -843,6 +875,10 @@ Makes two content citizens happy in every city. \
  In the unlikely event where there are no content citizens\
  to get the effect of the Human In Orbit, the wonder makes\
  unhappy citizens content instead.\
+"), _("\
+The first spaceflight into low Earth orbit, by Major Yuri\
+ Gagarin in 1961, was a source of great patriotic pride to\
+ the Soviet Union.\
 ")
 
 ; **Research
@@ -867,6 +903,11 @@ sound_alt	= "w_generic"
 helptext	= _("\
 The civilization which writes Jane's gets every advance\
  that at least two other teams have achieved.\
+"), _("\
+Since 1909, the publication founded by Fred T. Jane has\
+ served as a thorough technical reference on all the\
+ aeroplanes and airships operated by militaries and\
+ airlines around the world.\
 ")
 
 [building_schneider]
@@ -890,6 +931,13 @@ sound_alt	= "w_generic"
 helptext	= _("\
 Gives an immediate technology advance. \
  Requires Air Races to build.\
+"), _("\
+The seaplane races for the Coupe d'Aviation Maritime Jacques\
+ Schneider, held from 1913 to 1931, became the 'blue riband' of\
+ air racing, and the impetus for rapid technological innovation\
+ in the competing countries.  The trophy was finally won\
+ outright for Britain by the Supermarine floatplanes, whose\
+ design influenced the later Spitfire fighter.\
 ")
 
 [building_sound_barrier]
@@ -911,4 +959,9 @@ sound		= "w_darwins_voyage"
 sound_alt	= "w_generic"
 helptext	= _("\
 Gives two immediate technology advances.\
+"), _("\
+In 1947, the American Chuck Yeager made the first supersonic manned\
+ flight, in the Bell X-1 rocket-propelled aeroplane.  This, and later\
+ X-planes, provided invaluable in-flight data for the design of\
+ supersonic aircraft for the US military.\
 ")
