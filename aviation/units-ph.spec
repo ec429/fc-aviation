@@ -86,6 +86,8 @@ tiles = { "row", "column", "tag"
   4,  4, "u.ph-HT" ; Floatplane, Torpedo
   4,  5, "u.ph-HL" ; Floatplane, Torpedo, Large
   4,  6, "u.ph-HC" ; Floatplane, Coastal
+  4,  7, "u.ph-HW" ; Fighter Seaplane
+  4,  8, "u.ph-H2" ; Floatplane Fighter, 20s
   4, 10, "u.ph-PE" ; Flying-boat, Early
   4, 11, "u.ph-PB" ; Patrol Boat
   4, 12, "u.ph-P2" ; Flying-boat, 20s

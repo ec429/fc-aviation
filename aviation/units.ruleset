@@ -3268,7 +3268,7 @@ Historical examples include the Short Type 81.\
 name          = _("Floatplane Fighter")
 class         = "Seaplane"
 tech_req      = "Effective Seaplanes"
-obsolete_by   = "None"
+obsolete_by   = "Fighter Seaplane"
 graphic       = "u.baby"
 graphic_alt   = "u.ph-HF"
 sound_move    = "m_fighter"
@@ -3281,7 +3281,7 @@ attack        = 2
 defense       = 1
 hitpoints     = 7
 firepower     = 1
-move_rate     = 8
+move_rate     = 7
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3338,6 +3338,42 @@ However, they're unsuitable for reconnaissance.  \
 Historical examples include the Short Type 184.\
 ")
 
+[unit_seafight]
+name          = _("Fighter Seaplane")
+class         = "Seaplane"
+tech_req      = "Seaplanes 1917"
+obsolete_by   = "Twenties Floatplane"
+graphic       = "u.albatrosw"
+graphic_alt   = "u.ph-HW"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+flags         = "CRscout", "AntiAir"
+roles         = ""
+helptext      = _("\
+While inferior to contemporary landplane scouts, the Fighter Seaplane \
+can give seaplane carriers some protection from air attack.  \
+Historical examples include the Albatros W.4 and Loening M-8.\
+")
+
 [unit_floatlarge]
 name          = _("Large Torpedo Floatplane")
 class         = "Seaplane"
@@ -3372,6 +3408,42 @@ helptext      = _("\
 Increasing engine power allows a larger (hence more \
 destructive) torpedo to be carried.  \
 Historical examples include the Short Type 320.\
+")
+
+[unit_seafight_20s]
+name          = _("Twenties Floatplane")
+class         = "Seaplane"
+tech_req      = "Twenties Seaplanes"
+obsolete_by   = "None"
+graphic       = "u.floatcatcher"
+graphic_alt   = "u.ph-H2"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 8
+firepower     = 2
+move_rate     = 9
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+flags         = "CRscout", "AntiAir"
+roles         = ""
+helptext      = _("\
+Naval fighter aircraft of the 1920s were readily converted to seaplanes \
+by the addition of floats.  \
+Historical examples include the Fairey Flycatcher.\
 ")
 
 [unit_coastal]

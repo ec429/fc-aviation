@@ -119,4 +119,7 @@ tiles = { "row", "column", "tag"
   4,  2, "u.skymaster"   ; CS Strategic Transport (Consolidated B-24J Liberator) [GB], gun turrets removed by [EC] to turn it into a C-87 Liberator Express
   4,  3, "u.bulldog"     ; S2 Twenties Scout (Bristol Bulldog) [EC]
   4,  4, "u.liberty"     ; MS Merchant Ship (Liberty Ship) [GB]
+  4,  5, "u.albatrosw"   ; HW Fighter Seaplane (Albatros C.III) [GB], kitbashed by [EC] to add floats from u.schneider
+  4,  6, "u.flycatcher"  ; N2 Twenties Naval Fighter (Fairey Flycatcher) [EC]
+  4,  7, "u.floatcatcher"; H2 Twenties Floatplane (Fairey Flycatcher) [EC]
 }
