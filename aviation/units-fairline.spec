@@ -122,4 +122,6 @@ tiles = { "row", "column", "tag"
   4,  5, "u.albatrosw"   ; HW Fighter Seaplane (Albatros C.III) [GB], kitbashed by [EC] to add floats from u.schneider
   4,  6, "u.flycatcher"  ; N2 Twenties Naval Fighter (Fairey Flycatcher) [EC]
   4,  7, "u.floatcatcher"; H2 Twenties Floatplane (Fairey Flycatcher) [EC]
+  4,  8, "u.cuckoo"      ; TE Early Torpedo Bomber (Martinsyde G.100, standing in for a Sopwith Cuckoo) [GB], torp added by [EC]
+  4,  9, "u.f8c"         ; D2 Twenties Dive Bomber (Polikarpov I-15, which is a fighter but I needed something to put here) [GB]
 }

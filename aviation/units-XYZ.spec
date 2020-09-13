@@ -28,7 +28,7 @@ pixel_border = 1
 
 tiles = { "row", "column", "tag"
   0,  0, "u.falcon"      ; A2
-; 0,  1, "u.gotha"       ; BB
+  0,  1, "u.victoria"    ; C2.  Mirrored and slightly tweaked.
   0,  2, "u.dornierx"    ; P3
   0,  3, "u.p51h"        ; FF
 ; 0,  4, "u.stuka"       ; DB
