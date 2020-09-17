@@ -470,6 +470,18 @@ graphic_alt = "-"
 helptext = _("The post-war barnstormers began to find economic\
  niches for small aircraft operated by small businesses.  1921.")
 
+[advance_autogyro]
+name     = _("Autogyro")
+req1     = "General Aviation"
+req2     = "None"
+cost     = 180
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("The earliest practical rotary-winged aircraft were\
+ the gyrocopters developed by Juan de la Cierva from 1923."),
+_("Increases the vision range of submersibles when surfaced, by\
+ means of towed gyrokites (Bachstelze).")
+
 [advance_twenties_carrier_aviation]
 name     = _("Twenties Carrier Aviation")
 req1     = "Aircraft Carrier"
@@ -831,7 +843,7 @@ helptext = _("Aircraft designers demanded ever more power, and\
 [advance_helicopters]
 name     = _("Helicopters")
 req1     = "Engines 1939"
-req2     = "None"
+req2     = "Autogyro"
 cost     = 720
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"

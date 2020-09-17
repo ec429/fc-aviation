@@ -5146,7 +5146,8 @@ targets       = "Sea"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \
-move more quickly to get into position for an attack.  \
+move more quickly to get into position for an attack (and, after \
+the discovery of Autogyro, has a longer vision range).  \
 You can then submerge it again to attack more effectively.\
 ")
 
