@@ -55,15 +55,6 @@ reqs    =
       "CityTile", "Center", "Local", FALSE
     }
 
-; Overall fudge factor to slow down tech progression
-[effect_caveman]
-type    = "Output_Bonus"
-value   = -30
-reqs    =
-    { "type", "name", "range"
-      "OutputType", "Science", "Local"
-    }
-
 ; Specialist output bonuses
 
 [effect_elvis]
