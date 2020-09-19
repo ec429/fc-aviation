@@ -4300,14 +4300,14 @@ Historical examples include the Vickers Virginia.\
 name          = _("Thirties Bomber")
 class         = "Air"
 tech_req      = "Thirties Bombers"
-obsolete_by   = "Four-engine Bomber"
+obsolete_by   = "Early Heavy Bomber"
 graphic       = "u.heyford"
 graphic_alt   = "u.ph-B3"
 sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 120
+build_cost    = 108
 pop_cost      = 0
 attack        = 6
 defense       = 2
@@ -4330,6 +4330,41 @@ Depending on national design doctrine, they might be \
 monoplanes or biplanes.  \
 Historical examples include the Handley Page Heyford \
 and Tupolev TB-3.\
+")
+
+[unit_35_bomber]
+name          = _("Early Heavy Bomber")
+class         = "Air"
+tech_req      = "Bombers 1935"
+obsolete_by   = "Four-engine Bomber"
+graphic       = "u.whitley"
+graphic_alt   = "u.ph-BW"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 6
+defense       = 2
+hitpoints     = 15
+firepower     = 2
+move_rate     = 7
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Glider", "Assault"
+fuel          = 4
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+targets       = "Land", "Assault", "Sea"
+helptext      = _("\
+In the run-up to the Second Great War, twin-engined \
+heavy bombers developed even greater range.  \
+Historical examples include the Armstrong-Whitworth \
+Whitley.\
 ")
 
 [unit_four_bomber]
@@ -5251,6 +5286,40 @@ roles         = ""
 helptext      = _("\
 Aircraft carriers can transport and launch naval \
 aeroplanes in large numbers.\
+")
+
+[unit_cve]
+name          = _("Escort Carrier")
+class         = "Sea"
+tech_req      = "Carrier Aviation 1935"
+obsolete_by   = "None"
+graphic       = "u.audacity"
+graphic_alt   = "u.transport" ; placeholder
+;phcode=ce
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+cargo         = "Carrier-borne", "Helicopter"
+flags         = "BadCityDefender", "Provoking"
+roles         = ""
+helptext      = _("\
+Converted from cargo ships, escort carriers are small and slow \
+but can provide meagre air cover to merchant convoys.\
 ")
 
 [unit_cvn]
