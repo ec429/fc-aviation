@@ -2010,7 +2010,7 @@ Historical examples include the Sukhoi Su-15.\
 [unit_superlight_fighter]
 name          = _("Supersonic Light Fighter")
 class         = "Air"
-tech_req      = "Sixties Fighters"
+tech_req      = "Sixties Light Fighter"
 obsolete_by   = "None"
 graphic       = "u.f5"
 graphic_alt   = "u.ph-F5"
