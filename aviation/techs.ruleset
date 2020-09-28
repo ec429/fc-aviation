@@ -766,7 +766,10 @@ cost     = 600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 ; /* xgettext:no-c-format */
-helptext = _("Increases bomber attack strength against cities by 20% (beam bombing).")
+helptext = _("Very-high-frequency radio waves proved to have many other\
+ uses besides radar, including the use of radio 'beams' for aircraft\
+ navigation and blind bombing."), _("\
+Increases bomber attack strength against cities by 20%.")
 
 [advance_proximity_fuse]
 name     = _("Proximity Fuse")
@@ -1004,7 +1007,10 @@ req2     = "Superprop Engines"
 cost     = 950
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Further increases in engine power gave so-called\
+ 'super-prop' fighters an edge over their adversaries, but ran\
+ into Mach effects that meant the propellor-driven fighter was\
+ reaching its limit.")
 
 [advance_carrier_aviation_1945]
 name     = _("Carrier Aviation 1945")
@@ -1013,7 +1019,8 @@ req2     = "Superprop Engines"
 cost     = 1100
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Fighters and attackers with massive 2,000hp engines\
+ were, with some difficulty, operated from carrier decks.")
 
 [advance_gas_turbine]
 name     = _("Gas Turbine")
@@ -1022,7 +1029,9 @@ req2     = "Military-Industrial Complex"
 cost     = 2200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Frank Whittle's 'jet engine' promised to revolutionise\
+ aircraft propulsion, but developing it to a practical level was no\
+ easy task.")
 
 [advance_turbo_helis]
 name     = _("Turbine Helicopters")
@@ -1031,7 +1040,10 @@ req2     = "Gas Turbine"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Turboshaft engines, with their high power-to-weight\
+ ratio, proved well-suited to driving the blades of a helicopter. \
+ With these engines, helicopters were finally able to carry large\
+ payloads, making the 'transport heli' a reality.")
 
 [advance_jet_fighter_prototypes]
 name     = _("Jet Fighter Prototypes")
@@ -1040,7 +1052,10 @@ req2     = "Gas Turbine"
 cost     = 1350
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("While not without their downsides, the new jet engines\
+ gave unmatched speed to the first fighters designed around them. \
+ Designers experimented with different concepts to make the best \
+ use of the new powerplant's capabilities.")
 
 [advance_carrier_borne_jets]
 name     = _("Carrier-borne Jets")
@@ -1049,7 +1064,9 @@ req2     = "Gas Turbine"
 cost     = 1500
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("To keep naval aviation relevant in the jet age, it\
+ was necessary to develop the techniques for operating jets from\
+ aircraft carriers.")
 
 [advance_rocketry]
 name     = _("Rocketry")
@@ -1058,7 +1075,10 @@ req2     = "Higher Speed"
 cost     = 1400
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Reaction engines burning solid or liquid fuels\
+ had many uses, both military and civilian, but turning mere\
+ fireworks into reliable, practical rocket engines took many\
+ years of painstaking experimentation.")
 
 [advance_space_flight]
 name     = _("Space Flight")
@@ -1067,8 +1087,8 @@ req2     = "None"
 cost     = 2100
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("The sky is no longer the limit as men and machines\
- enter orbit around the globe.  1961.")
+helptext = _("The sky was no longer the limit as men and machines\
+ entered orbit around the globe.  1961.")
 
 [advance_jet_bomber_prototypes]
 name     = _("Jet Bomber Prototypes")
@@ -1077,7 +1097,9 @@ req2     = "Gas Turbine"
 cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Early jet engines' great thirst for fuel meant\
+ they could not power strategic bombers, but tactical medium\
+ bombers using the new technology were possible.")
 
 [advance_engines_1949]
 name     = _("Engines 1949")
@@ -1086,7 +1108,8 @@ req2     = "None"
 cost     = 1000
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("As the underlying technology matured, jet engines\
+ made great strides in performance and reliability.")
 
 [advance_jet_flying_boat]
 name     = _("Jet Flying Boat")
@@ -1095,7 +1118,9 @@ req2     = "Engines 1949"
 cost     = 1320
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The perhaps quixotic marriage of the jet engine\
+ and flying boat was an attempt to keep seaplanes relevant in\
+ the post-war era.")
 
 [advance_bombers_1949]
 name     = _("Bombers 1949")
@@ -1104,7 +1129,9 @@ req2     = "Engines 1949"
 cost     = 1250
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("With the lessons learned from operating the earliest\
+ jets, a new generation of tactical bomber aircraft could be designed\
+ that would remain in service for decades.")
 
 [advance_swept_wing]
 name     = _("Swept Wing")
@@ -1113,7 +1140,10 @@ req2     = "None"
 cost     = 615
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The discovery that swept-back wings delayed the\
+ onset of Mach effects, and moreover had better aeroelastic\
+ characteristics when shock waves did form, promised to enable\
+ jet aircraft to reach even greater speeds.")
 
 [advance_early_missiles]
 name     = _("Early Missiles")
@@ -1122,7 +1152,11 @@ req2     = "Airborne Radar"
 cost     = 2050
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("With beam-riding or infra-red guidance, rocket-
+propelled air-to-air missiles allowed fighters to engage from\
+ outside gun range and with far more destructive firepower. \
+ Similarly, guided air-to-ground weaponry meant precision \
+ strikes could replace carpet bombing.")
 
 [advance_transonic_speed]
 name     = _("Transonic Speed")
@@ -1131,7 +1165,9 @@ req2     = "Swept Wing"
 cost     = 685
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("New design techniques such as the area rule\
+ and all-flying tail helped to bring military aircraft\
+ still closer to the speed of sound.")
 
 [advance_second_generation]
 name     = _("Second-Generation")
@@ -1140,7 +1176,11 @@ req2     = "Early Missiles"
 cost     = 1800
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("All the ingredients could at last be combined to\
+ create the missile-armed, transonic, second-generation combat\
+ jet aircraft.  However, the new technologies were temperamental\
+ and making them work together was not as simple as just hanging\
+ missiles on the airframe.")
 
 [advance_swept_wing_fighters]
 name     = _("Swept-wing Fighters")
@@ -1149,7 +1189,9 @@ req2     = "Second-Generation"
 cost     = 2100
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Second-generation jet fighters and attackers were\
+ enough of a leap in capability to make the early models\
+ obsolete.")
 
 [advance_carrier_aviation_1950]
 name     = _("Carrier Aviation 1950")
@@ -1158,7 +1200,10 @@ req2     = "Second-Generation"
 cost     = 2700
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The demands of operating transonic aircraft, with\
+ heavy electronics, brought new challenges for carrier admirals;\
+ but the capabilities the new aircraft provided were more than\
+ worth the trouble.")
 
 [advance_swept_wing_bombers]
 name     = _("Swept-wing Bombers")
@@ -1167,7 +1212,10 @@ req2     = "Swept Wing"
 cost     = 2600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Flying high and fast to escape fighter interception,\
+ strategic bombers with turbojets and swept wings were designed to\
+ carry the nuclear deterrent, but their combat service continued\
+ to be with conventional bombs.")
 
 [advance_fifties_engines]
 name     = _("Fifties Engines")
@@ -1176,7 +1224,10 @@ req2     = "None"
 cost     = 1200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Reheat (also known as afterburning) achieved thrusts\
+ great enough for practical supersonic flight, while the fuel-\
+efficient turboprop and turbofan were economical enough for use in\
+ airliners and transports.")
 
 [advance_supersonic_aerodynamics]
 name     = _("Supersonic Aerodynamics")
@@ -1185,7 +1236,10 @@ req2     = "None"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("In the looking-glass world of supersonic flow,\
+ several of the usual rules of aerodynamics are reversed.  It\
+ took time for aeronautical designers to become used to the\
+ new regime.")
 
 [advance_light_fighter]
 name     = _("Light Fighter")
@@ -1194,7 +1248,10 @@ req2     = "Fifties Engines"
 cost     = 1600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("By careful design, it was possible to cram most of\
+ the capabilities of a second-generation jet fighter into a much\
+ smaller and lighter airframe, more easily maintained and\
+ operated.")
 
 [advance_supersonic_flight]
 name     = _("Supersonic Flight")
@@ -1203,7 +1260,9 @@ req2     = "Supersonic Aerodynamics"
 cost     = 960
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("With more powerful engines and better understanding\
+ of the aerodynamics involved, flight beyond the speed of sound\
+ could at last become a matter of routine.")
 
 [advance_fifties_fighters]
 name     = _("Fifties Fighters")
@@ -1212,7 +1271,9 @@ req2     = "Supersonic Flight"
 cost     = 2800
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The ability to 'go Mach' more than made up for the\
+ loss of manoeuvrability in the first supersonic fighter and\
+ attack aircraft.")
 
 [advance_carrier_aviation_1957]
 name     = _("Carrier Aviation 1957")
@@ -1221,7 +1282,10 @@ req2     = "Supersonic Flight"
 cost     = 3000
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("By heroic efforts, aircraft designers were able to\
+ combine carrier capability with supersonic speed in a single\
+ airframe, without too severely compromising its capabilities as\
+ a fighter.")
 
 [advance_fifties_bombers]
 name     = _("Fifties Bombers")
@@ -1230,7 +1294,8 @@ req2     = "Fifties Engines"
 cost     = 3200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("A new generation of strategic jet bombers produced\
+ some of the most iconic aircraft since the War.")
 
 [advance_fifties_airlift]
 name     = _("Fifties Airlift")
@@ -1239,7 +1304,9 @@ req2     = "Fifties Engines"
 cost     = 1320
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("Decreases one-time revenue from new trade routes.")
+helptext = _("With the more economical cruise of the turbofan\
+ airliner, air travel became accessible to the common man."), _("\
+Decreases one-time revenue from new trade routes.")
 
 [advance_sixties_engines]
 name     = _("Sixties Engines")
@@ -1248,7 +1315,8 @@ req2     = "None"
 cost     = 1800
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Refinements such as the two-spool jet engine\
+ allowed the onward march of performance to continue.")
 
 [advance_sixties_fighters]
 name     = _("Sixties Fighters")
@@ -1257,7 +1325,9 @@ req2     = "Sixties Engines"
 cost     = 3200
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("With more powerful engines, fighters could reach\
+ Mach 2, while strike aircraft became able to hold their own\
+ in air combat as well as attacking targets on land and sea.")
 
 [advance_sixties_light_fighter]
 name     = _("Sixties Light Fighter")
@@ -1266,7 +1336,9 @@ req2     = "Sixties Engines"
 cost     = 2400
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("The concept of the light fighter retained many\
+ devotees into the supersonic era as, once again, an inexpensive\
+ aircraft could match the best fighters of a few years earlier.")
 
 [advance_vtol]
 name     = _("VTOL")
@@ -1275,7 +1347,10 @@ req2     = "Sixties Engines"
 cost     = 3600
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Vectored-thrust turbofans made Vertical Take-Off\
+ and Landing a practical proposition.  VTOL strike fighters\
+ proved to be highly versatile and served on carriers for four\
+ decades.")
 
 [advance_sixties_bombers]
 name     = _("Sixties Bombers")
@@ -1284,4 +1359,6 @@ req2     = "Sixties Engines"
 cost     = 4000
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("")
+helptext = _("Great technical challenges had to be overcome in\
+ order to develop heavy bombers that were supersonic by a large\
+ margin.")
