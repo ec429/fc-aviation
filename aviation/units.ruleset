@@ -1971,7 +1971,7 @@ flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Developed light fighters offer Mach 0.95 on the cheap.  \
-Historical examples include the Fiat G.91 and Follant Gnat.\
+Historical examples include the Fiat G.91 and Folland Gnat.\
 ")
 
 [unit_60s_fighter]
