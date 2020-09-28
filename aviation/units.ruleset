@@ -3693,8 +3693,8 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "CRattack", "AntiGround"
-targets       = "Land", "Assault"
+flags         = "CRattack", "AntiGround", "AntiAir"
+targets       = "Land", "Assault", "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 roles         = ""
 helptext      = _("\
 Avoiding the need for propeller clearance allows a \
