@@ -720,6 +720,17 @@ helptext = _("Improvements in structural know-how, such as stressed skin\
  and the geodetic system, allowed cantilever monoplane wings to replace\
  the braced biplane as the preferred design for large aircraft.")
 
+[advance_seaplanes_1935]
+name     = _("Seaplanes 1935")
+req1     = "Thirties Seaplanes"
+req2     = "Large Monoplanes"
+cost     = 360
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("The new military monoplanes of the 'thirties\
+ inspired floatplane designers to take the same technologies\
+ to sea.")
+
 [advance_bombers_1935]
 name     = _("Bombers 1935")
 req1     = "Thirties Bombers"
@@ -842,6 +853,16 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Aircraft designers demanded ever more power, and\
  the engineers found ways to provide it.")
+
+[advance_seaplanes_1940]
+name     = _("Seaplanes 1940")
+req1     = "Thirties Seaplanes"
+req2     = "Engines 1939"
+cost     = 720
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Some navies attempted to keep the floatplane\
+ fighter relevant by adapting their monoplanes to the role.")
 
 [advance_helicopters]
 name     = _("Helicopters")

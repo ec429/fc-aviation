@@ -3414,7 +3414,7 @@ Historical examples include the Short Type 320.\
 name          = _("Twenties Floatplane")
 class         = "Seaplane"
 tech_req      = "Twenties Seaplanes"
-obsolete_by   = "None"
+obsolete_by   = "Monoplane Float Fighter"
 graphic       = "u.floatcatcher"
 graphic_alt   = "u.ph-H2"
 sound_move    = "m_fighter"
@@ -3450,7 +3450,7 @@ Historical examples include the Fairey Flycatcher.\
 name          = _("Coastal Seaplane")
 class         = "Seaplane"
 tech_req      = "Twenties Seaplanes"
-obsolete_by   = "None"
+obsolete_by   = "Floatplane Bomber"
 graphic       = "u.faireyiii"
 graphic_alt   = "u.ph-HC"
 sound_move    = "m_fighter"
@@ -3480,6 +3480,77 @@ helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
 to defend itself.  It's also capable of recon.  \
 Historical examples include the Blackburn Velos.\
+")
+
+[unit_floatbomb]
+name          = _("Floatplane Bomber")
+class         = "Seaplane"
+tech_req      = "Seaplanes 1935"
+obsolete_by   = "None"
+graphic       = "u.cant"
+graphic_alt   = "u.ph-HB"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 1
+hitpoints     = 9
+firepower     = 2 ; doubles effective Combat_Rounds
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "Recon", "OneAttack", "CRtb", "AntiSea"
+targets       = "Sea"
+roles         = ""
+helptext      = _("\
+Large, multi-engined monoplane torpedo-bomber \
+equipped with floats.  \
+Historical examples include the CANT Z.506 Airone (Heron).\
+")
+
+[unit_monofloat]
+name          = _("Monoplane Float Fighter")
+class         = "Seaplane"
+tech_req      = "Seaplanes 1940"
+obsolete_by   = "None"
+graphic       = "u.rufe"
+graphic_alt   = "u.ph-HM"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 36
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 14
+firepower     = 3
+move_rate     = 14
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+flags         = "CRfighter", "AntiAir"
+roles         = ""
+helptext      = _("\
+Seaplane similar to the Early Monoplane Fighter.  \
+Historical examples include the Nakajima A6M2-N 'Rufe'.\
 ")
 
 [unit_early_flying_boat]

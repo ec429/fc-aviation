@@ -126,4 +126,6 @@ tiles = { "row", "column", "tag"
   4,  9, "u.f8c"         ; D2 Twenties Dive Bomber (Polikarpov I-15, which is a fighter but I needed something to put here) [GB]
   4, 10, "u.whitley"     ; BW Early Heavy Bomber (Armstrong-Whitworth Whitley) [T]
   4, 11, "u.audacity"    ; CVE Escort Carrier (possibly HMS Audacity) [GB]
+  4, 12, "u.rufe"        ; HM Monoplane Float Fighter (Nakajima A6M2-N "Rufe") [GB]
+  4, 13, "u.cant"        ; HB Floatplane Bomber (CANT Z.506 Airone) [T]
 }
