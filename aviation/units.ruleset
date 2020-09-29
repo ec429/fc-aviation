@@ -3414,7 +3414,7 @@ Historical examples include the Short Type 320.\
 name          = _("Twenties Floatplane")
 class         = "Seaplane"
 tech_req      = "Twenties Seaplanes"
-obsolete_by   = "Monoplane Float Fighter"
+obsolete_by   = "Thirties Floatplane"
 graphic       = "u.floatcatcher"
 graphic_alt   = "u.ph-H2"
 sound_move    = "m_fighter"
@@ -3480,6 +3480,42 @@ helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
 to defend itself.  It's also capable of recon.  \
 Historical examples include the Blackburn Velos.\
+")
+
+[unit_seafight_30s]
+name          = _("Thirties Floatplane")
+class         = "Seaplane"
+tech_req      = "Thirties Seaplanes"
+obsolete_by   = "Monoplane Float Fighter"
+graphic       = "u.he51w"
+graphic_alt   = "u.ph-H3"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 10
+firepower     = 2
+move_rate     = 11
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
+flags         = "CRfighter", "AntiAir"
+roles         = ""
+helptext      = _("\
+Attaching floats to a Thirties Scout produces a fighter capable\
+ of operating from buoys to defend scattered islands.  \
+Historical examples include the Heinkel He 51W.\
 ")
 
 [unit_floatbomb]

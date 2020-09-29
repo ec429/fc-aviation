@@ -128,4 +128,5 @@ tiles = { "row", "column", "tag"
   4, 11, "u.audacity"    ; CVE Escort Carrier (possibly HMS Audacity) [GB]
   4, 12, "u.rufe"        ; HM Monoplane Float Fighter (Nakajima A6M2-N "Rufe") [GB]
   4, 13, "u.cant"        ; HB Floatplane Bomber (CANT Z.506 Airone) [T]
+  4, 14, "u.he51w"       ; H3 Thirties Seaplane (Heinkel He 51 W) [GB], floats added by [EC]
 }
