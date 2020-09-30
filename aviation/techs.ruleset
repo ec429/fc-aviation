@@ -369,7 +369,7 @@ helptext = _("After early experiments demonstrated the practicability\
 [advance_triplane_bombers]
 name     = _("Triplane Bombers")
 req1     = "Triplanes"
-req2     = "Bombers 1916"
+req2     = "Bombers 1915"
 cost     = 180
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
