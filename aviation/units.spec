@@ -27,6 +27,7 @@ tiles = { "row", "column", "tag"
   0,  0, "u.wright3"     ; P0
   0,  1, "u.boxkite"     ; PP
   0,  2, "u.hydravion"   ; HV
+  0,  4, "u.caproni4"    ; BT Triplane Bomber (Caproni Ca 42 (Ca 4))
   0, 17, "u.zeppscout"   ; ZS.  Based on Zeppelin from XYZ's collection
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
