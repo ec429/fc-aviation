@@ -2544,7 +2544,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Air", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
-flags         = "CRfighter", "AntiAir"
+flags         = "Fanatic", "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 Twin-engined bomber-destroyer and/or escort fighter, \
