@@ -55,7 +55,7 @@ min_start_native_area = 0
 
 ; How many fragments each movement point has.
 ; For example road movement costs are relative to this.
-move_fragments = 3
+move_fragments = 2
 
 ; How many move_fragments IgTer unit movement costs
 igter_cost = 1
@@ -1888,7 +1888,7 @@ compat_special = "Road"
 
 [road_railroad]
 extra          = "Railroad"
-move_cost      = 2
+move_cost      = 1
 food_incr      = 0
 shield_incr    = 0
 trade_incr     = 0
