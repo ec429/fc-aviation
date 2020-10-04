@@ -856,7 +856,7 @@ helptext = _("Aircraft designers demanded ever more power, and\
 
 [advance_seaplanes_1940]
 name     = _("Seaplanes 1940")
-req1     = "Thirties Seaplanes"
+req1     = "Seaplanes 1935"
 req2     = "Engines 1939"
 cost     = 720
 graphic     = "a.flight" ; placeholder
