@@ -591,6 +591,7 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 flags         = "AntiGround"
+veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 targets       = "Land", "Assault"
 roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
 helptext      = _("\
@@ -625,6 +626,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Land", "Assault"
 flags         = "Cant_Fortify", "Bombarder", "CityBuster"
+veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 bombard_rate  = 12
 roles         = ""
 helptext      = _("\
@@ -660,6 +662,7 @@ uk_gold       = 0
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 flags         = "AntiGround"
+veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 targets       = "Land", "Assault"
 roles         = ""
 helptext      = _("\
@@ -697,6 +700,7 @@ uk_gold       = 0
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 flags         = "Fanatic", "AntiGround"
+veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 targets       = "Land", "Assault"
 roles         = "AttackStrongStartUnit"
 helptext      = _("\
@@ -733,6 +737,7 @@ embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 targets       = "Land", "Assault"
 flags         = "Cant_Fortify", "Bombarder", "CityBuster", "Fanatic"
+veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 bombard_rate  = 8
 roles         = ""
 helptext      = _("\
@@ -769,6 +774,7 @@ uk_gold       = 0
 embarks       = "Helicopter"
 disembarks    = "Air", "Sea", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = "Fanatic", "AntiGround"
+veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 targets       = "Land", "Assault"
 roles         = "AttackFastStartUnit"
 helptext      = _("\
@@ -5144,6 +5150,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Assault"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = "Ferryboat"
 helptext      = _("\
 Landing Craft can be used to transport assault troops (or \
@@ -5177,6 +5184,7 @@ uk_shield     = 0
 uk_food       = 0
 uk_gold       = 0
 flags         = "Merchant", "NonMil", "HasNoZOC"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 helptext      = _("\
 A Merchant ship carries goods or material for trading with distant cities\
  and foreign countries.\
@@ -5214,6 +5222,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Seaplane"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = "FerryStartUnit"
 helptext      = _("\
 The Seaplane Tender is the earliest form of aviation ship.  \
@@ -5251,6 +5260,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Sea"
 flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "CRtb"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 helptext      = _("\
 Submersible torpedo boats can use their stealthiness to ambush \
 enemy shipping, but they're extremely vulnerable to attack from \
@@ -5287,6 +5297,7 @@ uk_food       = 0
 uk_gold       = 0
 targets       = "Sea"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \
 move more quickly to get into position for an attack (and, after \
@@ -5321,6 +5332,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Helicopter"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = ""
 helptext      = _("\
 Helicopter Assault Carriers can be used to transport helicopters \
@@ -5356,6 +5368,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Seaplane", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = ""
 helptext      = _("\
 Early aircraft carriers can transport and launch a small number \
@@ -5390,6 +5403,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = ""
 helptext      = _("\
 Aircraft carriers can transport and launch naval \
@@ -5424,6 +5438,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = ""
 helptext      = _("\
 Converted from cargo ships, escort carriers are small and slow \
@@ -5457,6 +5472,7 @@ uk_food       = 0
 uk_gold       = 0
 cargo         = "Carrier-borne", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
+veteran_move_bonus = 0, 0, 0, 0 ; ships don't get acespeed
 roles         = ""
 helptext      = _("\
 Nuclear-powered aircraft carriers can transport and launch \
