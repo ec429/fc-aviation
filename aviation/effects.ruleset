@@ -88,7 +88,7 @@ reqs    =
 ; Vision benefit from fortress watchtowers
 [effect_fortress_vision]
 type    = "Unit_Vision_Radius_Sq"
-value   = 8
+value   = 3
 reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "tile"
@@ -96,7 +96,7 @@ reqs    =
     }
 [effect_fortress_vision_2]
 type    = "Unit_Vision_Radius_Sq"
-value   = 8
+value   = 3
 reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "tile"
