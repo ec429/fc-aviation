@@ -709,6 +709,33 @@ The British 'Chain Home' radar system was one of the first\
  for standing patrols.\
 ")
 
+[building_icao]
+name		= _("ICAO")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Heavy Airlift", "Player"
+    }
+graphic	= "b.united_nations"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 150
+upkeep		= 0
+sabotage	= 0
+sound		= "w_united_nations"
+sound_alt	= "w_generic"
+helptext	= _("\
+After this wonder is built, all cities on the map are continuously\
+ visible to its owner despite fog-of-war.\
+"), _("\
+The International Civil Aviation Organization is the global\
+ coordinating and standardisation body for international air\
+ transport.  One of its many functions is to assign four-letter\
+ airport codes to aerodromes and other aviation facilities.\
+")
+
 [building_spy_sats]
 name		= _("Spy Satellites")
 genus		= "SmallWonder"

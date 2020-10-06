@@ -877,6 +877,14 @@ reqs	=
       "Building", "Chain Home", "Continent"
     }
 
+[effect_icao]
+type    = "Reveal_Cities"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Building", "ICAO", "Player"
+    }
+
 [effect_spy_sats]
 type    = "Reveal_Map"
 value	= 1
