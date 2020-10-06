@@ -537,6 +537,28 @@ Each forest tile being worked by the city produces one\
  additional Trade and Shield.\
 ")
 
+[building_marshalling]
+name		= _("Marshalling Yard")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Mass Production", "Player"
+    }
+graphic	= "b.super_highways"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 90
+upkeep		= 2
+sabotage	= 100
+sound		= "b_super_highways"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+All tiles with railways produce one extra Trade.\
+")
+
 ; **Manufacturing**
 
 [building_engine_factory]

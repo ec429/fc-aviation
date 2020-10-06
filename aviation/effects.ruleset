@@ -804,6 +804,16 @@ reqs	=
       "OutputType", "Trade", "Local"
     }
 
+[effect_marshalling]
+type    = "Output_Add_Tile"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Extra", "Railroad", "Local"
+      "Building", "Marshalling Yard", "City"
+      "OutputType", "Trade", "Local"
+    }
+
 [effect_engine_factory]
 type    = "Output_Bonus"
 value	= 50

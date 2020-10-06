@@ -1485,7 +1485,8 @@ You may upgrade your roads to railways.  Ground units expend only\
 "), _("\
 A railway also increases any shield resources produced by a tile.\
  A tile whose road is upgraded to a railway retains any trade bonus\
- from the road as well.\
+ from the road as well, and with Marshalling Yard adds a further\
+ bonus on top of this.\
 ")
 
 [extra_river]
