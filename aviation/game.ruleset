@@ -508,6 +508,14 @@ size_effect    = 1
 ; but not locked (or vice versa) varies but the area is constant.
 radius_sq_city_permanent = 0
 
+[effect_great_wonder_buy_cost]
+type    = "Building_Buy_Cost_Pct"
+value   = 100
+reqs    =
+    { "type", "name", "range"
+      "BuildingGenus", "GreatWonder", "Local"
+    }
+
 [research]
 ; Method of calculating technology costs
 ;   "Civ I|II"      - Civ (I|II) style. Every new tech add base_tech_cost to
