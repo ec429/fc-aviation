@@ -738,7 +738,7 @@ The International Civil Aviation Organization is the global\
 
 [building_spy_sats]
 name		= _("Spy Satellites")
-genus		= "SmallWonder"
+genus		= "GreatWonder"
 reqs	=
     { "type", "name", "range"
       "Tech", "Space Flight", "Player"
@@ -748,7 +748,7 @@ graphic_alt	= "-"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 200
+build_cost	= 300
 upkeep		= 0
 sabotage	= 0
 sound		= "b_space_component"
