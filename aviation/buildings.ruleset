@@ -257,6 +257,8 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the tax output in a city by 50% (cumulative with\
  Commercial Airstrip).\
+"), _("\
+Also, allows the city to have one additional trade route.\
 ")
 
 [building_export]
@@ -774,6 +776,9 @@ sound_alt	= "w_generic"
 helptext	= _("\
 After this wonder is built, all cities on the map are continuously\
  visible to its owner despite fog-of-war.\
+"), _("\
+Also, all cities, regardless of owner, may operate one additional\
+ trade route.\
 "), _("\
 The International Civil Aviation Organization is the global\
  coordinating and standardisation body for international air\

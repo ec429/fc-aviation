@@ -131,6 +131,22 @@ value   = 5
 type    = "Max_Trade_Routes"
 value   = 2
 
+[effect_trade_routes_icao]
+type    = "Max_Trade_Routes"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "ICAO", "World"
+    }
+
+[effect_trade_routes_hub]
+type    = "Max_Trade_Routes"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Hub Airport", "City"
+    }
+
 [effect_enter_marketplace_bonus_reduction]
 type	= "Trade_Revenue_Bonus"
 value	= -2000
