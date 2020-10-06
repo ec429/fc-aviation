@@ -965,3 +965,29 @@ In 1947, the American Chuck Yeager made the first supersonic manned\
  X-planes, provided invaluable in-flight data for the design of\
  supersonic aircraft for the US military.\
 ")
+
+; **Other
+
+[building_bbc]
+name		= _("Broadcasting Corporation")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Radio", "Player"
+    }
+graphic	= "b.marco_polos_embassy"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_marco_polos_embassy"
+sound_alt	= "w_generic"
+helptext	= _("\
+Gives contact with every player in the game, allowing diplomacy\
+ even with unencountered civilisations.\
+"), _("\
+As the BBC's motto says, 'Nation shall speak peace unto Nation'.\
+")

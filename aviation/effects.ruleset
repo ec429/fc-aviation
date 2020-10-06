@@ -952,6 +952,14 @@ reqs	=
       "Building", "Sound Barrier", "Player"
     }
 
+[effect_bbc]
+type	= "Have_Contacts"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Broadcasting Corporation", "Player"
+    }
+
 [effect_beam_bombing_1]
 type    = "Attack_Bonus"
 value   = 20
