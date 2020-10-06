@@ -488,7 +488,7 @@ Seaplane units spending their turn in the city\
  will be restored to full health.\
 ")
 
-; **Farming**
+; **Tile-working**
 
 [building_dusting]
 name		= _("Crop Dusting")
@@ -512,6 +512,29 @@ helptext	= _("\
 Increases the food resources by 50% on each farmland tile which\
  is being used around the city.  Farmland tiles are those which\
  have been irrigated a second time.\
+")
+
+[building_waterbomb]
+name		= _("Waterbombers")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Heavy Airlift", "Player"
+    }
+graphic	= "b.hydro_plant"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 50
+upkeep		= 0
+sabotage	= 100
+sound		= "b_hydro_plant"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Each forest tile being worked by the city produces one\
+ additional Trade and Shield.\
 ")
 
 ; **Manufacturing**

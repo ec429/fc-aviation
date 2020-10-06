@@ -784,6 +784,26 @@ reqs	=
       "OutputType", "Food", "Local"
     }
 
+[effect_waterbomb_1]
+type	= "Output_Add_Tile"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Terrain", "Forest", "Local"
+      "Building", "Waterbombers", "City"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_waterbomb_2]
+type	= "Output_Add_Tile"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Terrain", "Forest", "Local"
+      "Building", "Waterbombers", "City"
+      "OutputType", "Trade", "Local"
+    }
+
 [effect_engine_factory]
 type    = "Output_Bonus"
 value	= 50
