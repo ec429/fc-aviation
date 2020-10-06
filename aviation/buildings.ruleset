@@ -742,6 +742,38 @@ Photographic reconnaissance and electronic intelligence (ELINT) were\
 
 ; **Economic**
 
+[building_dh]
+name		= _("de Havilland")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
+graphic	= "b.colossus"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+      "Tech", "Heavy Airlift", "Player", FALSE
+    }
+build_cost	= 160
+upkeep		= 0
+sabotage	= 0
+sound		= "w_colossus"
+sound_alt	= "w_generic"
+helptext	= _("\
+Each tile around the city where this wonder is built that is already\
+ generating some trade produces one extra trade resource.\
+"), _("\
+One of the most successful light-aeroplane manufacturers was the\
+ de Havilland company, along with its subsidiaries in Canada and\
+ Australia.  Cheap to run, their commercial aircraft like the DH89\
+ Dragon Rapide and DHC-2 Beaver have long been a staple of short-\
+haul air traffic. \
+ Today de Havilland itself has disappeared into the BAe Systems \
+ conglomerate, but de Havilland Canada retains its identity and \
+ is now owned by Viking Air Ltd.\
+")
+
 [building_airline]
 name		= _("National Airline")
 genus		= "SmallWonder"

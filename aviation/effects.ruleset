@@ -885,6 +885,15 @@ reqs	=
       "Building", "Spy Satellites", "Player"
     }
 
+[effect_dh]
+type    = "Output_Inc_Tile"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Building", "de Havilland", "City"
+      "OutputType", "Trade", "Local"
+    }
+
 [effect_airline]
 type    = "Output_Bonus"
 value	= 50
