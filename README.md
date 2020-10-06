@@ -27,12 +27,13 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
 * Ground units cannot cross Mountain tiles.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
-* Aircraft are split into five unit classes:
+* Aircraft are split into six unit classes:
   - Air.  Ordinary landplanes refuel-at-cities-and-airbases, but can't use aircraft carriers.
   - Carrier-borne.  Can operate from aircraft carriers (but not the Seaplane Tender).
   - Helicopter.  Can operate from aircraft carriers and the Helicopter Assault Carrier.  Can load and unload units in the field (without an airbase).
   - Seaplane.  Floatplanes and flying-boats can operate from the Seaplane Tender (also the Light Aircraft Carrier).
   - Glider.  See airlanding-assault rules above.  Note that Gliders cannot land in Mountains, Forests or Jungles.
+  - Missile.  Like Carrier-borne, except that the unit is destroyed after attacking.
 * Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
@@ -58,8 +59,8 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - The Ambassador (an air unit, despite its Diplomat sprite) can Establish Embassy.
 * The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
   - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments; and it has a senate which may prevent aggressive wars.
-  - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.
-  - Fascism has rampant corruption, but pays no upkeep for certain military units.
+  - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.  It gets two additional content citizens per city.
+  - Fascism has rampant corruption, but pays no upkeep for certain military units.  It also gets two additional content citizens per city.
 
 ### Insignificant Rule Changes
 
@@ -136,6 +137,10 @@ These heavier fighters aren't quite as good in a dogfight as their single-engine
 An aircraft carrier's loadout will probably be some mix of TBs, DBs, attackers and fighters.  The TBs go after enemy carriers, the fighters (CAP, Combat Air Patrol) deal with any strikes the enemy carriers launched, and the DBs and attackers support operations on land.  (The fighters might also fly some escort missions.)  The proportions of the different types will depend on what you expect to be fighting against — if the enemy has a lot of carriers, you'll need sizeable TB and CAP contingents, but if the enemy's airpower is weak in the theatre of operations you might be able to fill up with strike aircraft instead.
 
 Some of the Light Bombers are also carrier-capable.  The main value of this is reconnaisance, allowing you to Investigate City far from your homeland.
+
+#### Kamikaze
+
+A Fascist nation that has build the great wonder Yasukuni Shrine can construct Kamikaze units.  These are Missile-class units, quick to build and highly effective at attacking ships; but they also cost one population to build, and as missiles are destroyed after attacking.  Still, a Kamikaze swarm can be a useful way to take out enemy aircraft carriers when your homeland is threatened.  They are also carrier-capable.
 
 ## Known cheesy tricks
 
