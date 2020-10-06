@@ -740,6 +740,77 @@ Photographic reconnaissance and electronic intelligence (ELINT) were\
  no substitute for close-in tactical recon cover.\
 ")
 
+; **Military
+
+[building_staff_college]
+name		= _("War College")
+genus		= "GreatWonder"
+; No reqs
+graphic	= "b.king_richards_crusade"
+graphic_alt	= "-"
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_king_richards_crusade"
+sound_alt	= "w_generic"
+helptext	= _("\
+Increases by half the chance of a Land or Assault unit getting the\
+ next veteran level after a battle.\
+"), _("\
+The Prussian War College educated officers not only in tactics,\
+ strategy, weapons science and military geography, but also in\
+ mathematics, science in general, languages and administration,\
+ to produce a highly effective and capable General Staff.\
+")
+
+[building_rnas_college]
+name		= _("Naval College")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Military Seaplanes", "Player"
+      "TerrainClass", "Oceanic", "Adjacent"
+    }
+graphic	= "b.lighthouse"
+graphic_alt	= "-"
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_lighthouse"
+sound_alt	= "w_generic"
+helptext	= _("\
+Increases by half the chance of a Sea, Seaplane or Carrier-borne\
+ unit getting the next veteran level after a battle.\
+"), _("\
+Staff colleges such as the Royal Naval College Greenwich act as\
+ 'the university of the Navy', training officers in advanced\
+ operational techniques to increase their military effectiveness.\
+")
+
+[building_cranwell]
+name		= _("RAF College Cranwell")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Twenties Fighters", "Player"
+    }
+graphic	= "b.isaac_newtons_college"
+graphic_alt	= "-"
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_isaac_newtons_college"
+sound_alt	= "w_generic"
+helptext	= _("\
+Increases by half the chance of an Air or Helicopter unit getting\
+ the next veteran level after a battle.\
+"), _("\
+The world's first 'air academy', the Royal Air Force college at\
+ Cranwell in Lincolnshire was established in 1919 to mould cadets\
+ into officers and 'give a sense of purpose to the future leaders\
+ of the service'.\
+")
+
 ; **Economic**
 
 [building_dh]
