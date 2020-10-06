@@ -1452,12 +1452,12 @@ native_to      = "Land", "Assault"
 hidden_by      = "Railroad"
 flags          = "AutoOnCityCenter"
 helptext       = _("\
-Roads allow your land units to move more quickly, and on some terrain,\
- also provide a trade bonus.\
+Roads provide a trade bonus on some terrain.\
 ")
 
-[extra_railroad]
-name           = _("Railroad")
+[extra_railway]
+name           = _("Railway")
+rule_name      = _("Railroad")
 category       = "Infra"
 causes         = "Road"
 rmcauses       = "Pillage"
@@ -1479,12 +1479,12 @@ removal_time   = 0
 native_to      = "Land", "Assault"
 flags          = "AutoOnCityCenter"
 helptext       = _("\
-You may upgrade your roads\
- to railroads. Units expend no movement points when moving along a\
- railroad; you may ride a railroad indefinitely. (As may your enemies!)\
+You may upgrade your roads to railways.  Ground units expend only\
+ half movement points when moving along a railway, effectively\
+ doubling their speed.\
 "), _("\
-A railroad also increases any shield resources produced by a tile.\
- A tile whose road is upgraded to a railroad retains any trade bonus\
+A railway also increases any shield resources produced by a tile.\
+ A tile whose road is upgraded to a railway retains any trade bonus\
  from the road as well.\
 ")
 
@@ -1886,7 +1886,7 @@ shield_bonus   = 0
 trade_bonus    = 0
 compat_special = "Road"
 
-[road_railroad]
+[road_railway]
 extra          = "Railroad"
 move_cost      = 1
 food_incr      = 0
