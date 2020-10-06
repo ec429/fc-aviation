@@ -29,10 +29,6 @@ format_version=10
 ; Cheating AI effects are in separate file
 *include "default/ai_effects.ruleset"
 
-[effect_unhappysize]
-type    = "City_Unhappy_Size"
-value   = 4
-
 ; Barbarian effects
 
 [effect_barb1]
@@ -300,6 +296,38 @@ value   = 70
 reqs	=
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
+    }
+
+[effect_unhappysize_0]
+type    = "City_Unhappy_Size"
+value   = 4
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+    }
+
+[effect_unhappysize_1]
+type    = "City_Unhappy_Size"
+value   = 4
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+    }
+
+[effect_unhappysize_2]
+type    = "City_Unhappy_Size"
+value   = 6
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Fascism", "Player"
+    }
+
+[effect_unhappysize_3]
+type    = "City_Unhappy_Size"
+value   = 6
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
     }
 
 [effect_empire_size_base_0]
