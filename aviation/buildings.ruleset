@@ -838,6 +838,34 @@ The world's first 'air academy', the Royal Air Force college at\
  of the service'.\
 ")
 
+[building_yasukuni]
+name		= _("Yasukuni Shrine")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Fascism", "Player"
+    }
+graphic	= "b.mausoleum"
+graphic_alt	= "b.oracle"
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_oracle"
+sound_alt	= "w_generic"
+helptext	= _("\
+Makes one unhappy citizen content in every city, as long as\
+ government is Fascist.\
+"), _("\
+Allows the player to build Kamikazes, as long as government\
+ is Fascist and the player has researched Carrier Aviation\
+ 1935.\
+"), _("\
+A Shinto shrine commemorating those who died in service of\
+ Japan, Yasukuni is controversial owing to its historical\
+ association with Japanese nationalism and the enshrinement\
+ of war criminals.\
+")
+
 ; **Economic**
 
 [building_dh]

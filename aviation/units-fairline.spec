@@ -130,4 +130,5 @@ tiles = { "row", "column", "tag"
   4, 13, "u.cant"        ; HB Floatplane Bomber (CANT Z.506 Airone) [T]
   4, 14, "u.he51w"       ; H3 Thirties Seaplane (Heinkel He 51 W) [GB], floats added by [EC]
   4, 15, "u.virginia"    ; B2 Twenties Bomber (Vickers Virginia) [EC]: kitbashed from Vickers Vimy [GB]
+  4, 16, "u.judy"        ; KA Kamikaze (Yokosuka D4Y4 Suisei/"Judy") [GB]
 }

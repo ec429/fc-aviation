@@ -970,6 +970,15 @@ reqs    =
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_shrine]
+type    = "Make_Content_Mil"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Fascism", "Player"
+      "Building", "Yasukuni Shrine", "Player"
+    }
+
 [effect_dh]
 type    = "Output_Inc_Tile"
 value   = 1
