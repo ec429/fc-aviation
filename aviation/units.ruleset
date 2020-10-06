@@ -3026,6 +3026,42 @@ Historical examples include the Supermarine Seafire XV and \
 Grumman F8F Bearcat.\
 ")
 
+[unit_aggregat]
+name          = _("Artillery Rocket")
+class         = "Missile"
+tech_req      = "Rocketry"
+obsolete_by   = "None"
+graphic       = "u.aggregat"
+graphic_alt   = "u.ph-V2"
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 8
+defense       = 0
+hitpoints     = 6
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "AntiGround", "Bombarder"
+bombard_rate  = 6
+targets       = "Land", "Assault"
+roles         = ""
+helptext      = _("\
+Long-range bombardment rocket.  Can be transported on, but\
+ not launched from, aircraft carriers.  \
+Historical examples include the Thiel Aggregat 4, better\
+ known as the V2.\
+")
+
 [unit_naval1jet]
 name          = _("Early Naval Jet")
 class         = "Carrier-borne"
