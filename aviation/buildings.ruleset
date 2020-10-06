@@ -80,9 +80,9 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Makes a city the capital and the center of your government.\
  Corruption in other cities is related to how far away from the\
- capital they are, except when the government is Democracy or\
- Communism. On top of this, corruption in your capital itself is\
- half of what it would otherwise be (as if it had a Courthouse).\
+ capital they are, except when the government is Democracy. \
+ On top of this, corruption in your capital itself is\
+ half of what it would otherwise be (as if it had an FAA Branch).\
 "), _("\
 Take good care of your capital, as its loss may result in your\
  empire plunging into civil war.\
