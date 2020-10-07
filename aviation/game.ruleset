@@ -631,8 +631,8 @@ negative_label = _("BCE")
 [trade]
 settings =
   { "type",       "pct", "cancelling", "bonus"
-    "National",   100,   "Cancel",     "Both"
-    "NationalIC", 200,   "Cancel",     "Both"
+    "National",   100,   "Cancel",     "Gold"
+    "NationalIC", 200,   "Cancel",     "Gold"
     "IN",         200,   "Cancel",     "Both"
     "INIC",       400,   "Cancel",     "Both"
     "Ally",       200,   "Cancel",     "Both"
