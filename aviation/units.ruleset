@@ -31,6 +31,7 @@ flags =
     _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
     _("Merchant"), _("Can make single-shot trade (but not ongoing trade routes) by travelling to target city.")
     _("Recon"), _("Can investigate foreign cities (must travel to target city).")
+    _("NoUpgrade"), _("This unit can't be upgraded when it becomes obsolete.")
     _("Cities")
     _("AddToCity")
     _("Bombarder")
@@ -679,7 +680,7 @@ uk_food       = 0
 uk_gold       = 0
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
-flags         = "AntiGround"
+flags         = "AntiGround", "NoUpgrade"
 veteran_move_bonus = 0, 0, 0, 0 ; ground units don't get acespeed
 veteran_names = _("green"), _("veteran"), _("ace"), _("elite")
 veteran_raise_chance = 30, 15, 10, 0
@@ -859,7 +860,7 @@ Historical examples include the Zeppelin Z I, Z II and Z IV.\
 name          = _("Zeppelin Bomber")
 class         = "Air"
 tech_req      = "Zeppelin"
-obsolete_by   = "None"
+obsolete_by   = "Thirties Bomber"
 graphic       = "u.zeppelin"
 graphic_alt   = "u.ph-ZB"
 sound_move    = "m_bomber"
@@ -880,7 +881,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "OneAttack", "CRlight", "AntiGround"
+flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade"
 targets       = "Land", "Assault"
 roles         = ""
 helptext      = _("\
@@ -4095,7 +4096,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "OneAttack", "CRtb", "AntiSea", "NoUpgrade"
 targets       = "Sea"
 helptext      = _("\
 High-performance torpedo bomber.  \
@@ -4202,7 +4203,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "NoUpgrade"
 targets       = "Land", "Assault", "Sea"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
@@ -4800,7 +4801,7 @@ Historical examples include the Convair B-58 Hustler.\
 name          = _("Zeppelin Liner")
 class         = "Air"
 tech_req      = "Effective Airships"
-obsolete_by   = "Jet Airliner"
+obsolete_by   = "Monoplane Transport"
 graphic       = "u.zeppeliner"
 graphic_alt   = "u.caravan"
 ;phcode=LZ
@@ -4822,7 +4823,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
-flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC", "NoUpgrade"
 helptext      = _("\
 Zeppelin Liners carry goods or material for trading with distant\
  cities and foreign countries.  \
@@ -4838,7 +4839,10 @@ Airliners can establish trade routes with your own cities or those of other\
  only get the benefit from one end of the route.\
 "), _("\
 Though much slower than the heavier-than-air Airliner, Zeppelin Liners do\
- not require the Commercial Airstrip building.
+ not require the Commercial Airstrip building.  However, you will not be\
+ able to build them any more after researching Airlift 1935 (this represents\
+ the public turning away from zeppelin travel after the series of airship\
+ disasters culminating in the loss of the Hindenburg).\
 "), _("\
 Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
  used to build Wonders.")

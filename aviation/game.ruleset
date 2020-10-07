@@ -489,6 +489,7 @@ action = "Upgrade Unit"
 actor_reqs    =
     { "type",    "name",       "range", "present"
       "DiplRel", "Is foreign", "Local", FALSE
+      "UnitFlag", "NoUpgrade", "Local", FALSE
     }
 
 [borders]
