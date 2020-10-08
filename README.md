@@ -81,6 +81,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * Workers are called Seabees.  Improvement build times are around 0.6 of classic (so, somewhere in between Workers and Engineers).  Transform Terrain is unavailable.
 * Chance to steal tech on city conquest is 60%.
 * There is no land-based Caravan unit.  Instead, Airliners can open trade routes, while the inexpensive Merchant Ships can 'enter marketplace' to earn one-time revenue — they yield considerably more than building Export (coinage), so long as they don't get sunk on the way!
+  - However, one-time revenue from trade between your own cities only yields Gold.  If you want to get Science as well, then you need to go international (which is easier for enemies to blockade).
 
 ## Aircraft category usage
 
