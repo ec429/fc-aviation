@@ -29,6 +29,7 @@ tiles = { "row", "column", "tag"
   0,  2, "u.hydravion"   ; HV
   0,  4, "u.caproni4"    ; BT Triplane Bomber (Caproni Ca 42 (Ca 4))
   0,  5, "u.submerged"   ; su Submersible (submerged).  Based on GoPostal's amplio2 u.submarine
+  0,  7, "u.felix2a"     ; PE Early Flying Boat (Felixstowe F.2a)
   0, 17, "u.zeppscout"   ; ZS.  Based on Zeppelin from XYZ's collection
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
