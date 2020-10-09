@@ -133,4 +133,6 @@ tiles = { "row", "column", "tag"
   4, 16, "u.judy"        ; KA Kamikaze (Yokosuka D4Y4 Suisei/"Judy") [GB]
   4, 17, "u.aggregat"    ; V2 Artillery Rocket (Thiel A4 Aggregat) [GB]
   4, 18, "u.truck"       ; Radar Van (Bedford QLT 3t) [GB]
+  4, 19, "u.short81"     ; HA Armed Floatplane (Short Type 81 Folder) [EC]: kitbashed from Sopwith Schneider [GB]
+  5,  0, "u.short184"    ; HT Torpedo Floatplane (Short Type 184 Folder) [EC]: derived from u.short81
 }
