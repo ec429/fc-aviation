@@ -577,6 +577,7 @@ genus		= "Improvement"
 reqs =
     { "type", "name", "range"
       "Tech", "Mass Production", "Player"
+      "MinSize", "7", "City"
     }
 graphic	= "b.super_highways"
 graphic_alt	= "-"
