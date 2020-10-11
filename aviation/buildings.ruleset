@@ -1230,5 +1230,7 @@ helptext	= _("\
 Gives contact with every player in the game, allowing diplomacy\
  even with unencountered civilisations.\
 "), _("\
+Also, improves your reputation and goodwill with AI players.\
+"), _("\
 As the BBC's motto says, 'Nation shall speak peace unto Nation'.\
 ")
