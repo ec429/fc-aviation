@@ -1407,6 +1407,15 @@ reqs    =
       "Action", "Attack", "Local", FALSE
     }
 
+; Double (+100%) buy cost for Great Wonders
+[effect_great_wonder_buy_cost]
+type    = "Building_Buy_Cost_Pct"
+value   = 100
+reqs    =
+    { "type", "name", "range"
+      "BuildingGenus", "GreatWonder", "Local"
+    }
+
 [effect_cr_scout]
 type    = "Combat_Rounds"
 value   = 3 ; scouts get few rounds per attack but can multiattack (so they're more effective when intercepting at shorter range)
