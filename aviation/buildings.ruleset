@@ -172,7 +172,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 60
-upkeep		= 1
+upkeep		= 2
 sabotage	= 100
 sound		= "b_mass_transit"
 sound_alt	= "b_generic"
@@ -256,7 +256,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 40
-upkeep		= 0
+upkeep		= 1
 sabotage	= 100
 sound		= "b_airport"
 sound_alt	= "b_generic"
@@ -353,7 +353,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 40
-upkeep		= 0
+upkeep		= 1
 sabotage	= 100
 sound		= "b_marketplace"
 sound_alt	= "b_generic"
@@ -491,7 +491,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 60
-upkeep		= 1
+upkeep		= 2
 sabotage	= 100
 sound		= "b_port_facility"
 sound_alt	= "b_generic"
@@ -513,7 +513,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 60
-upkeep		= 1
+upkeep		= 2
 sabotage	= 100
 sound		= "b_port_facility"
 sound_alt	= "b_generic"
@@ -561,7 +561,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 50
-upkeep		= 0
+upkeep		= 1
 sabotage	= 100
 sound		= "b_hydro_plant"
 sound_alt	= "b_generic"
@@ -776,7 +776,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 200
-upkeep		= 0
+upkeep		= 3
 sabotage	= 0
 sound		= "w_eiffel_tower"
 sound_alt	= "w_generic"
@@ -802,7 +802,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 150
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_united_nations"
 sound_alt	= "w_generic"
@@ -832,7 +832,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 300
-upkeep		= 0
+upkeep		= 2
 sabotage	= 0
 sound		= "b_space_component"
 sound_alt	= "w_generic"
@@ -859,7 +859,7 @@ genus		= "GreatWonder"
 graphic	= "b.king_richards_crusade"
 graphic_alt	= "-"
 build_cost	= 200
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_king_richards_crusade"
 sound_alt	= "w_generic"
@@ -884,7 +884,7 @@ reqs	=
 graphic	= "b.lighthouse"
 graphic_alt	= "-"
 build_cost	= 200
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_lighthouse"
 sound_alt	= "w_generic"
@@ -907,7 +907,7 @@ reqs	=
 graphic	= "b.isaac_newtons_college"
 graphic_alt	= "-"
 build_cost	= 200
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_isaac_newtons_college"
 sound_alt	= "w_generic"
@@ -931,7 +931,7 @@ reqs	=
 graphic	= "b.mausoleum"
 graphic_alt	= "b.oracle"
 build_cost	= 200
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_oracle"
 sound_alt	= "w_generic"
@@ -965,7 +965,7 @@ obsolete_by	=
       "Tech", "Heavy Airlift", "Player", FALSE
     }
 build_cost	= 160
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_colossus"
 sound_alt	= "w_generic"
@@ -1023,7 +1023,7 @@ obsolete_by	=
     { "type", "name", "range", "survives"
     }
 build_cost	= 200
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_hanging_gardens"
 sound_alt	= "w_generic"
@@ -1053,7 +1053,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 300
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_copernicus_observatory"
 sound_alt	= "w_generic"
@@ -1081,7 +1081,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 250
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_leonardos_workshop"
 sound_alt	= "w_generic"
@@ -1137,7 +1137,7 @@ obsolete_by	=
     { "type", "name", "range", "survives"
     }
 build_cost	= 200
-upkeep		= 0
+upkeep		= 2
 sabotage	= 0
 sound		= "w_great_library"
 sound_alt	= "w_generic"
@@ -1222,7 +1222,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 200
-upkeep		= 0
+upkeep		= 1
 sabotage	= 0
 sound		= "w_marco_polos_embassy"
 sound_alt	= "w_generic"
