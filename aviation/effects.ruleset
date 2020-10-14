@@ -827,6 +827,7 @@ reqs	=
     { "type", "name", "range"
       "Extra", "Railroad", "Local"
       "Building", "Marshalling Yard", "City"
+      "MinSize", "7", "City"
       "OutputType", "Trade", "Local"
     }
 
