@@ -31,6 +31,7 @@ tiles = { "row", "column", "tag"
   0,  5, "u.submerged"   ; su Submersible (submerged).  Based on GoPostal's amplio2 u.submarine
   0,  7, "u.felix2a"     ; PE Early Flying Boat (Felixstowe F.2a)
   0,  8, "u.felix5"      ; PB Patrol Boat (Felixstowe F.5)
+  0,  9, "u.sidestrand"  ; M2 Twenties Medium Bomber (Boulton Paul Sidestrand)
   0, 17, "u.zeppscout"   ; ZS.  Based on Zeppelin from XYZ's collection
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
