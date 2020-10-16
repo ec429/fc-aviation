@@ -136,4 +136,5 @@ tiles = { "row", "column", "tag"
   4, 19, "u.short81"     ; HA Armed Floatplane (Short Type 81 Folder) [EC]: kitbashed from Sopwith Schneider [GB]
   5,  0, "u.short184"    ; HT Torpedo Floatplane (Short Type 184 Folder) [EC]: derived from u.short81
   5,  1, "u.baby"        ; HF Floatplane Fighter (Hanriot D.1) [T], floats added by [EC]
+  5,  2, "u.short320"    ; HL Large Torpedo Floatplane (Short Type 320 Folder) [EC]: derived from u.short184
 }
