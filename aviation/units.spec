@@ -35,6 +35,7 @@ tiles = { "row", "column", "tag"
   0, 17, "u.zeppscout"   ; ZS.  Based on Zeppelin from XYZ's collection
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
+  1,  0, "u.old_settlers"; os Old Settlers.  Based on Captain Nemo's amplio2 u.settlers, with golden glow
   1,  6, "u.lph"         ; Helicopter assault carrier.  Based on Captain Nemo's amplio2 u.transport, with Chinook from XYZ's collection
 ; 2,  5, "u.2pdr"        ; assault gun.  Based on Captain Nemo's amplio2 u.howitzer
 }
