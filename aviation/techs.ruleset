@@ -165,7 +165,7 @@ name     = _("Aircraft Industry")
 req1     = "Aerial Weapons"
 req2     = "None"
 cost     = 125
-graphic     = "a.flight" ; placeholder
+graphic     = "a.industrialization"
 graphic_alt = "-"
 helptext = _("As flight began to acquire military significance,\
  nations invested in industrialising aircraft production and\
@@ -443,7 +443,7 @@ name     = _("Mass Production")
 req1     = "Aircraft Industry"
 req2     = "Twenties Engines"
 cost     = 320
-graphic     = "a.flight" ; placeholder
+graphic     = "a.mass_production"
 graphic_alt = "-"
 helptext = _("The mass-production methods developed in the car\
  industry began to be applied to the growing aviation sector. \
@@ -519,7 +519,7 @@ name     = _("Parachute Dropping")
 req1     = "Twenties Airlift"
 req2     = "None"
 cost     = 640
-graphic     = "a.flight" ; placeholder
+graphic     = "a.combined_arms"
 graphic_alt = "-"
 helptext = _("Paratroopers can jump from transport aircraft\
  to quickly reach objectives and surprise the defenders."),
@@ -554,7 +554,7 @@ name     = _("Radio")
 req1     = "Twenties Airlift"
 req2     = "None"
 cost     = 400
-graphic     = "a.flight" ; placeholder
+graphic     = "a.radio"
 graphic_alt = "-"
 helptext = _("Miniaturising radios sufficiently to routinely\
  carry them aboard aircraft increased the utility of both\
@@ -692,7 +692,7 @@ name     = _("Military-Industrial Complex")
 req1     = "Mass Production"
 req2     = "Thirties Bombers"
 cost     = 640
-graphic     = "a.flight" ; placeholder
+graphic     = "a.machine_tools"
 graphic_alt = "-"
 helptext = _("As nations re-armed in preparation for the next great\
  war, armament firms grew large enough to wield considerable influence\
@@ -774,7 +774,7 @@ name     = _("Electronics 1935")
 req1     = "Radio"
 req2     = "Anti-Air Artillery" ; doesn't make thematic sense, but needed further downstream
 cost     = 600
-graphic     = "a.flight" ; placeholder
+graphic     = "a.electronics"
 graphic_alt = "-"
 ; /* xgettext:no-c-format */
 helptext = _("Very-high-frequency radio waves proved to have many other\
@@ -787,7 +787,7 @@ name     = _("Proximity Fuse")
 req1     = "R.D.F."
 req2     = "Electronics 1935"
 cost     = 1200
-graphic     = "a.flight" ; placeholder
+graphic     = "a.miniaturization"
 graphic_alt = "-"
 helptext = _("The VT (variable time) fuse for anti-aircraft shells\
  used capacitive coupling to detect nearby metal bodies.  In effect\
@@ -925,7 +925,7 @@ name     = _("Airborne Radar")
 req1     = "Electronics 1935"
 req2     = "R.D.F."
 cost     = 1200
-graphic     = "a.flight" ; placeholder
+graphic     = "a.stealth"
 graphic_alt = "-"
 ; /* xgettext:no-c-format */
 helptext = _("Advances like the cavity magnetron allowed radar\
@@ -972,7 +972,7 @@ name     = _("Heavy Gliders")
 req1     = "Glider Assault"
 req2     = "Heavy Bombers"
 cost     = 930
-graphic     = "a.flight" ; placeholder
+graphic     = "a.mobile_warfare"
 graphic_alt = "-"
 helptext = _("Larger, more capacious gliders could bring more troops\
  into action in airborne assaults.  In some cases they were even able\
@@ -1094,7 +1094,7 @@ name     = _("Rocketry")
 req1     = "Gas Turbine"
 req2     = "Higher Speed"
 cost     = 1400
-graphic     = "a.flight" ; placeholder
+graphic     = "a.rocketry"
 graphic_alt = "-"
 helptext = _("Reaction engines burning solid or liquid fuels\
  had many uses, both military and civilian, but turning mere\
@@ -1106,7 +1106,7 @@ name     = _("Space Flight")
 req1     = "Rocketry"
 req2     = "None"
 cost     = 2100
-graphic     = "a.flight" ; placeholder
+graphic     = "a.space_flight"
 graphic_alt = "-"
 helptext = _("The sky was no longer the limit as men and machines\
  entered orbit around the globe.  1961.")
@@ -1171,8 +1171,8 @@ name     = _("Early Missiles")
 req1     = "Rocketry"
 req2     = "Airborne Radar"
 cost     = 2050
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "-"
+graphic_alt = "a.warrior_code" ; placeholder
 helptext = _("With beam-riding or infra-red guidance, rocket-
 propelled air-to-air missiles allowed fighters to engage from\
  outside gun range and with far more destructive firepower. \
@@ -1255,7 +1255,7 @@ name     = _("Supersonic Aerodynamics")
 req1     = "Swept Wing"
 req2     = "None"
 cost     = 900
-graphic     = "a.flight" ; placeholder
+graphic     = "a.iron_working"
 graphic_alt = "-"
 helptext = _("In the looking-glass world of supersonic flow,\
  several of the usual rules of aerodynamics are reversed.  It\
@@ -1344,7 +1344,7 @@ name     = _("Sixties Fighters")
 req1     = "Fifties Fighters"
 req2     = "Sixties Engines"
 cost     = 3200
-graphic     = "a.flight" ; placeholder
+graphic     = "a.advanced_flight"
 graphic_alt = "-"
 helptext = _("With more powerful engines, fighters could reach\
  Mach 2, while strike aircraft became able to hold their own\
