@@ -545,6 +545,13 @@ actor_reqs    =
       "UnitFlag",      "Pillage",      "Local"
     }
 
+[actionenabler_convert_unit]
+action = "Convert Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitState", "Transported", "Local", FALSE
+    }
+
 [actionenabler_disband_unit]
 action = "Disband Unit"
 actor_reqs    =
