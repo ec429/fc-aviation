@@ -24,7 +24,7 @@ class Unit(object):
             # This unit has no veteran levels (level name is never displayed)
             del self['no_veteran']
             self['veteran_names'] = '_("green")'
-            self['veteran_raise_chance'] = '0'
+            self['veteran_base_raise_chance'] = '0'
             self['veteran_work_raise_chance'] = '0'
             self['veteran_power_fact'] = '100'
             self['veteran_move_bonus'] = '0'
@@ -33,7 +33,7 @@ class Unit(object):
             # veteran levels for combat purposes.
             del self['slow_veteran']
             self['veteran_names'] = '_("green"), _("veteran"), _("ace"), _("elite")'
-            self['veteran_raise_chance'] = '30, 15, 10, 0'
+            self['veteran_base_raise_chance'] = '30, 15, 10, 0'
             self['veteran_work_raise_chance'] = '0, 0, 0, 0'
             self['veteran_power_fact'] = '100, 150, 160, 200'
             self['veteran_move_bonus'] = '0, 0, 0, 0'

@@ -32,6 +32,7 @@ flags =
     _("AddToCity")
     _("Bombarder")
     _("Pillage")
+    _("Cant_Fortify")
     _("CRscout")
     _("CRfighter")
     _("CRtf")
@@ -63,6 +64,7 @@ class_flags =
     _("Flying")
     _("Missile")
     _("CanPillage")
+    _("CanFortify"), _("Gets a 50% defensive bonus while in cities.")
   }
 
 [veteran_system]

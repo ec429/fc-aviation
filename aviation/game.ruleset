@@ -268,7 +268,7 @@ actor_reqs    =
       "UnitFlag", "Recon", "Local"
       "UnitState", "OnLivableTile", "Local"
       "MinMoveFrags", "1", "Local"
-      "DiplRel", "Is foreign", "Local"
+      "DiplRel", "Foreign", "Local"
     }
 
 [actionenabler_establish_embassy]
@@ -277,7 +277,8 @@ actor_reqs    =
     { "type",         "name",          "range", "present"
       "UnitFlag",     "Diplomat",      "Local", TRUE
       "MinMoveFrags", "1",             "Local", TRUE
-      "DiplRel",      "Is foreign",    "Local", TRUE
+      "DiplRel",      "Foreign",       "Local", TRUE
+      "DiplRel",      "Has real embassy", "Local", FALSE
     }
 target_reqs  =
     { "type",        "name",      "range",  "present"
@@ -289,6 +290,7 @@ action = "Establish Trade Route"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitFlag", "TradeRoute", "Local", TRUE
+      "UnitState", "HasHomeCity", "Local", TRUE
     }
 
 [actionenabler_marketplace]
@@ -296,6 +298,7 @@ action       = "Enter Marketplace"
 actor_reqs    =
     { "type",   "name", "range"
       "UnitFlag", "TradeRoute", "Local"
+      "UnitState", "HasHomeCity", "Local"
     }
 
 [actionenabler_marketplace_2]
@@ -303,6 +306,7 @@ action       = "Enter Marketplace"
 actor_reqs    =
     { "type",   "name", "range"
       "UnitFlag", "Merchant", "Local"
+      "UnitState", "HasHomeCity", "Local"
     }
 
 [actionenabler_build_city_pioneer]
@@ -317,6 +321,7 @@ actor_reqs    =
 target_reqs    =
     { "type",   "name", "range", "present"
       "CityTile", "Claimed", "Local", FALSE
+      "TerrainFlag","NoCities","Local",FALSE
     }
 
 [actionenabler_build_city_domestic]
@@ -326,8 +331,13 @@ actor_reqs    =
       "UnitFlag", "Cities", "Local", TRUE
       "UnitState", "OnLivableTile", "Local", TRUE
       "MinMoveFrags", "1", "Local", TRUE
-      "DiplRel", "Is foreign", "Local", FALSE
+      "DiplRel", "Foreign", "Local", FALSE
       "UnitState", "Transported", "Local", FALSE
+    }
+target_reqs    =
+    { "type",   "name", "range", "present"
+      "CityTile",    "Claimed",  "Local", TRUE
+      "TerrainFlag","NoCities","Local",FALSE
     }
 
 [actionenabler_join_city]
@@ -335,7 +345,7 @@ action = "Join City"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "Unitflag", "AddToCity", "Local", TRUE
-      "DiplRel", "Is foreign", "Local", FALSE
+      "DiplRel", "Foreign", "Local", FALSE
       "MinMoveFrags", "1", "Local", TRUE
     }
 
@@ -496,12 +506,24 @@ actor_reqs    =
       "UnitFlag", "EvacuateFirst", "Local", FALSE
     }
 
-[actionenabler_fortify]
+[actionenabler_fortify_terrain]
 action        = "Fortify"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitClassFlag", "CanFortify",   "Local", TRUE
       "UnitFlag",      "Cant_Fortify", "Local", FALSE
+      "TerrainFlag",   "NoFortify",    "Local", FALSE
+      "Activity",      "Fortified",    "Local", FALSE
+    }
+
+[actionenabler_fortify_city]
+action        = "Fortify"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitClassFlag", "CanFortify",   "Local", TRUE
+      "UnitFlag",      "Cant_Fortify", "Local", FALSE
+      "CityTile",      "Center",       "Local", TRUE
+      "Activity",      "Fortified",    "Local", FALSE
     }
 
 [actionenabler_road]
@@ -593,14 +615,14 @@ actor_reqs    =
     { "type",      "name",        "range", "present"
       "UnitFlag",  "NoHome",      "Local", FALSE
       "UnitState", "HasHomeCity", "Local", TRUE
-      "DiplRel",   "Is foreign",  "Local", FALSE
+      "DiplRel",   "Foreign",  "Local", FALSE
     }
 
 [actionenabler_upgrade_unit]
 action = "Upgrade Unit"
 actor_reqs    =
     { "type",    "name",       "range", "present"
-      "DiplRel", "Is foreign", "Local", FALSE
+      "DiplRel", "Foreign", "Local", FALSE
       "UnitFlag", "NoUpgrade", "Local", FALSE
     }
 
