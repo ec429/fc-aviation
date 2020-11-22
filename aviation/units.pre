@@ -12,8 +12,8 @@
 
 [datafile]
 description="Aviation unit_type data for Freeciv"
-options="+Freeciv-3.0-ruleset"
-format_version=10
+options="+Freeciv-ruleset-Devel-2017.Jan.02"
+format_version=20
 
 [control]
 ; Names for custom unit type flags. There can be up to 32 of these.
@@ -31,6 +31,7 @@ flags =
     _("Cities")
     _("AddToCity")
     _("Bombarder")
+    _("Pillage")
     _("CRscout")
     _("CRfighter")
     _("CRtf")
@@ -60,6 +61,8 @@ class_flags =
   { "name", "helptxt"
     _("Ground")
     _("Flying")
+    _("Missile")
+    _("CanPillage")
   }
 
 [veteran_system]
@@ -67,7 +70,7 @@ class_flags =
 veteran_names = _("green"), _("veteran"), _("ace"), _("elite")
 
 ; The percentage chance of increasing level through combat
-veteran_raise_chance = 30, 15, 10, 0
+veteran_base_raise_chance = 30, 15, 10, 0
 
 ; The percentage chance of a settler/engineer increasing level through
 ; performing useful work (per turn)
@@ -5271,7 +5274,8 @@ uk_shield     = 1
 uk_food       = 0
 uk_gold       = 0
 targets       = "Sea"
-flags         = "Partial_Invis", "BadCityDefender", "HasNoZOC", "CRtb"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb"
+vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 Submersible torpedo boats can use their stealthiness to ambush \

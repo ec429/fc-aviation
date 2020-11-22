@@ -8,8 +8,8 @@
 
 [datafile]
 description="Aviation effects data for Freeciv"
-options="+Freeciv-3.0-ruleset"
-format_version=10
+options="+Freeciv-ruleset-Devel-2017.Jan.02"
+format_version=20
 
 ; /* <-- avoid gettext warnings
 ;
@@ -1288,26 +1288,35 @@ reqs    =
       "MinSize", "16", "City"
     }
 
-[effect_irrigate_src_ocean]
-type    = "Irrig_Possible"
-value   = 1
-reqs    =
+[actionenabler_irrigate_src_ocean]
+action        = "Build Irrigation"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Settlers",     "Local"
+    }
+target_reqs    =
     { "type", "name", "range"
       "TerrainClass", "Oceanic", "CAdjacent"
     }
 
-[effect_irrigate_src_river]
-type    = "Irrig_Possible"
-value   = 1
-reqs    =
+[actionenabler_irrigate_src_river]
+action        = "Build Irrigation"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Settlers",     "Local"
+    }
+target_reqs    =
     { "type", "name", "range"
       "Extra", "River", "CAdjacent"
     }
 
-[effect_irrigate_src_irrigation]
-type    = "Irrig_Possible"
-value   = 1
-reqs    =
+[actionenabler_irrigate_src_irrigation]
+action        = "Build Irrigation"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Settlers",     "Local"
+    }
+target_reqs    =
     { "type", "name", "range"
       "Extra", "Irrigation", "CAdjacent"
     }
@@ -1348,20 +1357,26 @@ reqs    =
       "Extra", "Oil Well", "Local"
     }
 
-[effect_mining]
-type    = "Mining_Possible"
-value   = 1
-reqs    =
-    { "type", "name", "range", "present"
+[actionenabler_mining]
+action        = "Build Mine"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Settlers",     "Local"
     }
 
-[effect_irrig_tf]
-type    = "Irrig_TF_Possible"
-value   = 1
+[actionenabler_cultivate]
+action        = "Cultivate"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "Settlers",     "Local", TRUE
+    }
 
-[effect_mining_tf]
-type    = "Mining_TF_Possible"
-value   = 1
+[actionenabler_plant]
+action        = "Plant"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "Settlers",     "Local", TRUE
+    }
 
 [effect_pollution]
 type	= "Output_Tile_Punish_Pct"

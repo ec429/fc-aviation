@@ -9,8 +9,8 @@
 
 [datafile]
 description="Classic cities data for Freeciv"
-options="+Freeciv-3.0-ruleset"
-format_version=10
+options="+Freeciv-ruleset-Devel-2017.Jan.02"
+format_version=20
 
 ; /* <-- avoid gettext warnings
 ;

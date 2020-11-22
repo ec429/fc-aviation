@@ -3,8 +3,8 @@
 
 [datafile]
 description="Aviation governments data for Freeciv"
-options="+Freeciv-3.0-ruleset"
-format_version=10
+options="+Freeciv-ruleset-Devel-2017.Jan.02"
+format_version=20
 
 [governments]
 during_revolution="Revolution"

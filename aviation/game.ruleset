@@ -8,8 +8,8 @@
 
 [datafile]
 description="Aviation rules for Freeciv"
-options="+Freeciv-3.0-ruleset"
-format_version=10
+options="+Freeciv-ruleset-Devel-2017.Jan.02"
+format_version=20
 
 ; This section contains meta information for freeciv-ruledit to recreate the ruleset
 ; file in a form wanted. These have no in-game effect whatsoever
@@ -104,6 +104,11 @@ tech_loss_allow_holes     = TRUE
 ; Whether civil war is possible at all
 civil_war_enabled        = TRUE
 
+civil_war_bonus_celebrating = -5
+civil_war_bonus_unhappy = 5
+
+output_granularity = 1
+
 ; Comma separated list of things to happen, in addition to death
 ; of owner, when gameloss unit dies
 ; "CivilWar"   - Part of the empire remains, controlled by a new player
@@ -184,6 +189,9 @@ slow_invasions = TRUE
 ; If this is set to FALSE units will attack with full strength even if they
 ; have only fractional moves left.
 tired_attack = FALSE
+
+nuke_pop_loss_pct = 50
+nuke_defender_survival_chance_pct = 0
 
 [goods_good]
 name = _("Goods")
@@ -442,6 +450,16 @@ target_reqs   =
       "TerrainClass",  "Oceanic","Local"
     }
 
+[actionenabler_explode_missile]
+action = "Suicide Attack"
+actor_reqs    =
+    { "type",          "name",    "range", "present"
+      "UnitFlag",      "NonMil",  "Local", FALSE
+      "UnitClassFlag", "Missile", "Local", TRUE
+      "MinMoveFrags",  "1",       "Local", TRUE
+      "DiplRel",       "War",     "Local", TRUE
+    }
+
 [actionenabler_conquer_city_native]
 action = "Conquer City"
 actor_reqs    =
@@ -457,11 +475,105 @@ target_reqs    =
       "MaxUnitsOnTile", "0",             "Local", TRUE
     }
 
+[actionenabler_pillage]
+action        = "Pillage"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitClassFlag", "CanPillage",   "Local"
+    }
+
+[actionenabler_pillage_by_unit]
+action        = "Pillage"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Pillage",      "Local"
+    }
+
 [actionenabler_disband_unit]
 action = "Disband Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitFlag", "EvacuateFirst", "Local", FALSE
+    }
+
+[actionenabler_fortify]
+action        = "Fortify"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitClassFlag", "CanFortify",   "Local", TRUE
+      "UnitFlag",      "Cant_Fortify", "Local", FALSE
+    }
+
+[actionenabler_road]
+action        = "Build Road"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Settlers",     "Local"
+    }
+
+[actionenabler_base]
+action        = "Build Base"
+actor_reqs    =
+    { "type",          "name",         "range"
+      "UnitFlag",      "Settlers",     "Local"
+    }
+
+[actionenabler_alight]
+action        = "Transport Alight"
+actor_reqs    =
+    { "type",      "name",          "range"
+      "UnitState", "OnLivableTile", "Local"
+      "UnitState", "Transported",   "Local"
+    }
+target_reqs    =
+    { "type",      "name",         "range", "present"
+      "UnitState", "Transporting", "Local", TRUE
+      "UnitState", "Transported",  "Local", FALSE
+    }
+
+[actionenabler_board]
+action        = "Transport Board"
+actor_reqs    =
+    { "type",    "name",       "range", "present"
+      "DiplRel", "Armistice",  "Local", FALSE
+      "DiplRel", "War",        "Local", FALSE
+      "DiplRel", "Cease-fire", "Local", FALSE
+      "DiplRel", "Peace",      "Local", FALSE
+      "DiplRel", "Never met",  "Local", FALSE
+    }
+
+[actionenabler_unload]
+action        = "Transport Unload"
+actor_reqs    =
+    { "type",      "name",         "range", "present"
+      "UnitState", "Transporting", "Local", TRUE
+      "UnitState", "Transported",  "Local", FALSE
+    }
+target_reqs    =
+    { "type",      "name",          "range"
+      "UnitState", "OnLivableTile", "Local"
+      "UnitState", "Transported",   "Local"
+    }
+
+; We want this to not be available from inside a nested transporter (i.e. towed glider), but it doesn't look like we can set that.  And we have to have the action enabled for lcmboats, so we can't just remove it and say alight/unload only :(
+[actionenabler_disembark]
+action        = "Transport Disembark"
+actor_reqs    =
+    { "type",         "name",        "range"
+      "UnitState",    "Transported", "Local"
+      "MinMoveFrags", "1",           "Local"
+    }
+
+[actionenabler_embark]
+action        = "Transport Embark"
+actor_reqs    =
+    { "type",         "name",       "range", "present"
+      "MinMoveFrags", "1",          "Local", TRUE
+      "DiplRel",      "Armistice",  "Local", FALSE
+      "DiplRel",      "War",        "Local", FALSE
+      "DiplRel",      "Cease-fire", "Local", FALSE
+      "DiplRel",      "Peace",      "Local", FALSE
+      "DiplRel",      "Never met",  "Local", FALSE
     }
 
 [actionenabler_recycle_unit]
@@ -490,6 +602,23 @@ actor_reqs    =
     { "type",    "name",       "range", "present"
       "DiplRel", "Is foreign", "Local", FALSE
       "UnitFlag", "NoUpgrade", "Local", FALSE
+    }
+
+[auto_attack]
+; An auto attack may be triggered when another unit moves to an adjacent
+; tile and the autoattack server setting is enabled. The following details
+; are ruleset controlled.
+;   attack_actions - the actions to try during an auto attack in the order
+;                    they should be tried.
+;   if_attacker    - this requirement vector must be true before a unit even
+;                    considers to auto attack.
+
+attack_actions= "Capture Units", "Bombard", "Attack", "Suicide Attack"
+
+if_attacker =
+    { "type",         "name",    "range", "present"
+      "DiplRel",      "War",     "Local", TRUE
+      "MinMoveFrags", "1",       "Local", TRUE
     }
 
 [borders]
@@ -573,6 +702,8 @@ victory_lead_pct   = 200
 ; from/to the city. Each culture point count as this many permilles
 ; of a migration point.
 migration_pml = 50
+
+history_interest_pml = 0
 
 [calendar]
 ; Year in the beginning of the game
@@ -689,6 +820,37 @@ colorlist =
 ; _("Team 2"),
 ; _("Team 3"),
 ; etc...
+
+; treaties
+[clause_advance]
+type = "Advance"
+
+[clause_gold]
+type = "Gold"
+
+[clause_map]
+type = "Map"
+
+[clause_seamap]
+type = "Seamap"
+
+[clause_city]
+type = "City"
+
+[clause_ceasefire]
+type = "Ceasefire"
+
+[clause_peace]
+type = "Peace"
+
+[clause_alliance]
+type = "Alliance"
+
+[clause_vision]
+type = "Vision"
+
+[clause_embassy]
+type = "Embassy"
 
 [settings]
 ; freeciv game settings for the aviation ruleset

@@ -1,9 +1,9 @@
 [info]
-options = "+Freeciv-3.0-mpdl"
+options = "+Freeciv-mpdl-Devel-2017.Jan.02"
 baseURL = "."
 name    = "Aviation"
 type    = "Modpack"
-version = "3.0-0.6"
+version = "3.1-0.1"
 
 [files]
 list =
