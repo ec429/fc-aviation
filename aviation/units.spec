@@ -2,7 +2,7 @@
 [spec]
 
 ; Format and options of this spec file:
-options = "+Freeciv-3.0-spec"
+options = "Freeciv-3.0-spec Freeciv-spec-Devel-2019-Jul-03"
 
 [info]
 
