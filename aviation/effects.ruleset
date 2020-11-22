@@ -1288,39 +1288,6 @@ reqs    =
       "MinSize", "16", "City"
     }
 
-[actionenabler_irrigate_src_ocean]
-action        = "Build Irrigation"
-actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitFlag",      "Settlers",     "Local"
-    }
-target_reqs    =
-    { "type", "name", "range"
-      "TerrainClass", "Oceanic", "CAdjacent"
-    }
-
-[actionenabler_irrigate_src_river]
-action        = "Build Irrigation"
-actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitFlag",      "Settlers",     "Local"
-    }
-target_reqs    =
-    { "type", "name", "range"
-      "Extra", "River", "CAdjacent"
-    }
-
-[actionenabler_irrigate_src_irrigation]
-action        = "Build Irrigation"
-actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitFlag",      "Settlers",     "Local"
-    }
-target_reqs    =
-    { "type", "name", "range"
-      "Extra", "Irrigation", "CAdjacent"
-    }
-
 [effect_irrigation]
 type    = "Irrigation_Pct"
 value   = 100
@@ -1355,27 +1322,6 @@ value   = 100
 reqs    =
     { "type", "name", "range"
       "Extra", "Oil Well", "Local"
-    }
-
-[actionenabler_mining]
-action        = "Build Mine"
-actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitFlag",      "Settlers",     "Local"
-    }
-
-[actionenabler_cultivate]
-action        = "Cultivate"
-actor_reqs    =
-    { "type",          "name",         "range", "present"
-      "UnitFlag",      "Settlers",     "Local", TRUE
-    }
-
-[actionenabler_plant]
-action        = "Plant"
-actor_reqs    =
-    { "type",          "name",         "range", "present"
-      "UnitFlag",      "Settlers",     "Local", TRUE
     }
 
 [effect_pollution]
