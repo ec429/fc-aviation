@@ -39,7 +39,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
   - The exception is the Submersible, which has a CR 9 torpedo attack.  Preventing subs from harassing your shipping is the main purpose of blimps (and to a lesser extent flying-boats).
 * Land and sea units are very slow.  If you want to get anything done, you'll need to use planes to move stuff around.
-  - Roads don't speed up movement at all, and Railroads only reduce movement cost to 2/3.
+  - Roads don't speed up movement at all, and Railroads only reduce movement cost to 1/2.
 * Unit Hitpoints and Firepower vary a lot, as does Fuel; just looking at the A/D/M numbers won't give you an accurate picture of a unit's capabilities.
   - Also, combat-capable air units have a limited number of Combat Rounds; for example, an attacking medium bomber will only get 12 combat rounds, while a Monoplane Fighter gets just 5 (though attacking doesn't end the fighter's turn, so if it has fuel to spare it can engage again).  The number of Combat Rounds in any engagement is determined by the attacking unit.
     + Scout: CR 3.  Scouts and fighters up to the 1920s.
