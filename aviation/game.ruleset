@@ -940,4 +940,5 @@ set =
       "rapturedelay", 2, FALSE ; make Democracy less OP
       "citymindist", 3, FALSE ; ensure distances are large enough to favour aircraft more
       "sciencebox", 90, FALSE ; fudge factor to speed up tech progression
+      "dispersion", 2, FALSE ; spread out initial settlers a bit
     }
