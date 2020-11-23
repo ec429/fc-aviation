@@ -139,8 +139,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "R.D.F.", "Player"
     }
-graphic	= "b.eiffel_tower"
-graphic_alt	= "-"
+graphic	= "b.radar"
+graphic_alt	= "b.eiffel_tower"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -226,8 +226,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Aerodynamics Research", "Player"
     }
-graphic	= "b.library"
-graphic_alt	= "-"
+graphic	= "b.wind_tunnel"
+graphic_alt	= "b.library"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -250,8 +250,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Twenties Airlift", "Player"
     }
-graphic	= "b.airport"
-graphic_alt	= "-"
+graphic	= "b.windsock"
+graphic_alt	= "b.airport"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -324,8 +324,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Practical Aviation", "Player"
     }
-graphic	= "b.temple"
-graphic_alt	= "-"
+graphic	= "b.flying_club"
+graphic_alt	= "b.temple"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -391,8 +391,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Bombers 1917", "Player"
     }
-graphic	= "b.cathedral"
-graphic_alt	= "-"
+graphic	= "b.cenotaph"
+graphic_alt	= "b.cathedral"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -770,8 +770,8 @@ reqs	=
     { "type", "name", "range"
       "Tech", "R.D.F.", "Player"
     }
-graphic	= "b.eiffel_tower"
-graphic_alt	= "-"
+graphic	= "b.chain_home"
+graphic_alt	= "b.eiffel_tower"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -904,8 +904,8 @@ reqs	=
     { "type", "name", "range"
       "Tech", "Twenties Fighters", "Player"
     }
-graphic	= "b.isaac_newtons_college"
-graphic_alt	= "-"
+graphic	= "b.raf_college"
+graphic_alt	= "b.isaac_newtons_college"
 build_cost	= 200
 upkeep		= 1
 sabotage	= 0
@@ -958,8 +958,8 @@ reqs	=
     { "type", "name", "range"
       "Tech", "General Aviation", "Player"
     }
-graphic	= "b.colossus"
-graphic_alt	= "-"
+graphic	= "b.dehavilland"
+graphic_alt	= "b.colossus"
 obsolete_by	=
     { "type", "name", "range", "survives"
       "Tech", "Heavy Airlift", "Player", FALSE
@@ -1216,8 +1216,8 @@ reqs	=
     { "type", "name", "range"
       "Tech", "Radio", "Player"
     }
-graphic	= "b.marco_polos_embassy"
-graphic_alt	= "-"
+graphic	= "b.broadcasting"
+graphic_alt	= "b.marco_polos_embassy"
 obsolete_by	=
     { "type", "name", "range"
     }

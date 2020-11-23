@@ -33,4 +33,5 @@ tiles = { "row", "column","tag"
   1, 2, "a.effective_seaplanes" ; from PD photo https://commons.wikimedia.org/wiki/File:Sopwith_Baby_beached.jpg
   1, 3, "a.engines16" ; from PD image https://commons.wikimedia.org/wiki/File:Clerget_9B_130_hp_L%27Ann%C3%A9e_A%C3%A9ronautique_1920-1921.jpg
   1, 4, "a.bombers16" ; from PD photo https://commons.wikimedia.org/wiki/File:Airco_DH-4.jpg
+  1, 5, "a.aerodynamics" ; from PD image https://commons.wikimedia.org/wiki/File:Airstreams_around_an_airfoil_in_a_wind_tunnel.jpg
 }
