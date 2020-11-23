@@ -600,8 +600,8 @@ name     = _("Aerodynamics Research")
 req1     = "Streamlining"
 req2     = "None"
 cost     = 360
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.aerodynamics"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("To push forward the frontiers of aviation, it was\
  no longer sufficient to rely solely on a designer's flair for\
  good 'shapes'; painstaking technical work with models in wind\
