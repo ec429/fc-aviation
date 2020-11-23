@@ -97,8 +97,8 @@ req1     = "None"
 req2     = "None"
 cost     = 40
 flags    = "Build_Airborne"
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.powered_flight"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Though their first heavier-than-air machines could\
  carry no load beyond the pilot, aviation pioneers achieved the \
  dream of human flight. \
@@ -109,8 +109,8 @@ name     = _("Passenger Carrying")
 req1     = "Powered Flight"
 req2     = "None"
 cost     = 75
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.passenger_carrying"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("More powerful engines enabled aircraft to carry\
  passengers and other small payloads. \
  Henri Farman, 1908.")
@@ -120,8 +120,8 @@ name     = _("Hydroaeroplane")
 req1     = "Powered Flight"
 req2     = "None"
 cost     = 60
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.hydroaeroplane"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Mounting an aeroplane on floats allowed it to\
  take off and alight on water, instead of land. \
  Henri Fabre, 1910.")
@@ -131,8 +131,8 @@ name     = _("Practical Aviation")
 req1     = "Passenger Carrying"
 req2     = "None"
 cost     = 90
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.practical_aviation"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("The ability to carry a useful load, and fly in\
  imperfect weather conditions, made flying more than just a\
  stunt.  1912.")
@@ -142,8 +142,8 @@ name     = _("Practical Seaplanes")
 req1     = "Hydroaeroplane"
 req2     = "Practical Aviation"
 cost     = 90
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.practical_seaplanes"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("The first floatplanes were unreliable freaks. \
  Once they were developed to practicality, the world's navies\
  began to take an interest in the possibilities.  1912.")
@@ -153,8 +153,8 @@ name     = _("Aerial Weapons")
 req1     = "Practical Aviation"
 req2     = "None"
 cost     = 120
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.aerial_weapons"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Early attempts to arm aircraft, though generally\
  crude, opened a new chapter in warfare by making air-to-air\
  combat possible.  Designers experimented with a wide variety\
@@ -176,8 +176,8 @@ name     = _("Military Seaplanes")
 req1     = "Practical Seaplanes"
 req2     = "Aerial Weapons"
 cost     = 128
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.military_seaplanes"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Naval thinkers saw in the seaplane a way to extend\
  the engagement range by carrying bombs.  1914.")
 
@@ -186,8 +186,8 @@ name     = _("Interrupter Gear")
 req1     = "Aerial Weapons"
 req2     = "None"
 cost     = 240
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.interrupter_gear"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Synchronising machine guns with the propeller's\
  rotation allowed aircraft to fire forwards without the unwieldy\
  complications of pusher designs.  1915.")
@@ -197,8 +197,8 @@ name     = _("Engines 1915")
 req1     = "Aerial Weapons"
 req2     = "None"
 cost     = 180
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.engines15"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Engine performance has always been the driving\
  factor behind aviation advancement.  Developing more powerful\
  engines unlocked new possibilities.")
@@ -208,8 +208,8 @@ name     = _("Bombers 1915")
 req1     = "Engines 1915"
 req2     = "None"
 cost     = 144
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.bombers15"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Bombs dropped from landplanes added a new terror\
  to the trench battles of World War I.  The actual military\
  effectiveness of early bombing however was limited by the\
@@ -221,8 +221,8 @@ name     = _("Zeppelin")
 req1     = "Dirigible Balloons"
 req2     = "Engines 1915"
 cost     = 90
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.zeppelin"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("With engine power enough to make headway even in\
  severe weather, rigid airships became the first long-range\
  bombers.  1914-17.")
@@ -232,8 +232,8 @@ name     = _("Effective Scouts")
 req1     = "Interrupter Gear"
 req2     = "Engines 1915"
 cost     = 160
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.effective_scouts"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Two-seat fighter aircraft with both forward\
 -firing and defensive machine guns found some success in the\
  air battles over the Front.  1915.")
@@ -243,8 +243,8 @@ name     = _("Effective Seaplanes")
 req1     = "Military Seaplanes"
 req2     = "Engines 1915"
 cost     = 164
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.effective_seaplanes"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("The development of air-droppable torpedoes\
  turned the floatplane into a viable threat to surface\
  ships.  1915.")
@@ -254,8 +254,8 @@ name     = _("Engines 1916")
 req1     = "Engines 1915"
 req2     = "None"
 cost     = 200
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.engines16"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("The power and reliability of aero-engines\
  such as the Clerget air-cooled rotary continued to\
  increase.")
@@ -265,8 +265,8 @@ name     = _("Bombers 1916")
 req1     = "Bombers 1915"
 req2     = "Engines 1916"
 cost     = 225
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
+graphic     = "a.bombers16"
+graphic_alt = "a.flight" ; placeholder
 helptext = _("Large, multi-engined bombers with the ability\
  to deliver heavy loads made strategic airpower a reality.")
 
