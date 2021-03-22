@@ -506,6 +506,7 @@ genus		= "Improvement"
 reqs =
     { "type", "name", "range"
       "Tech", "Military Seaplanes", "Player"
+      "TerrainClass", "Oceanic", "Adjacent"
     }
 graphic	= "b.port_facility"
 graphic_alt	= "-"
