@@ -567,8 +567,7 @@ Settlers can also improve terrain tiles. See the help on Terrain \
 and Terrain Alterations for the effects of their actions.\
 "), _("\
 Upkeep for Settlers is in food as well as production, and a Settler \
-can die if its supporting city runs out of food. Settlers in a \
-Republic or Democracy require twice as much food per turn.\
+can die if its supporting city runs out of food.\
 ")
 
 [unit_seabees]
