@@ -50,6 +50,7 @@ tiles = { "row", "column", "tag"
   1,  4, "u.ph-FI" ; Supersonic Interceptor
   1,  5, "u.ph-FA" ; Fighter, Air-superiority, Supersonic
   1,  6, "u.ph-FL" ; Fighter, Light, Transonic
+  1,  8, "u.ph-LM" ; Light-Medium Bomber
   1, 10, "u.ph-FP" ; Fighter, Pusher
   1, 11, "u.ph-FS" ; Fighter, Strutter
   1, 12, "u.ph-FB" ; Fighter, Biplane

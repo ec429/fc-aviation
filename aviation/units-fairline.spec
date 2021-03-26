@@ -138,4 +138,5 @@ tiles = { "row", "column", "tag"
   5,  1, "u.baby"        ; HF Floatplane Fighter (Hanriot D.1) [T], floats added by [EC]
   5,  2, "u.short320"    ; HL Large Torpedo Floatplane (Short Type 320 Folder) [EC]: derived from u.short184
   5,  3, "u.dart"        ; T2 Twenties Torpedo Bomber ("Breguet", maybe a 14?) [GB]
+  5,  4, "u.mosqix"	 ; LM Light-Medium Bomber (Mosquito B.IX) [GB], repainted to night livery by [EC]
 }
