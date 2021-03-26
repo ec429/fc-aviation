@@ -1367,6 +1367,8 @@ defense       = 4
 hitpoints     = 20
 firepower     = 1
 move_rate     = 13
+convert_to    = "Heavy Fighter"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
@@ -1377,7 +1379,8 @@ uk_gold       = 0
 flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 High performance twin-engined bomber, based on the same \
-airframe as the Heavy Fighter.  \
+airframe as the Heavy Fighter (to which it can be \
+converted if needed).  \
 Similar payload capacity to the Medium Bomber, but \
 significantly cheaper.  \
 Historical examples include the de Havilland Mosquito B.IX.\
@@ -2610,6 +2613,8 @@ defense       = 3
 hitpoints     = 10
 firepower     = 4
 move_rate     = 14
+convert_to    = "Light-Medium Bomber"
+convert_time  = 0
 vision_radius_sq = 4
 transport_cap = 0
 fuel          = 2
@@ -2621,6 +2626,7 @@ flags         = "Recon", "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
 High-performance twin-engine fighter.  \
+Can be converted into a light bomber variant.  \
 Historical examples include the Lockheed P-38 Lightning \
 and de Havilland Mosquito.\
 ")
