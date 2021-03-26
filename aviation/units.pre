@@ -1317,7 +1317,7 @@ Battle, and Sukhoi Su-2.\
 name          = _("Light Bomber Twin")
 class         = "Air"
 tech_req      = "Bombers 1935"
-obsolete_by   = "None"
+obsolete_by   = "Light-Medium Bomber"
 graphic       = "u.blenheim"
 graphic_alt   = "u.ph-LT"
 sound_move    = "m_fighter"
@@ -1347,6 +1347,40 @@ By dint of its larger size, the Twin cannot operate from \
 aircraft carriers.  \
 Historical examples include the Dornier Do 17E and \
 Bristol Blenheim.\
+")
+
+[unit_light_medium_bomber]
+name          = _("Light-Medium Bomber")
+class         = "Air"
+tech_req      = "Fighters 1942"
+obsolete_by   = "None"
+graphic       = "u.mosqix"
+graphic_alt   = "u.ph-LM"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 5
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 13
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 0
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+helptext      = _("\
+High performance twin-engined bomber, based on the same \
+airframe as the Heavy Fighter.  \
+Similar payload capacity to the Medium Bomber, but \
+significantly cheaper.  \
+Historical examples include the de Havilland Mosquito B.IX.\
 ")
 
 [unit_recon_jet]
