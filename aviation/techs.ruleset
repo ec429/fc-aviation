@@ -804,7 +804,7 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Early monoplane medium bombers, on becoming obsolete\
  in their original role, found a new lease of life as transport\
- aircraft, faster and longer-ranged than the wooden biplanes they
+ aircraft, faster and longer-ranged than the wooden biplanes they\
  were replacing.")
 
 [advance_fighters_1935]
