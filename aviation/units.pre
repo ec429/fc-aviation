@@ -42,6 +42,7 @@ flags =
     _("CRmedium")
     _("CRheavy")
     _("DiveBomber")
+    _("AirAttacker"), _("Bad at attacking CAM.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
 ; use targets/Unreachable and so these are just documentation.  Hopefully in
@@ -5135,7 +5136,7 @@ build_cost    = 24
 pop_cost      = 0
 attack        = 0
 defense       = 1
-hitpoints     = 9
+hitpoints     = 6
 firepower     = 1
 move_rate     = 3
 vision_radius_sq = 2
@@ -5144,6 +5145,10 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 0
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "AirAttacker", "DefenseMultiplier", 3
+   }
 flags         = "Merchant", "NonMil", "HasNoZOC"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
@@ -5155,10 +5160,7 @@ Merchants can earn gold and science, trading with your own cities or those\
  airliners, they cannot create persistent trade routes with ongoing revenue.\
 "), _("\
 Adding a catapult-launched Early Monoplane Fighter to a merchant ship\
- improves its defence.")
-; It should only get a defence bonus against aircraft, but it's not currently
-; possible to make that effect as Defend_Bonus can't condition on the
-; defending unit :(
+ triples its defence against aircraft.")
 
 [unit_seatend]
 name          = _("Seaplane Tender")
