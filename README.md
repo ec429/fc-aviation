@@ -27,6 +27,8 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
 * Ground units cannot cross Mountain tiles.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
+  - By default, `unreachableprotects` is _disabled_, because otherwise mixed stacks would be invincible until the invention of strike fighters.
+  - Units in cities, regardless of class, can only be attacked by AntiGround units.
 * Aircraft are split into six unit classes:
   - Air.  Ordinary landplanes refuel-at-cities-and-airbases, but can't use aircraft carriers.
   - Carrier-borne.  Can operate from aircraft carriers (but not the Seaplane Tender).
