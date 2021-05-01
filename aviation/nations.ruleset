@@ -27,7 +27,7 @@ embedded_nations = "barbarian", "pirate"
 [compatibility]
 ; Initial government for all the nations that do not
 ; have it explicitly defined
-default_government = "Democracy"
+default_government = "Constitutional Monarchy"
 
 [default_traits]
 ; Default values for the AI traits. These are used if nation specific

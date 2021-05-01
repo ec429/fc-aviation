@@ -57,8 +57,9 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 * There is no Diplomat or Spy unit.  Instead, some aircraft are capable of some of their actions:
   - Recon aircraft (including light bombers, some floatplanes, and some heavy fighters) can Investigate City.
   - The Ambassador (an air unit, despite its Diplomat sprite) can Establish Embassy.
-* The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
-  - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments; and it has a senate which may prevent aggressive wars.  It gets extra trade from tiles, and even more if the city is celebrating.
+* The available government types are Revolution (a renamed Anarchy), Constitutional Monarchy, Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
+  - Constitutional Monarchy pays gold upkeep, can use martial law up to 2, has more corruption than either demo or commu, and unhappiness owing to empire size is quite severe.  It suffers unhappiness from military deployments.
+  - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It suffers unhappiness from military deployments; and it has a senate which may prevent aggressive wars.  It gets extra trade from tiles, and even more if the city is celebrating.
   - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.  It gets two additional content citizens per city.
   - Fascism has rampant corruption, but pays no upkeep for certain military units, and gold (instead of shields) for the rest.  It also gets two additional content citizens per city.
 * There are a few units which can be obsoleted but not upgraded.  Generally this is to remove clutter from the city build dialogue when a unit is surpassed by something different enough from it that upgrading would be unrealistic.  In particular:
@@ -74,9 +75,9 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 
 * There is no Harbour building, but its effect is permanently applied.
 * A city retains 30% of its foodbox when changing size (there is no Granary building).
-* You start the game as a Democracy.
+* You start the game as a Constitutional Monarchy.
 * The calendar advances by two months per turn (i.e. 6 turns per year).
-* Unhappiness from units in the field is only 1 under Democracy (and zero for other governments).
+* Unhappiness from units in the field is only 1 under governments that have it (Monarchy and Democracy).
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
 * Workers are called Seabees.  Improvement build times are around 0.6 of classic (so, somewhere in between Workers and Engineers).  Transform Terrain is unavailable.
 * Chance to steal tech on city conquest is 60%.
