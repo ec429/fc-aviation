@@ -1453,7 +1453,7 @@ reqs    =
 ; Really we want to test that the defender is a Ground unit,
 ; but there's currently no way to do that
       "UnitFlag", "AntiGround", "Local"
-      "CityTile", "Center", "Local"
+      "MinSize", "1", "City"
     }
 
 [effect_beam_bombing_2]
@@ -1466,7 +1466,7 @@ reqs    =
 ; Really we want to test that the defender is a Ground unit,
 ; but there's currently no way to do that
       "UnitFlag", "AntiGround", "Local"
-      "CityTile", "Center", "Local"
+      "MinSize", "1", "City"
     }
 
 [effect_beam_bombing_3]
@@ -1479,7 +1479,7 @@ reqs    =
 ; Really we want to test that the defender is a Ground unit,
 ; but there's currently no way to do that
       "UnitFlag", "AntiGround", "Local"
-      "CityTile", "Center", "Local"
+      "MinSize", "1", "City"
     }
 
 [effect_airborne_radar_1]
@@ -1495,7 +1495,7 @@ reqs    =
 ; Make sure AF doesn't get both beam-bombing and airad bonuses.
 ; If you're strafing fighters as they scramble to fight you, then you
 ; don't get a bonus from having radar.
-      "CityTile", "Center", "Local", FALSE
+      "MinSize", "1", "City", FALSE
     }
 
 [effect_airborne_radar_2]
@@ -1509,7 +1509,7 @@ reqs    =
 ; Make sure PJ doesn't get both beam-bombing and airad bonuses.
 ; If you're strafing fighters as they scramble to fight you, then you
 ; don't get a bonus from having radar.
-      "CityTile", "Center", "Local", FALSE
+      "MinSize", "1", "City", FALSE
     }
 
 [effect_airborne_radar_3]
@@ -1523,7 +1523,7 @@ reqs    =
 ; Make sure NS, AV etc don't get both beam-bombing and airad bonuses.
 ; If you're strafing fighters as they scramble to fight you, then you
 ; don't get a bonus from having radar.
-      "CityTile", "Center", "Local", FALSE
+      "MinSize", "1", "City", FALSE
     }
 
 [effect_bachstelze]
