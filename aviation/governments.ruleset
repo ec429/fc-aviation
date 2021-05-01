@@ -127,7 +127,8 @@ Fascism is a system of totalitarianism under which all the resources\
  harnessed to the Will of the Nation as defined by (and,\
  psychologically, personified in) the Glorious Leader."), _("\
 Corruption is often rampant, but military production is rapid\
- (no upkeep for certain units) and morale is strong.\
+ (no upkeep for certain units, gold upkeep for others) and\
+ morale is strong.\
 ")
 
 ; /* <-- avoid gettext warnings

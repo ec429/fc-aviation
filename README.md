@@ -60,7 +60,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 * The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
   - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments; and it has a senate which may prevent aggressive wars.
   - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.  It gets two additional content citizens per city.
-  - Fascism has rampant corruption, but pays no upkeep for certain military units.  It also gets two additional content citizens per city.
+  - Fascism has rampant corruption, but pays no upkeep for certain military units, and gold (instead of shields) for the rest.  It also gets two additional content citizens per city.
 * There are a few units which can be obsoleted but not upgraded.  Generally this is to remove clutter from the city build dialogue when a unit is surpassed by something different enough from it that upgrading would be unrealistic.  In particular:
   - Zeppelin Bombers are obsolete once you can build Thirties Bombers.
   - Zeppelin Liners can't be built after the development of Monoplane Transport (Airlift 1935).  This represents the public turning away from Zeppelin travel after the series of airship disasters culminating in the loss of the Hindenburg; past this point you will need to build Commercial Airstrips so that you can produce Airliners instead.

@@ -53,6 +53,10 @@ class Unit(object):
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))
+        upkeep = self['uk_base']
+        del self['uk_base']
+        self['uk_shield'] = upkeep
+        self['uk_gold'] = upkeep
     def writekey(self, f, k, v):
         f.write('%s = %s\n' % (k.ljust(16), v))
     def write(self, f):

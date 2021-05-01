@@ -291,9 +291,77 @@ reqs   =
       "OutputType", "Shield", "Local"
     }
 
-[effect_base_unit_upkeep]
+[effect_unit_upkeep_shields_revolt]
 type    = "Upkeep_Factor"
 value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_unit_upkeep_gold_revolt]
+type    = "Upkeep_Factor"
+value	= 0
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Revolution", "Player"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_unit_upkeep_shields_democracy]
+type    = "Upkeep_Factor"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_unit_upkeep_gold_democracy]
+type    = "Upkeep_Factor"
+value	= 0
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_unit_upkeep_shields_communism]
+type    = "Upkeep_Factor"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_unit_upkeep_gold_communism]
+type    = "Upkeep_Factor"
+value	= 0
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_unit_upkeep_shields_fascism]
+type    = "Upkeep_Factor"
+value	= 0
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Fascism", "Player"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_unit_upkeep_gold_fascism]
+type    = "Upkeep_Factor"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Fascism", "Player"
+      "OutputType", "Gold", "Local"
+    }
 
 [effect_democracy_unit_unhappiness]
 type    = "Unhappy_Factor"
