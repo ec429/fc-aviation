@@ -219,7 +219,7 @@ helptext = _("Bombs dropped from landplanes added a new terror\
 [advance_zeppelin]
 name     = _("Zeppelin")
 req1     = "Dirigible Balloons"
-req2     = "Engines 1915"
+req2     = "Aerial Weapons"
 cost     = 90
 graphic     = "a.zeppelin"
 graphic_alt = "a.flight" ; placeholder
