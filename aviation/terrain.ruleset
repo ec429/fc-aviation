@@ -673,7 +673,7 @@ class                = "Land"
 movement_cost        = 3
 defense_bonus        = 200
 food                 = 0
-shield               = 1
+shield               = 2
 trade                = 0
 resources            = "Gold", "Iron"
 road_food_incr_pct   = 0
@@ -883,7 +883,7 @@ trade       = 6
 [resource_iron]
 extra       = "Iron"
 identifier  = "/"
-shield      = 3
+shield      = 4
 # mountains.
 
 [resource_game]
