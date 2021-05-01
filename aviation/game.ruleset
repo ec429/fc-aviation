@@ -545,6 +545,20 @@ actor_reqs    =
       "UnitFlag",      "Pillage",      "Local"
     }
 
+[actionenabler_clean_pollution]
+action        = "Clean Pollution"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "Settlers",     "Local", TRUE
+    }
+
+[actionenabler_clean_fallout]
+action        = "Clean Fallout"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "Settlers",     "Local", TRUE
+    }
+
 [actionenabler_convert_unit]
 action = "Convert Unit"
 actor_reqs    =
