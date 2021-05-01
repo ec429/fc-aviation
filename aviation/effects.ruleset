@@ -99,6 +99,27 @@ reqs    =
       "UnitClass", "Assault", "Local"
     }
 
+[effect_fortified]
+type    = "Fortify_Defense_Bonus"
+value   = 50
+reqs    =
+    { "type", "name", "range"
+      "Activity", "Fortified", "Local"
+    }
+
+; Units that can fortify get the bonus while in a city, even if they haven't
+; actively fortified themselves.
+[effect_city_fortified]
+type    = "Fortify_Defense_Bonus"
+value   = 50
+reqs    =
+    { "type",          "name",         "range", "present"
+      "CityTile",      "Center",       "Local", TRUE
+      "Activity",      "Fortified",    "Local", FALSE
+      "UnitClassFlag", "CanFortify",   "Local", TRUE
+      "UnitFlag",      "Cant_Fortify", "Local", FALSE
+    }
+
 ; basic free tech upkeep
 [effect_upkeep_tech_free]
 type    = "Tech_Upkeep_Free"
