@@ -244,6 +244,31 @@ Increases the science output in a city by 50%.\
 
 ; **Revenue**
 
+[building_moormast]
+name		= _("Mooring Mast")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Effective Airships", "Player"
+    }
+graphic	= "b.moormast"
+graphic_alt	= "b.airport"
+obsolete_by	=
+    { "type", "name", "range"
+      "Tech", "Airlift 1935", "World"
+    }
+build_cost	= 20
+upkeep		= 0
+sabotage	= 100
+sound		= "b_airport"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Allows the construction of Zeppelin Liners (for\
+ creating trade routes), and allows the city to\
+ have a second trade route.\
+")
+
 [building_airstrip]
 name		= _("Commercial Airstrip")
 genus		= "Improvement"
@@ -265,7 +290,8 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the tax output in a city by 50%. \
  Also, allows the construction of Airliners\
- (for creating trade routes).\
+ (for creating trade routes), and allows the\
+ city to have a second trade route.\
 ")
 
 [building_airport]

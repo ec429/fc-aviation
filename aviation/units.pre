@@ -4621,6 +4621,7 @@ Historical examples include the Convair B-58 Hustler.\
 name          = _("Zeppelin Liner")
 class         = "Air"
 tech_req      = "Effective Airships"
+impr_req      = "Mooring Mast"
 obsolete_by   = "Monoplane Transport"
 graphic       = "u.zeppeliner"
 graphic_alt   = "u.caravan"
@@ -4645,7 +4646,8 @@ uk_food       = 0
 flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC", "NoUpgrade"
 helptext      = _("\
 Zeppelin Liners carry goods or material for trading with distant\
- cities and foreign countries.  \
+ cities and foreign countries.  They can only be built in a city with a\
+ Mooring Mast.\
 Historical examples include the LZ 120 Bodensee and R33.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\

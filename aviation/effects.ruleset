@@ -150,7 +150,24 @@ value   = 5
 
 [effect_trade_routes_base]
 type    = "Max_Trade_Routes"
-value   = 2
+value   = 1
+
+[effect_trade_routes_mast]
+type    = "Max_Trade_Routes"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Mooring Mast", "City"
+    }
+
+[effect_trade_routes_airport]
+type    = "Max_Trade_Routes"
+value   = 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Mooring Mast", "City", FALSE
+      "Building", "Commercial Airstrip", "City", TRUE
+    }
 
 [effect_trade_routes_icao]
 type    = "Max_Trade_Routes"
