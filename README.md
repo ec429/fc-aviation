@@ -58,7 +58,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Recon aircraft (including light bombers, some floatplanes, and some heavy fighters) can Investigate City.
   - The Ambassador (an air unit, despite its Diplomat sprite) can Establish Embassy.
 * The available government types are Revolution (a renamed Anarchy), Democracy, Communism and Fascism — since the 20th Century was militarily characterised by conflict between those three systems.
-  - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments; and it has a senate which may prevent aggressive wars.
+  - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It's the only government type to suffer unhappiness from military deployments; and it has a senate which may prevent aggressive wars.  It gets extra trade from tiles, and even more if the city is celebrating.
   - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.  It gets two additional content citizens per city.
   - Fascism has rampant corruption, but pays no upkeep for certain military units, and gold (instead of shields) for the rest.  It also gets two additional content citizens per city.
 * There are a few units which can be obsoleted but not upgraded.  Generally this is to remove clutter from the city build dialogue when a unit is surpassed by something different enough from it that upgrading would be unrealistic.  In particular:

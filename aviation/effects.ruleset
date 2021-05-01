@@ -520,13 +520,6 @@ reqs	=
       "Gov", "Democracy", "Player", FALSE
     }
 
-[effect_rapture_grow]
-type    = "Rapture_Grow"
-value   = 3
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Democracy", "Player"
-    }
 
 [effect_gov_tile_bonus_0]
 type    = "Output_Penalty_Tile"
@@ -543,6 +536,15 @@ reqs	=
     { "type", "name", "range"
       "Gov", "Democracy", "Player"
       "OutputType", "Trade", "Local"
+    }
+
+[effect_gov_tile_bonus_2]
+type    = "Output_Inc_Tile_Celebrate"
+value   = 1
+reqs	=
+    { "type",       "name",      "range"
+      "OutputType", "Trade", "Local"
+      "Gov", "Democracy", "Player"
     }
 
 [effect_revolution_0]
