@@ -208,7 +208,8 @@ sound		= "b_police_station"
 sound_alt	= "b_generic"
 helptext	= _("\
 Saves up to two shields of unit upkeep per turn. \
- This improvement has no effect during a Revolution.\
+ This improvement has no effect during a Revolution, or under\
+ governments that pay unit upkeep in gold.\
 "), _("\
 By encouraging citizens to volunteer for military service through\
  a mixture of outreach, advertising, and youth organisations\
