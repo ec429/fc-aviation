@@ -1156,7 +1156,7 @@ reqs    =
 ; Really we want to test that the defender is a Ground unit,
 ; but there's currently no way to do that
       "UnitFlag", "AntiGround", "Local"
-      "MinSize", "1", "City"
+      "CityTile", "Center", "Local"
     }
 
 [effect_beam_bombing_2]
@@ -1169,7 +1169,7 @@ reqs    =
 ; Really we want to test that the defender is a Ground unit,
 ; but there's currently no way to do that
       "UnitFlag", "AntiGround", "Local"
-      "MinSize", "1", "City"
+      "CityTile", "Center", "Local"
     }
 
 [effect_beam_bombing_3]
@@ -1182,39 +1182,51 @@ reqs    =
 ; Really we want to test that the defender is a Ground unit,
 ; but there's currently no way to do that
       "UnitFlag", "AntiGround", "Local"
-      "MinSize", "1", "City"
+      "CityTile", "Center", "Local"
     }
 
 [effect_airborne_radar_1]
 type    = "Attack_Bonus"
 value   = 20
 reqs    =
-    { "type", "name", "range"
-      "Tech", "Airborne Radar", "Player"
-      "UnitClass", "Air", "Local"
+    { "type", "name", "range", "present"
+      "Tech", "Airborne Radar", "Player", TRUE
+      "UnitClass", "Air", "Local", TRUE
 ; Really we want to test that the defender is an Air unit too,
 ; but there's currently no way to do that
-      "UnitFlag", "AntiAir", "Local"
+      "UnitFlag", "AntiAir", "Local", TRUE
+; Make sure AF doesn't get both beam-bombing and airad bonuses.
+; If you're strafing fighters as they scramble to fight you, then you
+; don't get a bonus from having radar.
+      "CityTile", "Center", "Local", FALSE
     }
 
 [effect_airborne_radar_2]
 type    = "Attack_Bonus"
 value   = 20
 reqs    =
-    { "type", "name", "range"
-      "Tech", "Airborne Radar", "Player"
-      "UnitClass", "Seaplane", "Local"
-      "UnitFlag", "AntiAir", "Local"
+    { "type", "name", "range", "present"
+      "Tech", "Airborne Radar", "Player", TRUE
+      "UnitClass", "Seaplane", "Local", TRUE
+      "UnitFlag", "AntiAir", "Local", TRUE
+; Make sure PJ doesn't get both beam-bombing and airad bonuses.
+; If you're strafing fighters as they scramble to fight you, then you
+; don't get a bonus from having radar.
+      "CityTile", "Center", "Local", FALSE
     }
 
 [effect_airborne_radar_3]
 type    = "Attack_Bonus"
 value   = 20
 reqs    =
-    { "type", "name", "range"
-      "Tech", "Airborne Radar", "Player"
-      "UnitClass", "Carrier-borne", "Local"
-      "UnitFlag", "AntiAir", "Local"
+    { "type", "name", "range", "present"
+      "Tech", "Airborne Radar", "Player", TRUE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "AntiAir", "Local", TRUE
+; Make sure NS, AV etc don't get both beam-bombing and airad bonuses.
+; If you're strafing fighters as they scramble to fight you, then you
+; don't get a bonus from having radar.
+      "CityTile", "Center", "Local", FALSE
     }
 
 [effect_bachstelze]
