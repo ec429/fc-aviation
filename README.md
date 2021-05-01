@@ -34,7 +34,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Seaplane.  Floatplanes and flying-boats can operate from the Seaplane Tender (also the Light Aircraft Carrier).
   - Glider.  See airlanding-assault rules above.  Note that Gliders cannot land in Mountains, Forests or Jungles.
   - Missile.  Like Carrier-borne, except that the unit is destroyed after attacking.
-* Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).
+* Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).  They can only be built on coastlines (cardinally adjacent to land).
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
   - The exception is the Submersible, which has a CR 9 torpedo attack.  Preventing subs from harassing your shipping is the main purpose of blimps (and to a lesser extent flying-boats).

@@ -1420,6 +1420,7 @@ reqs           =
     { "type", "name", "range", "present", "quiet"
       "Tech", "Practical Seaplanes", "Player", TRUE, FALSE
       "TerrainClass", "Oceanic", "Local", TRUE, FALSE
+      "TerrainClass", "Land", "CAdjacent", TRUE, FALSE
       "UnitFlag", "Airbase", "Local", TRUE, FALSE
       "CityTile", "Center", "Local", FALSE, TRUE
     }
@@ -1428,7 +1429,7 @@ removal_time   = 0
 native_to      = "Seaplane"
 flags          = "Refuel"
 helptext       = _("\
-Buoys may be built in the ocean (by units on a sea-going vessel).  \
+Buoys may be built on the coast (by units on a sea-going vessel).  \
 They allow your seaplanes to land and refuel outside cities.  \
 Unlike Airbases, they do not prevent stack death.\
 ")
