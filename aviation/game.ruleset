@@ -980,7 +980,7 @@ type = "Embassy"
 
 set =
     { "name", "value", "lock"
-      "startunits", "ccc", FALSE ; start with three settlers, to get going quickly
+      "startunits", "cccwww", FALSE ; start with three settlers, to get going quickly
       "topology", "ISO|WRAPX", FALSE ; there's no hex tileset
       "mapsize", "PLAYER", FALSE
       "tilesperplayer", 180, FALSE ; smallish map by default
@@ -988,4 +988,5 @@ set =
       "citymindist", 3, FALSE ; ensure distances are large enough to favour aircraft more
       "sciencebox", 90, FALSE ; fudge factor to speed up tech progression
       "dispersion", 2, FALSE ; spread out initial settlers a bit
+      "unreachableprotects", "disabled", FALSE ; we don't want, say, an arty+ZS stack to be untouchable
     }
