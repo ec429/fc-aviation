@@ -120,8 +120,9 @@ Reduces the corruption in a city by 50%, and makes the revolt cost\
  of the city 4 times bigger. (These effects are redundant in your\
  capital city.)\
 "), _("\
-Under a Democracy, an FAA Branch also makes 1 unhappy citizen content\
- (unless that citizen is unhappy about military activity).\
+Under Constitutional Monarchy or Democracy, an FAA Branch also makes\
+ 1 unhappy citizen content (unless that citizen is unhappy about
+ military activity).\
 "), _("\
 Regulatory agencies such as the Federal Aviation Administration (US)\
  and Civil Aviation Authority (UK) are responsible for ensuring that\
@@ -403,7 +404,7 @@ sound		= "b_cathedral"
 sound_alt	= "b_generic"
 helptext	= _("\
 Reduces the unhappiness caused by aggressively deployed military\
- units owned by the city by 1 under Democracy\
+ units owned by the city by 1 under Constitutional Monarchy or Democracy\
  -- in other words, it neutralizes the unhappiness caused by a single\
  military unit. This improvement has no effect under other governments.\
 ")
