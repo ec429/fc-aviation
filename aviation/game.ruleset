@@ -483,8 +483,24 @@ actor_reqs    =
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
       "DiplRel",       "War",          "Local", TRUE
+; Can't attack into cities without AntiGround (no fighter strafing)
+      "CityTile",      "Center",       "Local", FALSE
 ; TBs can only attack ships at sea
       "UnitFlag",      "CRtb",         "Local", FALSE
+    }
+
+[actionenabler_attack_city]
+action = "Attack"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "NonMil",       "Local", FALSE
+      "UnitFlag",      "Bombarder",    "Local", FALSE
+      "MinMoveFrags",  "1",            "Local", TRUE
+      "UnitState",     "OnNativeTile", "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
+      "DiplRel",       "War",          "Local", TRUE
+      "CityTile",      "Center",       "Local", TRUE
+      "UnitFlag",      "AntiGround",   "Local", TRUE
     }
 
 ; TB's target tile must be Oceanic.
