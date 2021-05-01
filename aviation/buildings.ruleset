@@ -793,7 +793,7 @@ Acts as a Sector Control in every city on the same continent. \
 
 [building_chain_home]
 name		= _("Chain Home")
-genus		= "GreatWonder"
+genus		= "SmallWonder"
 reqs	=
     { "type", "name", "range"
       "Tech", "R.D.F.", "Player"
@@ -981,7 +981,7 @@ A Shinto shrine commemorating those who died in service of\
 
 [building_dh]
 name		= _("de Havilland")
-genus		= "GreatWonder"
+genus		= "SmallWonder"
 reqs	=
     { "type", "name", "range"
       "Tech", "General Aviation", "Player"
@@ -1098,7 +1098,7 @@ Early wind tunnel designs failed to reach supersonic speeds owing\
 
 [building_sbac_airshow]
 name		= _("S.B.A.C. Airshow")
-genus		= "GreatWonder"
+genus		= "SmallWonder"
 reqs	=
     { "type", "name", "range"
       "Tech", "Engines 1930", "Player"
