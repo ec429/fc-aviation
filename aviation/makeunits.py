@@ -72,6 +72,7 @@ def getunits(f, techs):
     units = {}
     raw = []
     cont = None
+    last = None
 
     for line in f.readlines():
         line = line.rstrip()
@@ -90,9 +91,13 @@ def getunits(f, techs):
             raw.append(line)
             continue
         if '=' not in line:
+            if last is None:
+                continue
+            curr.rest[last] += '\n' + line
             continue
         key, _, value = line.partition('=')
         key = key.strip()
+        last = key
         value = value.strip()
         m = getvs.match(value)
         vs = m.group(1) if m else None
