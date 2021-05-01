@@ -63,6 +63,29 @@ During a revolution,\
 ")
 
 ;------------------------------------------------------------------------
+[government_monarchy]
+
+name        = _("Constitutional Monarchy")
+; No reqs
+graphic     = "gov.monarchy"
+graphic_alt = "-"
+
+ruler_male_title = _("King %s")
+ruler_female_title = _("Queen %s")
+
+helptext = _("\
+A king or queen serves as a hereditary figurehead of a\
+ Constitutional Monarchy, but the government is somewhat\
+ responsive to the people, who have more freedom than under\
+ totalitarian systems.  However, the military can suppress a\
+ certain amount of dissent if necessary.\
+"), _("\
+Monarchy suffers some corruption, and unhappiness from empire\
+ size grows faster than under other governments. \
+ Unit upkeep is paid in gold.\
+")
+
+;------------------------------------------------------------------------
 [government_democracy]
 
 name        = _("Democracy")

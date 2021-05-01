@@ -228,6 +228,24 @@ reqs	=
       "OutputType", "Trade", "Local"
     }
 
+[effect_corruption_monarchy0]
+type    = "Output_Waste"
+value	= 20
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+      "OutputType", "Trade", "Local"
+    }
+
+[effect_corruption_monarchy1]
+type    = "Output_Waste_By_Distance"
+value	= 90
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+      "OutputType", "Trade", "Local"
+    }
+
 [effect_corruption_democracy0]
 type    = "Output_Waste"
 value	= 20
@@ -309,6 +327,24 @@ reqs	=
       "OutputType", "Gold", "Local"
     }
 
+[effect_unit_upkeep_shields_monarchy]
+type    = "Upkeep_Factor"
+value	= 0
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_unit_upkeep_gold_monarchy]
+type    = "Upkeep_Factor"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+      "OutputType", "Gold", "Local"
+    }
+
 [effect_unit_upkeep_shields_democracy]
 type    = "Upkeep_Factor"
 value	= 1
@@ -363,6 +399,14 @@ reqs	=
       "OutputType", "Gold", "Local"
     }
 
+[effect_monarchy_unit_unhappiness]
+type    = "Unhappy_Factor"
+value	= 1
+reqs   =
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+    }
+
 [effect_democracy_unit_unhappiness]
 type    = "Unhappy_Factor"
 value	= 1
@@ -381,13 +425,21 @@ reqs	=
 
 [effect_civil_war_1]
 type    = "Civil_War_Chance"
+value   = 60
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+    }
+
+[effect_civil_war_2]
+type    = "Civil_War_Chance"
 value   = 30
 reqs	=
     { "type", "name", "range"
       "Gov", "Democracy", "Player"
     }
 
-[effect_civil_war_2]
+[effect_civil_war_3]
 type    = "Civil_War_Chance"
 value   = 50
 reqs	=
@@ -395,7 +447,7 @@ reqs	=
       "Gov", "Communism", "Player"
     }
 
-[effect_civil_war_3]
+[effect_civil_war_4]
 type    = "Civil_War_Chance"
 value   = 70
 reqs	=
@@ -416,10 +468,17 @@ type    = "City_Unhappy_Size"
 value   = 4
 reqs	=
     { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+    }
+[effect_unhappysize_2]
+type    = "City_Unhappy_Size"
+value   = 4
+reqs	=
+    { "type", "name", "range"
       "Gov", "Democracy", "Player"
     }
 
-[effect_unhappysize_2]
+[effect_unhappysize_3]
 type    = "City_Unhappy_Size"
 value   = 6
 reqs	=
@@ -427,7 +486,7 @@ reqs	=
       "Gov", "Fascism", "Player"
     }
 
-[effect_unhappysize_3]
+[effect_unhappysize_4]
 type    = "City_Unhappy_Size"
 value   = 6
 reqs	=
@@ -445,13 +504,21 @@ reqs	=
 
 [effect_empire_size_base_1]
 type    = "Empire_Size_Base"
+value   = 10
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy",  "Player"
+    }
+
+[effect_empire_size_base_2]
+type    = "Empire_Size_Base"
 value   = 14
 reqs	=
     { "type", "name", "range"
       "Gov", "Democracy",  "Player"
     }
 
-[effect_empire_size_base_2]
+[effect_empire_size_base_3]
 type    = "Empire_Size_Base"
 value   = 12
 reqs	=
@@ -459,7 +526,7 @@ reqs	=
       "Gov", "Communism", "Player"
     }
 
-[effect_empire_size_base_3]
+[effect_empire_size_base_4]
 type    = "Empire_Size_Base"
 value   = 15
 reqs	=
@@ -477,13 +544,21 @@ reqs	=
 
 [effect_empire_size_step_1]
 type    = "Empire_Size_Step"
+value   = 9
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+    }
+
+[effect_empire_size_step_2]
+type    = "Empire_Size_Step"
 value   = 12
 reqs	=
     { "type", "name", "range"
       "Gov", "Democracy", "Player"
     }
 
-[effect_empire_size_step_2]
+[effect_empire_size_step_3]
 type    = "Empire_Size_Step"
 value   = 10
 reqs	=
@@ -491,7 +566,7 @@ reqs	=
       "Gov", "Communism", "Player"
     }
 
-[effect_empire_size_step_3]
+[effect_empire_size_step_4]
 type    = "Empire_Size_Step"
 value   = 16
 reqs	=
@@ -512,12 +587,21 @@ reqs	=
       "Gov", "Democracy", "Player", FALSE
     }
 
-[effect_martial_law_max]
+[effect_martial_law_max_base]
 type    = "Martial_Law_Max"
 value   = 3
 reqs	=
     { "type", "name", "range", "present"
       "Gov", "Democracy", "Player", FALSE
+      "Gov", "Constitutional Monarchy", "Player", FALSE
+    }
+
+[effect_martial_law_max_monarchy]
+type    = "Martial_Law_Max"
+value   = 2
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
     }
 
 
@@ -549,13 +633,21 @@ reqs	=
 
 [effect_revolution_0]
 type    = "Revolution_Unhappiness"
+value   = 3
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+    }
+
+[effect_revolution_1]
+type    = "Revolution_Unhappiness"
 value   = 2
 reqs	=
     { "type", "name", "range"
       "Gov", "Democracy", "Player"
     }
 
-[effect_revolution_1]
+[effect_revolution_2]
 type    = "Revolution_Unhappiness"
 value   = 3
 reqs	=
@@ -563,7 +655,7 @@ reqs	=
       "Gov", "Communism", "Player"
     }
 
-[effect_revolution_2]
+[effect_revolution_3]
 type    = "Revolution_Unhappiness"
 value   = 3
 reqs	=
@@ -645,6 +737,15 @@ reqs	=
     }
 
 [effect_faa_2]
+type    = "Make_Content"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Constitutional Monarchy", "Player"
+      "Building", "FAA Branch", "City"
+    }
+
+[effect_faa_3]
 type    = "Make_Content"
 value	= 1
 reqs	=
@@ -744,7 +845,16 @@ reqs	=
       "Building", "Air Races", "City"
     }
 
-[effect_memo]
+[effect_memo_monarchy]
+type    = "Make_Content_Mil"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Gov", "Constitutional Monarchy", "Player", TRUE
+      "Building", "War Memorial", "City", TRUE
+    }
+
+[effect_memo_demo]
 type    = "Make_Content_Mil"
 value	= 1
 reqs	=
