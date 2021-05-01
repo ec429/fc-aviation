@@ -18,6 +18,8 @@ artists = "
     KMJ
     National Aeronautical and Space Museum, Chile
     Editor5807
+    Theodor Horydczak
+    Library of Congress Prints and Photographs Division
 "
 
 [extra]
@@ -36,4 +38,5 @@ sprites =
 		"b.flying_club", "aviation/moths" ; from CC BY-SA photo https://commons.wikimedia.org/wiki/File:HAVILLANDGIPSYMOTH-1933.jpg by National Aeronautical and Space Museum, Chile
 		"b.cenotaph", "aviation/cenotaph" ; from CC-BY https://commons.wikimedia.org/wiki/File:Remembrance_poppies_at_the_Cenotaph_in_November_2011.JPG by Editor5807
 		"b.moormast", "aviation/moormast" ; from PD photo https://commons.wikimedia.org/wiki/File:R100.jpg by Theodor Horydczak
+		"b.delag", "aviation/delag" ; from PD (USG) photo https://commons.wikimedia.org/wiki/File:LZ7_passenger_zeppelin_mod.jpg by Library of Congress Prints and Photographs Division
 	}

@@ -800,9 +800,28 @@ reqs   =
       "OutputType", "Shield", "Local", TRUE
     }
 
+[effect_aero_lib]
+type    = "Output_Bonus"
+value	= 35
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aeronautical Library", "City"
+      "OutputType", "Science", "Local"
+    }
+
+[effect_institute]
+type    = "Output_Bonus"
+value	= 65
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aeronautical Library", "City"
+      "Building", "Aeronautical Institute", "City"
+      "OutputType", "Science", "Local"
+    }
+
 [effect_wind_tunnel]
 type    = "Output_Bonus"
-value	= 50
+value	= 35
 reqs	=
     { "type", "name", "range"
       "Building", "Wind Tunnel", "City"
@@ -826,6 +845,25 @@ reqs	=
       "Building", "Commercial Airstrip", "City"
       "Building", "Hub Airport", "City"
       "OutputType", "Gold", "Local"
+    }
+
+[effect_balloon]
+type    = "Output_Add_Tile"
+value	= 3
+reqs	=
+    { "type", "name", "range"
+      "Building", "Balloon Rides", "City"
+      "CityTile", "Center", "Local"
+      "OutputType", "Luxury", "Local"
+    }
+
+[effect_delag]
+type    = "Output_Bonus"
+value	= 35
+reqs	=
+    { "type", "name", "range"
+      "Building", "Airship Company", "City"
+      "OutputType", "Luxury", "Local"
     }
 
 [effect_club]
@@ -1049,6 +1087,17 @@ reqs	=
       "OutputType", "Trade", "Local"
     }
 
+[effect_lumber_yard]
+type    = "Output_Bonus"
+value	= 25
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Lumber Yard", "City", TRUE
+      "Building", "Engine Factory", "City", FALSE
+      "Building", "Aircraft Factory", "City", FALSE
+      "OutputType", "Shield", "Local", TRUE
+    }
+
 [effect_engine_factory]
 type    = "Output_Bonus"
 value	= 50
@@ -1270,6 +1319,25 @@ reqs	=
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
       "Building", "Yasukuni Shrine", "Player"
+    }
+
+[effect_lloyds]
+type    = "Output_Bonus"
+value	= 60
+reqs	=
+    { "type", "name", "range"
+      "Building", "Lloyd's of London", "City"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_kittyhawk]
+type    = "Output_Add_Tile"
+value	= 4
+reqs	=
+    { "type", "name", "range"
+      "Building", "Kitty Hawk Monument", "City"
+      "CityTile", "Center", "Local"
+      "OutputType", "Gold", "Local"
     }
 
 [effect_dh]

@@ -220,6 +220,28 @@ By encouraging citizens to volunteer for military service through\
 
 ; **Research**
 
+[building_aero_lib]
+name		= _("Aeronautical Library")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Powered Flight", "Player"
+    }
+graphic	= "b.aero_lib"
+graphic_alt	= "b.library"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 30
+upkeep		= 1
+sabotage	= 100
+sound		= "b_library"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the science output in a city by 35%.\
+")
+
 [building_wind_tunnel]
 name		= _("Wind Tunnel")
 genus		= "Improvement"
@@ -232,14 +254,15 @@ graphic_alt	= "b.library"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 60
+build_cost	= 50
 upkeep		= 1
 sabotage	= 100
 sound		= "b_library"
 sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
-Increases the science output in a city by 50%.\
+Increases the science output in a city by 35%\
+ (cumulative with Aeronautical Library).\
 ")
 
 ; **Revenue**
@@ -343,6 +366,50 @@ This is not a normal improvement.  Instead, setting a city's\
 ")
 
 ; **Luxury**
+
+[building_balloon_rides]
+name		= _("Balloon Rides")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Dirigible Balloons", "Player"
+    }
+graphic	= "a.flight"
+graphic_alt	= "b.temple"
+obsolete_by	=
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
+build_cost	= 25
+upkeep		= 1
+sabotage	= 100
+sound		= "b_temple"
+sound_alt	= "b_generic"
+helptext	= _("\
+Adds 3 to the luxury output of a city.\
+")
+
+[building_delag]
+name		= _("Airship Company")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Zeppelin", "Player"
+    }
+graphic	= "a.zeppelin"
+graphic_alt	= "b.temple"
+obsolete_by	=
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
+build_cost	= 20
+upkeep		= 1
+sabotage	= 100
+sound		= "b_temple"
+sound_alt	= "b_generic"
+helptext	= _("\
+Increases the luxury output in a city by 35%.\
+")
 
 [building_club]
 name		= _("Flying Club")
@@ -623,6 +690,30 @@ All tiles with railways produce one extra Trade.\
 ")
 
 ; **Manufacturing**
+
+[building_lumber_yard]
+name		= _("Lumber Yard")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+    }
+graphic	= "b.power_plant"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+      "Building", "Engine Factory", "City"
+      "Building", "Aircraft Factory", "City"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_power_plant"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the shield production in a city by 25%.  This increase may\
+ also contribute to pollution.\
+")
 
 [building_engine_factory]
 name		= _("Engine Factory")
@@ -979,6 +1070,57 @@ A Shinto shrine commemorating those who died in service of\
 
 ; **Economic**
 
+[building_lloyds]
+name		= _("Lloyd's of London")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+    }
+graphic	= "b.lloyds"
+graphic_alt	= "b.bank"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+      "Tech", "Twenties Airlift", "Player", FALSE
+    }
+build_cost	= 90
+upkeep		= 1
+sabotage	= 0
+sound		= "w_asmiths_trading_co"
+sound_alt	= "w_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the tax output in a city by 60%.\
+"), _("\
+Lloyd's was for a long time the centre of marine insurance.\
+")
+
+[building_kittyhawk]
+name		= _("Kitty Hawk Monument")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Powered Flight", "Player"
+    }
+graphic	= "b.kittyhawk"
+graphic_alt	= "b.statue_of_liberty"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+      "Tech", "General Aviation", "Player", FALSE
+    }
+build_cost	= 50
+upkeep		= 1
+sabotage	= 0
+sound		= "w_statue_of_liberty"
+sound_alt	= "w_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Adds 4 to the tax output of the city.\
+"), _("\
+The site of the Wright Brothers' first flight, Kill Devil\
+ Hills near Kitty Hawk NC, is the site of a national\
+ memorial commemorating the conquest of the air.\
+")
+
 [building_dh]
 name		= _("de Havilland")
 genus		= "SmallWonder"
@@ -1065,6 +1207,37 @@ Aerobatic flying displays are a popular entertainment, and\
  many national air forces maintain teams of pilots for this\
  purpose.  Today, perhaps the best known are the Red Arrows\
  of the RAF.\
+")
+
+[building_institute]
+name		= _("Aeronautical Institute")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Practical Aviation", "Player"
+      "Building", "Aeronautical Library", "City"
+    }
+graphic	= "b.copernicus_observatory"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+      "Tech", "Aerodynamics Research", "Player"
+    }
+build_cost	= 80
+upkeep		= 1
+sabotage	= 0
+sound		= "w_copernicus_observatory"
+sound_alt	= "w_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the effect of Aeronautical Library in the city where it\
+ is built: boosts science production by 100% (instead of 35%).\
+"), _("\
+Even in the earliest days of aviation, there were some attempts\
+ to put the science of flight on a sound theoretical basis.  Though\
+ the principles were not fully understood, a by-product of these\
+ efforts was the collation of data from experimenters around the\
+ world as they disagreed with the theories.\
 ")
 
 [building_super_tunnel]
