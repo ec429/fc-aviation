@@ -118,7 +118,7 @@ tiles = { "row", "column", "tag"
   4,  1, "u.banshee"     ; N1 Naval Jet Attacker (McDonnell F2H-2 Banshee) [GB]
   4,  2, "u.skymaster"   ; CS Strategic Transport (Consolidated B-24J Liberator) [GB], gun turrets removed by [EC] to turn it into a C-87 Liberator Express
   4,  3, "u.bulldog"     ; S2 Twenties Scout (Bristol Bulldog) [EC]
-  4,  4, "u.liberty"     ; MS Merchant Ship (Liberty Ship) [GB]
+  4,  4, "u.liberty"     ; ms Merchant Ship (Liberty Ship) [GB]
   4,  5, "u.albatrosw"   ; HW Fighter Seaplane (Albatros C.III) [GB], kitbashed by [EC] to add floats from u.schneider
   4,  6, "u.flycatcher"  ; N2 Twenties Naval Fighter (Fairey Flycatcher) [EC]
   4,  7, "u.floatcatcher"; H2 Twenties Floatplane (Fairey Flycatcher) [EC]
@@ -139,4 +139,5 @@ tiles = { "row", "column", "tag"
   5,  2, "u.short320"    ; HL Large Torpedo Floatplane (Short Type 320 Folder) [EC]: derived from u.short184
   5,  3, "u.dart"        ; T2 Twenties Torpedo Bomber ("Breguet", maybe a 14?) [GB]
   5,  4, "u.mosqix"	 ; LM Light-Medium Bomber (Mosquito B.IX) [GB], repainted to night livery by [EC]
+  5,  5, "u.camboat"	 ; mc Catapult-Armed Merchantman (Liberty Ship) [GB], catapult and hurricat added by [EC]
 }
