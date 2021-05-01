@@ -1124,6 +1124,17 @@ reqs	=
       "Building", "Electrification", "City"
     }
 
+[effect_barrage_balloons]
+type    = "Defend_Bonus"
+value	= 40
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barrage Balloons", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Air", "Local", TRUE
+      "UnitFlag", "DiveBomber", "Local", TRUE
+    }
+
 [effect_flak_battery_1]
 type    = "Defend_Bonus"
 value	= 20

@@ -39,4 +39,5 @@ sprites =
 		"b.cenotaph", "aviation/cenotaph" ; from CC-BY https://commons.wikimedia.org/wiki/File:Remembrance_poppies_at_the_Cenotaph_in_November_2011.JPG by Editor5807
 		"b.moormast", "aviation/moormast" ; from PD photo https://commons.wikimedia.org/wiki/File:R100.jpg by Theodor Horydczak
 		"b.delag", "aviation/delag" ; from PD (USG) photo https://commons.wikimedia.org/wiki/File:LZ7_passenger_zeppelin_mod.jpg by Library of Congress Prints and Photographs Division
+		"b.barrage", "aviation/barrage" ; from PD photo https://commons.wikimedia.org/wiki/File:Upoutan%C3%BD_bal%C3%B3n_%C4%8Ds_arm%C3%A1dy_-_Matador_K.gif (Unknown author)
 	}

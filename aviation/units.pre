@@ -41,6 +41,7 @@ flags =
     _("CRlight")
     _("CRmedium")
     _("CRheavy")
+    _("DiveBomber")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
 ; use targets/Unreachable and so these are just documentation.  Hopefully in
@@ -3990,7 +3991,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -4024,7 +4025,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -4058,7 +4059,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "NoUpgrade"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "DiveBomber", "NoUpgrade"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \

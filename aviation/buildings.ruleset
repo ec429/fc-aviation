@@ -788,6 +788,29 @@ Electrification of a city's industry reduces the amount of pollution\
 
 ; **Defensive**
 
+[building_barrage_balloons]
+name		= _("Barrage Balloons")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Early Blimp", "Player"
+    }
+graphic	= "b.barrage"
+graphic_alt	= "b.coastal_defense"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 20
+upkeep		= 1
+sabotage	= 100
+sound		= "b_coastal_defense"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the defense of all units inside the city by 40%\
+ when attacked by dive-bombers.\
+")
+
 [building_flak_battery]
 name		= _("Flak Battery")
 genus		= "Improvement"
@@ -830,7 +853,8 @@ sound		= "b_sam_battery"
 sound_alt	= "b_generic"
 helptext	= _("\
 Doubles the defense of all units inside the city when attacked by\
- aircraft.  Overrides the effect of Flak Battery.\
+ aircraft.  Overrides the effects of Flak Battery and Barrage\
+ Balloons.\
 ")
 
 [building_sector_control]
