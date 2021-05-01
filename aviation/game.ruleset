@@ -489,7 +489,7 @@ actor_reqs    =
 target_reqs   =
     { "type",          "name",   "range", "present"
 ; Can't attack into cities without AntiGround (no fighter strafing)
-      "MinSize",       "1",      "City",  FALSE
+      "CityTile",      "Center", "Local", FALSE
     }
 
 [actionenabler_attack_city]
@@ -507,7 +507,7 @@ actor_reqs    =
 target_reqs   =
     { "type",          "name",   "range", "present"
 ; Can't attack into cities without AntiGround (no fighter strafing)
-      "MinSize",       "1",      "City",  TRUE
+      "CityTile",      "Center", "Local", TRUE
     }
 
 ; TB's target tile must be Oceanic.
