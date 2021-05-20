@@ -5150,7 +5150,7 @@ uk_base       = 0
 uk_food       = 0
 bonuses       =
    { "flag", "type", "value"
-     "AirAttacker", "DefenseMultiplier", 3
+     "AirAttacker", "DefenseMultiplier", 2
    }
 flags         = "Merchant", "NonMil", "HasNoZOC"
 slow_veteran  = 1 ; ships don't get acespeed
