@@ -130,7 +130,7 @@ When you need to land troops somewhere, and you don't have any airbases there, y
 
 ### Helicopters
 
-The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!
+The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away.
 
 ### Fighters
 

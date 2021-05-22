@@ -981,7 +981,8 @@ defense       = 0
 hitpoints     = 6
 firepower     = 1
 move_rate     = 6
-vision_radius_sq = 2
+vision_radius_sq = 5
+vision_subs_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
@@ -994,6 +995,8 @@ roles         = "Explorer"
 helptext      = _("\
 The earliest military helicopters replace blimps in the \
 coastal patrol and antisubmarine warfare role.  \
+By dropping sonobuoys, they can detect submerged vessels \
+at a greater range.  \
 Historical examples include the Sikorsky R-4.\
 ")
 
@@ -1015,7 +1018,8 @@ defense       = 1
 hitpoints     = 8
 firepower     = 1
 move_rate     = 6
-vision_radius_sq = 2
+vision_radius_sq = 5
+vision_subs_sq = 5
 transport_cap = 1
 fuel          = 2
 uk_happy      = 1
