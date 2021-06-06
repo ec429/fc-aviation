@@ -140,4 +140,5 @@ tiles = { "row", "column", "tag"
   5,  3, "u.dart"        ; T2 Twenties Torpedo Bomber ("Breguet", maybe a 14?) [GB]
   5,  4, "u.mosqix"	 ; LM Light-Medium Bomber (Mosquito B.IX) [GB], repainted to night livery by [EC]
   5,  5, "u.camboat"	 ; mc Catapult-Armed Merchantman (Liberty Ship) [GB], catapult and hurricat added by [EC]
+  5,  6, "u.valentia"    ; C3 Thirties Transport (Vickers Valentia) [EC]: repaint/kitbash of Vickers Virginia, originally from Vickers Vimy [GB]
 }
