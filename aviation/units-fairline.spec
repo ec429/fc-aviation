@@ -20,7 +20,7 @@ artists = "
     Tanelorn [T]
     Broken Erika
     Wyrmshadow [WS]
-    Typhoon [TY]
+    typhoon353 [TY]
     ec429 [EC]
 "
 
@@ -145,4 +145,6 @@ tiles = { "row", "column", "tag"
   5,  6, "u.valentia"    ; C3 Thirties Transport (Vickers Valentia) [EC]: repaint/kitbash of Vickers Virginia, originally from Vickers Vimy [GB]
   5,  7, "u.hercules"    ; CT Turboprop Transport (Lockheed C-130 Hercules) [TY][T][GB]
   5,  8, "u.b47"         ; B1 Early Jet Bomber (Boeing B-47 Stratojet) [T][GB][WS]
+  5,  9, "u.skyraider"   ; NA Naval Attacker (Douglas AD-4 Skyraider) [TY][GB]
+  5, 10, "u.skyray"      ; NF Swept-wing Naval Fighter (Douglas F4D Skyray) [GB]
 }

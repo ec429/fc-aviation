@@ -2950,8 +2950,7 @@ flags         = "CRattack", "AntiGround"
 roles         = ""
 helptext      = _("\
 Carrier-borne ground-attack aircraft.  \
-Historical examples include the Supermarine Seafire XV and \
-Grumman F8F Bearcat.\
+Historical examples include the Douglas AD-4 Skyraider.\
 ")
 
 [unit_aggregat]
@@ -3060,7 +3059,7 @@ name          = _("Swept-wing Naval Fighter")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1950"
 obsolete_by   = "Supersonic Naval Fighter"
-graphic       = "u.venom"
+graphic       = "u.skyray"
 graphic_alt   = "u.ph-NF"
 sound_move    = "m_stealth_fighter"
 sound_move_alt = "m_generic"
