@@ -19,6 +19,8 @@ artists = "
     Fairline [GB]
     Tanelorn [T]
     Broken Erika
+    Wyrmshadow [WS]
+    Typhoon [TY]
     ec429 [EC]
 "
 
@@ -141,4 +143,6 @@ tiles = { "row", "column", "tag"
   5,  4, "u.mosqix"	 ; LM Light-Medium Bomber (Mosquito B.IX) [GB], repainted to night livery by [EC]
   5,  5, "u.camboat"	 ; mc Catapult-Armed Merchantman (Liberty Ship) [GB], catapult and hurricat added by [EC]
   5,  6, "u.valentia"    ; C3 Thirties Transport (Vickers Valentia) [EC]: repaint/kitbash of Vickers Virginia, originally from Vickers Vimy [GB]
+  5,  7, "u.hercules"    ; CT Turboprop Transport (Lockheed C-130 Hercules) [TY][T][GB]
+  5,  8, "u.b47"         ; B1 Early Jet Bomber (Boeing B-47 Stratojet) [T][GB][WS]
 }
