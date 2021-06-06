@@ -3905,7 +3905,7 @@ roles         = ""
 helptext      = _("\
 Avoiding the need for propeller clearance allows a \
 lower hull on this strike fighter flying-boat.  \
-Historical examples include the Saunders-Roe SR/A.1.\
+Historical examples include the Saunders-Roe SR.A/1.\
 ")
 
 [unit_early_torper]
