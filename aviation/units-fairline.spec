@@ -147,4 +147,5 @@ tiles = { "row", "column", "tag"
   5,  8, "u.b47"         ; B1 Early Jet Bomber (Boeing B-47 Stratojet) [T][GB][WS]
   5,  9, "u.skyraider"   ; NA Naval Attacker (Douglas AD-4 Skyraider) [TY][GB]
   5, 10, "u.skyray"      ; NF Swept-wing Naval Fighter (Douglas F4D Skyray) [GB]
+  5, 11, "u.u2"          ; RJ Recon Jet (Lockheed U-2) [EC]: kitbashed from F-7F Tigercat [GB]
 }
