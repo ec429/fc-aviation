@@ -825,6 +825,76 @@ lack heavy weapons, making them poor at defence; be sure to have \
 other forces ready to reinforce them before the counter-attack. \
 ")
 
+[unit_radar_van]
+name          = _("Radar Van")
+class         = "Land"
+tech_req      = "R.D.F."
+obsolete_by   = "None"
+graphic       = "u.truck"
+graphic_alt   = "u.freight"
+;phcode=rv
+sound_move    = "m_freight"
+sound_move_alt = "m_generic"
+sound_fight   = "f_freight"
+sound_fight_alt = "f_generic"
+build_cost    = 24
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 8
+firepower     = 0
+move_rate     = 1
+convert_to    = "Radar Tower"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "Cant_Fortify", "HasNoZOC"
+slow_veteran  = 1 ; ground units don't get acespeed
+roles         = ""
+helptext      = _("\
+A convoy of lorries carrying the component parts of a \
+radar station.  Drive it to the desired location, then \
+Convert Unit to place it.\
+")
+
+[unit_radar_tower]
+name          = _("Radar Tower")
+class         = "Land"
+tech_req      = "R.D.F."
+obsolete_by   = "None"
+graphic       = "u.radar"
+graphic_alt   = "u.diplomat"
+;phcode=rt
+sound_move    = "m_freight"
+sound_move_alt = "m_generic"
+sound_fight   = "f_freight"
+sound_fight_alt = "f_generic"
+build_cost    = 24
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 8
+firepower     = 0
+move_rate     = 0
+vision_radius_sq = 10
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_gold       = 1
+uk_food       = 0
+flags         = "NoBuild"
+slow_veteran  = 1 ; ground units don't get acespeed
+roles         = "Cant_Fortify", "HasNoZOC"
+helptext      = _("\
+A fixed R.D.F. (radar) station, providing detection of \
+incoming raids.\
+")
+
 [unit_zepp_scout]
 name          = _("Zeppelin Scout")
 class         = "Air"

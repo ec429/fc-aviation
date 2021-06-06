@@ -21,6 +21,7 @@ artists = "
     Broken Erika
     Wyrmshadow [WS]
     typhoon353 [TY]
+    Captain Nemo [Nemo]
     ec429 [EC]
 "
 
@@ -149,4 +150,5 @@ tiles = { "row", "column", "tag"
   5, 10, "u.skyray"      ; NF Swept-wing Naval Fighter (Douglas F4D Skyray) [GB]
   5, 11, "u.u2"          ; RJ Recon Jet (Lockheed U-2) [EC]: kitbashed from F-7F Tigercat [GB]
   5, 12, "u.sr71"        ; RS Spy Plane (Lockheed SR-71 Blackbird) [GB]
+  5, 13, "u.radar"       ; Radar Station [Nemo] (towers repositioned by [EC])
 }
