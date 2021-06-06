@@ -1377,7 +1377,7 @@ Historical examples include the de Havilland Mosquito B.IX.\
 name          = _("Recon Jet")
 class         = "Air"
 tech_req      = "Transonic Speed"
-obsolete_by   = "None" ; "Spy Plane"
+obsolete_by   = "Spy Plane"
 graphic       = "u.u2"
 graphic_alt   = "u.ph-RJ"
 sound_move    = "m_stealth_fighter"
@@ -1403,6 +1403,38 @@ helptext      = _("\
 High-altitude jet for reconnaissance.  Can overfly \
 foreign nations even in peacetime.  \
 Historical examples include the Lockheed U-2.\
+")
+
+[unit_spy_plane]
+name          = _("Spy Plane")
+class         = "Air"
+tech_req      = "Sixties Engines"
+obsolete_by   = "None"
+graphic       = "u.sr71"
+graphic_alt   = "u.ph-RS"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 0
+defense       = 0
+hitpoints     = 8
+firepower     = 1
+move_rate     = 36
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 1
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Recon", "NonMil", "HasNoZOC"
+roles         = "Explorer"
+helptext      = _("\
+High-altitude supersonic reconnaissance jet.  Can overfly \
+foreign nations even in peacetime.  \
+Historical examples include the Lockheed SR-71 Blackbird.\
 ")
 
 [unit_armscout]
