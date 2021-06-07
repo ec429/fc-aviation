@@ -8,7 +8,9 @@ options = "Freeciv-3.0-spec Freeciv-spec-Devel-2019-Jul-03"
 
 ; Aviation unit tiles by the Civ2 Scenario League on forums.civfanatics.com
 ; Modified for freeciv (mainly transparency) by ec429
-; Used with permission.
+; Used with permission: [GB], [T] and [TY] have all granted permission for
+; their artwork to be used in this tileset.  Note however that this does
+; not necessarily mean the artwork is available for re-use under the GPL.
 
 ; Includes images from Fairline's WW2 unit compilations (from
 ; https://forums.civfanatics.com/threads/ww2-unit-graphics.409277/page-43)
