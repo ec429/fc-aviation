@@ -4311,7 +4311,7 @@ Historical examples include the Arado Ar 234.\
 name          = _("Small Jet Bomber")
 class         = "Air"
 tech_req      = "Bombers 1949"
-obsolete_by   = "None"
+obsolete_by   = "Tactical Strike Jet"
 graphic       = "u.canberra"
 graphic_alt   = "u.ph-MJ"
 sound_move    = "m_stealth_bomber"
@@ -4337,6 +4337,37 @@ The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
 Historical examples include the English Electric Canberra \
 and Ilyushin Il-28.\
+")
+
+[unit_tsr2]
+name          = _("Tactical Strike Jet")
+class         = "Air"
+tech_req      = "Sixties Bombers"
+obsolete_by   = "None"
+graphic       = "u.tsr2"
+graphic_alt   = "u.ph-MS"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 135
+pop_cost      = 0
+attack        = 8
+defense       = 7
+hitpoints     = 24
+firepower     = 2
+move_rate     = 21
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+helptext      = _("\
+Supersonic interdictor-strike bomber to attack high-value targets.  \
+Historical examples include the BAC TSR-2 and General Dynamics F-111 \
+Aardvark.\
 ")
 
 [unit_early_bomber]
