@@ -36,6 +36,7 @@ tiles = { "row", "column", "tag"
   0, 11, "u.airliner"    ; LL Airliner (Handley Page H.P.42)
   0, 13, "u.sra1"        ; PJ Jet Flying Boat (Saunders-Roe SR.A/1).  Hull partially inspired by XYZ's MiG fuselage.
   0, 15, "u.tsr2"        ; MS Tactical Strike Jet (BAC TSR-2)
+  0, 16, "u.hustler"     ; BC Supersonic Bomber (Convair B-58 Hustler)
   0, 17, "u.zeppscout"   ; ZS.  Based on Zeppelin from XYZ's collection
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
