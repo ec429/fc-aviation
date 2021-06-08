@@ -107,7 +107,6 @@ files =
   "misc/specialists.spec",
   "amplio2/units.spec",
   "aviation/units.spec",
-  "aviation/units-ph.spec",
   "aviation/units-XYZ.spec",
   "aviation/units-fairline.spec",
   "aviation/governments.spec",
