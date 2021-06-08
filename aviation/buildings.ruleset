@@ -397,7 +397,7 @@ reqs =
     { "type", "name", "range"
       "Tech", "Zeppelin", "Player"
     }
-graphic	= "a.zeppelin"
+graphic	= "b.delag"
 graphic_alt	= "b.temple"
 obsolete_by	=
     { "type", "name", "range"
