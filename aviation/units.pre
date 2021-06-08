@@ -887,9 +887,9 @@ uk_happy      = 0
 uk_shield     = 0
 uk_gold       = 1
 uk_food       = 0
-flags         = "NoBuild"
+flags         = "Cant_Fortify", "HasNoZOC", "NoBuild"
 slow_veteran  = 1 ; ground units don't get acespeed
-roles         = "Cant_Fortify", "HasNoZOC"
+roles         = ""
 helptext      = _("\
 A fixed R.D.F. (radar) station, providing detection of \
 incoming raids.\
