@@ -326,94 +326,28 @@ reqs   =
       "OutputType", "Shield", "Local"
     }
 
-[effect_unit_upkeep_shields_revolt]
+[effect_unit_upkeep]
 type    = "Upkeep_Factor"
 value	= 1
 reqs	=
     { "type", "name", "range"
-      "Gov", "Revolution", "Player"
-      "OutputType", "Shield", "Local"
     }
 
-[effect_unit_upkeep_gold_revolt]
-type    = "Upkeep_Factor"
-value	= 0
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Revolution", "Player"
-      "OutputType", "Gold", "Local"
-    }
-
-[effect_unit_upkeep_shields_monarchy]
-type    = "Upkeep_Factor"
-value	= 0
-reqs	=
+; Monarchy and Fascism pay upkeep in gold, the latter at double rate
+[effect_unit_upkeep_monarchy]
+type    = "Shield2Gold_Factor"
+value   = 100
+reqs    =
     { "type", "name", "range"
       "Gov", "Constitutional Monarchy", "Player"
-      "OutputType", "Shield", "Local"
     }
 
-[effect_unit_upkeep_gold_monarchy]
-type    = "Upkeep_Factor"
-value	= 1
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Constitutional Monarchy", "Player"
-      "OutputType", "Gold", "Local"
-    }
-
-[effect_unit_upkeep_shields_democracy]
-type    = "Upkeep_Factor"
-value	= 1
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Democracy", "Player"
-      "OutputType", "Shield", "Local"
-    }
-
-[effect_unit_upkeep_gold_democracy]
-type    = "Upkeep_Factor"
-value	= 0
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Democracy", "Player"
-      "OutputType", "Gold", "Local"
-    }
-
-[effect_unit_upkeep_shields_communism]
-type    = "Upkeep_Factor"
-value	= 1
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Communism", "Player"
-      "OutputType", "Shield", "Local"
-    }
-
-[effect_unit_upkeep_gold_communism]
-type    = "Upkeep_Factor"
-value	= 0
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Communism", "Player"
-      "OutputType", "Gold", "Local"
-    }
-
-[effect_unit_upkeep_shields_fascism]
-type    = "Upkeep_Factor"
-value	= 0
-reqs	=
+[effect_unit_upkeep_fascism]
+type    = "Shield2Gold_Factor"
+value   = 200
+reqs    =
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
-      "OutputType", "Shield", "Local"
-    }
-
-[effect_unit_upkeep_gold_fascism]
-type    = "Upkeep_Factor"
-value	= 2
-reqs	=
-    { "type", "name", "range"
-      "Gov", "Fascism", "Player"
-      "OutputType", "Gold", "Local"
     }
 
 [effect_monarchy_unit_unhappiness]

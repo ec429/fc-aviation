@@ -1,6 +1,7 @@
-Aviation Ruleset is licensed under the GNU GPL v2.0 (see LICENSE).
+Aviation Ruleset code is licensed under the GNU GPL v2.0 (see LICENSE).
 All components are copyright their respective authors.
-Some images (see .spec files) are licensed CC-BY-SA, see https://creativecommons.org/licenses/by-sa/3.0/ for license text.
+Some images (see .spec files) are licensed CC-BY-SA (see https://creativecommons.org/licenses/by-sa/3.0/ for license text) or are used by permission of the authors.
+Art by ec429 (excluding "kitbash" derivative works) is dual-licensed GPLv2 and CC-BY-SA 3.0.
 
 Ruleset code, placeholders.png, fascism.png: Edward Cree (ec429)
 units.png: Edward Cree (ec429), some tiles based on stock freeciv amplio2

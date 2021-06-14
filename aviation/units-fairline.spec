@@ -8,7 +8,9 @@ options = "Freeciv-3.0-spec Freeciv-spec-Devel-2019-Jul-03"
 
 ; Aviation unit tiles by the Civ2 Scenario League on forums.civfanatics.com
 ; Modified for freeciv (mainly transparency) by ec429
-; Used with permission.
+; Used with permission: [GB], [T] and [TY] have all granted permission for
+; their artwork to be used in this tileset.  Note however that this does
+; not necessarily mean the artwork is available for re-use under the GPL.
 
 ; Includes images from Fairline's WW2 unit compilations (from
 ; https://forums.civfanatics.com/threads/ww2-unit-graphics.409277/page-43)
@@ -19,6 +21,9 @@ artists = "
     Fairline [GB]
     Tanelorn [T]
     Broken Erika
+    Wyrmshadow [WS]
+    typhoon353 [TY]
+    Captain Nemo [Nemo]
     ec429 [EC]
 "
 
@@ -140,4 +145,12 @@ tiles = { "row", "column", "tag"
   5,  3, "u.dart"        ; T2 Twenties Torpedo Bomber ("Breguet", maybe a 14?) [GB]
   5,  4, "u.mosqix"	 ; LM Light-Medium Bomber (Mosquito B.IX) [GB], repainted to night livery by [EC]
   5,  5, "u.camboat"	 ; mc Catapult-Armed Merchantman (Liberty Ship) [GB], catapult and hurricat added by [EC]
+  5,  6, "u.valentia"    ; C3 Thirties Transport (Vickers Valentia) [EC]: repaint/kitbash of Vickers Virginia, originally from Vickers Vimy [GB]
+  5,  7, "u.hercules"    ; CT Turboprop Transport (Lockheed C-130 Hercules) [TY][T][GB]
+  5,  8, "u.b47"         ; B1 Early Jet Bomber (Boeing B-47 Stratojet) [T][GB][WS]
+  5,  9, "u.skyraider"   ; NA Naval Attacker (Douglas AD-4 Skyraider) [TY][GB]
+  5, 10, "u.skyray"      ; NF Swept-wing Naval Fighter (Douglas F4D Skyray) [GB]
+  5, 11, "u.u2"          ; RJ Recon Jet (Lockheed U-2) [EC]: kitbashed from F-7F Tigercat [GB]
+  5, 12, "u.sr71"        ; RS Spy Plane (Lockheed SR-71 Blackbird) [GB]
+  5, 13, "u.radar"       ; Radar Station [Nemo] (towers repositioned by [EC])
 }

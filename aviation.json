@@ -4,7 +4,7 @@
     "base_url": ".",
     "name": "Aviation",
     "type": "Modpack",
-    "version": "3.1-0.2"
+    "version": "3.1-0.3"
   },
   "files": [
     "aviation.serv",
@@ -29,7 +29,6 @@
     "aviation/natair.png",
     "aviation/nations.ruleset",
     "aviation/parser.lua",
-    "aviation/placeholders.png",
     "aviation/radar.png",
     "aviation/raf_college.png",
     "aviation/rapide.png",
@@ -45,7 +44,6 @@
     "aviation/units.ruleset",
     "aviation/units.spec",
     "aviation/units-fairline.spec",
-    "aviation/units-ph.spec",
     "aviation/units-XYZ.spec",
     "aviation/wind.png",
     "aviation/XYZamplio.png"

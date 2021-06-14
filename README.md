@@ -13,7 +13,7 @@ Bombers, dive bombers, torpedo bombers and strike aircraft attack ground (or in 
 
 The rules all seem to be working, although we're a bit short on City Improvements and (especially) Wonders.  The tech-tree goes up to the 1960s, but will be extended up to the present day in later versions.  Balancing has been done by rule-of-thumb only — there has not been much playtesting yet, so some units might be useless while others are overpowered.
 
-The main thing that's missing is tiles (and other art).  Making art takes a long time, and though Fairline kindly allowed me to use some of his unit sprites, there are a few gaps that I couldn't find anything suitable for; so I've decided to use a bunch of placeholders for now (units are two-letter codes, vaguely reminiscent of hull symbols, while buildings are just using vaguely-appropriate-looking classic building images) while I get the ruleset sorted out.
+The main thing that's missing is tiles (and other art).  Making art takes a long time, and though Fairline kindly allowed me to use some of his unit sprites, and I've managed to fill the gaps there, for buildings I've decided to use mostly placeholders for now (many are just vaguely-appropriate-looking classic-ruleset building images) while I get the ruleset sorted out.
 
 ## Significant Rule Changes
 
@@ -130,7 +130,7 @@ When you need to land troops somewhere, and you don't have any airbases there, y
 
 ### Helicopters
 
-The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!
+The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away.
 
 ### Fighters
 
