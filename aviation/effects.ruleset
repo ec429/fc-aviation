@@ -265,7 +265,7 @@ reqs	=
 
 [effect_corruption_democracy0]
 type    = "Output_Waste"
-value	= 20
+value	= 30
 reqs	=
     { "type", "name", "range"
       "Gov", "Democracy", "Player"
