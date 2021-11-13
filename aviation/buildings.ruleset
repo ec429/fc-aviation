@@ -457,6 +457,30 @@ helptext	= _("\
 Increases the luxury output in a city by 50%.\
 ")
 
+[building_agent]
+name		= _("Travel Agent")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Airlift 1935", "Player"
+      "Building", "Air Tours", "City"
+    }
+graphic	= "b.stock_exchange"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 80
+upkeep		= 1
+sabotage	= 100
+sound		= "b_marketplace"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the luxury output in a city by 50%, cumulative with\
+ Air Tours.\
+")
+
 [building_races]
 name		= _("Air Races")
 genus		= "Improvement"
