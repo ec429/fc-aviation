@@ -78,7 +78,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * There is no Harbour building, but its effect is permanently applied.
 * A city retains 30% of its foodbox when changing size (there is no Granary building).
 * You start the game as a Constitutional Monarchy.
-* The calendar advances by two months per turn (i.e. 6 turns per year).
+* The calendar advances by four months per turn (i.e. 3 turns per year).
 * Unhappiness from units in the field is only 1 under governments that have it (Monarchy and Democracy).
 * Road bridges and railways are available from the start.  So is Farmland, even though the building to enable its effect (Crop Dusting) requires the technology General Aviation.
 * Workers are called Seabees.  Improvement build times are around 0.6 of classic (so, somewhere in between Workers and Engineers).  Transform Terrain is unavailable.

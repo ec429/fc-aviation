@@ -849,20 +849,18 @@ skip_year_0 = TRUE
 
 ; How many fragments each year has. Value 0 disables year advancement by fragment
 ; accumulation.
-fragments = 6
+fragments = 3
 
 ; Calendar fragment names. If name is missing, only a fragment number +1 (so human readable
 ; numbers begin from 1 and not 0) is shown.
-fragment_name0 = _("Feb")
-fragment_name1 = _("Apr")
-fragment_name2 = _("Jun")
-fragment_name3 = _("Aug")
-fragment_name4 = _("Oct")
-fragment_name5 = _("Dec")
+fragment_name0 = _("Spring")
+fragment_name1 = _("Summer")
+fragment_name2 = _("Autumn")
 
 ; What labels are used for positive and negative years.
+; Since the game starts in modern times, there's no point in displaying the "CE"
 ; /* TRANS: year label (Common Era) */
-positive_label = _("CE")
+positive_label = _("")
 ; /* TRANS: year label (Before Common Era) */
 negative_label = _("BCE")
 
