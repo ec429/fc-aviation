@@ -1001,4 +1001,5 @@ set =
       "sciencebox", 90, FALSE ; fudge factor to speed up tech progression
       "dispersion", 2, FALSE ; spread out initial settlers a bit
       "unreachableprotects", "disabled", FALSE ; we don't want, say, an arty+ZS stack to be untouchable
+      "caravan_bonus_style", "LOGARITHMIC", FALSE ; work around the tile trade shenanigans
     }
