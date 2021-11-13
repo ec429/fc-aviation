@@ -990,18 +990,20 @@ hitpoints     = 12
 firepower     = 1
 move_rate     = 4
 vision_radius_sq = 2
-transport_cap = 0
+transport_cap = 1
 fuel          = 6
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade"
+cargo         = "Assault"
 roles         = ""
 helptext      = _("\
 Zeppelin Bombers are slow but have long range, allowing them \
 to strike at distant ground targets.  \
 Because they typically operate at night, they're not capable \
-of reconnaissance.  \
+of reconnaissance.  They can, however, transport a small number \
+of assault troops or settlers.  \
 Historical examples include the Zeppelin M-X.\
 ")
 
