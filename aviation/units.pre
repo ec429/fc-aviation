@@ -491,7 +491,8 @@ helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
 ; */ <-- avoid gettext warnings
 
 [unit_init_settlers]
-name          = _("Old Settlers")
+name          = _("Founders")
+rule_name     = _("Old Settlers")
 class         = "Assault" ; so that they can be airlifted
 tech_req      = "None"
 obsolete_by   = "Settlers"
@@ -509,15 +510,15 @@ attack        = 0
 defense       = 1
 hitpoints     = 20
 firepower     = 1
-move_rate     = 2
-vision_radius_sq = 2
+move_rate     = 3
+vision_radius_sq = 5
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
 uk_shield     = 0
 uk_gold       = 1
 uk_food       = 1
-flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "AddToCity", "Cities", "NoBuild"
+flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "AddToCity", "Cities", "NoBuild", "IgTer"
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 no_veteran    = 1
@@ -529,7 +530,7 @@ means of founding new cities.\
 Settlers can also improve terrain tiles. See the help on Terrain \
 and Terrain Alterations for the effects of their actions.\
 "), _("\
-Your starting units are Old Settlers, which can move faster and \
+Your starting settlers are Founders, which can move faster and \
 establish cities at size 2.\
 ")
 
@@ -551,7 +552,7 @@ attack        = 0
 defense       = 1
 hitpoints     = 20
 firepower     = 1
-move_rate     = 1
+move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
