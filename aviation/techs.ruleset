@@ -1383,3 +1383,13 @@ graphic_alt = "-"
 helptext = _("Great technical challenges had to be overcome in\
  order to develop heavy bombers that were supersonic by a large\
  margin.")
+
+[advance_sixties_airlift]
+name     = _("Sixties Airlift")
+req1     = "Fifties Airlift"
+req2     = "Sixties Engines"
+cost     = 1500
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Wide-body jetliners allowed greatly increased\
+ passenger and cargo air traffic along trunk routes.")

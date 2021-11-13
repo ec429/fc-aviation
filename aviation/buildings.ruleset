@@ -319,7 +319,7 @@ Increases the tax output in a city by 50%. \
 ")
 
 [building_airport]
-name		= _("Hub Airport")
+name		= _("Int'l Airport")
 genus		= "Improvement"
 reqs =
     { "type", "name", "range"
@@ -1227,6 +1227,33 @@ Doubles the effect of all your Commercial Airstrips. \
 As both a prestige symbol and an economic accelerant, national airlines\
  such as Lufthansa, British Airways and Air France have long been major\
  brands of the countries which sponsor them.\
+")
+
+[building_hub]
+name		= _("Hub Airport")
+genus		= "SmallWonder"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Sixties Airlift", "Player"
+      "Building", "Int'l Airport", "City"
+      "Building", "National Airline", "Player"
+    }
+graphic	= "b.airport"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 150
+upkeep		= 2
+sabotage	= 100
+sound		= "b_airport"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the tax output in a city by 100% (cumulative with\
+ Commercial Airstrip and Int'l Airport).\
+"), _("\
+Also, allows the city to have two additional trade routes.\
 ")
 
 [building_display]

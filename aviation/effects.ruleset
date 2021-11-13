@@ -160,7 +160,7 @@ reqs	=
       "Building", "Mooring Mast", "City"
     }
 
-[effect_trade_routes_airport]
+[effect_trade_routes_airstrip]
 type    = "Max_Trade_Routes"
 value   = 1
 reqs	=
@@ -177,9 +177,17 @@ reqs	=
       "Building", "ICAO", "World"
     }
 
-[effect_trade_routes_hub]
+[effect_trade_routes_airport]
 type    = "Max_Trade_Routes"
 value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Int'l Airport", "City"
+    }
+
+[effect_trade_routes_hub]
+type    = "Max_Trade_Routes"
+value   = 2
 reqs	=
     { "type", "name", "range"
       "Building", "Hub Airport", "City"
@@ -777,6 +785,15 @@ value	= 50
 reqs	=
     { "type", "name", "range"
       "Building", "Commercial Airstrip", "City"
+      "Building", "Int'l Airport", "City"
+      "OutputType", "Gold", "Local"
+    }
+
+[effect_hub]
+type    = "Output_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
       "Building", "Hub Airport", "City"
       "OutputType", "Gold", "Local"
     }
