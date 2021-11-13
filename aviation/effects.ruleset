@@ -1377,6 +1377,15 @@ reqs	=
       "Building", "Broadcasting Corporation", "Player"
     }
 
+[effect_forecast_move]
+type    = "Move_Bonus"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Building", "Shipping Forecast", "Player"
+      "UnitClass", "Sea", "Local"
+    }
+
 [effect_beam_bombing_1]
 type    = "Attack_Bonus"
 value   = 20

@@ -1460,3 +1460,27 @@ Also, improves your reputation and goodwill with AI players.\
 "), _("\
 As the BBC's motto says, 'Nation shall speak peace unto Nation'.\
 ")
+
+[building_forecast]
+name		= _("Shipping Forecast")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Radio", "Player"
+    }
+graphic	= "b.shipping_forecast"
+graphic_alt	= "b.lighthouse"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 120
+upkeep		= 1
+sabotage	= 0
+sound		= "w_lighthouse"
+sound_alt	= "w_generic"
+helptext	= _("\
+Increases by 1 the movement of all Sea units.\
+"), _("\
+The ability to receive updates on the weather at sea provides\
+ a great boon to both military and merchant shipping.\
+")
