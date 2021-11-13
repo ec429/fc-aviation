@@ -243,6 +243,29 @@ helptext	= _("\
 Increases the science output in a city by 35%.\
 ")
 
+[building_tech_college]
+name		= _("Technical College")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Aircraft Industry", "Player"
+    }
+graphic	= "b.tech_college"
+graphic_alt	= "b.university"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 1
+sabotage	= 100
+sound		= "b_university"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the science output in a city by 35%\
+ (cumulative with Aeronautical Library).\
+")
+
 [building_wind_tunnel]
 name		= _("Wind Tunnel")
 genus		= "Improvement"
@@ -263,7 +286,8 @@ sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Increases the science output in a city by 35%\
- (cumulative with Aeronautical Library).\
+ (cumulative with Aeronautical Library and\
+ Technical College).\
 ")
 
 ; **Revenue**

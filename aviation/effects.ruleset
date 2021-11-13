@@ -761,6 +761,15 @@ reqs	=
       "OutputType", "Science", "Local"
     }
 
+[effect_tech_college]
+type    = "Output_Bonus"
+value	= 35
+reqs	=
+    { "type", "name", "range"
+      "Building", "Technical College", "City"
+      "OutputType", "Science", "Local"
+    }
+
 [effect_wind_tunnel]
 type    = "Output_Bonus"
 value	= 35
