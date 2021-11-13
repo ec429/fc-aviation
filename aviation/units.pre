@@ -827,6 +827,42 @@ lack heavy weapons, making them poor at defence; be sure to have \
 other forces ready to reinforce them before the counter-attack. \
 ")
 
+[unit_merchant_truck]
+name          = _("Merchant Truck")
+class         = "Land"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.morris"
+graphic_alt   = "u.freight"
+;phcode=mt
+sound_move    = "m_freight"
+sound_move_alt = "m_generic"
+sound_fight   = "f_freight"
+sound_fight_alt = "f_generic"
+build_cost    = 10
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 8
+firepower     = 0
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "Merchant", "NonMil", "Cant_Fortify", "HasNoZOC"
+slow_veteran  = 1 ; ground units don't get acespeed
+helptext      = _("\
+A Merchant Truck carries goods or material for trading with distant cities\
+ and foreign countries.\
+"), _("\
+Merchants can earn gold and science, trading with your own cities or those\
+ of other nations (even enemies) by traveling to them.  However, unlike\
+ airliners, they cannot create persistent trade routes with ongoing revenue.\
+")
+
 [unit_radar_van]
 name          = _("Radar Van")
 class         = "Land"

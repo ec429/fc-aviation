@@ -137,7 +137,7 @@ tiles = { "row", "column", "tag"
   4, 15, "u.virginia"    ; B2 Twenties Bomber (Vickers Virginia) [EC]: kitbashed from Vickers Vimy [GB]
   4, 16, "u.judy"        ; KA Kamikaze (Yokosuka D4Y4 Suisei/"Judy") [GB]
   4, 17, "u.aggregat"    ; V2 Artillery Rocket (Thiel A4 Aggregat) [GB]
-  4, 18, "u.truck"       ; Radar Van (Bedford QLT 3t) [GB]
+  4, 18, "u.truck"       ; rv Radar Van (Bedford QLT 3t) [GB]
   4, 19, "u.short81"     ; HA Armed Floatplane (Short Type 81 Folder) [EC]: kitbashed from Sopwith Schneider [GB]
   5,  0, "u.short184"    ; HT Torpedo Floatplane (Short Type 184 Folder) [EC]: derived from u.short81
   5,  1, "u.baby"        ; HF Floatplane Fighter (Hanriot D.1) [T], floats added by [EC]
@@ -152,5 +152,6 @@ tiles = { "row", "column", "tag"
   5, 10, "u.skyray"      ; NF Swept-wing Naval Fighter (Douglas F4D Skyray) [GB]
   5, 11, "u.u2"          ; RJ Recon Jet (Lockheed U-2) [EC]: kitbashed from F-7F Tigercat [GB]
   5, 12, "u.sr71"        ; RS Spy Plane (Lockheed SR-71 Blackbird) [GB]
-  5, 13, "u.radar"       ; Radar Station [Nemo] (towers repositioned by [EC])
+  5, 13, "u.radar"       ; rt Radar Station [Nemo] (towers repositioned by [EC])
+  5, 14, "u.morris"      ; mt Merchant Truck (Morris 15cwt) [GB]
 }
