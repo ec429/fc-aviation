@@ -410,7 +410,7 @@ helptext = _("The flying-boat developed into a useful maritime\
 [advance_streamlining]
 name     = _("Streamlining")
 req1     = "Scouts 1916"
-req2     = "None"
+req2     = "Aircraft Industry"
 cost     = 280
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
