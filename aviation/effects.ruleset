@@ -203,7 +203,7 @@ reqs	=
 
 [effect_trade_bonus_fudge_factor]
 type	= "Trade_Revenue_Bonus"
-value	= 1585
+value	= 585
 
 [effect_trade_revenue_reduce]
 type    = "Trade_Revenue_Bonus"
