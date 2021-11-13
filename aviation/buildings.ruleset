@@ -704,7 +704,7 @@ graphic_alt	= "-"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 50
+build_cost	= 80
 upkeep		= 1
 sabotage	= 100
 sound		= "b_hydro_plant"
