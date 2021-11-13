@@ -51,6 +51,9 @@ class Unit(object):
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))
+        if '"Jet"' in self.flags:
+            if self.get('impr_req') is None:
+                self['impr_req'] = '"Air Base"'
         if 'uk_base' in self.rest:
             upkeep = self['uk_base']
             del self['uk_base']

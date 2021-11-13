@@ -52,6 +52,7 @@ flags =
     _("AntiGround"), _("Can attack ground units (Land, Assault).")
     _("AntiSea"), _("Can attack Sea units.")
     _("AntiAir"), _("Can attack flying units (Air, Seaplane, Carrier-borne, Helicopter, Glider).")
+    _("Jet")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -1522,7 +1523,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "NonMil", "HasNoZOC"
+flags         = "Recon", "NonMil", "HasNoZOC", "Jet"
 roles         = "Explorer"
 helptext      = _("\
 High-altitude jet for reconnaissance.  Can overfly \
@@ -1555,7 +1556,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "NonMil", "HasNoZOC"
+flags         = "Recon", "NonMil", "HasNoZOC", "Jet"
 roles         = "Explorer"
 helptext      = _("\
 High-altitude supersonic reconnaissance jet.  Can overfly \
@@ -1998,7 +1999,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Twin wing-mounted turbojets allow high top speed but \
@@ -2066,7 +2067,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Maturing transonic design allows higher performance, while \
@@ -2101,7 +2102,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Point-defence jet fighters attain supersonic speed through the \
@@ -2135,7 +2136,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Air-superiority fighters have the ability to penetrate deep \
@@ -2202,7 +2203,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Fighter/interceptor aircraft reaching Mach 2 or so.  \
@@ -2601,7 +2602,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 Fighter-bomber using early jet engine.  \
@@ -2633,7 +2634,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 Swept-wing jet fighter-bomber.  \
@@ -2666,7 +2667,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 Fighter-bomber with reheat for supersonic speed.  \
@@ -2698,7 +2699,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
+flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Supersonic interceptor and strike aircraft.  \
@@ -2800,7 +2801,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Twin-engined jet fighters with heavy radar equipment can be \
@@ -3220,7 +3221,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 First-generation shipborne jet fighter.  \
@@ -3255,7 +3256,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 First-generation shipborne ground-attack jet.  \
@@ -3289,7 +3290,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Transonic shipborne jet fighter.  \
@@ -3324,7 +3325,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround", "AntiSea"
+flags         = "CRattack", "AntiGround", "AntiSea", "Jet"
 roles         = ""
 helptext      = _("\
 Swept-wing shipborne strike aircraft, capable of attacking \
@@ -3360,7 +3361,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Supersonic shipborne jet fighter.  \
@@ -4440,7 +4441,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -4472,7 +4473,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
@@ -4505,7 +4506,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Supersonic interdictor-strike bomber to attack high-value targets.  \
 Historical examples include the BAC TSR-2 and General Dynamics F-111 \
@@ -4839,7 +4840,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
 Historical examples include the Vickers Valiant and \
@@ -4871,7 +4872,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
 delivery mechanism for nuclear weapons, though they are \
@@ -4905,7 +4906,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Mach 2 capable heavy bombers competed with ballistic missiles for \
 the strategic deterrent role.  \
@@ -5011,7 +5012,7 @@ Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
 name          = _("Jet Airliner")
 class         = "Air"
 tech_req      = "Fifties Airlift"
-impr_req      = "Commercial Airstrip"
+impr_req      = "Int'l Airport"
 obsolete_by   = "None"
 graphic       = "u.b707"
 graphic_alt   = "u.freight"
@@ -5037,7 +5038,7 @@ flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
 helptext      = _("\
 A Jet Airliner carries goods or material long distances at high speed,\
  for trading with distant cities and foreign countries.  It can only be\
- built in a city with a Commercial Airstrip.\
+ built in a city with an International Airport.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
  nations (even enemies) by traveling to them.  A route's ongoing revenue\
@@ -5277,7 +5278,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "HasNoZOC", "Provoking"
+flags         = "HasNoZOC", "Provoking", "Jet"
 cargo         = "Assault"
 helptext      = _("\
 This massive strategic jet airlifter can transport even more \
