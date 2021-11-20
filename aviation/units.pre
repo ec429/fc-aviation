@@ -1967,7 +1967,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "NoUpgrade"
 roles         = ""
 helptext      = _("\
 The pinnacle of piston-engined fighter development.  \
@@ -2550,7 +2550,7 @@ American A-36.\
 name          = _("Superprop Attacker")
 class         = "Air"
 tech_req      = "Fighters 1944"
-obsolete_by   = "First-gen Jet Attacker"
+obsolete_by   = "Attack Jet"
 graphic       = "u.p47"
 graphic_alt   = "u.fighter"
 ;phcode=AP
@@ -2571,7 +2571,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "NoUpgrade"
 roles         = ""
 helptext      = _("\
 Strike fighter armed with armour-piercing rockets.  \
@@ -2746,7 +2746,7 @@ and Bristol Beaufighter.\
 name          = _("Heavy Fighter")
 class         = "Air"
 tech_req      = "Fighters 1942"
-obsolete_by   = "All-Weather Jet Fighter"
+obsolete_by   = "None"
 graphic       = "u.mosquito"
 graphic_alt   = "u.fighter"
 ;phcode=FH
@@ -3074,7 +3074,7 @@ build_cost    = 40
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 16
+hitpoints     = 12
 firepower     = 4
 move_rate     = 16
 vision_radius_sq = 4
@@ -3097,7 +3097,7 @@ Grumman F8F Bearcat.\
 name          = _("Naval Superprop")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1945"
-obsolete_by   = "Early Naval Jet"
+obsolete_by   = "Swept-wing Naval Fighter"
 graphic       = "u.seafury"
 graphic_alt   = "u.fighter"
 ;phcode=NP
@@ -3120,7 +3120,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "NoUpgrade"
 roles         = ""
 helptext      = _("\
 Carrier-borne Superprop Fighter.  \
@@ -3131,7 +3131,7 @@ Historical examples include the Hawker Sea Fury.\
 name          = _("Naval Attacker")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1945"
-obsolete_by   = "Naval Jet Attacker"
+obsolete_by   = "Naval Attack Jet"
 graphic       = "u.skyraider"
 graphic_alt   = "u.stealth_fighter"
 ;phcode=NA
@@ -3154,7 +3154,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "NoUpgrade"
 roles         = ""
 helptext      = _("\
 Carrier-borne ground-attack aircraft.  \
@@ -4809,7 +4809,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "NoUpgrade"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
@@ -5310,7 +5310,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "HasNoZOC", "Provoking"
+flags         = "HasNoZOC", "Provoking", "NoUpgrade"
 cargo         = "Assault"
 helptext      = _("\
 This large four-prop transport aircraft, though expensive, \
