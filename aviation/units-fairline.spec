@@ -154,4 +154,5 @@ tiles = { "row", "column", "tag"
   5, 12, "u.sr71"        ; RS Spy Plane (Lockheed SR-71 Blackbird) [GB]
   5, 13, "u.radar"       ; rt Radar Station [Nemo] (towers repositioned by [EC])
   5, 14, "u.morris"      ; mt Merchant Truck (Morris 15cwt) [GB]
+  5, 15, "u.dc3"         ; LD Monoplane Airliner (Douglas DC-3) [EC]: repaint of C-47 Skytrain by [GB]
 }

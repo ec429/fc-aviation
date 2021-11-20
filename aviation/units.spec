@@ -35,6 +35,7 @@ tiles = { "row", "column", "tag"
   0, 10, "u.southampton" ; P2 Twenties Flying Boat (Supermarine Southampton)
 ; 0, 11, "u.airliner"    ; old version of LL Airliner (Handley Page H.P.42)
   1, 12, "u.airliner"    ; LL Airliner (Handley Page H.P.42)
+  1, 13, "u.viscount"    ; LV Turboprop Airliner (Vickers Viscount)
   0, 13, "u.sra1"        ; PJ Jet Flying Boat (Saunders-Roe SR.A/1).  Hull partially inspired by XYZ's MiG fuselage.
   0, 14, "u.hamilcar"    ; GH Heavy Glider (General Aircraft Hamilcar)
   0, 15, "u.tsr2"        ; MS Tactical Strike Jet (BAC TSR-2)

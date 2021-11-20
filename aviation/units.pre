@@ -4920,7 +4920,7 @@ name          = _("Zeppelin Liner")
 class         = "Air"
 tech_req      = "Effective Airships"
 impr_req      = "Mooring Mast"
-obsolete_by   = "Monoplane Transport"
+obsolete_by   = "Monoplane Airliner"
 graphic       = "u.zeppeliner"
 graphic_alt   = "u.caravan"
 ;phcode=LZ
@@ -4971,10 +4971,55 @@ name          = _("Airliner")
 class         = "Air"
 tech_req      = "Twenties Airlift"
 impr_req      = "Commercial Airstrip"
-obsolete_by   = "Jet Airliner"
+obsolete_by   = "Monoplane Airliner"
 graphic       = "u.airliner"
 graphic_alt   = "u.caravan"
 ;phcode=LL
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 45
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 10
+firepower     = 0
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+An Airliner carries goods or material for trading with distant cities\
+ and foreign countries.  It can only be built in a city with a\
+ Commercial Airstrip.\
+Historical examples include the Handley Page HP42.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
+[unit_monoliner]
+name          = _("Monoplane Airliner")
+class         = "Air"
+tech_req      = "Airlift 1935"
+impr_req      = "Commercial Airstrip"
+obsolete_by   = "Turboprop Airliner"
+graphic       = "u.dc3"
+graphic_alt   = "u.caravan"
+;phcode=LD
 sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
@@ -4983,7 +5028,7 @@ build_cost    = 50
 pop_cost      = 0
 attack        = 0
 defense       = 1
-hitpoints     = 10
+hitpoints     = 12
 firepower     = 0
 move_rate     = 9
 vision_radius_sq = 2
@@ -4997,6 +5042,58 @@ helptext      = _("\
 An Airliner carries goods or material for trading with distant cities\
  and foreign countries.  It can only be built in a city with a\
  Commercial Airstrip.\
+"), _("\
+Metal-skinned monoplane airliners like the Douglas DC-3 can fly slightly\
+ longer stages than the old, slow biplanes.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
+[unit_turboliner]
+name          = _("Turboprop Airliner")
+class         = "Air"
+tech_req      = "Fifties Airlift"
+impr_req      = "Commercial Airstrip"
+obsolete_by   = "None"
+graphic       = "u.viscount"
+graphic_alt   = "u.caravan"
+;phcode=LV
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 55
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 12
+firepower     = 0
+move_rate     = 11
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+An Airliner carries goods or material for trading with distant cities\
+ and foreign countries.  It can only be built in a city with a\
+ Commercial Airstrip.\
+"), _("\
+Turbo-prop feeder liners are a useful adjunct to air travel networks,\
+ allowing short- and medium-haul routes to operate without needing the\
+ huge runways of the jetliners.\
+Historical examples include the Vickers Viscount.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
  nations (even enemies) by traveling to them.  A route's ongoing revenue\
@@ -5023,14 +5120,14 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 50
+build_cost    = 75
 pop_cost      = 0
 attack        = 0
 defense       = 2
 hitpoints     = 12
 firepower     = 0
 move_rate     = 12
-vision_radius_sq = 2
+vision_radius_sq = 5
 transport_cap = 0
 fuel          = 3
 uk_happy      = 0
