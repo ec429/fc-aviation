@@ -54,6 +54,9 @@ class Unit(object):
         if '"Jet"' in self.flags:
             if self.get('impr_req') is None:
                 self['impr_req'] = '"Air Base"'
+        if '"NoUpgrade"' in self.flags:
+            # Temporary hack to work around https://osdn.net/projects/freeciv/ticket/43251
+            self['obsolete_by'] = '"None"'
         if 'uk_base' in self.rest:
             upkeep = self['uk_base']
             del self['uk_base']
