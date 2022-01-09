@@ -4788,7 +4788,7 @@ Boeing B-17F.\
 name          = _("Superprop Bomber")
 class         = "Air"
 tech_req      = "Bombers 1945"
-obsolete_by   = "Jet Bomber"
+obsolete_by   = "Turboprop Bomber"
 graphic       = "u.b29"
 graphic_alt   = "u.bomber"
 ;phcode=BS
@@ -4802,14 +4802,14 @@ attack        = 10
 defense       = 4
 hitpoints     = 30
 firepower     = 3
-move_rate     = 15
+move_rate     = 14
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "NoUpgrade"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
@@ -4881,6 +4881,38 @@ delivery mechanism for nuclear weapons, though they are \
 also more than capable of conventional bombing.  \
 Historical examples include the Avro Vulcan and \
 Boeing B-52 Stratofortress.\
+")
+
+[unit_turbo_bomber]
+name          = _("Turboprop Bomber")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.bear"
+graphic_alt   = "u.bomber"
+;phcode=BR
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 11
+defense       = 4
+hitpoints     = 30
+firepower     = 3
+move_rate     = 16
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+helptext      = _("\
+Swept wings and turbo-prop engines allow faster heavy bombers \
+without the complexities of operating advanced turbojets.  \
+Historical examples include the Tupolev Tu-95 'Bear'.\
 ")
 
 [unit_supersonic_bomber]
