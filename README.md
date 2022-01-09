@@ -154,6 +154,19 @@ Some of the Light Bombers are also carrier-capable.  The main value of this is r
 
 A Fascist nation that has build the great wonder Yasukuni Shrine can construct Kamikaze units.  These are Missile-class units, quick to build and highly effective at attacking ships; but they also cost one population to build, and as missiles are destroyed after attacking.  Still, a Kamikaze swarm can be a useful way to take out enemy aircraft carriers when your homeland is threatened.  They are also carrier-capable.
 
+### Jets
+
+Towards the end of the tech tree, many aircraft have the 'Jet' flag, which means they can only be built by a city with the 'Air Base' improvement.  This represents the complex ground-support infrastructure needed to operate such technologically advanced aircraft.  Consequently, on entering the jet age you may need to divert a considerable amount of production into building these Air Bases, so that you can get the benefit of your newly-developed aircraft.
+
+A few jet-propelled aircraft do not have this requirement:
+
+* Light Fighters are specifically designed for rough-and-ready operation.
+* Jet Flying Boat.
+* VTOL Attack Jet.
+* Jet Airliner (which instead requires the Int'l Airport improvement).
+
+There are also alternative units ("superprops" and later "turboprops") which allow some development of capability without the infrastructure requirement.  However, they are generally weaker than the jets (except that in some cases the first-generation jets, while faster than superprops, have slightly lower combat stats).
+
 ## Known cheesy tricks
 
 Seabees can build improvements on sea tiles while transported.  This is needed in order to allow building Buoys at all — from boats like the Landing-craft — but it also means that they can build them while on a plane.  So, a Twenties Flying Boat with a Seabees on board has essentially unlimited range over water: when fuel gets low, just drop a Buoy (it only takes one turn) then spend a turn moored at the Buoy to refuel.
