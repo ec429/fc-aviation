@@ -165,8 +165,8 @@ type    = "Max_Trade_Routes"
 value   = 1
 reqs	=
     { "type", "name", "range", "present"
-      "Building", "Mooring Mast", "City", FALSE
       "Building", "Commercial Airstrip", "City", TRUE
+      "Building", "Mooring Mast", "City", FALSE
     }
 
 [effect_trade_routes_icao]
