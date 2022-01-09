@@ -64,12 +64,14 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Democracy has some corruption (unlike the classic ruleset), but it doesn't vary with distance.  It suffers unhappiness from military deployments; and it has a senate which may prevent aggressive wars.  It gets extra trade from tiles, and even more if the city is celebrating.
   - Communism has less corruption (varying with distance), but has waste of shields, is bad at science, and produces extra pollution.  It gets two additional content citizens per city.
   - Fascism has rampant corruption, but pays no upkeep for certain military units, and gold (instead of shields) for the rest.  It also gets two additional content citizens per city.
+<!--
 * There are a few units which can be obsoleted but not upgraded.  Generally this is to remove clutter from the city build dialogue when a unit is surpassed by something different enough from it that upgrading would be unrealistic.  In particular:
   - Zeppelin Bombers are obsolete once you can build Thirties Bombers.
   - Zeppelin Liners can't be built after the development of Monoplane Transport (Airlift 1935).  This represents the public turning away from Zeppelin travel after the series of airship disasters culminating in the loss of the Hindenburg; past this point you will need to build Commercial Airstrips so that you can produce Airliners instead.
   - Marines are obsoleted by Assault Troops (Glider Assault).
   - Dive Bombers are obsoleted by the Naval Attacker (Carrier Aviation 1945).  Note that the latter cannot target ships.
   - Torpedo Bombers are obsoleted by the Naval Attack Jet (Carrier Aviation 1950).
+-->
 
 ### Insignificant Rule Changes
 
@@ -114,7 +116,7 @@ The Early Flying Boat operates like a slightly longer-ranged light bomber, but t
 
 ### Lighter Than Air
 
-The Zeppelin Scout is pure recon, but the Zeppelin Bomber is a long-range (though slow) level bomber, while the blimps attack naval units, making them the _other_ great sub-hunters — much cheaper than flying-boats but not quite as powerful.  There's also the Zeppelin Liner, a non-military unit which acts as an early, slow Airliner for establishing trade routes.
+The Zeppelin Scout is pure recon, but the Zeppelin Bomber is a long-range (though slow) level bomber, while the blimps attack naval units, making them the _other_ great sub-hunters — much cheaper than flying-boats but not quite as powerful.  There's also the Zeppelin Liner, a non-military unit which acts as an early, slow Airliner for establishing trade routes.  However, Zeppelin Liners can't be built after the development of Monoplane Transport (Airlift 1935), which obsoletes the Mooring Mast building required to produce them.  This represents the public turning away from Zeppelin travel after the series of airship disasters culminating in the loss of the Hindenburg; past this point you will need to build Commercial Airstrips so that you can produce Airliners instead.
 
 ### Transports
 
