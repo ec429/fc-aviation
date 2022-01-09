@@ -1302,7 +1302,10 @@ helptext	= _("\
 Increases the tax output in a city by 100% (cumulative with\
  Commercial Airstrip and Int'l Airport).\
 "), _("\
-Also, allows the city to have two additional trade routes.\
+Also, allows the city to have two additional trade routes. \
+ (Note, however, that the game has a hard-coded limit of\
+ 5 trade routes per city; a Hub Airport can hit this cap\
+ if the ICAO greatwonder exists.)\
 ")
 
 [building_display]
