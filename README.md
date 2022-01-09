@@ -116,7 +116,7 @@ The Early Flying Boat operates like a slightly longer-ranged light bomber, but t
 
 ### Lighter Than Air
 
-The Zeppelin Scout is pure recon, but the Zeppelin Bomber is a long-range (though slow) level bomber, while the blimps attack naval units, making them the _other_ great sub-hunters — much cheaper than flying-boats but not quite as powerful.  There's also the Zeppelin Liner, a non-military unit which acts as an early, slow Airliner for establishing trade routes.  However, Zeppelin Liners can't be built after the development of Monoplane Transport (Airlift 1935), which obsoletes the Mooring Mast building required to produce them.  This represents the public turning away from Zeppelin travel after the series of airship disasters culminating in the loss of the Hindenburg; past this point you will need to build Commercial Airstrips so that you can produce Airliners instead.
+The Zeppelin Scout is pure recon, but the Zeppelin Bomber is a long-range (though slow) level bomber (with a secondary transport capability), while the blimps attack naval units, making them the _other_ great sub-hunters — much cheaper than flying-boats but not quite as powerful.  There's also the Zeppelin Liner, a non-military unit which acts as an early, slow Airliner for establishing trade routes.  However, Zeppelin Liners can't be built after the development of Monoplane Transport (Airlift 1935), which obsoletes the Mooring Mast building required to produce them.  This represents the public turning away from Zeppelin travel after the series of airship disasters culminating in the loss of the Hindenburg; past this point you will need to build Commercial Airstrips so that you can produce Airliners instead.
 
 ### Transports
 
