@@ -8,7 +8,7 @@
 
 [datafile]
 description="Aviation effects data for Freeciv"
-options="+Freeciv-ruleset-Devel-2017.Jan.02"
+options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min"
 format_version=20
 
 ; /* <-- avoid gettext warnings
@@ -124,6 +124,49 @@ reqs    =
 [effect_upkeep_tech_free]
 type    = "Tech_Upkeep_Free"
 value   = 3
+
+; Basic HP regen.  Unit can only be on a Concrete Runway or Air Base if in
+; a city, in which case effect_hp_regen_min_city_* will handle it
+[effect_hp_regen_base]
+type    = "HP_Regen"
+value   = 10
+reqs    =
+    { "type", "name", "range", "present"
+      "UnitFlag", "Heavy", "Local", FALSE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+; Units in cities regenerate at least 1/3 of their HP if they are repairable
+[effect_hp_regen_min_city]
+type    = "HP_Regen_Min"
+value   = 33
+reqs    =
+    { "type", "name", "range", "present"
+      "CityTile", "Center", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", FALSE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_hp_regen_min_city_heavy]
+type    = "HP_Regen_Min"
+value   = 33
+reqs    =
+    { "type", "name", "range", "present"
+      "CityTile", "Center", "Local", TRUE
+      "Building", "Concrete Runway", "City", TRUE
+      "UnitFlag", "Heavy", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_hp_regen_min_city_jet]
+type    = "HP_Regen_Min"
+value   = 33
+reqs    =
+    { "type", "name", "range", "present"
+      "CityTile", "Center", "Local", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
+    }
 
 ; Fortress HP regen
 [effect_fortress_hp_regen]
@@ -992,27 +1035,140 @@ reqs	=
 type    = "HP_Regen"
 value	= 100
 reqs	=
-    { "type", "name", "range"
-      "Building", "Repair Sheds", "City"
-      "UnitClass", "Air", "Local"
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "UnitClass", "Air", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", FALSE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_repair_1a]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Concrete Runway", "City", TRUE
+      "UnitClass", "Air", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_repair_1b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Air", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
     }
 
 [effect_repair_2]
 type    = "HP_Regen"
 value	= 100
 reqs	=
-    { "type", "name", "range"
-      "Building", "Repair Sheds", "City"
-      "UnitClass", "Carrier-borne", "Local"
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", FALSE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_repair_2a]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Concrete Runway", "City", TRUE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_repair_2b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
+    }
+
+[effect_repair_3]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "UnitClass", "Helicopter", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+; No case for Helicopter+Heavy needing a Concrete Runway, because
+; helis don't use runways in the first place.
+
+[effect_repair_3b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Helicopter", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
+    }
+
+[effect_repair_4]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "UnitClass", "Missile", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+; No case for Missile+Heavy needing a Concrete Runway, because
+; missiles don't use runways in the first place.
+
+[effect_repair_4b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Missile", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
     }
 
 [effect_slipway]
 type    = "HP_Regen"
 value	= 100
 reqs	=
-    { "type", "name", "range"
-      "Building", "Aircraft Slipways", "City"
-      "UnitClass", "Seaplane", "Local"
+    { "type", "name", "range", "present"
+      "Building", "Aircraft Slipways", "City", TRUE
+      "UnitClass", "Seaplane", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+; No case for Seaplane+Heavy needing a Concrete Runway, because
+; seaplanes don't use runways in the first place.
+
+[effect_slipway_b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Aircraft Slipways", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Seaplane", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
     }
 
 [effect_dusting]

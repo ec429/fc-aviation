@@ -641,8 +641,9 @@ sabotage	= 100
 sound		= "b_port_facility"
 sound_alt	= "b_generic"
 helptext	= _("\
-Air and Carrier-borne units spending their turn in the city\
- will be restored to full health.\
+Air, Carrier-borne, Helicopter and Missile units spending their turn in\
+ the city will be restored to full health (if they are repairable at all;\
+ see Concrete Runway and Air Base).\
 ")
 
 [building_slipway]
@@ -668,12 +669,35 @@ Seaplane units spending their turn in the city\
  will be restored to full health.\
 ")
 
+[building_concrete]
+name		= _("Concrete Runway")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Large Monoplanes", "Player"
+    }
+graphic	= "-"
+graphic_alt	= "b.super_highways"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 45
+upkeep		= 1
+sabotage	= 100
+sound		= "b_super_highways"
+sound_alt	= "b_generic"
+helptext	= _("\
+Required to repair four-engined heavy bombers and strategic\
+ transports in the city.\
+")
+
 [building_runway]
 name		= _("Air Base")
 genus		= "Improvement"
 reqs =
     { "type", "name", "range"
       "Tech", "Gas Turbine", "Player"
+      "Building", "Concrete Runway", "City"
     }
 graphic	= "-"
 graphic_alt	= "b.super_highways"
@@ -686,7 +710,7 @@ sabotage	= 100
 sound		= "b_super_highways"
 sound_alt	= "b_generic"
 helptext	= _("\
-Required to build (most) jet-powered military aircraft\
+Required to build or repair (most) jet-powered military aircraft\
  in the city.  The exceptions are light-fighters, VTOLs,\
  and flying-boats.\
 ")

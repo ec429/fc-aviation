@@ -52,7 +52,8 @@ flags =
     _("AntiGround"), _("Can attack ground units (Land, Assault).")
     _("AntiSea"), _("Can attack Sea units.")
     _("AntiAir"), _("Can attack flying units (Air, Seaplane, Carrier-borne, Helicopter, Glider).")
-    _("Jet")
+    _("Jet"), _("Can only be built or repaired in a city with an Air Base.")
+    _("Heavy"), _("Can only be repaired in a city with a Concrete Runway.")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -4743,7 +4744,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Pre-war four-engined heavy.  Increased payload and speed.  \
 Historical examples include the Short Stirling and \
@@ -4776,7 +4777,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Four-engined strategic bomber.  Being optimised for the \
 bombing role, it cannot transport troops.  \
@@ -4809,7 +4810,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
@@ -4908,7 +4909,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Swept wings and turbo-prop engines allow faster heavy bombers \
 without the complexities of operating advanced turbojets.  \
@@ -5342,7 +5343,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "HasNoZOC", "Provoking", "NoUpgrade"
+flags         = "HasNoZOC", "Provoking", "NoUpgrade", "Heavy"
 cargo         = "Assault"
 helptext      = _("\
 This large four-prop transport aircraft, though expensive, \
