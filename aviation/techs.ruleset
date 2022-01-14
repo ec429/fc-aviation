@@ -1010,6 +1010,16 @@ graphic_alt = "-"
 helptext = _("Bigger and heavier piston engines began to top 2,000hp\
  in the latter years of World War Two.")
 
+[advance_nuclear_weapons]
+name     = _("Nuclear Weapons")
+req1     = "Heavy Bombers"
+req2     = "Electronics 1935"
+cost     = 2600
+graphic     = "a.nuclear_fission"
+graphic_alt = "-"
+helptext = _("The ability to split the atom allowed for the creation\
+ of nuclear explosives of unprecedented destructive power.")
+
 [advance_bombers_1945]
 name     = _("Bombers 1945")
 req1     = "Heavy Bombers"
@@ -1238,6 +1248,18 @@ helptext = _("Flying high and fast to escape fighter interception,\
  carry the nuclear deterrent, but their combat service continued\
  to be with conventional bombs.")
 
+[advance_thermonuclear_weapons]
+name     = _("Thermonuclear Weapons")
+req1     = "Nuclear Weapons"
+req2     = "None"
+cost     = 4000
+graphic     = "a.nuclear_fission" ; placeholder
+graphic_alt = "-"
+helptext = _("Improvements in nuclear engineering such as the\
+ Teller-Ulam thermonuclear device and the boosted-fission warhead\
+ reduced the bottlenecks in production of fissile material for\
+ nuclear weapons.")
+
 [advance_fifties_engines]
 name     = _("Fifties Engines")
 req1     = "Engines 1949"
@@ -1329,6 +1351,17 @@ helptext = _("With the more economical cruise of the turbofan\
  airliner, air travel became accessible to the common man."), _("\
 Decreases one-time revenue from new trade routes.")
 
+[advance_advanced_missiles]
+name     = _("Advanced Missiles")
+req1     = "Early Missiles"
+req2     = "Supersonic Flight"
+cost     = 1200
+graphic     = "a.rocketry" ; placeholder
+graphic_alt = "-"
+helptext = _("Inertial guidance allowed long-range missiles for\
+ strategic bombardment, while the range of surface-to-air missiles\
+ was also increased by improved engines and aerodynamics.")
+
 [advance_sixties_engines]
 name     = _("Sixties Engines")
 req1     = "Supersonic Flight"
@@ -1383,6 +1416,18 @@ graphic_alt = "-"
 helptext = _("Great technical challenges had to be overcome in\
  order to develop heavy bombers that were supersonic by a large\
  margin.")
+
+[advance_standoff_bombs]
+name     = _("Stand-Off Bombs")
+req1     = "Advanced Missiles"
+req2     = "Thermonuclear Weapons"
+cost     = 1600
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Rocket-propelled air-launched missiles with inertial\
+ guidance enabled nuclear attacks to be launched from distances of\
+ up to around 100 miles, keeping the carrier plane further from the\
+ defences.")
 
 [advance_sixties_airlift]
 name     = _("Sixties Airlift")

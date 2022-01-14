@@ -193,6 +193,14 @@ name = _("Goods")
 ; enter the marketplace of a city if it can establish a trade route to it
 ; in stead.
 force_trade_route = TRUE
+; If force_explode_nuclear is set to TRUE it is illegal for an actor unit
+; to perform a regular attack against a tile if it can do explode nuclear
+; in stead.
+force_explode_nuclear = TRUE
+
+explode_nuclear_max_range = 0
+nuke_city_max_range = 1
+targeted_sabotage_city_max_range = 1
 
 ; What each action should be called when showing them to the player.
 ; The first %s should be before the mnemonic of the action. A Freeciv client
@@ -212,8 +220,14 @@ ui_name_bribe_unit = _("%sBribe Enemy Unit%s")
 ; /* TRANS: _Sabotage City (3% chance of success). */
 ui_name_sabotage_city = _("%sSabotage City%s")
 
-; /* TRANS: Industrial _Sabotage (3% chance of success). */
-ui_name_targeted_sabotage_city = _("Industrial %sSabotage%s")
+; /* TRANS: Precision _Strike (3% chance of success). */
+ui_name_targeted_sabotage_city = _("Precision %sStrike%s")
+
+; /* TRANS: Explode _Nuclear In Place (100% chance of success). */
+ui_name_explode_nuclear = _("Explode %sNuclear In Place%s")
+
+; /* TRANS: _Nuke City (100% chance of success). */
+ui_name_nuke_city = _("%sNuke City%s")
 
 ; /* TRANS: Incite a _Revolt (3% chance of success). */
 ui_name_incite_city = _("Incite a %sRevolt%s")
@@ -547,9 +561,67 @@ action = "Suicide Attack"
 actor_reqs    =
     { "type",          "name",    "range", "present"
       "UnitFlag",      "NonMil",  "Local", FALSE
+      "UnitFlag",      "Nuclear", "Local", FALSE
       "UnitClassFlag", "Missile", "Local", TRUE
       "MinMoveFrags",  "1",       "Local", TRUE
       "DiplRel",       "War",     "Local", TRUE
+    }
+
+[actionenabler_explode_bomb]
+action = "Suicide Attack"
+actor_reqs    =
+    { "type",      "name",            "range", "present"
+      "UnitFlag",  "NonMil",          "Local", FALSE
+      "UnitType",  "Penetrator Bomb", "Local", TRUE
+      "UnitState", "Transported",     "Local", TRUE
+      "DiplRel",   "War",             "Local", TRUE
+    }
+
+[actionenabler_bomb_building]
+action = "Targeted Sabotage City"
+actor_reqs    =
+    { "type",         "name",            "range"
+      "UnitType",     "Penetrator Bomb", "Local"
+      "UnitState",    "Transported",     "Local"
+      "DiplRel",      "War",             "Local"
+    }
+
+[actionenabler_nuke]
+action = "Explode Nuclear"
+actor_reqs    =
+    { "type",         "name",    "range", "present"
+      "UnitFlag",     "Nuclear", "Local", TRUE
+      "UnitClass",    "Bomb",    "Local", FALSE
+      "MinMoveFrags", "1",       "Local", TRUE
+    }
+
+[actionenabler_drop_nuke]
+action = "Explode Nuclear"
+actor_reqs    =
+    { "type",      "name",        "range"
+      "UnitFlag",  "Nuclear",     "Local"
+      "UnitClass", "Bomb",        "Local"
+      "UnitState", "Transported", "Local"
+    }
+
+[actionenabler_nuke_city]
+action="Nuke City"
+actor_reqs=
+    { "type",         "name",    "range", "present"
+      "UnitFlag",     "Nuclear", "Local", TRUE
+      "UnitClass",    "Bomb",    "Local", FALSE
+      "MinMoveFrags", "1",       "Local", TRUE
+      "DiplRel",      "War",     "Local", TRUE
+    }
+
+[actionenabler_drop_nuke_city]
+action="Nuke City"
+actor_reqs=
+    { "type",      "name",        "range"
+      "UnitFlag",  "Nuclear",     "Local"
+      "UnitClass", "Bomb",        "Local"
+      "UnitState", "Transported", "Local"
+      "DiplRel",   "War",         "Local"
     }
 
 [actionenabler_conquer_city_native]

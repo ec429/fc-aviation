@@ -156,4 +156,9 @@ tiles = { "row", "column", "tag"
   5, 14, "u.morris"      ; mt Merchant Truck (Morris 15cwt) [GB]
   5, 15, "u.dc3"         ; LD Monoplane Airliner (Douglas DC-3) [EC]: repaint of C-47 Skytrain by [GB]
   5, 16, "u.bear"        ; BR Turboprop Bomber (Tupolev Tu-95 "Bear") [T][WS]
+  5, 17, "u.lancsp"      ; BD Modified Heavy Bomber (Avro Lancaster B.1 (Special)) [GB], repainted and turrets removed by [EC]
+  5, 18, "u.silverplate" ; BU Modified Superprop Bomber (Boeing B-29 Superfortress "Silverplate") [GB], repainted and turrets removed by [EC]
+  5, 19, "u.vulcanwhite" ; BN Jet Bomber (Nuclear) (Avro Vulcan in anti-flash white) [GB]
+  6,  0, "u.redbear"     ; BP Turboprop Bomber (Nuclear) (Tupolev Tu-95 "Bear") [T][WS], red markings painted by [EC]
+  6,  1, "u.seadart"     ; XA Surface-to-Air Missile (Hawker Siddeley Sea Dart) [GB]
 }

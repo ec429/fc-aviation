@@ -46,4 +46,5 @@ tiles = { "row", "column", "tag"
   0, 19, "u.e3dsentry"   ; currently unused
   1,  0, "u.hoverfly"    ; early heli
   1,  2, "u.huey"        ; heli
+  1, 14, "u.fatman"      ; X1 Atomic Bomb
 }

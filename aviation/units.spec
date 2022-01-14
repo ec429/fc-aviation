@@ -44,6 +44,9 @@ tiles = { "row", "column", "tag"
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
   1,  0, "u.old_settlers"; os Old Settlers.  Based on Captain Nemo's amplio2 u.settlers, with golden glow
+  1,  1, "u.tallboy"     ; XT Penetrator Bomb (Vickers Tallboy)
+  1,  2, "u.hustlred"    ; BY Supersonic Bomber (Nuclear) (Convair B-58 Hustler)
+  1,  3, "u.yellowsun"   ; XN Thermonuclear Bomb (Yellow Sun).  Nuclear symbol from amplio2 u.nuclear (Captain Nemo & Curt Sibling)
   1,  6, "u.lph"         ; Helicopter assault carrier.  Based on Captain Nemo's amplio2 u.transport, with Chinook from XYZ's collection
 ; 2,  5, "u.2pdr"        ; assault gun.  Based on Captain Nemo's amplio2 u.howitzer
 }

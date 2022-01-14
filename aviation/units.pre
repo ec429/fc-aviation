@@ -54,6 +54,7 @@ flags =
     _("AntiAir"), _("Can attack flying units (Air, Seaplane, Carrier-borne, Helicopter, Glider).")
     _("Jet"), _("Can only be built or repaired in a city with an Air Base.")
     _("Heavy"), _("Can only be repaired in a city with a Concrete Runway.")
+    _("Nuclear")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -216,6 +217,27 @@ hut_behavior  = "Frighten"
 flags         = "Missile", "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Missiles are air units which are destroyed after attacking. \
  They are carrier-capable.")
+
+[unitclass_bomb]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Bomb")
+min_speed     = 0
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Missile", "Unreachable", "DoesntOccupyTile"
+helptext = _("Bombs are carried by specially-modified air units, and\
+ are destroyed after attacking.  They can only attack while carried\
+ by an aircraft.")
+
+[unitclass_asm]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:ASM")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Missile", "Unreachable", "DoesntOccupyTile", "Flying"
+helptext = _("Air-to-Surface Missiles are air units which are carried\
+ by specially-designed air units, and are destroyed after attacking.")
 
 [unitclass_heli]
 ; /* TRANS: Unit class: used adjectivally */
@@ -3197,6 +3219,39 @@ Historical examples include the Thiel Aggregat 4, better\
  known as the V2.\
 ")
 
+[unit_mrsam]
+name          = _("Surface-to-Air Missile")
+class         = "Missile"
+tech_req      = "Advanced Missiles"
+obsolete_by   = "None"
+graphic       = "u.seadart"
+graphic_alt   = "u.cruise_missile"
+;phcode=XA
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 8
+defense       = 0
+hitpoints     = 12
+firepower     = 5
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRfighter", "AntiAir"
+roles         = ""
+helptext      = _("\
+Medium-range surface-to-air missile for point defence.  \
+Historical examples include the Bristol Bloodhound and\
+ S-75 Dvina (aka SA-2 Guideline).\
+")
+
 [unit_naval1jet]
 name          = _("Early Naval Jet")
 class         = "Carrier-borne"
@@ -4770,6 +4825,8 @@ defense       = 3
 hitpoints     = 24
 firepower     = 3
 move_rate     = 13
+convert_to    = "Modified Heavy Bomber"
+convert_time  = 0
 vision_radius_sq = 4
 transport_cap = 1
 cargo         = "Glider"
@@ -4783,6 +4840,73 @@ Four-engined strategic bomber.  Being optimised for the \
 bombing role, it cannot transport troops.  \
 Historical examples include the Avro Lancaster and \
 Boeing B-17F.\
+")
+
+[unit_heavy_bomber_special]
+name          = _("Modified Heavy Bomber")
+class         = "Air"
+tech_req      = "Heavy Bombers"
+obsolete_by   = "Superprop Bomber" ; not Modified Superprop Bomber as that's NoBuild so can't be upgraded to
+graphic       = "u.lancsp"
+graphic_alt   = "u.bomber"
+;phcode=BD
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 20
+firepower     = 3
+move_rate     = 10
+convert_to    = "Heavy Bomber"
+convert_time  = 0
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "NoBuild"
+helptext      = _("\
+Four-engined strategic bomber, converted to carry a single \
+heavy bomb.  \
+Historical examples include the Avro Lancaster B.1 (Special).\
+")
+
+[unit_tallboy]
+name          = _("Penetrator Bomb")
+class         = "Bomb"
+tech_req      = "Heavy Bombers"
+obsolete_by   = "None"
+graphic       = "u.tallboy"
+graphic_alt   = "u.cruise_missile"
+;phcode=XT
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 10
+defense       = 0
+hitpoints     = 12
+firepower     = 2
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "AntiGround", "CRheavy"
+no_veteran    = 1
+helptext      = _("\
+Heavy free-fall bomb for precision attacks on hardened targets.  \
+Historical examples include the Vickers Tallboy and Grand Slam.\
 ")
 
 [unit_super_bomber]
@@ -4804,6 +4928,8 @@ defense       = 4
 hitpoints     = 30
 firepower     = 3
 move_rate     = 14
+convert_to    = "Modified Superprop Bomber"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
@@ -4816,6 +4942,73 @@ Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
 Historical examples include the Avro Lincoln and \
 Boeing B-29 Superfortress.\
+")
+
+[unit_super_bomber_special]
+name          = _("Modified Superprop Bomber")
+class         = "Air"
+tech_req      = "Bombers 1945"
+obsolete_by   = "Turboprop Bomber"
+graphic       = "u.silverplate"
+graphic_alt   = "u.bomber"
+;phcode=BU
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 180
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 25
+firepower     = 3
+move_rate     = 12
+convert_to    = "Superprop Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "NoBuild"
+helptext      = _("\
+Superprop bomber converted to carry a single large bomb.  \
+Historical examples include the 'Silverplate' \
+Boeing B-29 Superfortress.\
+")
+
+[unit_fat_man]
+name          = _("Atomic Bomb")
+class         = "Bomb"
+tech_req      = "Nuclear Weapons"
+obsolete_by   = "Thermonuclear Bomb"
+graphic       = "u.fatman"
+graphic_alt   = "u.cruise_missile"
+;phcode=X1
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 100
+pop_cost      = 0
+attack        = 99
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRheavy", "Nuclear", "Unique"
+no_veteran    = 1
+helptext      = _("\
+Nuclear fission free-fall bomb.  \
+Historical examples include the Little Boy and Fat Man.\
 ")
 
 [unit_early_jet_bomber]
@@ -4850,6 +5043,38 @@ Historical examples include the Vickers Valiant and \
 Boeing B-47 Stratojet.\
 ")
 
+[unit_yellow_sun]
+name          = _("Thermonuclear Bomb")
+class         = "Bomb"
+tech_req      = "Thermonuclear Weapons"
+obsolete_by   = "None"
+graphic       = "u.yellowsun"
+graphic_alt   = "u.cruise_missile"
+;phcode=XN
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 99
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRheavy", "Nuclear"
+no_veteran    = 1
+helptext      = _("\
+Thermonuclear or boosted-fission free-fall bomb.  \
+Historical examples include the Yellow Sun / Red Snow.\
+")
+
 [unit_jet_bomber]
 name          = _("Jet Bomber")
 class         = "Air"
@@ -4869,6 +5094,8 @@ defense       = 6
 hitpoints     = 32
 firepower     = 3
 move_rate     = 18
+convert_to    = "Jet Bomber (Nuclear)"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
@@ -4880,8 +5107,81 @@ helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
 delivery mechanism for nuclear weapons, though they are \
 also more than capable of conventional bombing.  \
+This variant is equipped for the conventional strike role, \
+but can be converted to a nuke-carrying version.  \
 Historical examples include the Avro Vulcan and \
 Boeing B-52 Stratofortress.\
+")
+
+[unit_jet_bomber_special]
+name          = _("Jet Bomber (Nuclear)")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "Supersonic Bomber"
+graphic       = "u.vulcanwhite"
+graphic_alt   = "u.stealth_bomber"
+;phcode=BN
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 6
+hitpoints     = 32
+firepower     = 3
+move_rate     = 18
+convert_to    = "Jet Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb", "ASM"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Jet", "NoBuild"
+helptext      = _("\
+Transonic heavy bombers were for a time the preferred \
+delivery mechanism for nuclear weapons, though they are \
+also more than capable of conventional bombing.  \
+This variant is equipped for the nuclear mission.  \
+Historical examples include the Avro Vulcan and \
+Boeing B-52 Stratofortress.\
+")
+
+[unit_blue_steel]
+name          = _("Stand-Off Bomb")
+class         = "ASM"
+tech_req      = "Stand-Off Bombs"
+obsolete_by   = "None"
+graphic       = "u.bluesteel"
+graphic_alt   = "u.nuclear"
+;phcode=XS
+sound_move    = "m_nuclear"
+sound_move_alt = "m_generic"
+sound_fight   = "f_nuclear"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 99
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+disembarks    = "Air"
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRheavy", "Nuclear", "Jet"
+no_veteran    = 1
+helptext      = _("\
+Rocket-propelled stand-off thermonuclear bomb.  \
+Historical examples include the Avro Blue Steel.\
 ")
 
 [unit_turbo_bomber]
@@ -4903,6 +5203,8 @@ defense       = 4
 hitpoints     = 30
 firepower     = 3
 move_rate     = 16
+convert_to    = "Turboprop Bomber (Nuclear)"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
@@ -4913,6 +5215,42 @@ flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "H
 helptext      = _("\
 Swept wings and turbo-prop engines allow faster heavy bombers \
 without the complexities of operating advanced turbojets.  \
+Historical examples include the Tupolev Tu-95 'Bear'.\
+")
+
+[unit_turbo_bomber_nuke]
+name          = _("Turboprop Bomber (Nuclear)")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.redbear"
+graphic_alt   = "u.bomber"
+;phcode=BR
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 30
+firepower     = 3
+move_rate     = 16
+convert_to    = "Turboprop Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "NoBuild"
+helptext      = _("\
+Swept wings and turbo-prop engines allow faster heavy bombers \
+without the complexities of operating advanced turbojets.  \
+This variant is equipped for the nuclear mission.  \
 Historical examples include the Tupolev Tu-95 'Bear'.\
 ")
 
@@ -4935,6 +5273,8 @@ defense       = 6
 hitpoints     = 36
 firepower     = 3
 move_rate     = 24
+convert_to    = "Supersonic Bomber (Nuclear)"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
@@ -4945,6 +5285,42 @@ flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "J
 helptext      = _("\
 Mach 2 capable heavy bombers competed with ballistic missiles for \
 the strategic deterrent role.  \
+Historical examples include the Convair B-58 Hustler.\
+")
+
+[unit_supersonic_bomber_nuke]
+name          = _("Supersonic Bomber (Nuclear)")
+class         = "Air"
+tech_req      = "Sixties Bombers"
+obsolete_by   = "None"
+graphic       = "u.hustlred"
+graphic_alt   = "u.stealth_bomber"
+;phcode=BY
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 240
+pop_cost      = 0
+attack        = 0
+defense       = 6
+hitpoints     = 36
+firepower     = 3
+move_rate     = 24
+convert_to    = "Supersonic Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb", "ASM"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Jet", "NoBuild"
+helptext      = _("\
+Mach 2 capable heavy bombers competed with ballistic missiles for \
+the strategic deterrent role.  \
+This variant is equipped for the nuclear mission.  \
 Historical examples include the Convair B-58 Hustler.\
 ")
 

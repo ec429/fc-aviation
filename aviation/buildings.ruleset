@@ -1190,6 +1190,32 @@ A Shinto shrine commemorating those who died in service of\
  of war criminals.\
 ")
 
+[building_manhattan_project]
+name		= _("Manhattan Project")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Nuclear Weapons", "Player"
+    }
+graphic	= "b.manhattan_project"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 600
+upkeep		= 0
+sabotage	= 0
+sound		= "w_manhattan_project"
+sound_alt	= "w_generic"
+helptext	= _("\
+The Manhattan Project will make it possible to build nuclear weapons. \
+ After it is built, anyone with the necessary technological advances\
+ can build nuclear weapons. The Nuclear Weapons advance is required to\
+ build the early Atomic Bomb, which is unique to a nation: each nation\
+ can have only one at a time.  The Stand-Off Bombs advance is required\
+ to build the later Stand-Off Bomb units, which are not limited in number.\
+")
+
 ; **Economic**
 
 [building_lloyds]
