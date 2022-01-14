@@ -96,6 +96,8 @@ There are a lot of different kinds of aircraft, and it's important to know how t
 
 Light, Medium and Heavy Bombers all attack ground units and (apart from Light bombers and the Twenties Medium Bomber) ships.  The larger bombers do progressively more damage, but are more vulnerable to fighters — attacking ends their movement for the turn, giving fighters a chance at them.  Try to 'use up' the enemy's fighters with sweeps before sending in your heavy bombers.
 
+Four-engined heavy bombers require Concrete Runways to repair.  From the 1940s, many heavies can be converted to carry special-purpose bombs; see the [Special Bombs](#special-bombs) section.
+
 ### Dive Bombers
 
 These also attack ground units (and the Dive Bomber can attack ships), but are powerful for their size — dealing damage comparable to medium bombers.  However, they're short-ranged and _very_ vulnerable — even a Biplane Scout has a decent chance to shoot down a Dive Bomber.  If you have air superiority, though, dive-bombing can throw the enemy's ground forces into total disarray.
@@ -167,6 +169,22 @@ A few jet-propelled aircraft do not have this requirement:
 
 There are also alternative units ("superprops" and later "turboprops") which allow some development of capability without the infrastructure requirement.  However, they are generally weaker than the jets (except that in some cases the first-generation jets, while faster than superprops, have slightly lower combat stats).
 
+### Special Bombs
+
+A few heavy bombers can be converted into Modified or Nuclear versions.  These can carry large free-fall bombs and in some cases stand-off bombs / air-to-surface missiles; however, they are not capable of regular attacks (otherwise they could drop their big bomb and then bomb some more, since unloading doesn't end their turn).  All Bomb and ASM units are expended when attacking.
+
+To deploy a free-fall bomb, fly the carrier aircraft adjacent to the target, then select the bomb unit and use the "Do" menu to act against the target tile (usually a city) and select "Precision Strike", "Suicide Attack" or "Nuke City".  (Nuclear bombs can also "Do" against their own tile to "Explode Nuclear in Place".)
+
+The Penetrator Bomb can be deployed against units, but does less damage than an unconverted Heavy Bomber; its real use is the Precision Strike, which destroys a selected building in the target city.  (It's implemented with the Sabotage action, rather than Surgical Strike, because the latter doesn't consume the unit; this could probably be fixed with judicious application of Lua.)
+
+The Atomic Bomb, Thermonuclear Bomb and Stand-Off Bomb produce extremely devastating nuclear explosions that kill all units within 1 tile of ground zero.  (They can only be built if the Manhattan Project great wonder has been completed.)  Atomic Bomb is a unique unit, and can only be detonated while carried in an aircraft (targeting either its own tile, or an adjacent city), thus destroying the carrier plane.  Thermonuclear Bomb also destroys its carrier, but is no longer unique — you can build a nuclear stockpile.  Stand-Off Bomb has a range of 4 tiles, enabling survival of the launch plane, but can only be carried by certain aircraft (the nuclear conversions of the Jet Bomber and Supersonic Bomber).
+
+Note that deploying nuclear weapons may have diplomatic consequences, particularly from other human players.
+
+### Missiles
+
+The V2 Artillery Rocket is a long-range bombardment missile, striking up to 12 tiles from home but not doing a huge amount of damage.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking.
+
 ## Known cheesy tricks
 
 Seabees can build improvements on sea tiles while transported.  This is needed in order to allow building Buoys at all — from boats like the Landing-craft — but it also means that they can build them while on a plane.  So, a Twenties Flying Boat with a Seabees on board has essentially unlimited range over water: when fuel gets low, just drop a Buoy (it only takes one turn) then spend a turn moored at the Buoy to refuel.
@@ -174,3 +192,5 @@ Seabees can build improvements on sea tiles while transported.  This is needed i
 So what about using this trick to land assault troops on an enemy island?  You can't build an Airbase for them to disembark from.  But assault troops can _also_ disembark from a seaplane moored at a Buoy, so if you drop one on the coast, you can use flying-boats to land an invasion force.  However, the assault units can't attack (or bombard) from offshore, so they will need an empty land tile to move onto.  Still, it could be a useful way to get extra value out of strong seaplane forces.
 
 Because of how bombers work (OneAttack), they are highly susceptible to double-move shenanigans across TC (in and out before fighters can get the shot at them they're supposed to).  Use of unitwaittime in game settings is recommended in timed-turn games.  (This is not applicable to attackers, which under normal circumstances _never_ come under fighter attack while outside their bases.)
+
+The Penetrator Bomb can be used to make conventional bombing attacks without ending the bomber's turn, potentially allowing it to run away out of reach of fighters.  But since it costs 40 shields to build, it's not _that_ different from missiles like the V2 Artillery Rocket.  Bombers carrying the nuclear Stand-Off Bomb are even more likely to get away (that's kind of the point), but that costs 120 shields (though for a nuke that's still good value).
