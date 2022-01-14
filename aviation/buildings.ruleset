@@ -689,6 +689,9 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Required to repair four-engined heavy bombers and strategic\
  transports in the city.\
+"), _("\
+Also, other units will repair 1/2 (rather than 1/3) of their\
+ hit points per turn.\
 ")
 
 [building_runway]
@@ -713,6 +716,9 @@ helptext	= _("\
 Required to build or repair (most) jet-powered military aircraft\
  in the city.  The exceptions are light-fighters, VTOLs,\
  and flying-boats.\
+"), _("\
+Also, other units will repair 1/2 (rather than 1/3) of their\
+ hit points per turn.\
 ")
 
 ; **Tile-working**

@@ -147,6 +147,32 @@ reqs    =
       "UnitFlag", "Jet", "Local", FALSE
     }
 
+; Concrete Runway raises this to 1/2 (33 + 17 = 50) for non-heavies
+[effect_hp_regen_min_city_concrete]
+type    = "HP_Regen_Min"
+value   = 17
+reqs    =
+    { "type", "name", "range", "present"
+      "CityTile", "Center", "Local", TRUE
+      "Building", "Concrete Runway", "City", TRUE
+      "UnitClassFlag", "Flying", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", FALSE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+; Air Base raises this to 1/2 (33 + 17 = 50) for non-jet heavies
+[effect_hp_regen_min_city_airbase]
+type    = "HP_Regen_Min"
+value   = 17
+reqs    =
+    { "type", "name", "range", "present"
+      "CityTile", "Center", "Local", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClassFlag", "Flying", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
 [effect_hp_regen_min_city_heavy]
 type    = "HP_Regen_Min"
 value   = 33
