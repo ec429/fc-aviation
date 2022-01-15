@@ -457,7 +457,7 @@ actor_reqs    =
 ;    }
 ;target_reqs   =
 ;    { "type",          "name",   "range"
-;      "TerrainClass",  "Land",   "City"
+;      "CityTile",      "Center", "Local"
 ;      "UnitClass",     "Sea",    "Local"
 ;    }
 ;
@@ -476,6 +476,31 @@ actor_reqs    =
 ;target_reqs   =
 ;    { "type",          "name",   "range"
 ;      "UnitClass",     "Sea",    "Local"
+;    }
+;
+;; AntiSea units other than torpers can face scrambling fighters
+;; when they attack a carrier transporting them
+;[actionenabler_attack_carrier_scramble]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",          "name",         "range", "present"
+;      "UnitFlag",      "NonMil",       "Local", FALSE
+;      "UnitFlag",      "Bombarder",    "Local", FALSE
+;      "UnitClassFlag", "Missile",      "Local", FALSE
+;      "UnitClassFlag", "Flying",       "Local", TRUE
+;      "MinMoveFrags",  "1",            "Local", TRUE
+;      "UnitState",     "OnNativeTile", "Local", TRUE
+;      "UnitState",     "Transported",  "Local", FALSE
+;      "DiplRel",       "War",          "Local", TRUE
+;      "UnitFlag",      "AntiSea",      "Local", TRUE
+;      "UnitFlag",      "CRtb",         "Local", FALSE
+;    }
+;target_reqs   =
+;    { "type",          "name",         "range", "present"
+;      "CityTile",      "Center",       "Local", FALSE
+;      "UnitState",     "Transported",  "Local", TRUE
+;      "UnitClassFlag", "Flying",       "Local", TRUE
+;      "UnitFlag",      "AntiAir",      "Local", TRUE
 ;    }
 ;
 ;[actionenabler_attack_air]

@@ -208,6 +208,16 @@ flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Carrier-borne air units can be transported by, fly\
  missions from, and refuel on aircraft carriers.")
 
+[unitclass_cap]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Naval Fighter")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
+helptext = _("Carrier-borne interceptor units can be transported by, fly\
+ missions from, and refuel on aircraft carriers.")
+
 [unitclass_missile]
 ; /* TRANS: Unit class: used adjectivally */
 name          = _("?unitclass:Missile")
@@ -257,6 +267,17 @@ hp_loss_pct   = 0
 hut_behavior  = "Frighten"
 flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Floatplanes and flying-boats can be transported by, fly\
+ missions from, and refuel at Seaplane Tenders and\
+ Light Aircraft Carriers.")
+
+[unitclass_floatfight]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Seaplane Fighter")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
+helptext = _("Floatplane interceptors can be transported by, fly\
  missions from, and refuel at Seaplane Tenders and\
  Light Aircraft Carriers.")
 
@@ -1365,6 +1386,8 @@ firepower     = 1
 move_rate     = 5
 vision_radius_sq = 4
 transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
 fuel          = 3
 uk_happy      = 1
 uk_base       = 1
@@ -2836,7 +2859,7 @@ Historical examples include the Gloster Javelin.\
 
 [unit_shipborne_fighter]
 name          = _("Shipboard Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Aircraft Carrier"
 obsolete_by   = "Twenties Naval Fighter"
 graphic       = "u.shipcamel"
@@ -2871,7 +2894,7 @@ Historical examples include the Sopwith Ship's Camel.\
 
 [unit_20s_naval_fighter]
 name          = _("Twenties Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Twenties Carrier Aviation"
 obsolete_by   = "Thirties Naval Fighter"
 graphic       = "u.flycatcher"
@@ -2906,7 +2929,7 @@ Curtiss F6C Hawk.\
 
 [unit_30s_naval_fighter]
 name          = _("Thirties Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Thirties Carrier Aviation"
 obsolete_by   = "Monoplane Naval Fighter"
 graphic       = "u.fifi"
@@ -2941,7 +2964,7 @@ Grumman F2F.\
 
 [unit_naval_monofighter]
 name          = _("Monoplane Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1935"
 obsolete_by   = "Naval Dogfighter"
 graphic       = "u.wildcat"
@@ -3013,7 +3036,7 @@ Historical examples include the Yokosuka D4Y4 'Judy'.\
 
 [unit_naval_striker]
 name          = _("Naval Strike Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1940"
 obsolete_by   = "Naval Attacker"
 graphic       = "u.firefly"
@@ -3048,7 +3071,7 @@ Grumman F6F Hellcat.\
 
 [unit_naval_dog]
 name          = _("Naval Dogfighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1940"
 obsolete_by   = "Naval Cannon Fighter"
 graphic       = "u.seafire"
@@ -3083,7 +3106,7 @@ Vought F4U Corsair.\
 
 [unit_naval_cannon]
 name          = _("Naval Cannon Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1942"
 obsolete_by   = "Naval Superprop"
 graphic       = "u.bearcat"
@@ -3118,7 +3141,7 @@ Grumman F8F Bearcat.\
 
 [unit_naval_superprop]
 name          = _("Naval Superprop")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1945"
 obsolete_by   = "Swept-wing Naval Fighter"
 graphic       = "u.seafury"
@@ -3254,7 +3277,7 @@ Historical examples include the Bristol Bloodhound and\
 
 [unit_naval1jet]
 name          = _("Early Naval Jet")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier-borne Jets"
 obsolete_by   = "Swept-wing Naval Fighter"
 graphic       = "u.panther"
@@ -3323,7 +3346,7 @@ Historical examples include the McDonnell F2H-2 Banshee.\
 
 [unit_naval_swept]
 name          = _("Swept-wing Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1950"
 obsolete_by   = "Supersonic Naval Fighter"
 graphic       = "u.skyray"
@@ -3394,7 +3417,7 @@ Douglas A-4 Skyhawk, and Blackburn Buccaneer.\
 
 [unit_naval_super]
 name          = _("Supersonic Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1957"
 obsolete_by   = "None"
 graphic       = "u.f8crusader"
@@ -3428,7 +3451,7 @@ Historical examples include the Vought F8U Crusader.\
 
 [unit_harrier]
 name          = _("VTOL Attack Jet")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "VTOL"
 obsolete_by   = "None"
 graphic       = "u.harrier"
@@ -3567,7 +3590,7 @@ Historical examples include the Short Type 81.\
 
 [unit_floatfight]
 name          = _("Floatplane Fighter")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Effective Seaplanes"
 obsolete_by   = "Fighter Seaplane"
 graphic       = "u.baby"
@@ -3639,7 +3662,7 @@ Historical examples include the Short Type 184.\
 
 [unit_seafight]
 name          = _("Fighter Seaplane")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Seaplanes 1917"
 obsolete_by   = "Twenties Floatplane"
 graphic       = "u.albatrosw"
@@ -3709,7 +3732,7 @@ Historical examples include the Short Type 320.\
 
 [unit_seafight_20s]
 name          = _("Twenties Floatplane")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Twenties Seaplanes"
 obsolete_by   = "Thirties Floatplane"
 graphic       = "u.floatcatcher"
@@ -3779,7 +3802,7 @@ Historical examples include the Blackburn Velos.\
 
 [unit_seafight_30s]
 name          = _("Thirties Floatplane")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Thirties Seaplanes"
 obsolete_by   = "Monoplane Float Fighter"
 graphic       = "u.he51w"
@@ -3849,7 +3872,7 @@ Historical examples include the CANT Z.506 Airone (Heron).\
 
 [unit_monofloat]
 name          = _("Monoplane Float Fighter")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Seaplanes 1940"
 obsolete_by   = "None"
 graphic       = "u.rufe"
@@ -4062,7 +4085,7 @@ and Blohm+Voss BV 238.\
 
 [unit_jet_boat]
 name          = _("Jet Flying Boat")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Jet Flying Boat"
 obsolete_by   = "None"
 graphic       = "u.sra1"
@@ -5999,7 +6022,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Seaplane"
+cargo         = "Seaplane", "Seaplane Fighter"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = "FerryStartUnit"
@@ -6143,7 +6166,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""
@@ -6177,7 +6200,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""
@@ -6211,7 +6234,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""
@@ -6244,7 +6267,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""

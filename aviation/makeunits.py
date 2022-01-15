@@ -3,7 +3,7 @@ import sys
 import re
 
 getvs = re.compile(r'_?\(?"([^"]+)"\)?')
-air_classes = ['"Air"', '"Carrier-borne"', '"Missile"', '"Seaplane"', '"Glider"', '"Helicopter"']
+air_classes = ['"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"']
 
 class Unit(object):
     def __init__(self, key):
@@ -46,6 +46,8 @@ class Unit(object):
             targets.add('"Sea"')
             if self['class'] in air_classes:
                 self.flags += ', "AirAttacker"'
+                targets.add('"Naval Fighter"')
+                targets.add('"Seaplane Fighter"')
         if '"AntiAir"' in self.flags:
             targets |= set(air_classes)
         targets.discard('')

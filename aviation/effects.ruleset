@@ -1030,29 +1030,7 @@ value	= 1
 reqs	=
     { "type", "name", "range", "present"
       "Building", "Flying School", "City", TRUE
-      "UnitClass", "Air", "Local", TRUE
-      "UnitFlag", "NonMil", "Local", FALSE
-      "UnitFlag", "NoVeteran", "Local", FALSE
-    }
-
-[effect_school_1]
-type    = "Veteran_Build"
-value	= 1
-reqs	=
-    { "type", "name", "range", "present"
-      "Building", "Flying School", "City", TRUE
-      "UnitClass", "Seaplane", "Local", TRUE
-      "UnitFlag", "NonMil", "Local", FALSE
-      "UnitFlag", "NoVeteran", "Local", FALSE
-    }
-
-[effect_school_2]
-type    = "Veteran_Build"
-value	= 1
-reqs	=
-    { "type", "name", "range", "present"
-      "Building", "Flying School", "City", TRUE
-      "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitClassFlag", "Flying", "Local", TRUE
       "UnitFlag", "NonMil", "Local", FALSE
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
@@ -1125,6 +1103,40 @@ reqs	=
       "UnitFlag", "Jet", "Local", TRUE
     }
 
+[effect_repair_2i]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "UnitClass", "Naval Fighter", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", FALSE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_repair_2ia]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Concrete Runway", "City", TRUE
+      "UnitClass", "Naval Fighter", "Local", TRUE
+      "UnitFlag", "Heavy", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_repair_2ib]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Repair Sheds", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Naval Fighter", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
+    }
+
 [effect_repair_3]
 type    = "HP_Regen"
 value	= 100
@@ -1194,6 +1206,30 @@ reqs	=
       "Building", "Aircraft Slipways", "City", TRUE
       "Building", "Air Base", "City", TRUE
       "UnitClass", "Seaplane", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
+    }
+
+[effect_slipway_1]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Aircraft Slipways", "City", TRUE
+      "UnitClass", "Seaplane Fighter", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+; No case for Seaplane+Heavy needing a Concrete Runway, because
+; seaplanes don't use runways in the first place.
+
+[effect_slipway_1b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Aircraft Slipways", "City", TRUE
+      "Building", "Air Base", "City", TRUE
+      "UnitClass", "Seaplane Fighter", "Local", TRUE
       "UnitFlag", "Jet", "Local", TRUE
     }
 
@@ -1326,6 +1362,26 @@ reqs	=
       "UnitClass", "Carrier-borne", "Local", TRUE
       "Tech", "Proximity Fuse", "Player", TRUE
     }
+[effect_flak_battery_2i]
+type    = "Defend_Bonus"
+value	= 20
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Naval Fighter", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", FALSE
+    }
+[effect_flak_battery_2ia]
+type    = "Defend_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Naval Fighter", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", TRUE
+    }
 [effect_flak_battery_3]
 type    = "Defend_Bonus"
 value	= 20
@@ -1346,6 +1402,26 @@ reqs	=
       "UnitClass", "Seaplane", "Local", TRUE
       "Tech", "Proximity Fuse", "Player", TRUE
     }
+[effect_flak_battery_3i]
+type    = "Defend_Bonus"
+value	= 20
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Seaplane Fighter", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", FALSE
+    }
+[effect_flak_battery_3ia]
+type    = "Defend_Bonus"
+value	= 50
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Flak Battery", "City", TRUE
+      "Building", "SAM Battery", "City", FALSE
+      "UnitClass", "Seaplane Fighter", "Local", TRUE
+      "Tech", "Proximity Fuse", "Player", TRUE
+    }
 
 [effect_sam_battery]
 type    = "Defend_Bonus"
@@ -1363,6 +1439,14 @@ reqs	=
       "Building", "SAM Battery", "City"
       "UnitClass", "Carrier-borne", "Local"
     }
+[effect_sam_battery_1a]
+type    = "Defend_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "SAM Battery", "City"
+      "UnitClass", "Naval Fighter", "Local"
+    }
 [effect_sam_battery_2]
 type    = "Defend_Bonus"
 value	= 100
@@ -1370,6 +1454,14 @@ reqs	=
     { "type", "name", "range"
       "Building", "SAM Battery", "City"
       "UnitClass", "Seaplane", "Local"
+    }
+[effect_sam_battery_2a]
+type    = "Defend_Bonus"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "SAM Battery", "City"
+      "UnitClass", "Seaplane Fighter", "Local"
     }
 
 ; Extended vision range.  Base is 5, add 13 = 18; (4,1) or (3,3)
@@ -1441,6 +1533,17 @@ reqs    =
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_nas_college_seaplane_fighter]
+type    = "Veteran_Combat"
+value   = 50
+reqs    =
+    { "type", "name", "range", "present"
+      "Building", "Naval College", "Player", TRUE
+      "UnitClass", "Seaplane Fighter", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
 [effect_nas_college_carrierborne]
 type    = "Veteran_Combat"
 value   = 50
@@ -1448,6 +1551,17 @@ reqs    =
     { "type", "name", "range", "present"
       "Building", "Naval College", "Player", TRUE
       "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_nas_college_carrier_fighter]
+type    = "Veteran_Combat"
+value   = 50
+reqs    =
+    { "type", "name", "range", "present"
+      "Building", "Naval College", "Player", TRUE
+      "UnitClass", "Naval Fighter", "Local", TRUE
       "UnitFlag", "NonMil", "Local", FALSE
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
@@ -1680,6 +1794,20 @@ reqs    =
       "MinSize", "1", "City", FALSE
     }
 
+[effect_airborne_radar_2a]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range", "present"
+      "Tech", "Airborne Radar", "Player", TRUE
+      "UnitClass", "Seaplane Fighter", "Local", TRUE
+      "UnitFlag", "AntiAir", "Local", TRUE
+; Make sure PJ doesn't get both beam-bombing and airad bonuses.
+; If you're strafing fighters as they scramble to fight you, then you
+; don't get a bonus from having radar.
+      "MinSize", "1", "City", FALSE
+    }
+
 [effect_airborne_radar_3]
 type    = "Attack_Bonus"
 value   = 20
@@ -1687,6 +1815,20 @@ reqs    =
     { "type", "name", "range", "present"
       "Tech", "Airborne Radar", "Player", TRUE
       "UnitClass", "Carrier-borne", "Local", TRUE
+      "UnitFlag", "AntiAir", "Local", TRUE
+; Make sure NS, AV etc don't get both beam-bombing and airad bonuses.
+; If you're strafing fighters as they scramble to fight you, then you
+; don't get a bonus from having radar.
+      "MinSize", "1", "City", FALSE
+    }
+
+[effect_airborne_radar_3a]
+type    = "Attack_Bonus"
+value   = 20
+reqs    =
+    { "type", "name", "range", "present"
+      "Tech", "Airborne Radar", "Player", TRUE
+      "UnitClass", "Naval Fighter", "Local", TRUE
       "UnitFlag", "AntiAir", "Local", TRUE
 ; Make sure NS, AV etc don't get both beam-bombing and airad bonuses.
 ; If you're strafing fighters as they scramble to fight you, then you
