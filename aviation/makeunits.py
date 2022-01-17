@@ -66,6 +66,7 @@ class Unit(object):
             bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 2',
                     'SF': '"LongTorp", "DefenseMultiplier", 1',
                     'BOMB': '"BadAirDefender", "DefenseDivider", 2',
+                    'TROOP': '"BadDefender", "DefenseDivider", 3',
                     }
             bvals = set(bmap[bk] for bk in bkeys if bk != '')
             if bvals:

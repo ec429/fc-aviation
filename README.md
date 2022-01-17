@@ -29,7 +29,8 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
   - By default, `unreachableprotects` is _disabled_, because otherwise mixed stacks would be invincible until the invention of strike fighters.
   - Units in cities, regardless of class, can only be attacked by AntiGround units.
-  - Most aircraft without anti-air capability (bombers etc.) will have ⅓ defence when attacked by bombers (which typically only happens when they're in cities, bases or transports).  Attackers (including naval attackers) are exempted from this penalty.
+  - Most aircraft without anti-air capability (bombers etc.) will have ⅓ defence when attacked by bombers (which typically only happens when they're in cities, bases or transports).  Attackers (including naval attackers) are exempted from this penalty (but their defence is quite weak to begin with).
+  - Most aircraft will have ¼ defence when attacked by ground troops (excluding artillery).  This typically only happens when they're in cities or bases.  Attackers (including naval attackers), helicopters, light bombers, dive bombers and flying-boats are exempted from this penalty.
 * Aircraft are split into six unit classes:
   - Air.  Ordinary landplanes refuel-at-cities-and-airbases, but can't use aircraft carriers.
   - Carrier-borne.  Can operate from aircraft carriers (but not the Seaplane Tender).
@@ -100,15 +101,21 @@ There are a lot of different kinds of aircraft, and it's important to know how t
 
 Light, Medium and Heavy Bombers all attack ground units and (apart from Light bombers and the Twenties Medium Bomber) ships.  The larger bombers do progressively more damage, but are more vulnerable to fighters — attacking ends their movement for the turn, giving fighters a chance at them.  Try to 'use up' the enemy's fighters with sweeps before sending in your heavy bombers.
 
+Light bombers do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
+
 Four-engined heavy bombers require Concrete Runways to repair.  From the 1940s, many heavies can be converted to carry special-purpose bombs; see the [Special Bombs](#special-bombs) section.
 
 ### Dive Bombers
 
 These also attack ground units (and the Dive Bomber can attack ships), but are powerful for their size — dealing damage comparable to medium bombers.  However, they're short-ranged and _very_ vulnerable — even a Biplane Scout has a decent chance to shoot down a Dive Bomber.  If you have air superiority, though, dive-bombing can throw the enemy's ground forces into total disarray.
 
+Like light bombers, dive-bombers do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
+
 ### Attackers and Strike Fighters
 
 These attack ground units, but attacking does _not_ end their turn (they only have 1 fuel).  They can take out assault units in the field (especially if weakened by bombing), but are unlikely to do much damage to defensive Troops or units fortified in cities.  Some later models gain the ability to attack sea units, and in the 1960s they develop into multi-rôle combat aircraft that can also handle air-to-air fighting.
+
+Like light bombers, attackers do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
 ### Torpedo Bombers
 
@@ -119,6 +126,8 @@ After TBs become obsolete, the Naval Attack Jet can take on the same role (it ca
 ### Flying Boats
 
 The Early Flying Boat operates like a slightly longer-ranged light bomber, but the Patrol Boat and the Twenties, Thirties and Heavy Flying Boat can all attack ships.  Combined with their long endurance, this makes them great sub-hunters.  And (like all seaplanes) they can use Buoys and Seaplane Tenders as refuelling bases.
+
+They do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
 ### Lighter Than Air
 
@@ -139,6 +148,8 @@ When you need to land troops somewhere, and you don't have any airbases there, y
 ### Helicopters
 
 The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away.
+
+Like light bombers, helicopters do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
 ### Fighters
 
