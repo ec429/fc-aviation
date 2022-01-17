@@ -158,7 +158,7 @@ A Fascist nation that has build the great wonder Yasukuni Shrine can construct K
 
 ### Jets
 
-Towards the end of the tech tree, many aircraft have the 'Jet' flag, which means they can only be built by a city with the 'Air Base' improvement.  This represents the complex ground-support infrastructure needed to operate such technologically advanced aircraft.  Consequently, on entering the jet age you may need to divert a considerable amount of production into building these Air Bases, so that you can get the benefit of your newly-developed aircraft.
+Towards the end of the tech tree, many aircraft have the 'Jet' flag, which means they can only be built by (or homed to) a city with the 'Air Base' improvement.  This represents the complex ground-support infrastructure needed to operate such technologically advanced aircraft.  Consequently, on entering the jet age you may need to divert a considerable amount of production into building these Air Bases, so that you can get the benefit of your newly-developed aircraft.
 
 A few jet-propelled aircraft do not have this requirement:
 

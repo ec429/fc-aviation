@@ -841,7 +841,22 @@ actor_reqs    =
     { "type",      "name",        "range", "present"
       "UnitFlag",  "NoHome",      "Local", FALSE
       "UnitState", "HasHomeCity", "Local", TRUE
-      "DiplRel",   "Foreign",  "Local", FALSE
+      "DiplRel",   "Foreign",     "Local", FALSE
+      "UnitFlag",  "Jet",         "Local", FALSE
+    }
+
+[actionenabler_change_home_city_jet]
+action = "Home City"
+actor_reqs    =
+    { "type",      "name",        "range", "present"
+      "UnitFlag",  "NoHome",      "Local", FALSE
+      "UnitState", "HasHomeCity", "Local", TRUE
+      "DiplRel",   "Foreign",     "Local", FALSE
+      "UnitFlag",  "Jet",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",     "name",     "range"
+      "Building", "Air Base", "City"
     }
 
 [actionenabler_upgrade_unit]
