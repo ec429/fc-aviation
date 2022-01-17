@@ -334,6 +334,19 @@ helptext = _("Taking the structural advantages of the biplane one\
  step further, triplane fighters proved highly agile, although\
  involving compromises in other areas.  Early 1917.")
 
+[advance_escape_parachute]
+name     = _("Escape Parachute")
+req1     = "Early Blimp"
+req2     = "None"
+cost     = 180
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+; /* xgettext:no-c-format */
+helptext = _("First used by the crews of kite balloons, parachutes\
+ allowed aircrews to bale out of stricken craft.  Circa 1917."),
+_("By reducing the loss rate of trained crewmembers, this tech\
+ increases the chance for air units to gain veteran levels by 10%.")
+
 [advance_engines_1917]
 name     = _("Engines 1917")
 req1     = "Engines 1916"
@@ -517,7 +530,7 @@ _("Also, airliners (which are technologically similar) are\
 [advance_parachute_dropping]
 name     = _("Parachute Dropping")
 req1     = "Twenties Airlift"
-req2     = "None"
+req2     = "Escape Parachute"
 cost     = 640
 graphic     = "a.combined_arms"
 graphic_alt = "-"
@@ -1087,6 +1100,18 @@ helptext = _("While not without their downsides, the new jet engines\
  gave unmatched speed to the first fighters designed around them. \
  Designers experimented with different concepts to make the best \
  use of the new powerplant's capabilities.")
+
+[advance_ejector_seat]
+name     = _("Ejector Seat")
+req1     = "Jet Fighter Prototypes"
+req2     = "Parachute Dropping"
+cost     = 750
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Baling out of the new high-speed jets required a\
+ rocket-assisted escape system."),
+_("Extends the veterancy bonus from Escape Parachute to cover\
+ Jet aircraft, which do not otherwise get it.")
 
 [advance_carrier_borne_jets]
 name     = _("Carrier-borne Jets")

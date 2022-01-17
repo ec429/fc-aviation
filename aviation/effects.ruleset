@@ -1588,6 +1588,26 @@ reqs    =
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_bale_out]
+type    = "Veteran_Combat"
+value   = 10
+reqs    =
+    { "type", "name", "range", "present"
+      "Tech", "Escape Parachute", "Player", TRUE
+      "UnitClassFlag", "Flying", "Local", TRUE
+      "UnitFlag", "Jet", "Local", FALSE
+    }
+
+[effect_eject]
+type    = "Veteran_Combat"
+value   = 10
+reqs    =
+    { "type", "name", "range", "present"
+      "Tech", "Ejector Seat", "Player", TRUE
+      "UnitClassFlag", "Flying", "Local", TRUE
+      "UnitFlag", "Jet", "Local", TRUE
+    }
+
 [effect_shrine]
 type    = "Make_Content_Mil"
 value	= 1
