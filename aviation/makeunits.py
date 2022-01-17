@@ -50,6 +50,8 @@ class Unit(object):
                 targets.add('"Seaplane Fighter"')
         if '"AntiAir"' in self.flags:
             targets |= set(air_classes)
+        if '"CRtb"' in self.flags and int(self['firepower'].split()[0]) > 1:
+            self.flags += ', "LongTorp"'
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))

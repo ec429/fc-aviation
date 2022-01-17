@@ -43,6 +43,11 @@ flags =
     _("CRheavy")
     _("DiveBomber")
     _("AirAttacker"), _("Bad at attacking CAM.")
+; Torpedo bombers with FP=2 should only have FP=1 against scrambling naval/
+; floatplane fighters.  However, there's no way to get that with the game
+; engine as it stands, so instead those fighters get double defence against
+; units with this flag.
+    _("LongTorp"), _("Bad at attacking naval fighters.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
 ; use targets/Unreachable and so these are just documentation.  Hopefully in
@@ -2884,6 +2889,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -2919,6 +2928,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -2954,6 +2967,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -2989,6 +3006,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3061,6 +3082,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir", "AntiGround"
 roles         = ""
 helptext      = _("\
@@ -3096,6 +3121,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3131,6 +3160,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3166,6 +3199,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir", "NoUpgrade"
 roles         = ""
 helptext      = _("\
@@ -3302,6 +3339,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
@@ -3371,6 +3412,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
@@ -3442,6 +3487,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
@@ -3476,6 +3525,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3615,6 +3668,10 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3687,6 +3744,10 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3757,6 +3818,10 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3827,6 +3892,10 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3897,6 +3966,10 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -4110,6 +4183,10 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       =
+   { "flag", "type", "value"
+     "LongTorp", "DefenseMultiplier", 1
+   }
 flags         = "CRattack", "AntiGround", "AntiAir"
 roles         = ""
 helptext      = _("\
