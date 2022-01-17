@@ -43,6 +43,7 @@ flags =
     _("CRheavy")
     _("DiveBomber")
     _("AirAttacker"), _("Bad at attacking CAM.")
+    _("BadAirDefender"), _("Bad at defending against bombers.")
 ; Torpedo bombers with FP=2 should only have FP=1 against scrambling naval/
 ; floatplane fighters.  However, there's no way to get that with the game
 ; engine as it stands, so instead those fighters get double defence against
@@ -1044,6 +1045,7 @@ fuel          = 6
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade"
 cargo         = "Assault"
 roles         = ""
@@ -1331,6 +1333,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 With increasing engine power, recon aircraft begin to be able \
@@ -1363,6 +1366,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
@@ -1397,6 +1401,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
@@ -1433,6 +1438,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
@@ -1468,6 +1474,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 Built along similar lines to the Early Monoplane Fighter, \
@@ -1503,6 +1510,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
 helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
@@ -1541,6 +1549,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 High performance twin-engined bomber, based on the same \
@@ -1576,7 +1585,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "NonMil", "HasNoZOC", "Jet"
+flags         = "Recon", "NonMil", "HasNoZOC", "Jet", "BadAirDefender"
 roles         = "Explorer"
 helptext      = _("\
 High-altitude jet for reconnaissance.  Can overfly \
@@ -2889,10 +2898,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -2928,10 +2934,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -2967,10 +2970,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3006,10 +3006,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3082,10 +3079,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir", "AntiGround"
 roles         = ""
 helptext      = _("\
@@ -3121,10 +3115,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3160,10 +3151,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3199,10 +3187,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir", "NoUpgrade"
 roles         = ""
 helptext      = _("\
@@ -3339,10 +3324,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
@@ -3412,10 +3394,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
@@ -3487,10 +3466,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
@@ -3525,10 +3501,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3633,6 +3606,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
@@ -3668,10 +3642,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3744,10 +3715,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3818,10 +3786,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRscout", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3892,10 +3857,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3966,10 +3928,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRfighter", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -4004,6 +3963,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRlight", "AntiGround"
 roles         = ""
 helptext      = _("\
@@ -4038,6 +3998,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
@@ -4073,6 +4034,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -4110,6 +4072,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -4146,6 +4109,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -4183,10 +4147,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "LongTorp", "DefenseMultiplier", 1
-   }
+bonuses       = SF
 flags         = "CRattack", "AntiGround", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -4393,6 +4354,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
@@ -4428,6 +4390,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
@@ -4463,6 +4426,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "DiveBomber", "NoUpgrade"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
@@ -4498,6 +4462,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRmedium", "AntiGround"
 helptext      = _("\
 A new category opened up between the light and heavy bombers, \
@@ -4532,6 +4497,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 Monoplane medium bombers using new construction techniques \
@@ -4566,6 +4532,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 helptext      = _("\
 The best propellor-driven medium bombers are rugged and \
@@ -4599,6 +4566,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
@@ -4631,6 +4599,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
@@ -4664,6 +4633,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Supersonic interdictor-strike bomber to attack high-value targets.  \
@@ -4696,6 +4666,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
 helptext      = _("\
 The first aircraft designed for long-range bombing were \
@@ -4729,6 +4700,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
 helptext      = _("\
 Large triplane bombers carried a heavy payload but \
@@ -4761,6 +4733,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
 helptext      = _("\
 More powerful engines allowed heavier biplane bombers — \
@@ -4795,6 +4768,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Applying post-war engineering to the basic biplane bomber \
@@ -4830,6 +4804,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 Metal-framed heavy bombers were faster and stronger.  \
@@ -4865,6 +4840,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
 helptext      = _("\
 In the run-up to the Second Great War, twin-engined \
@@ -4899,6 +4875,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Pre-war four-engined heavy.  Increased payload and speed.  \
@@ -4934,6 +4911,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Four-engined strategic bomber.  Being optimised for the \
@@ -5002,6 +4980,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "AntiGround", "CRheavy"
 no_veteran    = 1
 helptext      = _("\
@@ -5036,6 +5015,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
@@ -5136,6 +5116,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
@@ -5202,6 +5183,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
@@ -5311,6 +5293,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy"
 helptext      = _("\
 Swept wings and turbo-prop engines allow faster heavy bombers \
@@ -5381,6 +5364,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet"
 helptext      = _("\
 Mach 2 capable heavy bombers competed with ballistic missiles for \
@@ -6057,10 +6041,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "AirAttacker", "DefenseMultiplier", 2
-   }
+bonuses       = CAM
 flags         = "Merchant", "NonMil", "HasNoZOC"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\

@@ -29,13 +29,17 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
   - By default, `unreachableprotects` is _disabled_, because otherwise mixed stacks would be invincible until the invention of strike fighters.
   - Units in cities, regardless of class, can only be attacked by AntiGround units.
+  - Most aircraft without anti-air capability (bombers etc.) will have ⅓ defence when attacked by bombers (which typically only happens when they're in cities, bases or transports).  Attackers (including naval attackers) are exempted from this penalty.
 * Aircraft are split into six unit classes:
   - Air.  Ordinary landplanes refuel-at-cities-and-airbases, but can't use aircraft carriers.
   - Carrier-borne.  Can operate from aircraft carriers (but not the Seaplane Tender).
+    + Some are split into a separate 'Naval Fighter' class for technical reasons (this allows them to scramble against bombers that can't normally target aircraft on deck).
   - Helicopter.  Can operate from aircraft carriers and the Helicopter Assault Carrier.  Can load and unload units in the field (without an airbase).
   - Seaplane.  Floatplanes and flying-boats can operate from the Seaplane Tender (also the Light Aircraft Carrier).
+    + Some are split into a separate 'Seaplane Fighter' class for technical reasons (this allows them to scramble against bombers that can't normally target aircraft on deck).
   - Glider.  See airlanding-assault rules above.  Note that Gliders cannot land in Mountains, Forests or Jungles.
   - Missile.  Like Carrier-borne, except that the unit is destroyed after attacking.
+    + There is also a related 'Bomb' class which can only attack while carried by an aircraft; see the [Special Bombs](#special-bombs) section for details.
 * Instead of providing vision, Buoys act as airbases for Seaplanes, allowing them to refuel on long overwater missions (but don't prevent stack death).  They can only be built on coastlines (cardinally adjacent to land).
 * Sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
@@ -108,7 +112,7 @@ These attack ground units, but attacking does _not_ end their turn (they only ha
 
 ### Torpedo Bombers
 
-These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  Most have a FirePower of 2 to go with their nine Combat Rounds, giving them almost as many potential hits as a heavy bomber.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence).
+These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  Most have a FirePower of 2 to go with their nine Combat Rounds, giving them almost as many potential hits as a heavy bomber.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence); scrambling fighters get double defence against them (this can only happen for carrier-based or seaplane fighters).
 
 After TBs become obsolete, the Naval Attack Jet can take on the same role (it can also operate as an Attacker).
 

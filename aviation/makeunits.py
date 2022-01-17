@@ -11,6 +11,7 @@ class Unit(object):
         self.tech = None
         self.flags = None
         self.ph = None
+        self.bonus = None
         self.rest = dict()
     def __getitem__(self, key):
         return self.rest[key]
@@ -50,11 +51,26 @@ class Unit(object):
                 targets.add('"Seaplane Fighter"')
         if '"AntiAir"' in self.flags:
             targets |= set(air_classes)
+        if self['class'] in air_classes and '"AntiAir"' not in self.flags and self['fuel'] != '1':
+            self.flags += ', "BadAirDefender"'
         if '"CRtb"' in self.flags and int(self['firepower'].split()[0]) > 1:
             self.flags += ', "LongTorp"'
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))
+        bonuses = self.get('bonuses', '')
+        if '\n' not in bonuses:
+            bkeys = map(str.strip, str.split(bonuses, ','))
+            if (self['class'] in ('"Naval Fighter"', '"Seaplane Fighter"')) != ('SF' in bkeys):
+                raise Exception("Wrong SF bonus for unit", self.get('name'), self['class'], bkeys)
+            bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 2',
+                    'SF': '"LongTorp", "DefenseMultiplier", 1',
+                    'BOMB': '"BadAirDefender", "DefenseDivider", 2',
+                    }
+            bvals = set(bmap[bk] for bk in bkeys if bk != '')
+            if bvals:
+                self.bonus = ', '.join(bkeys)
+                self['bonuses'] = '\n   { "flag", "type", "value"\n     ' + '\n     '.join(bvals) + '\n   }'
         if '"Jet"' in self.flags:
             if self.get('impr_req') is None:
                 self['impr_req'] = '"Air Base"'
@@ -76,6 +92,8 @@ class Unit(object):
         self.writekey(f, 'flags', self.flags)
         if self.ph is not None:
             f.write(';phcode=%s\n' % (self.ph,))
+        if self.bonus is not None:
+            f.write(';bonus=%s\n' % (self.bonus,))
         for k in sorted(self.rest):
             self.writekey(f, k, self.rest[k])
 
