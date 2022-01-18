@@ -1555,7 +1555,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Pillage"
 helptext      = _("\
 High performance twin-engined bomber, based on the same \
 airframe as the Heavy Fighter (to which it can be \
@@ -4360,7 +4360,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber", "Pillage"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -4396,7 +4396,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber", "Pillage"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -4432,7 +4432,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "DiveBomber", "NoUpgrade"
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "DiveBomber", "NoUpgrade", "Pillage"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \
@@ -4572,7 +4572,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -4605,7 +4605,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
@@ -4639,7 +4639,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
 helptext      = _("\
 Supersonic interdictor-strike bomber to attack high-value targets.  \
 Historical examples include the BAC TSR-2 and General Dynamics F-111 \

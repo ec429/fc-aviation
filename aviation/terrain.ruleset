@@ -1116,7 +1116,7 @@ ui_name_base_airbase = _("?gui_type:Build Airbase/Buoy")
 name           = _("Irrigation")
 category       = "Infra"
 causes         = "Irrigation"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.irrigation"
 graphic_alt    = "-"
 activity_gfx   = "unit.irrigation"
@@ -1150,7 +1150,7 @@ further bonus.\
 name           = _("Mine")
 category       = "Infra"
 causes         = "Mine"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.mine"
 graphic_alt    = "-"
 activity_gfx   = "unit.mine"
@@ -1178,7 +1178,7 @@ Building a mine on an irrigated tile will destroy the irrigation.\
 name           = _("Oil Well")
 category       = "Infra"
 causes         = "Mine"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.oil_mine"
 graphic_alt    = "tx.mine"
 activity_gfx   = "unit.oil_mine"
@@ -1293,7 +1293,7 @@ by other aircraft will cause the villagers to take fright and disband.\
 name           = _("Farmland")
 category       = "Infra"
 causes         = "Irrigation"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.farmland"
 graphic_alt    = "-"
 activity_gfx   = "unit.farmland"
@@ -1351,7 +1351,7 @@ Settlers can clean up nuclear fallout.\
 name           = _("Fortress")
 category       = "Infra"
 causes         = "Base"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "base.fortress"
 graphic_alt    = "-"
 activity_gfx   = "unit.fortress"
@@ -1438,7 +1438,7 @@ Unlike Airbases, they do not prevent stack death.\
 name           = _("Ruins")
 category       = "Bonus"
 causes         = "Base"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "extra.ruins"
 graphic_alt    = "base.ruins"
 activity_gfx   = "None"
@@ -1463,7 +1463,7 @@ They have no effect on gameplay.\
 name           = _("Road")
 category       = "Infra"
 causes         = "Road"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "road.road"
 graphic_alt    = "-"
 activity_gfx   = "unit.road"
