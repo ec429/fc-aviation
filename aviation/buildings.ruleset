@@ -892,6 +892,28 @@ Electrification of a city's industry reduces the amount of pollution\
 
 ; **Defensive**
 
+[building_concrete_bunker]
+name		= _("Concrete Bunker")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+    }
+graphic	= "b.bunker"
+graphic_alt	= "b.city_walls"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 75
+upkeep		= 2
+sabotage	= 100
+sound		= "b_city_walls"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Ground units inside the city will only be reduced to 50% health\
+ by artillery, instead of 20%.\
+")
+
 [building_barrage_balloons]
 name		= _("Barrage Balloons")
 genus		= "Improvement"

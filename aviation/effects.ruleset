@@ -8,7 +8,7 @@
 
 [datafile]
 description="Aviation effects data for Freeciv"
-options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min"
+options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min +Bombard_Limit_Pct"
 format_version=20
 
 ; /* <-- avoid gettext warnings
@@ -118,6 +118,53 @@ reqs    =
       "Activity",      "Fortified",    "Local", FALSE
       "UnitClassFlag", "CanFortify",   "Local", TRUE
       "UnitFlag",      "Cant_Fortify", "Local", FALSE
+    }
+
+[effect_bombard_limit_base]
+type    = "Bombard_Limit_Pct"
+value   = 1
+
+; 1(base) + 14 = 15
+[effect_bombard_limit_fortified]
+type    = "Bombard_Limit_Pct"
+value   = 14
+reqs    =
+    { "type",          "name",      "range", "present"
+      "CityTile",      "Center",    "Local", FALSE
+      "Activity",      "Fortified", "Local", TRUE
+      "Extra",         "Fortress",  "Tile",  FALSE
+    }
+
+; 1 + 19 = 20
+[effect_bombard_limit_city]
+type    = "Bombard_Limit_Pct"
+value   = 19
+reqs    =
+    { "type",     "name",   "range"
+      "CityTile", "Center", "Local"
+    }
+
+; ground units in forts get the bonus even if they're Cant_Fortify
+; 1 + 29 = 30
+[effect_bombard_limit_fortress]
+type    = "Bombard_Limit_Pct"
+value   = 29
+reqs    =
+    { "type",          "name",       "range", "present"
+      "CityTile",      "Center",     "Local", FALSE
+      "Extra",         "Fortress",   "Tile",  TRUE
+      "UnitClassFlag", "CanFortify", "Local", TRUE
+    }
+
+; 1 + 19(city) + 30 = 50
+[effect_bombard_limit_bunker]
+type    = "Bombard_Limit_Pct"
+value   = 30
+reqs    =
+    { "type",          "name",            "range"
+      "CityTile",      "Center",          "Local"
+      "Building",      "Concrete Bunker", "City"
+      "UnitClassFlag", "CanFortify",      "Local"
     }
 
 ; basic free tech upkeep
