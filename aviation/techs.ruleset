@@ -1191,7 +1191,7 @@ helptext = _("With the lessons learned from operating the earliest\
 
 [advance_swept_wing]
 name     = _("Swept Wing")
-req1     = "Aerodynamics Research"
+req1     = "Higher Speed"
 req2     = "None"
 cost     = 615
 graphic     = "a.flight" ; placeholder
@@ -1300,7 +1300,7 @@ efficient turboprop and turbofan were economical enough for use in\
 [advance_supersonic_aerodynamics]
 name     = _("Supersonic Aerodynamics")
 req1     = "Swept Wing"
-req2     = "None"
+req2     = "Gas Turbine"
 cost     = 900
 graphic     = "a.iron_working"
 graphic_alt = "-"
