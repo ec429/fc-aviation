@@ -1464,6 +1464,74 @@ reqs	=
       "UnitClass", "Seaplane Fighter", "Local"
     }
 
+; Sector Control bonus is only for scouts/fighters, not (e.g.) AF or AV
+; But NS does get it, despite not having BadDefender flag
+[effect_sector_control]
+type    = "Fortify_Defense_Bonus"
+value	= 30
+reqs	=
+    { "type", "name", "range"
+      "Building", "Sector Control", "City"
+      "UnitFlag", "AntiAir", "Local"
+      "UnitFlag", "CRscout", "Local"
+    }
+[effect_sector_control_1]
+type    = "Fortify_Defense_Bonus"
+value	= 30
+reqs	=
+    { "type", "name", "range"
+      "Building", "Sector Control", "City"
+      "UnitFlag", "AntiAir", "Local"
+      "UnitFlag", "CRfighter", "Local"
+    }
+; Only pure fighters get bonus attacking out of a city with Sector
+; Control, because that's the only way we can be sure that the target
+; is an air unit (there's no target_reqs support).  Sorry, NS!
+; This doesn't work: City range looks at the _target_ tile, not source
+;[effect_sector_control_attack]
+;type    = "Attack_Bonus"
+;value	= 30
+;reqs	=
+;    { "type", "name", "range", "present"
+;      "Building", "Sector Control", "City", TRUE
+;      "UnitFlag", "AntiAir", "Local", TRUE
+;      "UnitFlag", "AntiSea", "Local", FALSE
+;      "UnitFlag", "AntiGround", "Local", FALSE
+;    }
+
+[effect_dowding_system]
+type    = "Fortify_Defense_Bonus"
+value	= 30
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Dowding System", "Continent", TRUE
+      "Building", "Sector Control", "City", FALSE
+      "UnitFlag", "AntiAir", "Local", TRUE
+      "UnitFlag", "CRscout", "Local", TRUE
+    }
+[effect_dowding_system_1]
+type    = "Fortify_Defense_Bonus"
+value	= 30
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Dowding System", "Continent", TRUE
+      "Building", "Sector Control", "City", FALSE
+      "UnitFlag", "AntiAir", "Local"
+      "UnitFlag", "CRfighter", "Local"
+    }
+; This doesn't work: City range looks at the _target_ tile, not source
+;[effect_dowding_system_attack]
+;type    = "Attack_Bonus"
+;value	= 30
+;reqs	=
+;    { "type", "name", "range", "present"
+;      "Building", "Dowding System", "Continent", TRUE
+;      "Building", "Sector Control", "City", FALSE
+;      "UnitFlag", "AntiAir", "Local", TRUE
+;      "UnitFlag", "AntiSea", "Local", FALSE
+;      "UnitFlag", "AntiGround", "Local", FALSE
+;    }
+
 ; Extended vision range.  Base is 5, add 13 = 18; (4,1) or (3,3)
 [effect_chain_home]
 type    = "City_Vision_Radius_Sq"

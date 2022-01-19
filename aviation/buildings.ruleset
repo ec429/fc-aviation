@@ -980,9 +980,13 @@ sound		= "b_research_lab"
 sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
-Should give an attack bonus to aircraft, but Freeciv 2.6 doesn't\
- support that.  Thus, this building does nothing.\
+Gives a 30% bonus to fighters (and Naval Strike Fighter) defending\
+ the city.\
 ")
+; want but can't implement:
+;  Also gives a 30% bonus to fighters (but not NS) attacking\
+; while in the city.\
+;")
 
 ; *Wonders*
 
@@ -1005,9 +1009,7 @@ sabotage	= 0
 sound		= "w_colossus"
 sound_alt	= "w_generic"
 helptext	= _("\
-Acts as a Sector Control in every city on the same continent. \
- Unfortunately, the Sector Control doesn't do anything, so\
- neither does this.\
+Acts as a Sector Control in every city on the same continent.\
 ")
 
 [building_chain_home]
