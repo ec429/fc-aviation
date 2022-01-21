@@ -54,8 +54,6 @@ class Unit(object):
             targets |= set(air_classes)
         if self['class'] in air_classes and '"AntiAir"' not in self.flags and self['fuel'] != '1':
             self.flags += ', "BadAirDefender"'
-        if '"CRtb"' in self.flags and int(self['firepower'].split()[0]) > 1:
-            self.flags += ', "LongTorp"'
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))

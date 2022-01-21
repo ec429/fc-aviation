@@ -2204,8 +2204,18 @@ reqs    =
 type    = "Combat_Rounds"
 value   = 9 ; attack ends turn
 reqs    =
+    { "type", "name", "range", "present"
+      "UnitFlag", "CRtb", "Local", TRUE
+      "UnitFlag", "LongTorp", "Local", FALSE
+    }
+
+[effect_cr_long_torp]
+type    = "Combat_Rounds"
+value   = 18 ; attack ends turn
+reqs    =
     { "type", "name", "range"
       "UnitFlag", "CRtb", "Local"
+      "UnitFlag", "LongTorp", "Local"
     }
 
 [effect_cr_light_bomber]
