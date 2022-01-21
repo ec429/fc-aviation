@@ -161,4 +161,5 @@ tiles = { "row", "column", "tag"
   5, 19, "u.vulcanwhite" ; BN Jet Bomber (Nuclear) (Avro Vulcan in anti-flash white) [GB]
   6,  0, "u.redbear"     ; BP Turboprop Bomber (Nuclear) (Tupolev Tu-95 "Bear") [T][WS], red markings painted by [EC]
   6,  1, "u.seadart"     ; XA Surface-to-Air Missile (Hawker Siddeley Sea Dart) [GB]
+  6,  2, "u.victor"      ; KJ Jet Tanker (Handley Page Victor K.2) [GB]
 }

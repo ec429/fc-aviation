@@ -5951,6 +5951,39 @@ to the Drop Zone by a suitable bomber aircraft.  \
 Historical examples include the General Aircraft Hamilcar.\
 ")
 
+[unit_kj]
+name          = _("Tanker Jet")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.victor"
+graphic_alt   = "u.stealth_bomber"
+;phcode=KJ
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 30
+firepower     = 0
+move_rate     = 9
+vision_radius_sq = 5
+transport_cap = 1
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
+flags         = "BadDefender", "HasNoZOC", "Jet"
+roles         = ""
+helptext      = _("\
+Large flight-refuelling tanker developed from a jet bomber airframe.  \
+Historical examples include the Handley Page Victor K.2.\
+")
+
 [unit_lpd]
 name          = _("Landing Craft")
 class         = "Sea"

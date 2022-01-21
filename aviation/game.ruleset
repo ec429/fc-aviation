@@ -683,15 +683,17 @@ target_reqs    =
 [actionenabler_pillage]
 action        = "Pillage"
 actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitClassFlag", "CanPillage",   "Local"
+    { "type",          "name",         "range", "present"
+      "UnitClassFlag", "CanPillage",   "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_pillage_by_unit]
 action        = "Pillage"
 actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitFlag",      "Pillage",      "Local"
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "Pillage",      "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_clean_pollution]
@@ -699,6 +701,7 @@ action        = "Clean Pollution"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "Settlers",     "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_clean_fallout]
@@ -706,6 +709,7 @@ action        = "Clean Fallout"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "Settlers",     "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_convert_unit]

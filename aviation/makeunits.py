@@ -3,7 +3,8 @@ import sys
 import re
 
 getvs = re.compile(r'_?\(?"([^"]+)"\)?')
-air_classes = ['"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"']
+air_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"')
+refuel_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Seaplane"', '"Seaplane Fighter"')
 
 class Unit(object):
     def __init__(self, key):
@@ -58,6 +59,16 @@ class Unit(object):
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))
+        embarks = set(str.split(self.get('embarks', ''), ','))
+        if self['class'] in refuel_classes and '"Air"' not in self.get('cargo', ''):
+            embarks.add('"Air"')
+            embarks.discard('')
+            self['embarks'] = ', '.join(embarks)
+        disembarks = set(str.split(self.get('disembarks', ''), ','))
+        if self['class'] in refuel_classes:
+            disembarks.add('"Air"')
+            disembarks.discard('')
+            self['disembarks'] = ', '.join(disembarks)
         bonuses = self.get('bonuses', '')
         if '\n' not in bonuses:
             bkeys = map(str.strip, str.split(bonuses, ','))
