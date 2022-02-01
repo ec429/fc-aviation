@@ -120,7 +120,7 @@ Like light bombers, attackers do not suffer the usual 75% defence penalty for ai
 
 ### Torpedo Bombers
 
-These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  Most have a FirePower of 2 to go with their nine Combat Rounds, giving them almost as many potential hits as a heavy bomber.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence); scrambling fighters get double defence against them (this can only happen for carrier-based or seaplane fighters).
+These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  Most have eighteen Combat Rounds, giving them almost as many potential hits as a heavy bomber.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence); and scrambling fighters get double defence against them (this can only happen for carrier-based or seaplane fighters).
 
 After TBs become obsolete, the Naval Attack Jet can take on the same role (it can also operate as an Attacker).
 
@@ -166,7 +166,7 @@ These heavier fighters aren't quite as good in a dogfight as their single-engine
 
 An aircraft carrier's loadout will probably be some mix of TBs, DBs, attackers and fighters.  The TBs go after enemy carriers, the fighters (CAP, Combat Air Patrol) deal with any strikes the enemy carriers launched, and the DBs and attackers support operations on land.  (The fighters might also fly some escort missions.)  The proportions of the different types will depend on what you expect to be fighting against — if the enemy has a lot of carriers, you'll need sizeable TB and CAP contingents, but if the enemy's airpower is weak in the theatre of operations you might be able to fill up with strike aircraft instead.
 
-Some of the Light Bombers are also carrier-capable.  The main value of this is reconnaisance, allowing you to Investigate City far from your homeland.
+Some of the Light Bombers are also carrier-capable.  The main value of this is reconnaisance, allowing you to Investigate City far from your homeland, but they can also have a rôle in wearing down a carrier's defending fighters (as can the DBs) since the TBs suffer a 50% penalty in this match-up (scrambling fighters are thus very likely to shoot down an attacking torper).
 
 #### Kamikaze
 
@@ -199,7 +199,7 @@ Note that deploying nuclear weapons may have diplomatic consequences, particular
 
 ### Missiles
 
-The V2 Artillery Rocket is a long-range bombardment missile, striking up to 12 tiles from home but not doing a huge amount of damage.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking.
+The V2 Artillery Rocket is a long-range bombardment missile, striking up to 12 tiles from home but not doing a huge amount of damage.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking, and have no defence strength.
 
 ## Known cheesy tricks
 
