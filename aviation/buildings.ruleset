@@ -1194,14 +1194,14 @@ The world's first 'air academy', the Royal Air Force college at\
 
 [building_yasukuni]
 name		= _("Yasukuni Shrine")
-genus		= "GreatWonder"
+genus		= "SmallWonder"
 reqs	=
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
     }
 graphic	= "b.mausoleum"
 graphic_alt	= "b.oracle"
-build_cost	= 200
+build_cost	= 120
 upkeep		= 1
 sabotage	= 0
 sound		= "w_oracle"
