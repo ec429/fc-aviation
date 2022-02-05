@@ -1560,6 +1560,32 @@ Since 1909, the publication founded by Fred T. Jane has\
  airlines around the world.\
 ")
 
+[building_kgb]
+name		= _("KGB Headquarters")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
+    }
+graphic	= "b.ecclesiastical_palace"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+    }
+build_cost	= 160
+upkeep		= 2
+sabotage	= 0
+sound		= "w_great_library"
+sound_alt	= "w_generic"
+helptext	= _("\
+As long as government is Communist, get every advance\
+ that at least two other teams have achieved.\
+"), _("\
+If the civilization also controls Jane's All The World's\
+ Aircraft, get every advance that one other team has\
+ achieved.\
+")
+
 [building_schneider]
 name		= _("Schneider Trophy")
 genus		= "GreatWonder"

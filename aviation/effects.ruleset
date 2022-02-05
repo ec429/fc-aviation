@@ -1803,6 +1803,26 @@ reqs	=
       "Building", "Jane's All The World's Aircraft", "Player"
     }
 
+[effect_kgb]
+type    = "Tech_Parasite"
+value	= 2
+reqs	=
+    { "type", "name", "range", "present"
+      "Gov", "Communism", "Player"
+      "Building", "KGB Headquarters", "Player"
+    }
+
+; if you have KGB and Jane's, get Tech_Parasite=1
+[effect_kgb_with_janes]
+type    = "Tech_Parasite"
+value	= -3
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
+      "Building", "KGB Headquarters", "Player"
+      "Building", "Jane's All The World's Aircraft", "Player"
+    }
+
 [effect_schneider]
 type    = "Give_Imm_Tech"
 value	= 1
