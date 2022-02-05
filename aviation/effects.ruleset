@@ -398,7 +398,7 @@ reqs	=
 
 [effect_corruption_communism0]
 type    = "Output_Waste"
-value	= 10
+value	= 15
 reqs	=
     { "type", "name", "range"
       "Gov", "Communism", "Player"
@@ -416,7 +416,7 @@ reqs	=
 
 [effect_waste_communism0]
 type    = "Output_Waste"
-value	= 10
+value	= 15
 reqs	=
     { "type", "name", "range"
       "Gov", "Communism", "Player"
@@ -439,6 +439,14 @@ reqs	=
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
       "OutputType", "Trade", "Local"
+    }
+
+[effect_trade_communism_malus]
+type	= "Trade_Revenue_Bonus"
+value	= -1000
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
     }
 
 [effect_upkeep_free_units_revolt]
