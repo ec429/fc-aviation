@@ -5029,7 +5029,7 @@ Boeing B-29 Superfortress.\
 name          = _("Modified Superprop Bomber")
 class         = "Air"
 tech_req      = "Bombers 1945"
-obsolete_by   = "Turboprop Bomber"
+obsolete_by   = "Intercontinental Bomber"
 graphic       = "u.silverplate"
 graphic_alt   = "u.bomber"
 ;phcode=BU
@@ -5123,6 +5123,38 @@ helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
 Historical examples include the Vickers Valiant and \
 Boeing B-47 Stratojet.\
+")
+
+[unit_inter_bomber]
+name          = _("Intercontinental Bomber")
+class         = "Air"
+tech_req      = "Bombers 1949"
+obsolete_by   = "Turboprop Bomber"
+graphic       = "u.peacemaker"
+graphic_alt   = "u.bomber"
+;phcode=BP
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 25
+firepower     = 3
+move_rate     = 14
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "BadDefender"
+helptext      = _("\
+Ultra-long-range bomber for strategic nuclear delivery.  \
+Historical examples include the Convair B-36 'Peacemaker'.\
 ")
 
 [unit_yellow_sun]

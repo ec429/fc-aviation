@@ -20,7 +20,7 @@ options = "Freeciv-3.0-spec Freeciv-spec-Devel-2019-Jul-03"
 artists = "
     Fairline [GB]
     Tanelorn [T]
-    Broken Erika
+    Broken Erika [BE]
     Wyrmshadow [WS]
     typhoon353 [TY]
     Captain Nemo [Nemo]
@@ -162,4 +162,5 @@ tiles = { "row", "column", "tag"
   6,  0, "u.redbear"     ; BP Turboprop Bomber (Nuclear) (Tupolev Tu-95 "Bear") [T][WS], red markings painted by [EC]
   6,  1, "u.seadart"     ; XA Surface-to-Air Missile (Hawker Siddeley Sea Dart) [GB]
   6,  2, "u.victor"      ; KJ Jet Tanker (Handley Page Victor K.2) [GB]
+  6,  3, "u.peacemaker"  ; BP Intercontinental Bomber (Convair B-36 "Peacemaker") [BE][GB]
 }
