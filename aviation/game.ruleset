@@ -258,6 +258,7 @@ ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
 ui_name_attack = _("%sAttack%s")
 ui_name_conquer_city = _("%sConquer City%s")
+ui_name_conquer_city_2 = _("%sConquer City%s")
 ui_name_home_city = _("Set %sHome City%s")
 ui_name_upgrade_unit = _("%sUpgrade Unit%s")
 
