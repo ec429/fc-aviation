@@ -311,7 +311,7 @@ reqs	=
 
 [effect_enter_marketplace_bonus_reduction]
 type	= "Trade_Revenue_Bonus"
-value	= -2000
+value	= -1585
 reqs	=
     { "type", "name", "range"
       "Action", "Enter Marketplace", "Local"
@@ -319,7 +319,7 @@ reqs	=
 
 [effect_trade_bonus_fudge_factor]
 type	= "Trade_Revenue_Bonus"
-value	= 585
+value	= 2000
 
 [effect_trade_revenue_reduce]
 type    = "Trade_Revenue_Bonus"
@@ -328,6 +328,11 @@ reqs    =
     { "type", "name", "range"
       "Tech", "Fifties Airlift", "Player"
     }
+
+; Raise trade revenue to 0.84 power
+[effect_trade_revenue_exponent]
+type	= "Trade_Revenue_Exponent"
+value	= -160
 
 [effect_foodbox]
 type    = "Growth_Food"
