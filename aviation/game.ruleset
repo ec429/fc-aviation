@@ -201,6 +201,7 @@ force_explode_nuclear = TRUE
 explode_nuclear_max_range = 0
 nuke_city_max_range = 1
 targeted_sabotage_city_max_range = 1
+bombard_2_max_range = 2
 
 ; What each action should be called when showing them to the player.
 ; The first %s should be before the mnemonic of the action. A Freeciv client
@@ -256,6 +257,7 @@ ui_name_help_wonder = _("Help %sbuild Wonder%s")
 ui_name_found_city = _("%sBuild City%s")
 ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
+ui_name_bombard_2 = _("%sBombard%s")
 ui_name_attack = _("%sAttack%s")
 ui_name_conquer_city = _("%sConquer City%s")
 ui_name_conquer_city_2 = _("%sConquer City%s")
@@ -422,6 +424,17 @@ actor_reqs    =
       "DiplRel",      "War",         "Local", TRUE
     }
 
+[actionenabler_bombard2]
+action = "Bombard 2"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Bombarder 2", "Local", TRUE
+      "UnitClassFlag","Missile",     "Local", FALSE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+    }
+
 ; Attack actionenablers: these are intended to prevent the "destroy air units
 ; on the ground" 'feature' of cities/bases, but we can't use them in 3.0
 ; because of overzealous stackprotect; for details see
@@ -432,6 +445,7 @@ actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag","Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
@@ -450,6 +464,7 @@ actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag","Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
@@ -468,6 +483,7 @@ actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag","Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
@@ -487,6 +503,7 @@ actor_reqs    =
 ;    { "type",          "name",         "range", "present"
 ;      "UnitFlag",      "NonMil",       "Local", FALSE
 ;      "UnitFlag",      "Bombarder",    "Local", FALSE
+;      "UnitFlag",      "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag", "Missile",      "Local", FALSE
 ;      "UnitClassFlag", "Flying",       "Local", TRUE
 ;      "MinMoveFrags",  "1",            "Local", TRUE
@@ -510,6 +527,7 @@ actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag","Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
@@ -528,6 +546,7 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Bombarder 2",  "Local", FALSE
       "UnitClassFlag", "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
@@ -548,6 +567,7 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Bombarder 2",  "Local", FALSE
       "UnitClassFlag", "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
@@ -570,6 +590,7 @@ actor_reqs    =
     { "type",         "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Bombarder 2",  "Local", FALSE
       "UnitClassFlag", "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
@@ -881,7 +902,7 @@ actor_reqs    =
 ;   if_attacker    - this requirement vector must be true before a unit even
 ;                    considers to auto attack.
 
-attack_actions= "Capture Units", "Bombard", "Attack", "Suicide Attack"
+attack_actions= "Capture Units", "Bombard", "Bombard 2", "Attack", "Suicide Attack"
 
 if_attacker =
     { "type",         "name",    "range", "present"
