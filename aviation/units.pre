@@ -193,6 +193,14 @@ min_speed     = 2
 hp_loss_pct   = 0
 flags         = "DamageSlows", "Unreachable"
 
+; Separate from Sea for the sake of Disembarks
+[unitclass_ship]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Ship")
+min_speed     = 2
+hp_loss_pct   = 0
+flags         = "DamageSlows", "Unreachable"
+
 [unitclass_air]
 ; /* TRANS: Unit class: used adjectivally */
 name          = _("?unitclass:Air")
@@ -701,7 +709,7 @@ defending your cities.\
 [unit_artillery]
 name          = _("Artillery")
 class         = "Land"
-tech_req      = "None"
+tech_req      = "Big Guns"
 obsolete_by   = "None"
 graphic       = "u.howitzer"
 ;phcode=ar
@@ -6047,6 +6055,40 @@ Landing Craft can be used to transport assault troops (or \
 settlers) across water, albeit much more slowly than by air.\
 ")
 
+[unit_ship]
+name          = _("Troop Ship")
+class         = "Ship"
+tech_req      = "Steam Turbines"
+obsolete_by   = "None"
+graphic       = "u.troopship"
+graphic_alt   = "u.transport"
+;phcode=ts
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 20
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 2
+fuel          = 0
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+cargo         = "Land", "Assault"
+flags         = "BadCityDefender", "HasNoZOC", "Provoking"
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+Troop Ships can be used to transport ground troops across \
+water, albeit much more slowly than by air; unlike Landing \
+Craft, they can only unload while in a city.\
+")
+
 [unit_merchie]
 name          = _("Merchant Ship")
 class         = "Sea"
@@ -6184,7 +6226,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-targets       = "Sea"
+targets       = "Sea", "Ship"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb"
 vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
 slow_veteran  = 1 ; ships don't get acespeed
@@ -6221,7 +6263,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-targets       = "Sea"
+targets       = "Sea", "Ship"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
@@ -6264,6 +6306,82 @@ helptext      = _("\
 Helicopter Assault Carriers can be used to transport helicopters \
 across water; the helicopters can in turn be carrying assault \
 troops, and deploy them quickly inshore.\
+")
+
+[unit_predread]
+name          = _("Line-of-Battle Ship")
+class         = "Sea"
+tech_req      = "Battleship"
+obsolete_by   = "Dreadnought"
+graphic       = "u.predread"
+graphic_alt   = "u.cruiser" ; placeholder
+;phcode=b0
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 4
+defense       = 6
+hitpoints     = 15
+firepower     = 2
+move_rate     = 3
+convert_to    = "Light Aircraft Carrier"
+convert_time  = 2
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 0
+uk_base       = 2
+uk_food       = 0
+cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRheavy"
+slow_veteran  = 1 ; ships don't get acespeed
+bombard_rate  = 10
+roles         = ""
+helptext      = _("\
+Pre-dread battleships are the earliest capital ships, able to \
+control the seas and provide fire-support to operations inshore \
+with their large-calibre guns and heavy armour.\
+"), _("\
+They may be converted to Light Aircraft Carriers after the latter \
+have been developed.\
+")
+
+[unit_dread]
+name          = _("Dreadnought")
+class         = "Sea"
+tech_req      = "Dreadnought"
+obsolete_by   = "None"
+graphic       = "u.dread"
+graphic_alt   = "u.battleship" ; placeholder
+;phcode=bd
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 6
+defense       = 8
+hitpoints     = 18
+firepower     = 2
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 0
+uk_base       = 2
+uk_food       = 0
+cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRmedium"
+slow_veteran  = 1 ; ships don't get acespeed
+bombard_rate  = 10
+roles         = ""
+helptext      = _("\
+All-big-gun battleships, such as HMS Dreadnought, reset the naval \
+arms race, outranging and outrunning their predecessors.\
 ")
 
 [unit_cvl]

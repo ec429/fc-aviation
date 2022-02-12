@@ -476,6 +476,25 @@ actor_reqs    =
 ;      "CityTile",      "Center", "Local"
 ;      "UnitClass",     "Sea",    "Local"
 ;    }
+;[actionenabler_attack_in_harbour_2]
+;; allow AntiGround units to attack ships in port
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
+;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiGround",   "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "CityTile",      "Center", "Local"
+;      "UnitClass",     "Ship",    "Local"
+;    }
 ;
 ;[actionenabler_attack_sea]
 ;action = "Attack"
@@ -493,6 +512,24 @@ actor_reqs    =
 ;target_reqs   =
 ;    { "type",          "name",   "range"
 ;      "UnitClass",     "Sea",    "Local"
+;    }
+;
+;[actionenabler_attack_sea_2]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
+;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiSea",      "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "UnitClass",     "Ship",    "Local"
 ;    }
 ;
 ;; AntiSea units other than torpers can face scrambling fighters
@@ -739,6 +776,15 @@ action = "Convert Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitState", "Transported", "Local", FALSE
+      "UnitType", "Line-of-Battle Ship", "Local", FALSE
+    }
+
+[actionenabler_carrier_conversion]
+action = "Convert Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitState", "Transported", "Local", FALSE
+      "Tech", "Aircraft Carrier", "Player", TRUE
     }
 
 [actionenabler_disband_unit]

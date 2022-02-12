@@ -163,4 +163,7 @@ tiles = { "row", "column", "tag"
   6,  1, "u.seadart"     ; XA Surface-to-Air Missile (Hawker Siddeley Sea Dart) [GB]
   6,  2, "u.victor"      ; KJ Jet Tanker (Handley Page Victor K.2) [GB]
   6,  3, "u.peacemaker"  ; BP Intercontinental Bomber (Convair B-36 "Peacemaker") [BE][GB]
+  6,  4, "u.troopship"   ; ts Troop Ship (1912 transport/liner) [GB]
+  6,  5, "u.predread"    ; b0 Line-of-Battle Ship (HMS Formidable) [GB]
+  6,  6, "u.dread"       ; bd Dreadnought (HMS King George V) [GB]
 }

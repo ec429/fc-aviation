@@ -46,6 +46,7 @@ class Unit(object):
             targets.add('"Assault"')
         if '"AntiSea"' in self.flags:
             targets.add('"Sea"')
+            targets.add('"Ship"')
             if self['class'] in air_classes:
                 self.flags += ', "AirAttacker"'
                 targets.add('"Naval Fighter"')

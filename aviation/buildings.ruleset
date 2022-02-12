@@ -808,7 +808,7 @@ obsolete_by	=
       "Building", "Engine Factory", "City"
       "Building", "Aircraft Factory", "City"
     }
-build_cost	= 60
+build_cost	= 40
 upkeep		= 1
 sabotage	= 100
 sound		= "b_power_plant"
@@ -817,6 +817,30 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the shield production in a city by 25%.  This increase may\
  also contribute to pollution.\
+")
+
+[building_power_station]
+name		= _("Power Station")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Steam Turbines", "Player"
+    }
+graphic	= "b.power_plant"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_power_plant"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the shield production in a city by 25%, cumulative with\
+ any bonus from Lumber Yard, Engine Factory or Aircraft Factory. \
+ This increase may also contribute to pollution.\
 ")
 
 [building_engine_factory]
@@ -897,6 +921,7 @@ name		= _("Concrete Bunker")
 genus		= "Improvement"
 reqs	=
     { "type", "name", "range"
+      "Tech", "Big Guns", "Player"
     }
 graphic	= "b.bunker"
 graphic_alt	= "b.city_walls"

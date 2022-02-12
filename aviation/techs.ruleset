@@ -104,6 +104,53 @@ helptext = _("Though their first heavier-than-air machines could\
  dream of human flight. \
  Orville & Wilbur Wright, 1903.")
 
+[advance_steam_turbines]
+name     = _("Steam Turbines")
+req1     = "None"
+req2     = "None"
+cost     = 60
+graphic     = "a.steam_engine"
+graphic_alt = "-"
+helptext = _("Far more efficient than old reciprocating steam\
+ engines, steam turbines have many applications on land and at\
+ sea.  However, they're too heavy to power aeroplanes. \
+ Charles Parsons, 1884.")
+
+[advance_big_guns]
+name     = _("Big Guns")
+req1     = "None"
+req2     = "None"
+cost     = 100
+graphic     = "a.metallurgy"
+graphic_alt = "-"
+helptext = _("Large rifled breech-loading cannon, using either\
+ the Welin interrupted screw or the Krupp sliding block and\
+ cartridge, kicked off an arms race in both terrestrial and\
+ naval artillery.")
+
+[advance_battleship]
+name     = _("Battleship")
+req1     = "Steam Turbines"
+req2     = "Big Guns"
+cost     = 150
+graphic     = "a.battleship"
+graphic_alt = "a.steel" ; placeholder
+helptext = _("Combining a main battery of around 12 inch calibre\
+ with turbine-driven screws for speed and endurance, battleships\
+ finally replaced the old sail-driven 'tall ships' in the fleets\
+ of the world's Great Powers.")
+
+[advance_dreadnought]
+name     = _("Dreadnought")
+req1     = "Battleship"
+req2     = "None"
+cost     = 240
+graphic     = "a.battleship"
+graphic_alt = "a.steel" ; placeholder
+helptext = _("Inventions like superfiring and the fire-control\
+ director made the all-big-gun battleship the new Queen of the\
+ Seas.")
+
 [advance_passenger_carrying]
 name     = _("Passenger Carrying")
 req1     = "Powered Flight"
@@ -273,7 +320,7 @@ helptext = _("Large, multi-engined bombers with the ability\
 [advance_anti_air_artillery]
 name     = _("Anti-Air Artillery")
 req1     = "Bombers 1916"
-req2     = "None"
+req2     = "Big Guns"
 cost     = 240
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
@@ -370,7 +417,7 @@ helptext = _("Biplane bombers increased in load-carrying ability,\
 [advance_aircraft_carrier]
 name     = _("Aircraft Carrier")
 req1     = "Engines 1917"
-req2     = "None"
+req2     = "Battleship"
 cost     = 300
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
