@@ -1257,17 +1257,22 @@ reqs	=
 graphic	= "b.lloyds"
 graphic_alt	= "b.bank"
 obsolete_by	=
-    { "type", "name", "range", "survives"
-      "Tech", "Twenties Airlift", "Player", FALSE
+    { "type", "name", "range"
     }
 build_cost	= 90
 upkeep		= 1
 sabotage	= 0
 sound		= "w_asmiths_trading_co"
 sound_alt	= "w_generic"
+; This helptext isn't perfectly accurate; actually, it applies not
+; just to Merchant Ships but to all Enter Marketplace actions,
+; including those performed by airliners.
 ; /* xgettext:no-c-format */
 helptext	= _("\
-Increases the tax output in a city by 60%.\
+Increases the revenue from Merchant Ships by 12.5%.\
+"), _("\
+Also, until the discovery of Twenties Airlift, increases the\
+ tax output in the containing city by 60%.\
 "), _("\
 Lloyd's was for a long time the centre of marine insurance.\
 ")

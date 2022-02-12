@@ -321,6 +321,15 @@ reqs	=
 type	= "Trade_Revenue_Bonus"
 value	= 2000
 
+[effect_trade_bonus_lloyds]
+type    = "Trade_Revenue_Bonus"
+value	= 170
+reqs	=
+    { "type", "name", "range"
+      "Building", "Lloyd's of London", "Player"
+      "Action", "Enter Marketplace", "Local"
+    }
+
 [effect_trade_revenue_reduce]
 type    = "Trade_Revenue_Bonus"
 value   = -585
@@ -1757,9 +1766,10 @@ reqs	=
 type    = "Output_Bonus"
 value	= 60
 reqs	=
-    { "type", "name", "range"
-      "Building", "Lloyd's of London", "City"
-      "OutputType", "Gold", "Local"
+    { "type", "name", "range", "present"
+      "Building", "Lloyd's of London", "City", TRUE
+      "OutputType", "Gold", "Local", TRUE
+      "Tech", "Twenties Airlift", "Player", FALSE
     }
 
 [effect_kittyhawk]
