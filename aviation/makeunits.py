@@ -77,6 +77,8 @@ class Unit(object):
                     'SF': '"LongTorp", "DefenseMultiplier", 1',
                     'BOMB': '"BadAirDefender", "DefenseDivider", 2',
                     'TROOP': '"BadDefender", "DefenseDivider", 3',
+                    'SUB': '"FatShip", "FirePower1", 1',
+                    'SUB2': '"FatShip", "DefenseDividerPct", 25',
                     }
             bvals = set(bmap[bk] for bk in bkeys if bk != '')
             if bvals:

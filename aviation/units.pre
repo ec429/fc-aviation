@@ -46,6 +46,7 @@ flags =
     _("AirAttacker"), _("Bad at attacking CAM.")
     _("BadDefender"), _("Bad at defending against ground troops.")
     _("BadAirDefender"), _("Bad at defending against bombers.")
+    _("FatShip"), _("Bad at defending against submarines.")
     _("LongTorp"), _("Has double the Combat Rounds (18).  Bad at attacking naval fighters.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
@@ -6226,6 +6227,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb"
 vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
@@ -6263,6 +6265,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
 slow_veteran  = 1 ; ships don't get acespeed
@@ -6336,7 +6339,7 @@ uk_happy      = 0
 uk_base       = 2
 uk_food       = 0
 cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
-flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRheavy"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRheavy", "FatShip"
 slow_veteran  = 1 ; ships don't get acespeed
 bombard_rate  = 10
 roles         = ""
@@ -6375,7 +6378,7 @@ uk_happy      = 0
 uk_base       = 2
 uk_food       = 0
 cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
-flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRmedium"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRmedium", "FatShip"
 slow_veteran  = 1 ; ships don't get acespeed
 bombard_rate  = 10
 roles         = ""
