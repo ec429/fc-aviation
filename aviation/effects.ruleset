@@ -347,6 +347,16 @@ value	= -160
 type    = "Growth_Food"
 value   = 30 ; make growing cities without rapture not _too_ painful.  Also we don't have Granaries
 
+; battleships and dreadnoughts carrying planes are flammable
+[effect_flambe]
+type    = "Defend_Bonus"
+value   = -15
+reqs	=
+    { "type", "name", "range"
+      "UnitFlag", "FatShip", "Local"
+      "UnitState", "Transporting", "Local"
+    }
+
 ; Government effects
 
 [effect_revolt_upkeep]
