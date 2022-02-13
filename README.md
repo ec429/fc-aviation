@@ -178,6 +178,12 @@ Some of the Light Bombers are also carrier-capable.  The main value of this is r
 
 A Fascist nation that has build the great wonder Yasukuni Shrine can construct Kamikaze units.  These are Missile-class units, quick to build and highly effective at attacking ships; but they also cost one population to build, and as missiles are destroyed after attacking.  Still, a Kamikaze swarm can be a useful way to take out enemy aircraft carriers when your homeland is threatened.  They are also carrier-capable.
 
+#### Battleship Aviation
+
+Heavy surface warships (the Line-of-Battle Ship and the Dreadnought) can carry a single seaplane or helicopter unit.  This can be useful for scouting (blimp), ASW (flying-boat or heli), or air defence (seaplane fighter); it's even possible to carry a torpedo floatplane to extend the strike range and gain the upper hand over enemy fleets.
+
+However, beware that the defence of these ships is lowered by 15% while the aircraft is embarked.  This is because, unlike dedicated carriers, they do not have proper provision for safely storing the highly-flammable aviation fuel.
+
 ### Jets
 
 Towards the end of the tech tree, many aircraft have the 'Jet' flag, which means they can only be built by (or homed to) a city with the 'Air Base' improvement.  This represents the complex ground-support infrastructure needed to operate such technologically advanced aircraft.  Consequently, on entering the jet age you may need to divert a considerable amount of production into building these Air Bases, so that you can get the benefit of your newly-developed aircraft.
