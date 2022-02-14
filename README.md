@@ -25,6 +25,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
     + Paratroops can unload from transport aircraft while in flight.
     + Some heavy bombers and flying-boats also have a small transport capacity.
   - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
+  - The Troop Ship can be used to transport Land units across the ocean, but (unlike landing-craft) it can only unload in a city.  So it's useful for logistics within your empire, but not invasions or expansion into new continents or islands.
 * Ground units cannot cross Mountain tiles.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
   - By default, `unreachableprotects` is _disabled_, because otherwise mixed stacks would be invincible until the invention of strike fighters.
