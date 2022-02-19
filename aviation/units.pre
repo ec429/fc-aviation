@@ -3296,6 +3296,7 @@ firepower     = 5
 move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
+disembarks    = "Sea"
 fuel          = 1
 uk_happy      = 0
 uk_base       = 1
