@@ -44,6 +44,7 @@ class Unit(object):
         if '"AntiGround"' in self.flags:
             targets.add('"Land"')
             targets.add('"Assault"')
+            targets.add('"Installation"')
         if '"AntiSea"' in self.flags:
             targets.add('"Sea"')
             targets.add('"Ship"')

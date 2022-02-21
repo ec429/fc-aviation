@@ -188,6 +188,15 @@ flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
 helptext = _("Assault-class land units travel light enough that they\
  are transportable by suitable ships and aircraft.")
 
+[unitclass_installation]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Installation")
+min_speed     = 0
+hp_loss_pct   = 0
+flags         = "Ground", "Unreachable"
+helptext = _("A permanent facility constructed by an expeditionary\
+ ground unit.")
+
 [unitclass_sea]
 ; /* TRANS: Unit class: used adjectivally */
 name          = _("?unitclass:Sea")
@@ -964,7 +973,7 @@ Convert Unit to place it.\
 
 [unit_radar_tower]
 name          = _("Radar Tower")
-class         = "Land"
+class         = "Installation"
 tech_req      = "R.D.F."
 obsolete_by   = "None"
 graphic       = "u.radar"
