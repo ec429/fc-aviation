@@ -166,4 +166,6 @@ tiles = { "row", "column", "tag"
   6,  4, "u.troopship"   ; ts Troop Ship (1912 transport/liner) [GB]
   6,  5, "u.predread"    ; b0 Line-of-Battle Ship (HMS Formidable) [GB]
   6,  6, "u.dread"       ; bd Dreadnought (HMS King George V) [GB]
+  6,  7, "u.usurf"       ; us U-Boat (Surfaced) (U-Boot Typ VII) [GB]
+  6,  8, "u.uboot"       ; uu U-Boat (U-Boot Typ VII) [GB], converted to submerged by [EC]
 }

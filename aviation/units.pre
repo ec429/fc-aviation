@@ -6208,7 +6208,7 @@ it's hard to get in position for a strike.\
 name          = _("Submersible")
 class         = "Sea"
 tech_req      = "None"
-obsolete_by   = "None"
+obsolete_by   = "U-Boat"
 graphic       = "u.submerged"
 graphic_alt   = "u.submarine"
 ;phcode=su
@@ -6227,7 +6227,7 @@ convert_to    = "Submersible (surfaced)"
 convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
-fuel          = 0
+fuel          = 0 ; 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
@@ -6242,12 +6242,19 @@ enemy shipping, but they're extremely vulnerable to attack from \
 the air — blimps and patrol boats are ideal sub hunters.  \
 A submerged boat is slow — you can surface it to move faster.\
 ")
+;  \
+;You can only remain submerged for a limited time before the air \
+;supply is exhausted and the batteries discharged — make sure to \
+;surface in time!  (Beware that the game processes fuel *before* \
+;the Convert Unit action, so you must convert the turn before you \
+;run out.)\
+;")
 
 [unit_subsurface]
 name          = _("Submersible (surfaced)")
 class         = "Sea"
 tech_req      = "None"
-obsolete_by   = "None"
+obsolete_by   = "U-Boat"
 graphic       = "u.submarine"
 ;phcode=ss
 sound_move    = "m_submarine"
@@ -6275,6 +6282,84 @@ flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \
+move more quickly to get into position for an attack (and, after \
+the discovery of Autogyro, has a longer vision range).  \
+You can then submerge it again to attack more effectively.\
+")
+
+[unit_uboot]
+name          = _("U-Boat")
+class         = "Sea"
+tech_req      = "Marine Diesels"
+obsolete_by   = "None"
+graphic       = "u.uboot"
+graphic_alt   = "u.submarine"
+;phcode=uu
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 33
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 2
+convert_to    = "U-Boat (surfaced)"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0 ; 5
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
+vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+Inter-war submersibles are only slightly more robust than older \
+models; their main advantage is increased surface speed.  \
+A submerged boat is slow — you can surface it to move faster.\
+")
+; their main advantages are increased surface speed and \
+; underwater endurance
+
+[unit_usurface]
+name          = _("U-Boat (surfaced)")
+class         = "Sea"
+tech_req      = "Marine Diesels"
+obsolete_by   = "None"
+graphic       = "u.usurf"
+graphic_alt   = "u.submarine"
+;phcode=us
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 33
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 5
+convert_to    = "U-Boat"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub"
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+When on the surface, a U-Boat is much less stealthy, but can \
 move more quickly to get into position for an attack (and, after \
 the discovery of Autogyro, has a longer vision range).  \
 You can then submerge it again to attack more effectively.\

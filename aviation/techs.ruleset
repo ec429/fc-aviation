@@ -488,6 +488,16 @@ helptext = _("Postwar engines were reliable enough that flight\
  began to lose its 'daredevil' image, and ordinary people took\
  seriously the idea of civilian air travel.")
 
+[advance_marine_diesels]
+name     = _("Marine Diesels")
+req1     = "Twenties Engines"
+req2     = "None"
+cost     = 160
+graphic     = "a.combustion" ; placeholder
+graphic_alt = "-"
+helptext = _("Purpose-designed diesel engines for naval use\
+ enabled a new generation of submarine machinery.")
+
 [advance_twenties_airships]
 name     = _("Twenties Airships")
 req1     = "Effective Airships"
