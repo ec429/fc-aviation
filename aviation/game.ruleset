@@ -771,19 +771,42 @@ actor_reqs    =
       "UnitState",     "Transported",  "Local", FALSE
     }
 
+; Land conversions (Radar Van to Radar Tower),
+; and Sub conversions (surface/submerge),
+; may occur in the field
+; and if we ever get subs that can carry units,
+; they'll be permitted to convert while loaded
 [actionenabler_convert_unit]
 action = "Convert Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitState", "Transported", "Local", FALSE
+      "UnitClassFlag", "Flying", "Local", FALSE
       "UnitType", "Line-of-Battle Ship", "Local", FALSE
     }
 
+; can't convert a BD (etc.) with a bomb on board
+; and need to be in a city
+[actionenabler_convert_air]
+action = "Convert Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitState", "Transported", "Local", FALSE
+      "UnitState", "Transporting", "Local", FALSE
+      "UnitClassFlag", "Flying", "Local", TRUE
+      "CityTile", "Center", "Local", TRUE
+    }
+
+; Safe to convert a loaded b0 to cl, since the latter's
+; cargotypes are a superset
+; But we do need to be in a city, and have the tech for cl
 [actionenabler_carrier_conversion]
 action = "Convert Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitState", "Transported", "Local", FALSE
+      "UnitType", "Line-of-Battle Ship", "Local", TRUE
+      "CityTile", "Center", "Local", TRUE
       "Tech", "Aircraft Carrier", "Player", TRUE
     }
 
