@@ -47,6 +47,7 @@ flags =
     _("BadDefender"), _("Bad at defending against ground troops.")
     _("BadAirDefender"), _("Bad at defending against bombers.")
     _("FatShip"), _("Bad at defending against submarines.")
+    _("Sub")
     _("LongTorp"), _("Has double the Combat Rounds (18).  Bad at attacking naval fighters.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
@@ -1166,6 +1167,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 0
 uk_food       = 0
+bonuses       = ASW
 flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
 embarks       = "Sea"
 disembarks    = "Sea"
@@ -1204,6 +1206,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = ASW
 flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
 embarks       = "Sea"
 disembarks    = "Sea"
@@ -1521,7 +1524,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       = BOMB
+bonuses       = BOMB, ASW
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
 helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
@@ -1560,7 +1563,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       = BOMB
+bonuses       = BOMB, ASW
 flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Pillage"
 helptext      = _("\
 High performance twin-engined bomber, based on the same \
@@ -4121,7 +4124,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-bonuses       = BOMB
+bonuses       = BOMB, ASW
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -6230,7 +6233,7 @@ uk_base       = 1
 uk_food       = 0
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
 vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
@@ -6268,7 +6271,7 @@ uk_base       = 1
 uk_food       = 0
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \

@@ -80,6 +80,7 @@ class Unit(object):
                     'SUB': '"FatShip", "FirePower1", 1',
                     'SUB2': '"FatShip", "DefenseDividerPct", 25',
                     'TIRPITZ': '"FatShip", "DefenseDivider", 2',
+                    'ASW': '"Sub", "DefenseDivider", 1',
                     }
             bvals = set(bmap[bk] for bk in bkeys if bk != '')
             if bvals:
