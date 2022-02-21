@@ -608,8 +608,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Passenger Carrying", "Player"
     }
-graphic	= "b.library"
-graphic_alt	= "-"
+graphic	= "b.school"
+graphic_alt	= "b.library"
 obsolete_by	=
     { "type", "name", "range"
     }

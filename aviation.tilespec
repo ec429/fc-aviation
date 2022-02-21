@@ -111,6 +111,7 @@ files =
   "aviation/units-fairline.spec",
   "aviation/governments.spec",
   "aviation/buildings.spec",
+  "aviation/buildings-XYZ.spec",
   "aviation/techs.spec",
   "amplio2/veterancy.spec",
   "misc/flags-large.spec",
