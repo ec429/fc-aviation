@@ -61,6 +61,8 @@ flags =
     _("Jet"), _("Can only be built or repaired in a city with an Air Base.")
     _("Heavy"), _("Can only be repaired in a city with a Concrete Runway.")
     _("Nuclear")
+    _("Capturer"),   _("Can capture enemy merchant ships (prizes).")
+    _("Capturable"), _("Can be captured by some enemy units.")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -1177,7 +1179,7 @@ uk_happy      = 1
 uk_base       = 0
 uk_food       = 0
 bonuses       = ASW
-flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer"
 embarks       = "Sea"
 disembarks    = "Sea"
 roles         = "Explorer"
@@ -1216,7 +1218,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = ASW
-flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer"
 embarks       = "Sea"
 disembarks    = "Sea"
 cargo         = "Assault"
@@ -6128,7 +6130,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "BadCityDefender", "Merchant", "NonMil", "HasNoZOC"
+flags         = "BadCityDefender", "Merchant", "NonMil", "HasNoZOC", "Capturable"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 A Merchant ship carries goods or material for trading with distant cities\
@@ -6165,7 +6167,7 @@ uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
 bonuses       = CAM
-flags         = "BadCityDefender", "Merchant", "NonMil", "HasNoZOC"
+flags         = "BadCityDefender", "Merchant", "NonMil", "HasNoZOC", "Capturable"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 A Merchant ship carries goods or material for trading with distant cities\
@@ -6287,13 +6289,16 @@ uk_base       = 1
 uk_food       = 0
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub", "Capturer"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \
 move more quickly to get into position for an attack (and, after \
 the discovery of Autogyro, has a longer vision range).  \
 You can then submerge it again to attack more effectively.\
+"), _("\
+Subs also need to be surfaced to take prizes (capture merchant \
+ships), but beware that this uses up all their remaining move.\
 ")
 
 [unit_uboot]
@@ -6365,13 +6370,16 @@ uk_base       = 1
 uk_food       = 0
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub", "Capturer"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 When on the surface, a U-Boat is much less stealthy, but can \
 move more quickly to get into position for an attack (and, after \
 the discovery of Autogyro, has a longer vision range).  \
 You can then submerge it again to attack more effectively.\
+"), _("\
+U-Boats also need to be surfaced to take prizes (capture merchant \
+ships), but beware that this uses up all their remaining move.\
 ")
 
 [unit_lph]
@@ -6437,7 +6445,7 @@ uk_happy      = 0
 uk_base       = 2
 uk_food       = 0
 cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
-flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRheavy", "FatShip", "AntiSea"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRheavy", "FatShip", "Capturer", "AntiSea"
 slow_veteran  = 1 ; ships don't get acespeed
 bombard_rate  = 10
 roles         = ""
@@ -6476,7 +6484,7 @@ uk_happy      = 0
 uk_base       = 2
 uk_food       = 0
 cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
-flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRmedium", "FatShip", "AntiSea"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRmedium", "FatShip", "Capturer", "AntiSea"
 slow_veteran  = 1 ; ships don't get acespeed
 bombard_rate  = 10
 roles         = ""

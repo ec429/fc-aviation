@@ -254,6 +254,9 @@ ui_name_enter_marketplace = _("Sell %sGoods%s")
 ; /* TRANS: Help _build Wonder (100% chance of success). */
 ui_name_help_wonder = _("Help %sbuild Wonder%s")
 
+; /* TRANS: Take Pri_ze (100% chance of success). */
+ui_name_capture_units = _("Take Pri%sze%s")
+
 ui_name_found_city = _("%sBuild City%s")
 ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
@@ -820,6 +823,22 @@ action = "Disband Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitFlag", "EvacuateFirst", "Local", FALSE
+    }
+
+[actionenabler_capture]
+action = "Capture Units"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Capturer", "Local", TRUE
+      "DiplRel", "War", "Local", TRUE
+      "MinMoveFrags", "1", "Local", TRUE
+      "DiplRel", "Foreign", "Local", TRUE
+    }
+target_reqs    =
+    { "type",      "name",         "range", "present"
+      "UnitFlag",  "Capturable",   "Local", TRUE
+      "UnitState", "Transporting", "Local", FALSE
+      "CityTile",  "Center",       "Local", FALSE
     }
 
 [actionenabler_fortify_terrain]

@@ -94,6 +94,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * Chance to steal tech on city conquest is 60%.
 * There is no land-based Caravan unit.  Instead, Airliners can open trade routes, while the inexpensive Merchant Ships can 'enter marketplace' to earn one-time revenue — they yield considerably more than building Export (coinage), so long as they don't get sunk on the way!
   - However, one-time revenue from trade between your own cities only yields Gold.  If you want to get Science as well, then you need to go international (which is easier for enemies to blockade).
+  - Another risk to merchant ships is that they may be captured (taken as prizes) by surfaced subs, helicopters or battleships.  A captured ship can then be sailed to a port by its new owner, who gets the resulting trade revenue (based on the home city of the capturing unit).
 * Most terrain improvements can't be Pillaged.  Railways, airbases and buoys can, but only by a few precision bombers — dive-bombers (D2, D3 and DB), LM Light-Medium Bomber, and the jet medium bombers (M1, MJ and MS).
 * The effect of artillery bombardment is limited in some cases: instead of being able to reduce a unit to 1 hitpoint, it will only be able to reduce units to:
   - 15% for fortified units;
@@ -158,6 +159,8 @@ When you need to land troops somewhere, and you don't have any airbases there, y
 The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away.
 
 Like light bombers, helicopters do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
+
+Helicopters can take prizes (capture enemy merchant shipping), but doing so ends their turn.
 
 ### Fighters
 

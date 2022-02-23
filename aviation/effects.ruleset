@@ -2244,6 +2244,28 @@ reqs    =
       "UnitState", "OnNativeTile",   "Local", TRUE
     }
 
+; capturing a merchie eats your move, which is risky for subs
+; (since they have to be surfaced to take prizes)
+; it can also be awkward for helis as they have limited fuel
+; battleships have their own separate cost
+[effect_action_success_capture_cost]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 65535
+reqs    =
+    { "type",     "name",          "range", "present"
+      "Action",   "Capture Units", "Local", TRUE
+      "UnitFlag", "FatShip",       "Local", FALSE
+    }
+
+[effect_action_success_capture_cost_battleship]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 2
+reqs    =
+    { "type",     "name",          "range", "present"
+      "Action",   "Capture Units", "Local", TRUE
+      "UnitFlag", "FatShip",       "Local", TRUE
+    }
+
 ; Precision Strike is reliable and hard to defend against
 [effect_tgt_sabotage_city_accurate]
 type	= "Action_Odds_Pct"
