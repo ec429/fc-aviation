@@ -1037,6 +1037,17 @@ helptext = _("With the benefit of wartime experience, Allied aircraft\
  Bomber Command and the US Eighth Army Air Force, flattened Germany\
  and destroyed her warmaking capability.")
 
+[advance_asv]
+name     = _("A.S.V.")
+req1     = "Heavy Bombers"
+req2     = "Airborne Radar"
+cost     = 800
+graphic     = "a.stealth" ; placeholder
+graphic_alt = "-"
+helptext = _("Developed from terrain radars like H2S, centimetric\
+ Air to Surface Vessel radar improved the spotting ability of\
+ ocean patrol aircraft.")
+
 [advance_heavy_gliders]
 name     = _("Heavy Gliders")
 req1     = "Glider Assault"
@@ -1100,6 +1111,18 @@ graphic_alt = "-"
 helptext = _("The apogee of piston-engined bomber design produced\
  heavies that could range over an entire continent, and deliver payloads\
  up to and including the first nuclear bombs.")
+
+[advance_maricon]
+name     = _("Maritime Reconnaissance")
+req1     = "Bombers 1945"
+req2     = "A.S.V."
+cost     = 1200
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("New purpose-designed long-endurance aircraft,\
+ incorporating technologies developed for the heavy bombers,\
+ yielded greater effectiveness at scouring the oceans for\
+ threats above and below the waves.")
 
 [advance_fighters_1944]
 name     = _("Fighters 1944")

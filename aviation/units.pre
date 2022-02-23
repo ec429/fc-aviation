@@ -4182,6 +4182,74 @@ lower hull on this strike fighter flying-boat.  \
 Historical examples include the Saunders-Roe SR.A/1.\
 ")
 
+[unit_vlr]
+name          = _("Ocean Patrol")
+class         = "Air"
+tech_req      = "A.S.V."
+obsolete_by   = "Maritime Reconnaissance"
+graphic       = "u.liberator"
+graphic_alt   = "u.frigate"
+;phcode=PL
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 11
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 3
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = ASW
+flags         = "OneAttack", "CRmedium", "AntiSea"
+roles         = ""
+helptext      = _("\
+Very Long Range ocean patrol bomber.  \
+Historical examples include the Consolidated B-24 \
+Liberator in RAF Coastal Command service.\
+")
+
+[unit_shack]
+name          = _("Maritime Reconnaissance")
+class         = "Air"
+tech_req      = "Maritime Reconnaissance"
+obsolete_by   = "None"
+graphic       = "u.shackleton"
+graphic_alt   = "u.frigate"
+;phcode=PS
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = ASW
+flags         = "OneAttack", "CRmedium", "AntiSea"
+roles         = ""
+helptext      = _("\
+Long-endurance aircraft for maritime patrol and \
+anti-submarine warfare.  \
+Historical examples include the Avro Shackleton.\
+")
+
 [unit_early_torper]
 name          = _("Early Torpedo Bomber")
 class         = "Carrier-borne"

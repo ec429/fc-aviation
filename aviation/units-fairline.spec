@@ -168,4 +168,6 @@ tiles = { "row", "column", "tag"
   6,  6, "u.dread"       ; bd Dreadnought (HMS King George V) [GB]
   6,  7, "u.usurf"       ; us U-Boat (Surfaced) (U-Boot Typ VII) [GB]
   6,  8, "u.uboot"       ; uu U-Boat (U-Boot Typ VII) [GB], converted to submerged by [EC]
+  6,  9, "u.liberator"   ; PL Ocean Patrol (Consolidated Liberator in Coastal Command livery) [GB]
+  6, 10, "u.shackleton"  ; PS Maritime Reconnaissance (Avro Shackleton) [EC]: loosely based on Lancaster [GB]
 }
