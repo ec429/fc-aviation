@@ -94,7 +94,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * Chance to steal tech on city conquest is 60%.
 * There is no land-based Caravan unit.  Instead, Airliners can open trade routes, while the inexpensive Merchant Ships can 'enter marketplace' to earn one-time revenue — they yield considerably more than building Export (coinage), so long as they don't get sunk on the way!
   - However, one-time revenue from trade between your own cities only yields Gold.  If you want to get Science as well, then you need to go international (which is easier for enemies to blockade).
-  - Another risk to merchant ships is that they may be captured (taken as prizes) by surfaced subs, helicopters or battleships.  A captured ship can then be sailed to a port by its new owner, who gets the resulting trade revenue (based on the home city of the capturing unit).
+  - Another risk to merchant ships is that they may be captured (taken as prizes) by surfaced subs, helicopters or battleships.  A captured ship can then be sailed to a port by its new owner, who gets the resulting trade revenue (based on the home city of the capturing unit).  Only a lone ship can be captured; a stack of 2 or more (convoy) can only be attacked.
 * Most terrain improvements can't be Pillaged.  Railways, airbases and buoys can, but only by a few precision bombers — dive-bombers (D2, D3 and DB), LM Light-Medium Bomber, and the jet medium bombers (M1, MJ and MS).
 * The effect of artillery bombardment is limited in some cases: instead of being able to reduce a unit to 1 hitpoint, it will only be able to reduce units to:
   - 15% for fortified units;
