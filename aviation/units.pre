@@ -4242,7 +4242,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = ASW
-flags         = "OneAttack", "CRmedium", "AntiSea"
+flags         = "OneAttack", "CRmedium", "AntiSea", "Recon"
 roles         = ""
 helptext      = _("\
 Long-endurance aircraft for maritime patrol and \
