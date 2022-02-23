@@ -423,6 +423,10 @@ actor_reqs    =
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
     }
+target_reqs   =
+    { "type",          "name", "range"
+      "TerrainClass",  "Land", "Local"
+    }
 
 [actionenabler_bombard2]
 action = "Bombard 2"
@@ -433,6 +437,10 @@ actor_reqs    =
       "UnitState",    "Transported", "Local", FALSE
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",          "name", "range"
+      "TerrainClass",  "Land", "Local"
     }
 
 ; Attack actionenablers: these are intended to prevent the "destroy air units
@@ -502,7 +510,6 @@ actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag","Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
@@ -520,7 +527,6 @@ actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
 ;      "UnitClassFlag","Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
@@ -583,7 +589,6 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
-      "UnitFlag",      "Bombarder 2",  "Local", FALSE
       "UnitClassFlag", "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
