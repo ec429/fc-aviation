@@ -5075,7 +5075,7 @@ uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB, TIRPITZ
-flags         = "AntiGround", "CRheavy"
+flags         = "AntiGround", "AntiSea", "CRheavy"
 no_veteran    = 1
 helptext      = _("\
 Heavy free-fall bomb for precision attacks on hardened targets.  \
