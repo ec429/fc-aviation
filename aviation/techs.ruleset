@@ -1382,6 +1382,17 @@ helptext = _("Reheat (also known as afterburning) achieved thrusts\
 efficient turboprop and turbofan were economical enough for use in\
  airliners and transports.")
 
+[advance_submarine_reactors]
+name     = _("Submarine Reactors")
+req1     = "Fifties Engines"
+req2     = "Thermonuclear Weapons"
+cost     = 1800
+graphic     = "a.nuclear_power" ; placeholder
+graphic_alt = "-"
+helptext = _("A spin-off of the nuclear weapons program, compact\
+ pressurised water reactors allowed submarines to remain\
+ underwater indefinitely.")
+
 [advance_supersonic_aerodynamics]
 name     = _("Supersonic Aerodynamics")
 req1     = "Swept Wing"

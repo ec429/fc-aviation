@@ -6469,7 +6469,7 @@ ships), but beware that this uses up all their remaining move.\
 name          = _("U-Boat")
 class         = "Sea"
 tech_req      = "Marine Diesels"
-obsolete_by   = "None"
+obsolete_by   = "SSN"
 graphic       = "u.uboot"
 graphic_alt   = "u.submarine"
 ;phcode=uu
@@ -6509,7 +6509,7 @@ and recharge its batteries.\
 name          = _("U-Boat (surfaced)")
 class         = "Sea"
 tech_req      = "Marine Diesels"
-obsolete_by   = "None"
+obsolete_by   = "SSN"
 graphic       = "u.usurf"
 graphic_alt   = "u.submarine"
 ;phcode=us
@@ -6544,6 +6544,46 @@ You can then submerge it again to attack more effectively.\
 "), _("\
 U-Boats also need to be surfaced to take prizes (capture merchant \
 ships), but beware that this uses up all their remaining move.\
+")
+
+[unit_ssn]
+name          = _("SSN")
+class         = "Sea"
+tech_req      = "Submarine Reactors"
+obsolete_by   = "None"
+graphic       = "u.swiftsure"
+graphic_alt   = "u.submarine"
+;phcode=nu
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 42
+pop_cost      = 0
+attack        = 6
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
+vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+Nuclear-powered attack submarines are designed to remain \
+submerged at all times, improving their ability to evade \
+detection.  Teardrop hulls allow them to be as fast underwater \
+as older diesel-electric boats were when surfaced, while \
+improved hydrophones stretch their vision range.\
+"), _("\
+As they never surface, SSNs cannot take prizes.\
 ")
 
 [unit_lph]

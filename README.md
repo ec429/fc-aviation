@@ -47,6 +47,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 * Most sea units can't attack at all; they're all support vessels.
   - An Aircraft Carrier unit, for example, represents a CVBG (Carrier Battle Group) — while there are many gun-toting warships escorting the carrier, they're all too _busy_ escorting the carrier to run off and shoot someone else's ships.  And no carrier Admiral is going to initiate a surface gun-range engagement with an enemy CVBG (unless he _wants_ to end his career).
   - One exception is the Submersible, which has a CR 9 torpedo attack.  Preventing subs from harassing your shipping is the main purpose of blimps (and to a lesser extent flying-boats).
+    + Until the development of nuclear power, submarines need to surface periodically to recharge their batteries, and can't move very fast while submerged; surfacing makes them easier to spot.
   - The other exception is battleships, which dominate the seas between the 1900s and about 1930, after which the threat from torpedo-bombers turns them from an asset into a liability.  However, early (pre-dread) battleships can be converted into light aircraft carriers, giving them a new lease of life.
 * Land and sea units are very slow.  If you want to get anything done, you'll need to use planes to move stuff around.
   - Roads don't speed up movement at all, and Railroads only reduce movement cost to 1/2.
