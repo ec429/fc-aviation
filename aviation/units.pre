@@ -6403,7 +6403,7 @@ convert_to    = "Submersible (surfaced)"
 convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
-fuel          = 0 ; 3
+fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
@@ -6417,14 +6417,13 @@ Submersible torpedo boats can use their stealthiness to ambush \
 enemy shipping, but they're extremely vulnerable to attack from \
 the air — blimps and patrol boats are ideal sub hunters.  \
 A submerged boat is slow — you can surface it to move faster.\
+"), _("\
+You can only remain submerged for a limited time before the air \
+supply is exhausted and the batteries discharged — make sure to \
+surface in time!  \
+While in port, the sub is hooked up to pierside equipment that \
+keeps it fully charged.\
 ")
-;  \
-;You can only remain submerged for a limited time before the air \
-;supply is exhausted and the batteries discharged — make sure to \
-;surface in time!  (Beware that the game processes fuel *before* \
-;the Convert Unit action, so you must convert the turn before you \
-;run out.)\
-;")
 
 [unit_subsurface]
 name          = _("Submersible (surfaced)")
@@ -6489,7 +6488,7 @@ convert_to    = "U-Boat (surfaced)"
 convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
-fuel          = 0 ; 5
+fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
@@ -6500,11 +6499,11 @@ vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 Inter-war submersibles are only slightly more robust than older \
-models; their main advantage is increased surface speed.  \
-A submerged boat is slow — you can surface it to move faster.\
+models; their main advantages are increased surface speed and \
+underwater endurance.  \
+A submerged boat is slow — you can surface it to move faster \
+and recharge its batteries.\
 ")
-; their main advantages are increased surface speed and \
-; underwater endurance
 
 [unit_usurface]
 name          = _("U-Boat (surfaced)")
