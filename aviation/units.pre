@@ -42,6 +42,7 @@ flags =
     _("CRlight")
     _("CRmedium")
     _("CRheavy")
+    _("Missile"), _("Destroyed after attacking.")
     _("DiveBomber")
     _("AirAttacker"), _("Bad at attacking CAM.")
     _("BadDefender"), _("Bad at defending against ground troops.")
@@ -82,7 +83,6 @@ class_flags =
     _("Ground")
     _("Seaborne")
     _("Flying")
-    _("Missile")
     _("CanPillage")
     _("CanFortify"), _("Gets a 50% defensive bonus while in cities.")
   }
@@ -146,7 +146,6 @@ veteran_move_bonus = 0, 0, 2, 2
 ; "TerrainDefense" = Units gain defense bonus from terrain
 ; "DamageSlows"   = Damaged units are slowed down
 ; "CanOccupyCity" = Military units of this class can occupy enemy cities
-; "Missile"       = Unit is destroyed when it attacks
 ; "BuildAnywhere" = Unit can be built even in the middle of non-native terrain
 ; "Unreachable"   = Unit can be attacked only by units explicitly listing this
 ;                   class in its 'targets', unless on a city or native base.
@@ -256,7 +255,7 @@ name          = _("?unitclass:Missile")
 min_speed     = 0
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Missile", "Unreachable", "DoesntOccupyTile", "Flying"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Missiles are air units which are destroyed after attacking. \
  They are carrier-capable.")
 
@@ -266,7 +265,7 @@ name          = _("?unitclass:Bomb")
 min_speed     = 0
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Missile", "Unreachable", "DoesntOccupyTile"
+flags         = "Unreachable", "DoesntOccupyTile"
 helptext = _("Bombs are carried by specially-modified air units, and\
  are destroyed after attacking.  They can only attack while carried\
  by an aircraft.")
@@ -277,7 +276,7 @@ name          = _("?unitclass:ASM")
 min_speed     = 1
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Missile", "Unreachable", "DoesntOccupyTile", "Flying"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Air-to-Surface Missiles are air units which are carried\
  by specially-designed air units, and are destroyed after attacking.")
 
@@ -3053,7 +3052,7 @@ Grumman F4F Wildcat.\
 
 [unit_kamikaze]
 name          = _("Kamikaze")
-class         = "Missile"
+class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1935"
 gov_req       = "Fascism"
 impr_req      = "Yasukuni Shrine"
@@ -3080,7 +3079,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRmedium", "AntiSea", "BadDefender"
+flags         = "CRmedium", "Missile", "AntiSea", "BadDefender"
 roles         = ""
 helptext      = _("\
 Dive bomber with integral bomb for suicide attacks. \
@@ -3290,7 +3289,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "AntiGround", "CityBuster", "CRmedium" ; we'd rather "Bombarder"
+flags         = "AntiGround", "CityBuster", "CRmedium", "Missile" ; we'd rather "Bombarder"
 ;bombard_rate  = 6
 roles         = ""
 helptext      = _("\
@@ -3326,7 +3325,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Missile"
 roles         = ""
 helptext      = _("\
 Medium-range surface-to-air missile for point defence.  \
@@ -5172,7 +5171,7 @@ uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB, TIRPITZ
-flags         = "AntiGround", "AntiSea", "CRheavy"
+flags         = "AntiGround", "AntiSea", "CRheavy", "Missile"
 no_veteran    = 1
 helptext      = _("\
 Heavy free-fall bomb for precision attacks on hardened targets.  \
@@ -5275,7 +5274,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRheavy", "Nuclear", "Unique"
+flags         = "CRheavy", "Nuclear", "Unique", "Missile"
 no_veteran    = 1
 helptext      = _("\
 Nuclear fission free-fall bomb.  \
@@ -5372,7 +5371,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRheavy", "Nuclear"
+flags         = "CRheavy", "Nuclear", "Missile"
 no_veteran    = 1
 helptext      = _("\
 Thermonuclear or boosted-fission free-fall bomb.  \
@@ -5482,7 +5481,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRheavy", "Nuclear", "Jet"
+flags         = "CRheavy", "Nuclear", "Missile", "Jet"
 no_veteran    = 1
 helptext      = _("\
 Rocket-propelled stand-off thermonuclear bomb.  \

@@ -471,7 +471,7 @@ action = "Bombard"
 actor_reqs    =
     { "type",         "name",        "range", "present"
       "UnitFlag",     "Bombarder",   "Local", TRUE
-      "UnitClassFlag","Missile",     "Local", FALSE
+      "UnitFlag",     "Missile",     "Local", FALSE
       "UnitState",    "Transported", "Local", FALSE
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
@@ -492,7 +492,7 @@ action = "Bombard 2"
 actor_reqs    =
     { "type",         "name",        "range", "present"
       "UnitFlag",     "Bombarder 2", "Local", TRUE
-      "UnitClassFlag","Missile",     "Local", FALSE
+      "UnitFlag",     "Missile",     "Local", FALSE
       "UnitState",    "Transported", "Local", FALSE
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
@@ -508,7 +508,7 @@ action = "Bombard 2"
 actor_reqs    =
     { "type",         "name",        "range", "present"
       "UnitFlag",     "Bombarder 2", "Local", TRUE
-      "UnitClassFlag","Missile",     "Local", FALSE
+      "UnitFlag",     "Missile",     "Local", FALSE
       "UnitState",    "Transported", "Local", FALSE
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
@@ -530,7 +530,7 @@ target_reqs   =
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
 ;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -549,7 +549,7 @@ target_reqs   =
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
 ;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -568,7 +568,7 @@ target_reqs   =
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
 ;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -586,7 +586,7 @@ target_reqs   =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -603,7 +603,7 @@ target_reqs   =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -623,7 +623,7 @@ target_reqs   =
 ;      "UnitFlag",      "NonMil",       "Local", FALSE
 ;      "UnitFlag",      "Bombarder",    "Local", FALSE
 ;      "UnitFlag",      "Bombarder 2",  "Local", FALSE
-;      "UnitClassFlag", "Missile",      "Local", FALSE
+;      "UnitFlag",      "Missile",      "Local", FALSE
 ;      "UnitClassFlag", "Flying",       "Local", TRUE
 ;      "MinMoveFrags",  "1",            "Local", TRUE
 ;      "UnitState",     "OnNativeTile", "Local", TRUE
@@ -647,7 +647,7 @@ target_reqs   =
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
 ;      "UnitFlag",     "Bombarder",    "Local", FALSE
 ;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitClassFlag","Missile",      "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -665,7 +665,7 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
-      "UnitClassFlag", "Missile",      "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -686,7 +686,7 @@ actor_reqs    =
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
       "UnitFlag",      "Bombarder 2",  "Local", FALSE
-      "UnitClassFlag", "Missile",      "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -709,7 +709,7 @@ actor_reqs    =
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
       "UnitFlag",      "Bombarder 2",  "Local", FALSE
-      "UnitClassFlag", "Missile",      "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -729,7 +729,7 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", TRUE
-      "UnitClassFlag", "Missile",      "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -749,7 +749,7 @@ actor_reqs    =
     { "type",          "name",    "range", "present"
       "UnitFlag",      "NonMil",  "Local", FALSE
       "UnitFlag",      "Nuclear", "Local", FALSE
-      "UnitClassFlag", "Missile", "Local", TRUE
+      "UnitFlag",      "Missile", "Local", TRUE
       "MinMoveFrags",  "1",       "Local", TRUE
       "DiplRel",       "War",     "Local", TRUE
     }
