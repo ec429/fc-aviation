@@ -1969,8 +1969,10 @@ reqs    =
       "Tech", "Airborne Radar", "Player", TRUE
       "UnitClass", "Air", "Local", TRUE
 ; Really we want to test that the defender is an Air unit too,
-; but there's currently no way to do that
+; but there's currently no way to do that, so we just deny it to
+; attackers/strike fighters.
       "UnitFlag", "AntiAir", "Local", TRUE
+      "UnitFlag", "AntiGround", "Local", FALSE
 ; Make sure AF doesn't get both beam-bombing and airad bonuses.
 ; If you're strafing fighters as they scramble to fight you, then you
 ; don't get a bonus from having radar.
@@ -1985,9 +1987,7 @@ reqs    =
       "Tech", "Airborne Radar", "Player", TRUE
       "UnitClass", "Seaplane", "Local", TRUE
       "UnitFlag", "AntiAir", "Local", TRUE
-; Make sure PJ doesn't get both beam-bombing and airad bonuses.
-; If you're strafing fighters as they scramble to fight you, then you
-; don't get a bonus from having radar.
+      "UnitFlag", "AntiGround", "Local", FALSE
       "MinSize", "1", "City", FALSE
     }
 
@@ -1999,9 +1999,7 @@ reqs    =
       "Tech", "Airborne Radar", "Player", TRUE
       "UnitClass", "Seaplane Fighter", "Local", TRUE
       "UnitFlag", "AntiAir", "Local", TRUE
-; Make sure PJ doesn't get both beam-bombing and airad bonuses.
-; If you're strafing fighters as they scramble to fight you, then you
-; don't get a bonus from having radar.
+      "UnitFlag", "AntiGround", "Local", FALSE
       "MinSize", "1", "City", FALSE
     }
 
@@ -2013,9 +2011,7 @@ reqs    =
       "Tech", "Airborne Radar", "Player", TRUE
       "UnitClass", "Carrier-borne", "Local", TRUE
       "UnitFlag", "AntiAir", "Local", TRUE
-; Make sure NS, AV etc don't get both beam-bombing and airad bonuses.
-; If you're strafing fighters as they scramble to fight you, then you
-; don't get a bonus from having radar.
+      "UnitFlag", "AntiGround", "Local", FALSE
       "MinSize", "1", "City", FALSE
     }
 
@@ -2027,9 +2023,7 @@ reqs    =
       "Tech", "Airborne Radar", "Player", TRUE
       "UnitClass", "Naval Fighter", "Local", TRUE
       "UnitFlag", "AntiAir", "Local", TRUE
-; Make sure NS, AV etc don't get both beam-bombing and airad bonuses.
-; If you're strafing fighters as they scramble to fight you, then you
-; don't get a bonus from having radar.
+      "UnitFlag", "AntiGround", "Local", FALSE
       "MinSize", "1", "City", FALSE
     }
 
