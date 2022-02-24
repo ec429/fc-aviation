@@ -96,7 +96,9 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
 * Chance to steal tech on city conquest is 60%.
 * There is no land-based Caravan unit.  Instead, Airliners can open trade routes, while the inexpensive Merchant Ships can 'enter marketplace' to earn one-time revenue — they yield considerably more than building Export (coinage), so long as they don't get sunk on the way!
   - However, one-time revenue from trade between your own cities only yields Gold.  If you want to get Science as well, then you need to go international (which is easier for enemies to blockade).
-  - Another risk to merchant ships is that they may be captured (taken as prizes) by surfaced subs, helicopters or battleships.  A captured ship can then be sailed to a port by its new owner, who gets the resulting trade revenue (based on the home city of the capturing unit).  Only a lone ship can be captured; a stack of 2 or more (convoy) can only be attacked.
+  - Another risk to merchant ships is that they may be captured (taken as prizes) by surfaced subs, helicopters or battleships.  A captured ship can then be sailed to a port by its new owner, who gets the resulting trade revenue (based on the home city of the capturing unit).
+    + Only a lone ship can be captured; a stack of 2 or more (convoy) can only be attacked.
+    + Taking a prize ends a sub or heli's turn, putting them at risk of retaliation.
 * Most terrain improvements can't be Pillaged.  Railways, airbases and buoys can, but only by a few precision bombers — dive-bombers (D2, D3 and DB), LM Light-Medium Bomber, and the jet medium bombers (M1, MJ and MS).
 * The effect of artillery bombardment is limited in some cases: instead of being able to reduce a unit to 1 hitpoint, it will only be able to reduce units to:
   - 15% for fortified units;
@@ -121,7 +123,7 @@ There are a lot of different kinds of aircraft, and it's important to know how t
 
 Light, Medium and Heavy Bombers all attack ground units and (apart from Light bombers and the Twenties Medium Bomber) ships.  The larger bombers do progressively more damage, but are more vulnerable to fighters — attacking ends their movement for the turn, giving fighters a chance at them.  Try to 'use up' the enemy's fighters with sweeps before sending in your heavy bombers.
 
-Light bombers do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
+Light bombers do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.  Twin-engined light bombers get doubled Attack against submarines.
 
 Four-engined heavy bombers require Concrete Runways to repair.  From the 1940s, many heavies can be converted to carry special-purpose bombs; see the [Special Bombs](#special-bombs) section.
 
@@ -145,9 +147,13 @@ After TBs become obsolete, the Naval Attack Jet can take on the same role (it ca
 
 ### Flying Boats
 
-The Early Flying Boat operates like a slightly longer-ranged light bomber, but the Patrol Boat and the Twenties, Thirties and Heavy Flying Boat can all attack ships.  Combined with their long endurance, this makes them great sub-hunters.  And (like all seaplanes) they can use Buoys and Seaplane Tenders as refuelling bases.
+The Early Flying Boat operates like a slightly longer-ranged light bomber, but the Patrol Boat and the Twenties, Thirties and Heavy Flying Boat can all attack ships.  Combined with their long endurance, this makes them great sub-hunters (especially Heavy Flying Boat, which gets doubled Attack against subs).  And (like all seaplanes) they can use Buoys and Seaplane Tenders as refuelling bases.
 
 They do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
+
+#### Maritime Patrol
+
+In the WWII era, heavy flying-boats are replaced in the long-range ASW rôle by large landplanes developed from heavy bombers.  Their range is longer and their attacks more powerful, but they require the same Concrete Runways as the big bombers, and their defence is slightly weaker.
 
 ### Lighter Than Air
 
@@ -167,7 +173,7 @@ When you need to land troops somewhere, and you don't have any airbases there, y
 
 ### Helicopters
 
-The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away.
+The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away, as well as doubled attack against subs.
 
 Like light bombers, helicopters do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
