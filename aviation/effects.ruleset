@@ -2054,6 +2054,15 @@ reqs    =
       "UnitType", "Submersible (surfaced)", "Local"
     }
 
+[effect_bachstelze_2]
+type    = "Unit_Vision_Radius_Sq"
+value   = 3
+reqs    =
+    { "type", "name", "range"
+      "Tech", "Autogyro", "Player"
+      "UnitType", "U-Boat (surfaced)", "Local"
+    }
+
 [effect_calendar_year]
 type    = "Turn_Years"
 value   = 0
