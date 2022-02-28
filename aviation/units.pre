@@ -50,6 +50,7 @@ flags =
     _("BadAirDefender"), _("Bad at defending against bombers.")
     _("FatShip"), _("Bad at defending against submarines.")
     _("Sub")
+    _("Sonar"), _("Can detect submarines from two tiles away.")
 ; Torpedo bombers with FP=2 should only have FP=1 against scrambling naval/
 ; floatplane fighters.  However, there's no way to get that with the game
 ; engine as it stands, so instead those fighters get double defence against
@@ -1230,14 +1231,13 @@ hitpoints     = 6
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 5
-vision_subs_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
 uk_base       = 0
 uk_food       = 0
 bonuses       = ASW
-flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer", "Sonar"
 embarks       = "Sea"
 disembarks    = "Sea"
 roles         = "Explorer"
@@ -1269,14 +1269,13 @@ hitpoints     = 8
 firepower     = 1
 move_rate     = 9
 vision_radius_sq = 5
-vision_subs_sq = 5
 transport_cap = 1
 fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = ASW
-flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer"
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer", "Sonar"
 embarks       = "Sea"
 disembarks    = "Sea"
 cargo         = "Assault"
@@ -6497,7 +6496,7 @@ uk_food       = 0
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
-vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
+vision_layer  = "Subsurface" ; relates to "Sonar" flag
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 Submersible torpedo boats can use their stealthiness to ambush \
@@ -6582,7 +6581,7 @@ uk_food       = 0
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
 flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
-vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
+vision_layer  = "Subsurface" ; relates to "Sonar" flag
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 Inter-war submersibles are only slightly more robust than older \
@@ -6653,7 +6652,6 @@ hitpoints     = 10
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 5
-vision_subs_sq = 5 ; being quiet ourselves is good for sonar
 transport_cap = 1
 fuel          = 0
 uk_happy      = 1
@@ -6662,8 +6660,9 @@ uk_food       = 0
 cargo         = "Missile"
 bonuses       = SUB, SUB2
 targets       = "Sea", "Ship"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
-vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
+; being quiet ourselves is good for sonar
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub", "Sonar"
+vision_layer  = "Subsurface" ; relates to "Sonar" flag
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 Nuclear-powered attack submarines are designed to remain \

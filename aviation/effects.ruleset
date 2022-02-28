@@ -8,7 +8,7 @@
 
 [datafile]
 description="Aviation effects data for Freeciv"
-options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min +Bombard_Limit_Pct"
+options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min +Bombard_Limit_Pct +Vision_Layer"
 format_version=20
 
 ; /* <-- avoid gettext warnings
@@ -89,6 +89,7 @@ reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "tile"
       "UnitClass", "Land", "Local"
+      "VisionLayer", "Main", "Local"
     }
 [effect_fortress_vision_2]
 type    = "Unit_Vision_Radius_Sq"
@@ -97,6 +98,7 @@ reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "tile"
       "UnitClass", "Assault", "Local"
+      "VisionLayer", "Main", "Local"
     }
 [effect_fortress_vision_3]
 type    = "Unit_Vision_Radius_Sq"
@@ -289,6 +291,19 @@ reqs    =
 [effect_city_vision]
 type    = "City_Vision_Radius_Sq"
 value   = 5
+reqs    =
+    { "type", "name", "range"
+      "VisionLayer", "Main", "Local"
+    }
+
+; Cities can only see subs when adjacent (incl. diagonally adjacent)
+[effect_city_vision_subs]
+type    = "City_Vision_Radius_Sq"
+value   = 2
+reqs    =
+    { "type", "name", "range"
+      "VisionLayer", "Subsurface", "Local"
+    }
 
 [effect_trade_routes_base]
 type    = "Max_Trade_Routes"
@@ -2110,6 +2125,7 @@ reqs    =
     { "type", "name", "range"
       "Tech", "Autogyro", "Player"
       "UnitType", "Submersible (surfaced)", "Local"
+      "VisionLayer", "Main", "Local"
     }
 
 [effect_bachstelze_2]
@@ -2119,6 +2135,16 @@ reqs    =
     { "type", "name", "range"
       "Tech", "Autogyro", "Player"
       "UnitType", "U-Boat (surfaced)", "Local"
+      "VisionLayer", "Main", "Local"
+    }
+
+[effect_sonar]
+type    = "Unit_Vision_Radius_Sq"
+value   = 3
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "Sonar", "Local"
+      "VisionLayer", "Subsurface", "Local"
     }
 
 [effect_calendar_year]
