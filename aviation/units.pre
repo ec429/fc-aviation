@@ -49,6 +49,7 @@ flags =
     _("FatShip"), _("Bad at defending against submarines.")
     _("Sub")
     _("LongTorp"), _("Has double the Combat Rounds (18).  Bad at attacking naval fighters.")
+    _("FieldRepair"), _("Repairs more rapidly on airbase extra.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
 ; use targets/Unreachable and so these are just documentation.  Hopefully in
@@ -1392,7 +1393,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
 to 400-500lb, this is a militarily useful light bomber.  \
@@ -1427,7 +1428,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
@@ -1464,7 +1465,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
 the 1920s are but an incremental improvement.  \
@@ -1745,7 +1746,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir", "BadDefender"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Pusher configuration biplanes can mount a forward-firing gun \
@@ -1813,7 +1814,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir", "BadDefender"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 The triplane wing configuration gives great climb rate and \
@@ -1880,7 +1881,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir", "BadDefender"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Though faster and stronger than the Biplane Scout, to the \
@@ -1914,7 +1915,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Continued evolutionary development of biplane scouts pushes \
@@ -1948,7 +1949,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Trading off manoeuvrability for increased speed and armament, \
@@ -2120,7 +2121,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Single-engined 'light fighters' present a cheap and \
@@ -2258,7 +2259,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Developed light fighters offer Mach 0.95 on the cheap.  \
@@ -2420,7 +2421,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir", "BadDefender"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 A more manoeuvrable and capable two-seater scout.  \
@@ -2453,7 +2454,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 A conversion of a biplane light bomber into an updated \
@@ -2587,7 +2588,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRtf", "AntiGround"
+flags         = "CRtf", "AntiGround", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Streamlined ground attack aircraft; depending on \
@@ -2960,7 +2961,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = SF
-flags         = "CRscout", "AntiAir", "BadDefender"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Lightly navalised Twenties Scout.  \
@@ -2996,7 +2997,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = SF
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Lightly navalised Thirties Scout.  \
@@ -3032,7 +3033,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = SF
-flags         = "CRfighter", "AntiAir", "BadDefender"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 CATOBAR fighter monoplane.  \

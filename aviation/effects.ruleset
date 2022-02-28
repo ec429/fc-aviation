@@ -183,6 +183,16 @@ reqs    =
       "UnitFlag", "Jet", "Local", FALSE
     }
 
+; certain units (FieldRepair) repair 1/3 on Airbase extras
+[effect_hp_regen_airbase]
+type    = "HP_Regen"
+value   = 23
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "FieldRepair", "Local"
+      "Extra", "Airbase", "Tile"
+    }
+
 ; Units in cities regenerate at least 1/3 of their HP if they are repairable
 [effect_hp_regen_min_city]
 type    = "HP_Regen_Min"
