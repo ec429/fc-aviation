@@ -74,6 +74,8 @@ class Unit(object):
             bkeys = map(str.strip, str.split(bonuses, ','))
             if (self['class'] in ('"Naval Fighter"', '"Seaplane Fighter"')) != ('SF' in bkeys):
                 raise Exception("Wrong SF bonus for unit", self.get('name'), self['class'], bkeys)
+            # everyone gets this one
+            bkeys.append('LTRP')
             bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 2',
                     'SF': '"LongTorp", "DefenseMultiplier", 1',
                     'BOMB': '"BadAirDefender", "DefenseDivider", 2',
@@ -82,6 +84,7 @@ class Unit(object):
                     'SUB2': '"FatShip", "DefenseDividerPct", 25',
                     'TIRPITZ': '"FatShip", "DefenseDivider", 2',
                     'ASW': '"Sub", "DefenseDivider", 1',
+                    'LTRP': '"LongTorp", "FirePower1", 1',
                     }
             bvals = set(bmap[bk] for bk in bkeys if bk != '')
             if bvals:

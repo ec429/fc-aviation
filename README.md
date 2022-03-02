@@ -128,7 +128,7 @@ Like light bombers, attackers do not suffer the usual 75% defence penalty for ai
 
 ### Torpedo Bombers
 
-These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  Most have eighteen Combat Rounds, giving them almost as many potential hits as a heavy bomber.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence); and scrambling fighters get double defence against them (this can only happen for carrier-based or seaplane fighters).
+These aircraft, which are carrier-capable (some are seaplanes) have one purpose only: sinking ships.  Most have 2 FirePower to go with their nine Combat Rounds, giving them almost as many potential hits as a heavy bomber.  However, they tend to be fairly vulnerable (some torpedo floatplanes even have zero defence); and scrambling fighters get double defence against them (this can only happen for carrier-based or seaplane fighters).
 
 After TBs become obsolete, the Naval Attack Jet can take on the same role (it can also operate as an Attacker).
 
