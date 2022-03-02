@@ -182,7 +182,8 @@ graphic     = "a.practical_aviation"
 graphic_alt = "a.flight" ; placeholder
 helptext = _("The ability to carry a useful load, and fly in\
  imperfect weather conditions, made flying more than just a\
- stunt.  1912.")
+ stunt.  1912."),
+_("Allows the construction of airfields in open territory.")
 
 [advance_practical_seaplanes]
 name     = _("Practical Seaplanes")
@@ -193,7 +194,9 @@ graphic     = "a.practical_seaplanes"
 graphic_alt = "a.flight" ; placeholder
 helptext = _("The first floatplanes were unreliable freaks. \
  Once they were developed to practicality, the world's navies\
- began to take an interest in the possibilities.  1912.")
+ began to take an interest in the possibilities.  1912."),
+_("Allows the construction of buoys (seaplane bases) on\
+ coastal ocean tiles.")
 
 [advance_aerial_weapons]
 name     = _("Aerial Weapons")

@@ -1018,7 +1018,7 @@ shield      = 3 ; glacier used to have 4
 
 ; Player visible names of the base gui types.
 ui_name_base_fortress = _("?gui_type:Build Fortress")
-ui_name_base_airbase = _("?gui_type:Build Airbase/Buoy")
+ui_name_base_airbase = _("?gui_type:Build Airfield/Buoy")
 
 ; /* <-- avoid gettext warnings
 ;
@@ -1377,7 +1377,8 @@ moving recovers a quarter of its hit points.\
 ")
 
 [extra_airbase]
-name           = _("Airbase")
+name           = _("Airfield")
+rule_name      = _("Airbase")
 category       = "Infra"
 causes         = "Base"
 rmcauses       = "Pillage"
@@ -1390,18 +1391,18 @@ rmact_gfx      = "None"
 rmact_gfx_alt  = "-"
 reqs           =
     { "type", "name", "range", "present", "quiet"
-      "Tech", "Practical Aviation", "Player", TRUE, FALSE ; TODO change this
+      "Tech", "Practical Aviation", "Player", TRUE, FALSE
       "TerrainClass", "Land", "Local", TRUE, FALSE
       "UnitFlag", "Airbase", "Local", TRUE, FALSE
       "CityTile", "Center", "Local", FALSE, TRUE
     }
 build_time     = 2
 removal_time   = 0
-native_to      = "Air", "Carrier-borne", "Naval Fighter", "Missile", "Glider", "Helicopter"
+native_to      = "Air", "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags          = "Refuel", "NoStackDeath"
 helptext       = _("\
-Airbases allow your air units to land and refuel outside cities. \
-Air units in an airbase may be attacked by land units.\
+Airfields allow your air units to land and refuel outside cities. \
+Air units in an airfield may be attacked by land units.\
 ")
 
 [extra_buoy]
@@ -1431,7 +1432,7 @@ flags          = "Refuel"
 helptext       = _("\
 Buoys may be built on the coast (by units on a sea-going vessel).  \
 They allow your seaplanes to land and refuel outside cities.  \
-Unlike Airbases, they do not prevent stack death.\
+Unlike Airfields, they do not prevent stack death.\
 ")
 
 [extra_ruins]

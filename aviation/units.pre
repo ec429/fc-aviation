@@ -23,7 +23,7 @@ format_version=20
 ; helptxt       = displayed in the help for units with this flag (optional)
 flags =
   { "name", "helptxt"
-    _("Airbase")
+    _("Airbase"), _("Can construct airfields and buoys.")
     _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
     _("Merchant"), _("Can make single-shot trade (but not ongoing trade routes) by travelling to target city.")
     _("Recon"), _("Can investigate foreign cities (must travel to target city).")
@@ -49,7 +49,7 @@ flags =
     _("FatShip"), _("Bad at defending against submarines.")
     _("Sub")
     _("LongTorp"), _("Has double the Combat Rounds (18).  Bad at attacking naval fighters.")
-    _("FieldRepair"), _("Repairs more rapidly on airbase extra.")
+    _("FieldRepair"), _("Repairs more rapidly on airfield extra.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
 ; use targets/Unreachable and so these are just documentation.  Hopefully in
