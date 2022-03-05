@@ -1830,6 +1830,14 @@ reqs	=
       "OutputType", "Gold", "Local", TRUE
     }
 
+[effect_statue]
+type    = "Make_Content"
+value	= 3
+reqs	=
+    { "type", "name", "range"
+      "Building", "Statue of the Generals", "City"
+    }
+
 [effect_display]
 type    = "Make_Happy"
 value	= 1
