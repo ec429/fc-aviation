@@ -1136,7 +1136,7 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Further increases in engine power gave so-called\
  'super-prop' fighters an edge over their adversaries, but ran\
- into Mach effects that meant the propellor-driven fighter was\
+ into Mach effects that meant the propeller-driven fighter was\
  reaching its limit.")
 
 [advance_carrier_aviation_1945]

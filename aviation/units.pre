@@ -4634,7 +4634,7 @@ uk_food       = 0
 bonuses       = BOMB
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
-The best propellor-driven medium bombers are rugged and \
+The best propeller-driven medium bombers are rugged and \
 surprisingly fast, with a payload of around two tons.  \
 Historical examples include the Vickers Wellington \
 and Handley Page Hampden.\
