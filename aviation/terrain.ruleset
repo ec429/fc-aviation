@@ -1378,7 +1378,7 @@ moving recovers a quarter of its hit points.\
 
 [extra_airbase]
 name           = _("Airfield")
-rule_name      = _("Airbase")
+rule_name      = "Airbase"
 category       = "Infra"
 causes         = "Base"
 rmcauses       = "Pillage"
@@ -1488,7 +1488,7 @@ Roads provide a trade bonus on some terrain.\
 
 [extra_railway]
 name           = _("Railway")
-rule_name      = _("Railroad")
+rule_name      = "Railroad"
 category       = "Infra"
 causes         = "Road"
 rmcauses       = "Pillage"

@@ -567,7 +567,7 @@ helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
 
 [unit_init_settlers]
 name          = _("Founders")
-rule_name     = _("Old Settlers")
+rule_name     = "Old Settlers"
 class         = "Assault" ; so that they can be airlifted
 tech_req      = "None"
 obsolete_by   = "Settlers"
