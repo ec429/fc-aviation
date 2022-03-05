@@ -17,7 +17,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
 
 ## Significant Rule Changes
 
-* Ground units have been split into two classes, Land and Assault.  The difference is that Land units can't be transported, either by sea or by air, whereas Assault units can.
+* Ground units have been split into two classes, Land and Assault.  The difference is that Land units can't make amphibious landings, or be transported by air, whereas Assault units can.
   - The idea is that Land units are defensive, and have heavy weapons (tanks, artillery), whereas Assault units can be brought rapidly into an attack but don't have as much equipment with them, making them weaker defenders.  Paratroops in particular will struggle to hold their gains unless quickly reinforced.
   - Neither the Airlift nor Paradrop actions are used.  Instead, units are loaded into specialised aircraft.
     + Assault units can load into Gliders, which in turn load into another aircraft (the tug: a medium or heavy bomber).  The tug flies to the drop zone, then the Glider unloads from the tug, then the Assault unit unloads from the Glider; the Glider is now stuck on the ground, so disband it.  (Unfortunately, it's possible to cheat by unloading from the Glider while it's still on tow.  I haven't figured out how to fix that yet.)
@@ -27,6 +27,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
   - The Troop Ship can be used to transport Land units across the ocean, but (unlike landing-craft) it can only unload in a city.  So it's useful for logistics within your empire, but not invasions or expansion into new continents or islands.
 * Ground units cannot cross Mountain tiles.
+  - This means you can't build terrain improvements such as mines there, so their base shield output has been upped to 2, and iron adds 4.
 * Aircraft can't typically attack all unit classes.  Most will be specialised to attack either other aircraft, ground units, or sea units — although a few types can attack two or even all three.
   - By default, `unreachableprotects` is _disabled_, because otherwise mixed stacks would be invincible until the invention of strike fighters.
   - Units in cities, regardless of class, can only be attacked by AntiGround units.
@@ -166,7 +167,7 @@ Helicopters can take prizes (capture enemy merchant shipping), but doing so ends
 
 Fighters can be used to hack down enemy bombers — even if you're not quick enough to catch them before they bomb, they'll be stuck where they are for the rest of the turn so you've got plenty of time to attack them.
 
-Fighters can also escort attackers on strike missions (since the strike doesn't end the attacker's turn): move the fighter next to the target, then move the attacker onto the same square.  After the strike, move the attacker home and then follow with the fighter.
+Fighters can also escort attackers on strike missions (since the strike doesn't end the attacker's turn): move the fighter next to the target, then move the attacker onto the same square.  After the strike, move the attacker home and then follow with the fighter.  (This likely won't be necessary in LongTurn games, where RTS is frowned upon.)
 
 #### Escort Fighters
 
@@ -177,6 +178,8 @@ These heavier fighters aren't quite as good in a dogfight as their single-engine
 An aircraft carrier's loadout will probably be some mix of TBs, DBs, attackers and fighters.  The TBs go after enemy carriers, the fighters (CAP, Combat Air Patrol) deal with any strikes the enemy carriers launched, and the DBs and attackers support operations on land.  (The fighters might also fly some escort missions.)  The proportions of the different types will depend on what you expect to be fighting against — if the enemy has a lot of carriers, you'll need sizeable TB and CAP contingents, but if the enemy's airpower is weak in the theatre of operations you might be able to fill up with strike aircraft instead.
 
 Some of the Light Bombers are also carrier-capable.  The main value of this is reconnaisance, allowing you to Investigate City far from your homeland, but they can also have a rôle in wearing down a carrier's defending fighters (as can the DBs) since the TBs suffer a 50% penalty in this match-up (scrambling fighters are thus very likely to shoot down an attacking torper).
+
+In the ’40s attackers like the Naval Strike Fighter begin to replace DBs, and postwar the Naval Attack Jet takes over the TBs' rôle as well.  In the ’60s the VTOL Attack Jet adds air-to-air capability, making it potentially able to constitute a carrier's entire air group.
 
 #### Kamikaze
 
