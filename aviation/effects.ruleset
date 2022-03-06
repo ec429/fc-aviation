@@ -2278,6 +2278,27 @@ reqs    =
       "UnitFlag", "FatShip",       "Local", TRUE
     }
 
+; Spotting a target for artillery eats your move
+; which means that for each unit you want to kill
+; on a given turn, you need an arty and a spotter
+; The Radio advance reduces the cost to 1mp.
+[effect_action_success_spot_cost]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 65535
+reqs    =
+    { "type",   "name",          "range",  "present"
+      "Action", "User Action 1", "Local",  TRUE
+      "Tech",   "Radio",         "Player", FALSE
+    }
+[effect_action_success_spot_cost_radio]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 2
+reqs    =
+    { "type",   "name",          "range",  "present"
+      "Action", "User Action 1", "Local",  TRUE
+      "Tech",   "Radio",         "Player", TRUE
+    }
+
 ; Precision Strike is reliable and hard to defend against
 [effect_tgt_sabotage_city_accurate]
 type	= "Action_Odds_Pct"

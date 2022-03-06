@@ -68,6 +68,7 @@ flags =
     _("Nuclear")
     _("Capturer"),   _("Can capture enemy merchant ships (prizes).")
     _("Capturable"), _("Can be captured by some enemy units.")
+    _("Spotter"), _("Can Spot targets for artillery.")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -755,7 +756,9 @@ bombard_rate  = 12
 roles         = ""
 helptext      = _("\
 Ordinary heavy artillery.  Its bombard attack is powerful, \
-but if caught out in the open it's vulnerable.\
+but if caught out in the open it's vulnerable.  \
+Besides bombarding, it also has the option to directly \
+attack targets which have been Spotted by reconnaissance.\
 ")
 
 [unit_marines]
@@ -1295,11 +1298,13 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "Recon", "Spotter", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 With more powerful engines, Two-seat Pioneers have a considerably \
 longer endurance than their predecessors, but are still non-combatant.  \
+Being able to carry an observer in addition to the pilot means they can \
+usefully spot for artillery.  \
 Historical examples include the Wright Military Flyer, Farman III, \
 Bristol Boxkite and Short S.27.\
 ")
@@ -1329,7 +1334,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "Recon", "Spotter", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 As the basic layout of the tractor biplane with conventional \
@@ -1364,7 +1369,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 With increasing engine power, recon aircraft begin to be able \
 to carry bombs.  Only small bombs, but still - deadly enough.  \
@@ -1397,7 +1402,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
 to 400-500lb, this is a militarily useful light bomber.  \
@@ -1432,7 +1437,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
@@ -1469,7 +1474,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
 the 1920s are but an incremental improvement.  \
@@ -1505,7 +1510,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 Built along similar lines to the Early Monoplane Fighter, \
 these monoplane light bombers are faster than older models \

@@ -102,6 +102,13 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
   - 20% for units in a city;
   - 30% for ground units in a Fortress;
   - 50% for units in a city with the Concrete Bunker improvement.
+* If you've already bombarded a target down to its limit, and you've got artillery that still hasn't fired, _and the target isn't in a city_, you can use a reconnaissance plane or light bomber (Two-Seat Pioneer through to Thirties Light Bomber) to "spot" the target.  Artillery units can Attack (rather than Bombard) "spotted" targets, allowing the unit to be killed.
+  - However, Attack only targets a single unit, rather than all the units on a tile; moreover, your Artillery can take damage in return.
+  - The target tile will become unspotted when:
+    + a unit on the tile is killed;
+    + a unit enters or leaves the tile;
+    + the turn ends.
+  - Until the development of Radio, spotting ends the aircraft's turn, which is particularly hazardous for the early defenceless recon planes.
 
 ## Aircraft category usage
 

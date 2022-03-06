@@ -631,7 +631,9 @@ graphic     = "a.radio"
 graphic_alt = "-"
 helptext = _("Miniaturising radios sufficiently to routinely\
  carry them aboard aircraft increased the utility of both\
- devices.")
+ devices."), _("\
+Spotting targets for artillery no longer ends an aircraft's\
+ turn.")
 
 [advance_twenties_fighters]
 name     = _("Twenties Fighters")

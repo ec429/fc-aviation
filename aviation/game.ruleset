@@ -257,6 +257,16 @@ ui_name_help_wonder = _("Help %sbuild Wonder%s")
 ; /* TRANS: Take Pri_ze (100% chance of success). */
 ui_name_capture_units = _("Take Pri%sze%s")
 
+; Blank ruleset defined user actions.
+; See the section "Ruleset defined actions" is doc/README.actions
+
+; /* TRANS: Spot for _Artillery (100% chance of success). */
+ui_name_user_action_1                = _("Spot for %sArtillery%s")
+user_action_1_target_kind            = "individual units"
+user_action_1_min_range              = 1
+user_action_1_max_range              = 1
+user_action_1_actor_consuming_always = FALSE
+
 ui_name_found_city = _("%sBuild City%s")
 ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
@@ -272,6 +282,22 @@ ui_name_upgrade_unit = _("%sUpgrade Unit%s")
 ;
 ; Can make the help text less redundant when you document it your self.
 ;quiet_actions = "Targeted Sabotage City", "Targeted Steal Tech"
+
+[actionenabler_spot_for_artillery]
+action = "User Action 1"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Spotter",     "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+    }
+target_reqs  =
+    { "type",          "name",        "range", "present"
+      "UnitClassFlag", "Ground",      "Local", TRUE
+      "UnitState",     "Transported", "Local", FALSE
+      "CityTile",      "Center",      "Local", FALSE
+    }
 
 [actionenabler_investigate_city]
 action       = "Investigate City" ; unit is not spent
@@ -669,6 +695,28 @@ actor_reqs    =
 target_reqs   =
     { "type",          "name",   "range"
       "TerrainClass",  "Oceanic","Local"
+    }
+    
+; Artillery has the option to Attack against tiles that have
+; been Spotted, as an alternative to Bombarding.
+[actionenabler_attack_spotted]
+action = "Attack"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "NonMil",       "Local", FALSE
+      "UnitFlag",      "Bombarder",    "Local", TRUE
+      "UnitFlag",      "Missile",      "Local", FALSE
+      "MinMoveFrags",  "1",            "Local", TRUE
+      "UnitState",     "OnNativeTile", "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
+      "DiplRel",       "War",          "Local", TRUE
+      "UnitFlag",      "CRtb",         "Local", FALSE
+    }
+target_reqs   =
+    { "type",          "name",    "range", "present"
+; Can't attack into cities without AntiGround (no fighter strafing)
+      "CityTile",      "Center",  "Local", FALSE
+      "Extra",         "Spotted", "Tile", TRUE
     }
 
 [actionenabler_explode_missile]
