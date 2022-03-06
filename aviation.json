@@ -11,6 +11,7 @@
     "aviation.tilespec",
     "aviation/barrage.png",
     "aviation/bbc.png",
+    "aviation/bases.spec",
     "aviation/buildings.ruleset",
     "aviation/buildings.spec",
     "aviation/buildings-xyz.png",
@@ -48,6 +49,7 @@
     "aviation/units-fairline.spec",
     "aviation/units-XYZ.spec",
     "aviation/wind.png",
+    "aviation/xhair.png",
     "aviation/XYZamplio.png"
   ]
 }
