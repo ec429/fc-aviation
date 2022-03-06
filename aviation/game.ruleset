@@ -431,6 +431,12 @@ target_reqs   =
       "TerrainClass",  "Land", "Local"
     }
 
+; Battleships' targets only includes Sea units, meaning that
+; if they try to bombard a stack of ground troops outside of
+; a city or native base they'll not actually be able to hit
+; any of them.
+; To save the user confusion, only allow bombarding cities
+; and fortresses.
 [actionenabler_bombard2]
 action = "Bombard 2"
 actor_reqs    =
@@ -442,8 +448,25 @@ actor_reqs    =
       "DiplRel",      "War",         "Local", TRUE
     }
 target_reqs   =
-    { "type",          "name", "range"
-      "TerrainClass",  "Land", "Local"
+    { "type",         "name",   "range"
+      "TerrainClass", "Land",   "Local"
+      "CityTile",     "Center", "Local"
+    }
+
+[actionenabler_bombard2_fortress]
+action = "Bombard 2"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Bombarder 2", "Local", TRUE
+      "UnitFlag",     "Missile",     "Local", FALSE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",         "name",     "range"
+      "TerrainClass", "Land",     "Local"
+      "Extra",        "Fortress", "Tile"
     }
 
 ; Attack actionenablers: these are intended to prevent the "destroy air units
