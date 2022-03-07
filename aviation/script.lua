@@ -127,6 +127,11 @@ function action_started_unit_unit_callback(action, actor, target)
     notify_unit_unit(action, actor, target)
     target.tile:create_extra("Spotted", NIL)
   end
+  if action:rule_name() == "User Action 2" then
+    -- Spot for Naval Gunfire
+    notify_unit_unit(action, actor, target)
+    target.tile:create_extra("Spotted (Sea)", NIL)
+  end
 end
 
 signal.connect("action_started_unit_unit", "action_started_unit_unit_callback")
@@ -134,6 +139,9 @@ signal.connect("action_started_unit_unit", "action_started_unit_unit_callback")
 function scrub_spot_info(place)
   if place:has_extra("Spotted") then
       place:remove_extra("Spotted")
+    end
+  if place:has_extra("Spotted (Sea)") then
+      place:remove_extra("Spotted (Sea)")
     end
 end
 

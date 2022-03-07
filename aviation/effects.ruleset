@@ -2299,6 +2299,35 @@ reqs    =
       "Tech",   "Radio",         "Player", TRUE
     }
 
+; Same goes for Naval Spotting
+[effect_action_success_naval_spot_cost]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 65535
+reqs    =
+    { "type",   "name",          "range",  "present"
+      "Action", "User Action 2", "Local",  TRUE
+      "Tech",   "Radio",         "Player", FALSE
+    }
+[effect_action_success_naval_spot_cost_radio]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 2
+reqs    =
+    { "type",   "name",          "range",  "present"
+      "Action", "User Action 2", "Local",  TRUE
+      "Tech",   "Radio",         "Player", TRUE
+    }
+
+; Battleships get a bonus attacking units on a Spotted tile
+[effect_naval_spot_bonus]
+type    = "Attack_Bonus"
+value   = 25
+reqs    =
+    { "type", "name", "range", "present"
+      "UnitFlag", "FatShip", "Local", TRUE
+      "Extra", "Spotted (Sea)", "Tile", TRUE
+      "MinSize", "1", "City", FALSE
+    }
+
 ; Precision Strike is reliable and hard to defend against
 [effect_tgt_sabotage_city_accurate]
 type	= "Action_Odds_Pct"

@@ -16,4 +16,5 @@ artists = "
 sprites =
 	{	"tag", "file"
 		"extra.spot_fg", "aviation/xhair"
+		"extra.spotw_fg", "aviation/whair"
 	}

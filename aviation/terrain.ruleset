@@ -1485,6 +1485,31 @@ plane.  Until the end of the turn, units on the tile can be Attacked \
 by artillery units as an alternative to Bombardment.\
 ")
 
+[extra_spotw]
+name           = _("Spotted (Sea)")
+category       = "Bonus"
+causes         = "Base"
+;rmcauses       = ""
+graphic        = "extra.spotw"
+graphic_alt    = "extra.ruins"
+activity_gfx   = "None"
+act_gfx_alt    = "-"
+act_gfx_alt2   = "-"
+rmact_gfx      = "None"
+rmact_gfx_alt  = "-"
+reqs           =
+    { "type", "name", "range", "present", "quiet"
+      "TerrainClass", "Oceanic", "Local", TRUE, FALSE
+      "CityTile", "Center", "Local", FALSE, TRUE
+    }
+buildable      = FALSE
+removal_time   = 0
+helptext       = _("\
+Marks a tile that has been Spotted for naval gunfire by a reconnaissance \
+plane.  Until the end of the turn, units on the tile will suffer a defence \
+penalty against surface warships.\
+")
+
 [extra_road]
 name           = _("Road")
 category       = "Infra"
@@ -1873,6 +1898,10 @@ gui_type       = "Other"
 
 [base_spot]
 extra          = "Spotted"
+gui_type       = "Other"
+
+[base_spotw]
+extra          = "Spotted (Sea)"
 gui_type       = "Other"
 
 ; /* <-- avoid gettext warnings

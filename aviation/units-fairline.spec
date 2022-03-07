@@ -170,4 +170,6 @@ tiles = { "row", "column", "tag"
   6,  8, "u.uboot"       ; uu U-Boat (U-Boot Typ VII) [GB], converted to submerged by [EC]
   6,  9, "u.liberator"   ; PL Ocean Patrol (Consolidated Liberator in Coastal Command livery) [GB]
   6, 10, "u.shackleton"  ; PS Maritime Reconnaissance (Avro Shackleton) [EC]: loosely based on Lancaster [GB]
+  6, 11, "u.short184r"   ; HR Reconnaissance Floatplane (Short Type 184 Folder) [EC]: u.short184 with torpedo removed
+  6, 12, "u.short320r"   ; HN Large Reconnaissance Floatplane (Short Type 320 Folder) [EC]: u.short320 with torpedo removed
 }

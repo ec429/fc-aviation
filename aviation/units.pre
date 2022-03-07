@@ -68,7 +68,7 @@ flags =
     _("Nuclear")
     _("Capturer"),   _("Can capture enemy merchant ships (prizes).")
     _("Capturable"), _("Can be captured by some enemy units.")
-    _("Spotter"), _("Can Spot targets for artillery.")
+    _("Spotter"), _("Can Spot targets for artillery or naval gunfire.")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -80,6 +80,7 @@ flags =
 class_flags =
   { "name", "helptxt"
     _("Ground")
+    _("Seaborne")
     _("Flying")
     _("Missile")
     _("CanPillage")
@@ -210,7 +211,7 @@ helptext = _("A permanent facility constructed by an expeditionary\
 name          = _("?unitclass:Sea")
 min_speed     = 2
 hp_loss_pct   = 0
-flags         = "DamageSlows", "Unreachable"
+flags         = "DamageSlows", "Seaborne", "Unreachable"
 
 ; Separate from Sea for the sake of Disembarks
 [unitclass_ship]
@@ -218,7 +219,7 @@ flags         = "DamageSlows", "Unreachable"
 name          = _("?unitclass:Ship")
 min_speed     = 2
 hp_loss_pct   = 0
-flags         = "DamageSlows", "Unreachable"
+flags         = "DamageSlows", "Seaborne", "Unreachable"
 
 [unitclass_air]
 ; /* TRANS: Unit class: used adjectivally */
@@ -3573,7 +3574,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "HasNoZOC"
 helptext      = _("\
 The first seaplanes have no combat capability; like the Pioneer, \
 they're only suitable for short-range reconnaissance.  \
@@ -3584,7 +3585,7 @@ Historical examples include the Fabre Hydravion.\
 name          = _("Floatplane Scout")
 class         = "Seaplane"
 tech_req      = "Practical Seaplanes"
-obsolete_by   = "Floatplane Fighter"
+obsolete_by   = "Reconnaissance Floatplane"
 graphic       = "u.schneider"
 graphic_alt   = "u.fighter"
 ;phcode=HS
@@ -3607,11 +3608,13 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC", "BadDefender"
+flags         = "Spotter", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 Slow and barely able to defend itself, the two-seater Floatplane \
 Scout at least has a better range than the old Hydravion.  \
+It can provide gunfire spotting to surface warships, improving \
+their attack strength.  \
 Historical examples include the Short S.41.\
 ")
 
@@ -3619,7 +3622,7 @@ Historical examples include the Short S.41.\
 name          = _("Armed Floatplane")
 class         = "Seaplane"
 tech_req      = "Military Seaplanes"
-obsolete_by   = "Coastal Seaplane"
+obsolete_by   = "Reconnaissance Floatplane"
 graphic       = "u.short81"
 graphic_alt   = "u.fighter"
 ;phcode=HA
@@ -3643,7 +3646,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 The Armed Floatplane can bomb land or sea targets, but isn't \
@@ -3688,6 +3691,45 @@ Historical examples include the Sopwith Baby and Port \
 Victoria P.V.2bis.\
 ")
 
+[unit_float0torp]
+name          = _("Reconnaissance Floatplane")
+class         = "Seaplane"
+tech_req      = "Effective Seaplanes"
+obsolete_by   = "Large Reconnaissance Floatplane"
+graphic       = "u.short184r"
+graphic_alt   = "u.fighter"
+;phcode=HR
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 1
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 5
+convert_to    = "Torpedo Floatplane"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea", "Spotter"
+roles         = ""
+helptext      = _("\
+Floatplane light bomber incorporating the naval gunfire spotting \
+mission.  Can be converted to a torpedo-carrying role at the expense \
+of its other capabilities.  \
+Historical examples include the Short Type 184.\
+")
+
 [unit_floattorp]
 name          = _("Torpedo Floatplane")
 class         = "Seaplane"
@@ -3707,6 +3749,8 @@ defense       = 0
 hitpoints     = 10
 firepower     = 1
 move_rate     = 5
+convert_to    = "Reconnaissance Floatplane"
+convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3715,12 +3759,11 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRtb", "AntiSea"
 roles         = ""
 helptext      = _("\
 With the ability to carry a torpedo, attack floatplanes \
 become far more effective at taking out enemy ships.  \
-However, they're unsuitable for reconnaissance.  \
 Historical examples include the Short Type 184.\
 ")
 
@@ -3760,6 +3803,46 @@ can give seaplane carriers some protection from air attack.  \
 Historical examples include the Albatros W.4 and Loening M-8.\
 ")
 
+[unit_float0large]
+name          = _("Large Reconnaissance Floatplane")
+class         = "Seaplane"
+tech_req      = "Seaplanes 1917"
+obsolete_by   = "None"
+graphic       = "u.short320r"
+graphic_alt   = "u.fighter"
+;phcode=HN
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+convert_to    = "Large Torpedo Floatplane"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea", "Spotter"
+roles         = ""
+helptext      = _("\
+Increasing engine power allows this light bomber and naval gunfire \
+spotter to improve its fuel endurance.  \
+Can be converted to a torpedo-carrying role at the expense \
+of its other capabilities.  \
+Historical examples include the Short Type 320.\
+")
+
 [unit_floatlarge]
 name          = _("Large Torpedo Floatplane")
 class         = "Seaplane"
@@ -3779,6 +3862,8 @@ defense       = 0
 hitpoints     = 8
 firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 5
+convert_to    = "Large Reconnaissance Floatplane"
+convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3787,7 +3872,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea"
 roles         = ""
 helptext      = _("\
 Increasing engine power allows a larger (hence more \
@@ -3854,15 +3939,17 @@ vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
 disembarks    = "Sea"
-fuel          = 2
+fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
+flags         = "Recon", "Spotter", "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 roles         = ""
 helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
-to defend itself.  It's also capable of recon.  \
+to defend itself.  It's also capable of recon and \
+spotting for naval gunfire, but not bombing land \
+targets.  \
 Historical examples include the Blackburn Velos.\
 ")
 
@@ -3920,7 +4007,7 @@ attack        = 3
 defense       = 1
 hitpoints     = 15
 firepower     = 2 ; doubles effective Combat_Rounds
-move_rate     = 6
+move_rate     = 7
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3929,7 +4016,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
+flags         = "Recon", "Spotter", "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 roles         = ""
 helptext      = _("\
 Large, multi-engined monoplane torpedo-bomber \
