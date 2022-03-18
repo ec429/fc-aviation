@@ -190,7 +190,7 @@ In the ’40s attackers like the Naval Strike Fighter begin to replace DBs, and 
 
 #### Kamikaze
 
-A Fascist nation that has build the great wonder Yasukuni Shrine can construct Kamikaze units.  These are Missile-class units, quick to build and highly effective at attacking ships; but they also cost one population to build, and as missiles are destroyed after attacking.  Still, a Kamikaze swarm can be a useful way to take out enemy aircraft carriers when your homeland is threatened.  They are also carrier-capable.
+A Fascist nation that has build the small wonder Yasukuni Shrine can construct Kamikaze units.  These are Missile-class units, quick to build and highly effective at attacking ships; but they also cost one population to build, and as missiles are destroyed after attacking.  Still, a Kamikaze swarm can be a useful way to take out enemy aircraft carriers when your homeland is threatened.  They are also carrier-capable.
 
 #### Battleship Aviation
 
