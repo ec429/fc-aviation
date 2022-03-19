@@ -109,6 +109,8 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
     + a unit enters or leaves the tile;
     + the turn ends.
   - Until the development of Radio, spotting ends the aircraft's turn, which is particularly hazardous for the early defenceless recon planes.
+* Targets at sea can also be "spotted" for naval gunfire, which gives battleships and dreadnoughts a 25% attack bonus against them.
+  - Floatplane scouts and reconnaissance floatplanes are particularly useful for this, as they can be transported by the battleship.
 
 ## Aircraft category usage
 
@@ -194,7 +196,7 @@ A Fascist nation that has build the small wonder Yasukuni Shrine can construct K
 
 #### Battleship Aviation
 
-Heavy surface warships (the Line-of-Battle Ship and the Dreadnought) can carry a single seaplane or helicopter unit.  This can be useful for scouting (blimp), ASW (flying-boat or heli), or air defence (seaplane fighter); it's even possible to carry a torpedo floatplane to extend the strike range and gain the upper hand over enemy fleets.
+Heavy surface warships (the Line-of-Battle Ship and the Dreadnought) can carry a single seaplane or helicopter unit.  This can be useful for scouting (blimp), gunfire spotting (floatplane scout), ASW (flying-boat or heli), or air defence (seaplane fighter); it's even possible to carry a torpedo floatplane to extend the strike range and gain the upper hand over enemy fleets.
 
 However, beware that the defence of these ships is lowered by 15% while the aircraft is embarked.  This is because, unlike dedicated carriers, they do not have proper provision for safely storing the highly-flammable aviation fuel.
 
