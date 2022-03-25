@@ -47,6 +47,7 @@ tiles = { "row", "column", "tag"
   1,  1, "u.tallboy"     ; XT Penetrator Bomb (Vickers Tallboy)
   1,  2, "u.hustlred"    ; BY Supersonic Bomber (Nuclear) (Convair B-58 Hustler)
   1,  3, "u.yellowsun"   ; XN Thermonuclear Bomb (Yellow Sun).  Nuclear symbol from amplio2 u.nuclear (Captain Nemo & Curt Sibling)
+  1,  4, "u.bluesteel"   ; XS Stand-Off Bomb (Avro Blue Steel).  Nuclear symbol from amplio2 u.nuclear (Captain Nemo & Curt Sibling)
   1,  6, "u.lph"         ; Helicopter assault carrier.  Based on Captain Nemo's amplio2 u.transport, with Chinook from XYZ's collection
 ; 2,  5, "u.2pdr"        ; assault gun.  Based on Captain Nemo's amplio2 u.howitzer
 }
