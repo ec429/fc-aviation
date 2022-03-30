@@ -27,6 +27,7 @@ flags =
     _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
     _("Merchant"), _("Can make single-shot trade (but not ongoing trade routes) by travelling to target city.")
     _("Recon"), _("Can investigate foreign cities (must travel to target city).")
+    _("Embassy"), _("Can establish embassies in foreign cities (must travel to target city).")
     _("NoUpgrade"), _("This unit can't be upgraded when it becomes obsolete.")
     _("Cities")
     _("AddToCity")
@@ -5940,7 +5941,7 @@ uk_happy      = 0
 uk_shield     = 0
 uk_gold       = 1
 uk_food       = 0
-flags         = "Diplomat", "IgZOC", "NonMil", "HasNoZOC"
+flags         = "Embassy", "IgZOC", "NonMil", "HasNoZOC"
 roles         = "DiplomatStartUnit"
 helptext      = _("\
 An Ambassador (not to be confused with the Airspeed AS.57 airliner!)\
