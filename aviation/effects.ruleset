@@ -98,6 +98,14 @@ reqs    =
       "Extra", "Fortress", "tile"
       "UnitClass", "Assault", "Local"
     }
+[effect_fortress_vision_3]
+type    = "Unit_Vision_Radius_Sq"
+value   = 3
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Fortress", "tile"
+      "UnitClass", "Heavy Assault", "Local"
+    }
 
 [effect_fortified]
 type    = "Fortify_Defense_Bonus"
@@ -267,6 +275,14 @@ reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "Tile"
       "UnitClass", "Assault", "Local"
+    }
+[effect_fortress_hp_regen_3]
+type    = "HP_Regen"
+value   = 25
+reqs    =
+    { "type", "name", "range"
+      "Extra", "Fortress", "Tile"
+      "UnitClass", "Heavy Assault", "Local"
     }
 
 ; Base vision range - radius of vision is sqrt(5) = 2.24
@@ -1065,6 +1081,16 @@ reqs	=
       "UnitFlag", "NonMil", "Local", FALSE
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
+[effect_barracks_b]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barracks", "City", TRUE
+      "UnitClass", "Heavy Assault", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
 
 [effect_barracks_1]
 type    = "HP_Regen"
@@ -1081,6 +1107,14 @@ reqs	=
     { "type", "name", "range", "present"
       "Building", "Barracks", "City", TRUE
       "UnitClass", "Assault", "Local", TRUE
+    }
+[effect_barracks_1b]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Barracks", "City", TRUE
+      "UnitClass", "Heavy Assault", "Local", TRUE
     }
 
 [effect_shipyard]
@@ -1673,6 +1707,17 @@ reqs    =
     { "type", "name", "range", "present"
       "Building", "War College", "Player", TRUE
       "UnitClass", "Assault", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
+[effect_war_college_heavy_assault]
+type    = "Veteran_Combat"
+value   = 50
+reqs    =
+    { "type", "name", "range", "present"
+      "Building", "War College", "Player", TRUE
+      "UnitClass", "Heavy Assault", "Local", TRUE
       "UnitFlag", "NonMil", "Local", FALSE
       "UnitFlag", "NoVeteran", "Local", FALSE
     }

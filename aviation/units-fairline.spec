@@ -173,4 +173,5 @@ tiles = { "row", "column", "tag"
   6, 11, "u.short184r"   ; HR Reconnaissance Floatplane (Short Type 184 Folder) [EC]: u.short184 with torpedo removed
   6, 12, "u.short320r"   ; HN Large Reconnaissance Floatplane (Short Type 320 Folder) [EC]: u.short320 with torpedo removed
   6, 13, "u.swiftsure"   ; nu SSN (HMS Swiftsure) [T] (ideally we should submerge it but this'll do for now)
+  6, 14, "u.tetrarch"    ; ac Light Tank (A17 Light Tank Mk VII "Tetrarch") [GB]
 }

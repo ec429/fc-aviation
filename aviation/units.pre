@@ -185,6 +185,18 @@ flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
 helptext = _("Regular Land units are not transportable by air or in\
  landing-craft, as their equipment (tanks and artillery) is too heavy.")
 
+[unitclass_heavy_assault]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Heavy Assault")
+min_speed     = 1
+hp_loss_pct   = 0
+flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
+                "CollectRansom", "ZOC", "CanFortify", "CanPillage",
+                "TerrainDefense", "KillCitizen", "Ground", "Unreachable"
+helptext = _("Heavy Assault land units can be airlifted by strategic\
+ transport aircraft and heavy gliders.  They can also cross the seas\
+ in landing-craft.")
+
 [unitclass_assault]
 ; /* TRANS: Unit class: used adjectivally */
 name          = _("?unitclass:Assault")
@@ -829,8 +841,44 @@ flags         = "Fanatic", "AntiGround"
 slow_veteran  = 1 ; ground units don't get acespeed
 roles         = "AttackStrongStartUnit"
 helptext      = _("\
-Airliftable riflemen, light tanks, artillery etc.  Can travel by \
+Airliftable riflemen, machine-guns, jeeps, mortars etc.  Can travel by \
 transport or glider.\
+")
+
+[unit_tetrarch]
+name          = _("Light Tank")
+class         = "Heavy Assault"
+tech_req      = "Engines 1942" # common preq of Heavy Glider and Heavy Airlift
+obsolete_by   = "None"
+graphic       = "u.tetrarch"
+graphic_alt   = "u.armor"
+;phcode=ac
+sound_move    = "m_armor"
+sound_move_alt = "m_generic"
+sound_fight   = "f_armor"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 2
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = TROOP
+disembarks    = "Sea"
+flags         = "AntiGround"
+slow_veteran  = 1 ; ground units don't get acespeed
+helptext      = _("\
+Light tanks can beef up an airborne assault's ability to hold onto \
+gains, but require large-capacity gliders to deliver.\
+Historical examples include the Vickers-Armstrongs A17 Tetrarch \
+and Marmon-Herrington M22 Locust.\
 ")
 
 [unit_2pdr]
@@ -6026,7 +6074,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 flags         = "HasNoZOC", "Provoking", "NoUpgrade", "Heavy"
-cargo         = "Assault"
+cargo         = "Assault", "Heavy Assault"
 helptext      = _("\
 This large four-prop transport aircraft, though expensive, \
 can carry a large cargo over a long range.  \
@@ -6093,7 +6141,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 flags         = "HasNoZOC", "Provoking", "Jet"
-cargo         = "Assault"
+cargo         = "Assault", "Heavy Assault"
 helptext      = _("\
 This massive strategic jet airlifter can transport even more \
 cargo, at a high speed.  \
@@ -6159,7 +6207,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 0
 uk_food       = 0
-cargo         = "Assault"
+cargo         = "Assault", "Heavy Assault"
 disembarks    = "Air"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 helptext      = _("\
@@ -6226,7 +6274,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Assault"
+cargo         = "Assault", "Heavy Assault"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = "Ferryboat"
@@ -6260,7 +6308,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Land", "Assault"
+cargo         = "Land", "Assault", "Heavy Assault"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
