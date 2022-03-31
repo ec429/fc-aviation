@@ -1318,6 +1318,8 @@ helptext      = _("\
 Pioneers are your first heavier-than-air units. They can \
 move anywhere, but have no combat or cargo capability, so \
 are mainly for recon.  \
+As the pilots of these aircraft are also the designers, \
+Pioneers are always built as Veteran.  \
 Historical examples include the Wright Flyer III, \
 Antoinette IV, and Roe IV Triplane.\
 ")

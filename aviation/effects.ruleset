@@ -1147,6 +1147,18 @@ reqs	=
       "OutputType", "Food", "Local"
     }
 
+; people who invented flying are good at it
+[effect_pioneering]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "UnitType", "Pioneer", "Local"
+    }
+
+; normally if you can build Flying Schools you can't build Pioneers
+; but if you captured a city with a school in you might, so we make
+; sure that doesn't give you Ace Pioneers
 [effect_school]
 type    = "Veteran_Build"
 value	= 1
@@ -1156,6 +1168,7 @@ reqs	=
       "UnitClassFlag", "Flying", "Local", TRUE
       "UnitFlag", "NonMil", "Local", FALSE
       "UnitFlag", "NoVeteran", "Local", FALSE
+      "UnitType", "Pioneer", "Local", FALSE
     }
 
 [effect_repair_1]
