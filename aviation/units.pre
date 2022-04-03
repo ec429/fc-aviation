@@ -872,7 +872,8 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = TROOP
-disembarks    = "Sea"
+embarks       = "Helicopter"
+disembarks    = "Sea", "Helicopter"
 flags         = "AntiGround"
 slow_veteran  = 1 ; ground units don't get acespeed
 helptext      = _("\
@@ -1285,6 +1286,42 @@ Turbine-powered helicopters are able to airlift assault \
 troops, without need of an airbase (as the chopper can \
 land anywhere to load and unload).  \
 Historical examples include the Bell UH-1 Iroquois ('Huey').\
+")
+
+[unit_chin]
+name          = _("Twin Rotor")
+class         = "Helicopter"
+tech_req      = "Sixties Helicopters"
+obsolete_by   = "None"
+graphic       = "u.chinook"
+graphic_alt   = "u.helicopter"
+;phcode=UT
+sound_move    = "m_helicopter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_helicopter"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 14
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 2
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "HasNoZOC"
+embarks       = "Sea"
+disembarks    = "Sea"
+cargo         = "Assault", "Heavy Assault"
+helptext      = _("\
+Heavy twin-rotor helicopters can deliver much heavier cargo \
+than older models.  However, in specialising for the transport \
+role the antisubmarine warfare capability is lost.  \
+Historical examples include the Boeing CH-47 Chinook.\
 ")
 
 [unit_pioneer]

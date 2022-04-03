@@ -1559,3 +1559,13 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Wide-body jetliners allowed greatly increased\
  passenger and cargo air traffic along trunk routes.")
+
+[advance_sixties_helicopters]
+name     = _("Sixties Helicopters")
+req1     = "Turbine Helicopters"
+req2     = "Sixties Engines"
+cost     = 1600
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("A new generation of heavy-lift cargo helicopter\
+ revolutionised military logistics.")

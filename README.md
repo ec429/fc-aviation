@@ -25,6 +25,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
     + Paratroops can unload from transport aircraft while in flight.
     + Some heavy bombers and flying-boats also have a small transport capacity.
   - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
+  - Units of the Heavy Assault class (currently containing only the Light Tank) are too large to fit in some of the smaller transport aircraft, but can still be carried by strategic transports, heavy gliders and twin-rotor helicopters.  They can also use Landing Craft.
   - The Troop Ship can be used to transport Land units across the ocean, but (unlike landing-craft) it can only unload in a city.  So it's useful for logistics within your empire, but not invasions or expansion into new continents or islands.
 * Ground units cannot cross Mountain tiles.
   - This means you can't build terrain improvements such as mines there, so their base shield output has been upped to 2, and iron adds 4.
@@ -174,6 +175,8 @@ When you need to land troops somewhere, and you don't have any airbases there, y
 ### Helicopters
 
 The Early Helicopter is just a short-ranged antisubmarine patroller (except that it can use its dedicated Heli Assault Carrier as well as regular aircraft carriers), but the Helicopter can also carry one Assault unit and — unlike transports — land it anywhere.  It's like gliders, only without the annoying "have to throw away the glider" and "need a tug" bits!  Both helicopters also have the ability to see submarines from two tiles away, as well as doubled attack against subs.
+
+Later, the Twin Rotor can carry two assault units (including the Light Tank), but doesn't have any ASW capability.
 
 Like light bombers, helicopters do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
