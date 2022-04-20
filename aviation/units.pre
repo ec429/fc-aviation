@@ -6255,6 +6255,74 @@ to the Drop Zone by a suitable bomber aircraft.  \
 Historical examples include the General Aircraft Hamilcar.\
 ")
 
+[unit_k3]
+name          = _("Tanker Biplane")
+class         = "Air"
+tech_req      = "Aerial Refuelling"
+obsolete_by   = "None"
+graphic       = "u.virgtank"
+graphic_alt   = "u.bomber"
+;phcode=K3
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 20
+firepower     = 0
+move_rate     = 5 ; 4 once stacking is supported
+vision_radius_sq = 4
+transport_cap = 1
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
+flags         = "BadDefender", "HasNoZOC", "Heavy"
+roles         = ""
+helptext      = _("\
+Flight-refuelling tanker developed from a bomber airframe.  \
+Historical examples include experimental conversions of Handley Page Harrows \
+and Vickers Virginias.\
+")
+
+[unit_km]
+name          = _("Tanker Monoplane")
+class         = "Air"
+tech_req      = "Tankers 1944"
+obsolete_by   = "None"
+graphic       = "u.halitank"
+graphic_alt   = "u.bomber"
+;phcode=KM
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 24
+firepower     = 0
+move_rate     = 7 ; 6 once stacking is supported
+vision_radius_sq = 4
+transport_cap = 1
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
+flags         = "BadDefender", "HasNoZOC", "Heavy"
+roles         = ""
+helptext      = _("\
+Large flight-refuelling tanker developed from a four-engine bomber airframe.  \
+Historical examples include the Boeing KB-29 Superfortress, and Handley Page \
+Halifax conversions planned for use by Tiger Force.\
+")
+
 [unit_kj]
 name          = _("Tanker Jet")
 class         = "Air"
@@ -6273,7 +6341,7 @@ attack        = 0
 defense       = 4
 hitpoints     = 30
 firepower     = 0
-move_rate     = 9
+move_rate     = 11 ; 9 once stacking is supported
 vision_radius_sq = 5
 transport_cap = 1
 fuel          = 2

@@ -784,6 +784,17 @@ helptext = _("Supercharging finally became a mature technology, enabling\
  aero-engines to develop over 1,000hp in a compact package and opening\
  the way to further improvements in aeroplanes of all types.")
 
+[advance_aerial_refuelling]
+name     = _("Aerial Refuelling")
+req1     = "Thirties Airlift"
+req2     = "None"
+cost     = 800
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Sir Alan Cobham's looped-hose system allowed aircraft to be\
+ refuelled in flight, creating new possibilities for extended range or\
+ operational flexibility.")
+
 [advance_large_monoplanes]
 name     = _("Large Monoplanes")
 req1     = "Engines 1935"
@@ -1052,6 +1063,16 @@ graphic_alt = "-"
 helptext = _("Developed from terrain radars like H2S, centimetric\
  Air to Surface Vessel radar improved the spotting ability of\
  ocean patrol aircraft.")
+
+[advance_tankers_1944]
+name     = _("Tankers 1944")
+req1     = "Heavy Bombers"
+req2     = "Aerial Refuelling"
+cost     = 1200
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Combining flight-refuelling technology with surplus heavy\
+ bomber airframes enabled a new generation of air-to-air tankers.")
 
 [advance_heavy_gliders]
 name     = _("Heavy Gliders")
@@ -1460,6 +1481,17 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("A new generation of strategic jet bombers produced\
  some of the most iconic aircraft since the War.")
+
+[advance_fifties_tankers]
+name     = _("Fifties Tankers")
+req1     = "Fifties Bombers"
+req2     = "Tankers 1944"
+cost     = 2000
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Converted jet bombers equipped with the new\
+ probe-and-drogue refuelling system stretched mission ranges\
+ further than ever.")
 
 [advance_fifties_airlift]
 name     = _("Fifties Airlift")

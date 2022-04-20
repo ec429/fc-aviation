@@ -174,4 +174,6 @@ tiles = { "row", "column", "tag"
   6, 12, "u.short320r"   ; HN Large Reconnaissance Floatplane (Short Type 320 Folder) [EC]: u.short320 with torpedo removed
   6, 13, "u.swiftsure"   ; nu SSN (HMS Swiftsure) [T] (ideally we should submerge it but this'll do for now)
   6, 14, "u.tetrarch"    ; ac Light Tank (A17 Light Tank Mk VII "Tetrarch") [GB]
+  6, 15, "u.virgtank"    ; K3 Tanker Biplane (Vickers Virginia RAE) [EC]: repaint of Valentia transport, originally from Vickers Vimy [GB]
+  6, 16, "u.halitank"    ; KM Tanker Monoplane (Handley Page Halifax K) [GB], repainted and turrets removed by [EC]
 }
