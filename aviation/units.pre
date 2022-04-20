@@ -6281,7 +6281,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
-flags         = "BadDefender", "HasNoZOC", "Heavy"
+flags         = "BadDefender", "HasNoZOC"
 roles         = ""
 helptext      = _("\
 Flight-refuelling tanker developed from a bomber airframe.  \
