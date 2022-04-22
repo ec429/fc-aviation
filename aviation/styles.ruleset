@@ -132,35 +132,35 @@ reqs = { "type", "name", "range"
          "tech", "Practical Aviation", "Player"
        }
 
-;[citystyle_electric]
-;name        = _("?citystyle:ElectricAge")
-;graphic     = "city.electricage"
-;graphic_alt = "city.modern"
-;citizens_graphic     = "electricage"
-;citizens_graphic_alt = "generic"
-;reqs = { "type", "name", "range"
-;         "tech", "Automobile", "Player"
-;       }
+[citystyle_electric]
+name        = _("?citystyle:ElectricAge")
+graphic     = "city.electricage"
+graphic_alt = "city.modern"
+citizens_graphic     = "electricage"
+citizens_graphic_alt = "generic"
+reqs = { "type", "name", "range"
+         "tech", "General Aviation", "Player"
+       }
 
-;[citystyle_modern]
-;name        = _("?citystyle:Modern")
-;graphic     = "city.modern"
-;graphic_alt = "-"
-;citizens_graphic     = "modern"
-;citizens_graphic_alt = "generic"
-;reqs = { "type", "name", "range"
-;         "tech", "Rocketry", "Player"
-;       }
+[citystyle_modern]
+name        = _("?citystyle:Modern")
+graphic     = "city.modern"
+graphic_alt = "-"
+citizens_graphic     = "modern"
+citizens_graphic_alt = "generic"
+reqs = { "type", "name", "range"
+         "tech", "Gas Turbine", "Player"
+       }
 
-;[citystyle_postmodern]
-;name        = _("?citystyle:PostModern")
-;graphic     = "city.postmodern"
-;graphic_alt = "-"
-;citizens_graphic     = "postmodern"
-;citizens_graphic_alt = "generic"
-;reqs = { "type", "name", "range"
-;         "tech", "Superconductors", "Player"
-;       }
+[citystyle_postmodern]
+name        = _("?citystyle:PostModern")
+graphic     = "city.postmodern"
+graphic_alt = "-"
+citizens_graphic     = "postmodern"
+citizens_graphic_alt = "generic"
+reqs = { "type", "name", "range"
+         "tech", "Supersonic Flight", "Player"
+       }
 
 ; /* <-- avoid gettext warnings
 ;
@@ -240,26 +240,26 @@ reqs	=
       "Tech", "Practical Aviation", "Player"
     }
 
-;[musicstyle_electricage]
-;music_peaceful     = "music_electricage_peace"
-;music_combat       = "music_electricage_combat"
-;reqs	=
-;    { "type", "name", "range"
-;      "Tech", "Automobile", "Player"
-;    }
+[musicstyle_electricage]
+music_peaceful     = "music_electricage_peace"
+music_combat       = "music_electricage_combat"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "General Aviation", "Player"
+    }
 
-;[musicstyle_modern]
-;music_peaceful     = "music_modern_peace"
-;music_combat       = "music_modern_combat"
-;reqs	=
-;    { "type", "name", "range"
-;      "Tech", "Rocketry", "Player"
-;    }
+[musicstyle_modern]
+music_peaceful     = "music_modern_peace"
+music_combat       = "music_modern_combat"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Gas Turbine", "Player"
+    }
 
-;[musicstyle_postmodern]
-;music_peaceful     = "music_postmodern_peace"
-;music_combat       = "music_postmodern_combat"
-;reqs	=
-;    { "type", "name", "range"
-;      "Tech", "Superconductors", "Player"
-;    }
+[musicstyle_postmodern]
+music_peaceful     = "music_postmodern_peace"
+music_combat       = "music_postmodern_combat"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Supersonic Flight", "Player"
+    }
