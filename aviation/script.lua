@@ -96,3 +96,75 @@ function place_map_labels()
 end
 
 signal.connect("map_generated", "place_map_labels")
+
+-- Only notifications needs Lua
+function notify_unit_unit(action, actor, target)
+  -- Notify actor
+  notify.event(actor.owner, target.tile,
+               E.UNIT_ACTION_ACTOR_SUCCESS,
+               -- /* TRANS: Your Marines does Disrupt Supply Lines to American Armor. */
+               _("Your %s does %s to %s %s."),
+               actor.utype:name_translation(),
+               action:name_translation(),
+               target.owner.nation:name_translation(),
+               target.utype:name_translation())
+
+  -- Notify target
+  notify.event(target.owner, actor.tile,
+               E.UNIT_ACTION_TARGET_HOSTILE,
+               -- /* TRANS: German Paratroopers does Disrupt Supply Lines to your Armor. */
+               _("%s %s does %s to your %s."),
+               actor.owner.nation:name_translation(),
+               actor.utype:name_translation(),
+               action:name_translation(),
+               target.utype:name_translation())
+end
+
+-- Handle unit targeted unit action start
+function action_started_unit_unit_callback(action, actor, target)
+  if action:rule_name() == "User Action 1" then
+    -- Spot for Artillery
+    notify_unit_unit(action, actor, target)
+    target.tile:create_extra("Spotted", NIL)
+  end
+  if action:rule_name() == "User Action 2" then
+    -- Spot for Naval Gunfire
+    notify_unit_unit(action, actor, target)
+    target.tile:create_extra("Spotted (Sea)", NIL)
+  end
+end
+
+signal.connect("action_started_unit_unit", "action_started_unit_unit_callback")
+
+function scrub_spot_info(place)
+  if place:has_extra("Spotted") then
+      place:remove_extra("Spotted")
+    end
+  if place:has_extra("Spotted (Sea)") then
+      place:remove_extra("Spotted (Sea)")
+    end
+end
+
+-- invalidate Spotted if unit moves in or out of the tile
+function unit_moved_callback(unit, from, to)
+  scrub_spot_info(from)
+  scrub_spot_info(to)
+end
+
+signal.connect("unit_moved", "unit_moved_callback")
+
+-- invalidate Spotted if a unit on tile was killed
+function unit_lost_callback(unit, loser, reason)
+  scrub_spot_info(unit.tile)
+end
+
+signal.connect("unit_lost", "unit_lost_callback")
+
+-- clear away Spotted at turn change
+function out_damned_spot(turn, year)
+  for place in whole_map_iterate() do
+    scrub_spot_info(place)
+  end
+end
+
+signal.connect("turn_begin", "out_damned_spot")

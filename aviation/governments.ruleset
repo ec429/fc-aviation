@@ -131,6 +131,7 @@ Cities under Communism also give off more pollution from shields.\
 _("\
 * Base science production is 60% that of other governments.\n\
 * Pollution from production (shields) is increased by 50%.\n\
+* One-time revenue from merchants and airliners is decreased by 50%.\n\
 ")
 
 ;------------------------------------------------------------------------

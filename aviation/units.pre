@@ -23,14 +23,16 @@ format_version=20
 ; helptxt       = displayed in the help for units with this flag (optional)
 flags =
   { "name", "helptxt"
-    _("Airbase")
+    _("Airbase"), _("Can construct airfields and buoys.")
     _("TradeRoute"), _("Can establish trade routes (must travel to target city).")
     _("Merchant"), _("Can make single-shot trade (but not ongoing trade routes) by travelling to target city.")
     _("Recon"), _("Can investigate foreign cities (must travel to target city).")
+    _("Embassy"), _("Can establish embassies in foreign cities (must travel to target city).")
     _("NoUpgrade"), _("This unit can't be upgraded when it becomes obsolete.")
     _("Cities")
     _("AddToCity")
-    _("Bombarder")
+    _("Bombarder"), _("Can bombard adjacent tiles.")
+    _("Bombarder 2"), _("Can bombard cities and fortresses up to 2 tiles away.")
     _("Pillage")
     _("Cant_Fortify")
     _("CRscout")
@@ -41,8 +43,20 @@ flags =
     _("CRlight")
     _("CRmedium")
     _("CRheavy")
+    _("Missile"), _("Destroyed after attacking.")
     _("DiveBomber")
     _("AirAttacker"), _("Bad at attacking CAM.")
+    _("BadDefender"), _("Bad at defending against ground troops.")
+    _("BadAirDefender"), _("Bad at defending against bombers.")
+    _("FatShip"), _("Bad at defending against submarines.")
+    _("Sub")
+    _("Sonar"), _("Can detect submarines from two tiles away.")
+; Torpedo bombers with FP=2 should only have FP=1 against scrambling naval/
+; floatplane fighters.  However, there's no way to get that with the game
+; engine as it stands, so instead those fighters get double defence against
+; units with this flag.
+    _("LongTorp"), _("Bad at attacking naval fighters.  FirePower reduced to 1 when defending.")
+    _("FieldRepair"), _("Repairs more rapidly on airfield extra.")
 ; These three are meant for use with actionenablers, but since we can't avoid
 ; excessive stackprotect in 3.0 (e.g. indestructible ground+air stacks), we
 ; use targets/Unreachable and so these are just documentation.  Hopefully in
@@ -52,6 +66,12 @@ flags =
     _("AntiGround"), _("Can attack ground units (Land, Assault).")
     _("AntiSea"), _("Can attack Sea units.")
     _("AntiAir"), _("Can attack flying units (Air, Seaplane, Carrier-borne, Helicopter, Glider).")
+    _("Jet"), _("Can only be built or repaired in a city with an Air Base.")
+    _("Heavy"), _("Can only be repaired in a city with a Concrete Runway.")
+    _("Nuclear")
+    _("Capturer"),   _("Can capture enemy merchant ships (prizes).")
+    _("Capturable"), _("Can be captured by some enemy units.")
+    _("Spotter"), _("Can Spot targets for artillery or naval gunfire.")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -63,8 +83,8 @@ flags =
 class_flags =
   { "name", "helptxt"
     _("Ground")
+    _("Seaborne")
     _("Flying")
-    _("Missile")
     _("CanPillage")
     _("CanFortify"), _("Gets a 50% defensive bonus while in cities.")
   }
@@ -128,7 +148,6 @@ veteran_move_bonus = 0, 0, 2, 2
 ; "TerrainDefense" = Units gain defense bonus from terrain
 ; "DamageSlows"   = Damaged units are slowed down
 ; "CanOccupyCity" = Military units of this class can occupy enemy cities
-; "Missile"       = Unit is destroyed when it attacks
 ; "BuildAnywhere" = Unit can be built even in the middle of non-native terrain
 ; "Unreachable"   = Unit can be attacked only by units explicitly listing this
 ;                   class in its 'targets', unless on a city or native base.
@@ -165,8 +184,20 @@ hp_loss_pct   = 0
 flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
                 "CollectRansom", "ZOC", "CanFortify", "CanPillage",
                 "TerrainDefense", "KillCitizen", "Ground", "Unreachable"
-helptext = _("Regular Land units are not transportable by air or sea,\
- as their equipment (tanks and artillery) is too heavy.")
+helptext = _("Regular Land units are not transportable by air or in\
+ landing-craft, as their equipment (tanks and artillery) is too heavy.")
+
+[unitclass_heavy_assault]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Heavy Assault")
+min_speed     = 1
+hp_loss_pct   = 0
+flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
+                "CollectRansom", "ZOC", "CanFortify", "CanPillage",
+                "TerrainDefense", "KillCitizen", "Ground", "Unreachable"
+helptext = _("Heavy Assault land units can be airlifted by strategic\
+ transport aircraft and heavy gliders.  They can also cross the seas\
+ in landing-craft.")
 
 [unitclass_assault]
 ; /* TRANS: Unit class: used adjectivally */
@@ -179,12 +210,29 @@ flags         = "TerrainSpeed", "DamageSlows", "CanOccupyCity", "BuildAnywhere",
 helptext = _("Assault-class land units travel light enough that they\
  are transportable by suitable ships and aircraft.")
 
+[unitclass_installation]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Installation")
+min_speed     = 0
+hp_loss_pct   = 0
+flags         = "Ground", "Unreachable"
+helptext = _("A permanent facility constructed by an expeditionary\
+ ground unit.")
+
 [unitclass_sea]
 ; /* TRANS: Unit class: used adjectivally */
 name          = _("?unitclass:Sea")
 min_speed     = 2
 hp_loss_pct   = 0
-flags         = "DamageSlows", "Unreachable"
+flags         = "DamageSlows", "Seaborne", "Unreachable"
+
+; Separate from Sea for the sake of Disembarks
+[unitclass_ship]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Ship")
+min_speed     = 2
+hp_loss_pct   = 0
+flags         = "DamageSlows", "Seaborne", "Unreachable"
 
 [unitclass_air]
 ; /* TRANS: Unit class: used adjectivally */
@@ -205,15 +253,46 @@ flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Carrier-borne air units can be transported by, fly\
  missions from, and refuel on aircraft carriers.")
 
+[unitclass_cap]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Naval Fighter")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
+helptext = _("Carrier-borne interceptor units can be transported by, fly\
+ missions from, and refuel on aircraft carriers.")
+
 [unitclass_missile]
 ; /* TRANS: Unit class: used adjectivally */
 name          = _("?unitclass:Missile")
 min_speed     = 0
 hp_loss_pct   = 0
 hut_behavior  = "Frighten"
-flags         = "Missile", "Unreachable", "DoesntOccupyTile", "Flying"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Missiles are air units which are destroyed after attacking. \
  They are carrier-capable.")
+
+[unitclass_bomb]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Bomb")
+min_speed     = 0
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile"
+helptext = _("Bombs are carried by specially-modified air units, and\
+ are destroyed after attacking.  They can only attack while carried\
+ by an aircraft.")
+
+[unitclass_asm]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:ASM")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
+helptext = _("Air-to-Surface Missiles are air units which are carried\
+ by specially-designed air units, and are destroyed after attacking.")
 
 [unitclass_heli]
 ; /* TRANS: Unit class: used adjectivally */
@@ -233,6 +312,17 @@ hp_loss_pct   = 0
 hut_behavior  = "Frighten"
 flags         = "Unreachable", "DoesntOccupyTile", "Flying"
 helptext = _("Floatplanes and flying-boats can be transported by, fly\
+ missions from, and refuel at Seaplane Tenders and\
+ Light Aircraft Carriers.")
+
+[unitclass_floatfight]
+; /* TRANS: Unit class: used adjectivally */
+name          = _("?unitclass:Seaplane Fighter")
+min_speed     = 1
+hp_loss_pct   = 0
+hut_behavior  = "Frighten"
+flags         = "Unreachable", "DoesntOccupyTile", "Flying"
+helptext = _("Floatplane interceptors can be transported by, fly\
  missions from, and refuel at Seaplane Tenders and\
  Light Aircraft Carriers.")
 
@@ -491,7 +581,8 @@ helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
 ; */ <-- avoid gettext warnings
 
 [unit_init_settlers]
-name          = _("Old Settlers")
+name          = _("Founders")
+rule_name     = "Old Settlers"
 class         = "Assault" ; so that they can be airlifted
 tech_req      = "None"
 obsolete_by   = "Settlers"
@@ -509,15 +600,15 @@ attack        = 0
 defense       = 1
 hitpoints     = 20
 firepower     = 1
-move_rate     = 2
-vision_radius_sq = 2
+move_rate     = 3
+vision_radius_sq = 5
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
 uk_shield     = 0
 uk_gold       = 1
 uk_food       = 1
-flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "AddToCity", "Cities", "NoBuild"
+flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "AddToCity", "Cities", "NoBuild", "IgTer"
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 no_veteran    = 1
@@ -529,7 +620,7 @@ means of founding new cities.\
 Settlers can also improve terrain tiles. See the help on Terrain \
 and Terrain Alterations for the effects of their actions.\
 "), _("\
-Your starting units are Old Settlers, which can move faster and \
+Your starting settlers are Founders, which can move faster and \
 establish cities at size 2.\
 ")
 
@@ -551,7 +642,7 @@ attack        = 0
 defense       = 1
 hitpoints     = 20
 firepower     = 1
-move_rate     = 1
+move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -592,7 +683,7 @@ attack        = 0
 defense       = 1
 hitpoints     = 10
 firepower     = 1
-move_rate     = 1
+move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -639,6 +730,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = TROOP
 flags         = "AntiGround"
 slow_veteran  = 1 ; ground units don't get acespeed
 roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
@@ -650,7 +742,7 @@ defending your cities.\
 [unit_artillery]
 name          = _("Artillery")
 class         = "Land"
-tech_req      = "None"
+tech_req      = "Big Guns"
 obsolete_by   = "None"
 graphic       = "u.howitzer"
 ;phcode=ar
@@ -660,7 +752,7 @@ sound_fight   = "f_howitzer"
 sound_fight_alt = "f_generic"
 build_cost    = 30
 pop_cost      = 0
-attack        = 6
+attack        = 9
 defense       = 1
 hitpoints     = 6
 firepower     = 1
@@ -672,13 +764,15 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 targets       = "Land", "Assault"
-flags         = "Cant_Fortify", "Bombarder", "CityBuster"
+flags         = "Cant_Fortify", "Bombarder"
 slow_veteran  = 1 ; ground units don't get acespeed
 bombard_rate  = 12
 roles         = ""
 helptext      = _("\
 Ordinary heavy artillery.  Its bombard attack is powerful, \
-but if caught out in the open it's vulnerable.\
+but if caught out in the open it's vulnerable.  \
+Besides bombarding, it also has the option to directly \
+attack targets which have been Spotted by reconnaissance.\
 ")
 
 [unit_marines]
@@ -692,7 +786,7 @@ sound_move    = "m_marines"
 sound_move_alt = "m_generic"
 sound_fight   = "f_marines"
 sound_fight_alt = "f_generic"
-build_cost    = 20
+build_cost    = 24
 pop_cost      = 0
 attack        = 2
 defense       = 1
@@ -705,6 +799,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = TROOP
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 flags         = "AntiGround", "NoUpgrade"
@@ -730,7 +825,7 @@ sound_fight   = "f_marines"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 5
+attack        = 2
 defense       = 2
 hitpoints     = 20
 firepower     = 1
@@ -741,14 +836,52 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = TROOP
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 flags         = "Fanatic", "AntiGround"
 slow_veteran  = 1 ; ground units don't get acespeed
 roles         = "AttackStrongStartUnit"
 helptext      = _("\
-Airliftable riflemen, light tanks, artillery etc.  Can travel by \
+Airliftable riflemen, machine-guns, jeeps, mortars etc.  Can travel by \
 transport or glider.\
+")
+
+[unit_tetrarch]
+name          = _("Light Tank")
+class         = "Heavy Assault"
+tech_req      = "Engines 1942" # common preq of Heavy Glider and Heavy Airlift
+obsolete_by   = "None"
+graphic       = "u.tetrarch"
+graphic_alt   = "u.armor"
+;phcode=ac
+sound_move    = "m_armor"
+sound_move_alt = "m_generic"
+sound_fight   = "f_armor"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 2
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = TROOP
+embarks       = "Helicopter"
+disembarks    = "Sea", "Helicopter"
+flags         = "AntiGround"
+slow_veteran  = 1 ; ground units don't get acespeed
+helptext      = _("\
+Light tanks can beef up an airborne assault's ability to hold onto \
+gains, but require large-capacity gliders to deliver.\
+Historical examples include the Vickers-Armstrongs A17 Tetrarch \
+and Marmon-Herrington M22 Locust.\
 ")
 
 [unit_2pdr]
@@ -765,7 +898,7 @@ sound_fight   = "f_artillery"
 sound_fight_alt = "f_generic"
 build_cost    = 20
 pop_cost      = 0
-attack        = 5
+attack        = 6
 defense       = 1
 hitpoints     = 4
 firepower     = 1
@@ -779,7 +912,7 @@ uk_food       = 0
 embarks       = "Helicopter"
 disembarks    = "Sea", "Helicopter"
 targets       = "Land", "Assault"
-flags         = "Cant_Fortify", "Bombarder", "CityBuster", "Fanatic"
+flags         = "Cant_Fortify", "Bombarder", "Fanatic"
 slow_veteran  = 1 ; ground units don't get acespeed
 bombard_rate  = 8
 roles         = ""
@@ -802,7 +935,7 @@ sound_fight   = "f_paratroopers"
 sound_fight_alt = "f_generic"
 build_cost    = 48
 pop_cost      = 0
-attack        = 5
+attack        = 2
 defense       = 1
 hitpoints     = 20
 firepower     = 1
@@ -813,6 +946,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = TROOP
 embarks       = "Helicopter"
 disembarks    = "Air", "Sea", "Carrier-borne", "Seaplane", "Glider", "Helicopter"
 flags         = "Fanatic", "AntiGround"
@@ -824,6 +958,42 @@ From a transport aircraft, Paratroops can paradrop directly to the \
 tile below, and be immediately ready to act there.  However, they \
 lack heavy weapons, making them poor at defence; be sure to have \
 other forces ready to reinforce them before the counter-attack. \
+")
+
+[unit_merchant_truck]
+name          = _("Merchant Truck")
+class         = "Land"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.morris"
+graphic_alt   = "u.freight"
+;phcode=mt
+sound_move    = "m_freight"
+sound_move_alt = "m_generic"
+sound_fight   = "f_freight"
+sound_fight_alt = "f_generic"
+build_cost    = 10
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 8
+firepower     = 0
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "Merchant", "NonMil", "Cant_Fortify", "HasNoZOC"
+slow_veteran  = 1 ; ground units don't get acespeed
+helptext      = _("\
+A Merchant Truck carries goods or material for trading with distant cities\
+ and foreign countries.\
+"), _("\
+Merchants can earn gold and science, trading with your own cities or those\
+ of other nations (even enemies) by traveling to them.  However, unlike\
+ airliners, they cannot create persistent trade routes with ongoing revenue.\
 ")
 
 [unit_radar_van]
@@ -864,7 +1034,7 @@ Convert Unit to place it.\
 
 [unit_radar_tower]
 name          = _("Radar Tower")
-class         = "Land"
+class         = "Installation"
 tech_req      = "R.D.F."
 obsolete_by   = "None"
 graphic       = "u.radar"
@@ -947,23 +1117,26 @@ sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
 attack        = 3
-defense       = 0
+defense       = 1
 hitpoints     = 12
 firepower     = 1
 move_rate     = 4
 vision_radius_sq = 2
-transport_cap = 0
+transport_cap = 1
 fuel          = 6
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade"
+bonuses       = BOMB
+flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade", "BadDefender"
+cargo         = "Assault"
 roles         = ""
 helptext      = _("\
 Zeppelin Bombers are slow but have long range, allowing them \
 to strike at distant ground targets.  \
 Because they typically operate at night, they're not capable \
-of reconnaissance.  \
+of reconnaissance.  They can, however, transport a small number \
+of assault troops or settlers.  \
 Historical examples include the Zeppelin M-X.\
 ")
 
@@ -1058,13 +1231,13 @@ hitpoints     = 6
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 5
-vision_subs_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
 uk_base       = 0
 uk_food       = 0
-flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
+bonuses       = ASW
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer", "Sonar"
 embarks       = "Sea"
 disembarks    = "Sea"
 roles         = "Explorer"
@@ -1094,15 +1267,15 @@ attack        = 2
 defense       = 1
 hitpoints     = 8
 firepower     = 1
-move_rate     = 6
+move_rate     = 9
 vision_radius_sq = 5
-vision_subs_sq = 5
 transport_cap = 1
 fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea"
+bonuses       = ASW
+flags         = "Recon", "HasNoZOC", "CRlight", "AntiSea", "Capturer", "Sonar"
 embarks       = "Sea"
 disembarks    = "Sea"
 cargo         = "Assault"
@@ -1112,6 +1285,42 @@ Turbine-powered helicopters are able to airlift assault \
 troops, without need of an airbase (as the chopper can \
 land anywhere to load and unload).  \
 Historical examples include the Bell UH-1 Iroquois ('Huey').\
+")
+
+[unit_chin]
+name          = _("Twin Rotor")
+class         = "Helicopter"
+tech_req      = "Sixties Helicopters"
+obsolete_by   = "None"
+graphic       = "u.chinook"
+graphic_alt   = "u.helicopter"
+;phcode=UT
+sound_move    = "m_helicopter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_helicopter"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 14
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 2
+transport_cap = 2
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "HasNoZOC"
+embarks       = "Sea"
+disembarks    = "Sea"
+cargo         = "Assault", "Heavy Assault"
+helptext      = _("\
+Heavy twin-rotor helicopters can deliver much heavier cargo \
+than older models.  However, in specialising for the transport \
+role the antisubmarine warfare capability is lost.  \
+Historical examples include the Boeing CH-47 Chinook.\
 ")
 
 [unit_pioneer]
@@ -1145,6 +1354,8 @@ helptext      = _("\
 Pioneers are your first heavier-than-air units. They can \
 move anywhere, but have no combat or cargo capability, so \
 are mainly for recon.  \
+As the pilots of these aircraft are also the designers, \
+Pioneers are always built as Veteran.  \
 Historical examples include the Wright Flyer III, \
 Antoinette IV, and Roe IV Triplane.\
 ")
@@ -1174,11 +1385,13 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "Recon", "Spotter", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 With more powerful engines, Two-seat Pioneers have a considerably \
 longer endurance than their predecessors, but are still non-combatant.  \
+Being able to carry an observer in addition to the pilot means they can \
+usefully spot for artillery.  \
 Historical examples include the Wright Military Flyer, Farman III, \
 Bristol Boxkite and Short S.27.\
 ")
@@ -1208,7 +1421,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "Recon", "Spotter", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 As the basic layout of the tractor biplane with conventional \
@@ -1232,7 +1445,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 25
 pop_cost      = 0
 attack        = 1
-defense       = 1
+defense       = 2
 hitpoints     = 8
 firepower     = 1
 move_rate     = 5
@@ -1242,7 +1455,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+bonuses       = BOMB
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 With increasing engine power, recon aircraft begin to be able \
 to carry bombs.  Only small bombs, but still - deadly enough.  \
@@ -1265,7 +1479,7 @@ build_cost    = 25
 pop_cost      = 0
 attack        = 2
 defense       = 2
-hitpoints     = 7
+hitpoints     = 9
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 4
@@ -1274,7 +1488,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+bonuses       = BOMB
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 With an effective defensive MG, and a bombload increased \
 to 400-500lb, this is a militarily useful light bomber.  \
@@ -1297,16 +1512,19 @@ build_cost    = 30
 pop_cost      = 0
 attack        = 3
 defense       = 2
-hitpoints     = 10
+hitpoints     = 12
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 4
 transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
 fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+bonuses       = BOMB
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 A more powerful engine allows carrying a heavier bomb load \
 (circa 750lb) as well as more fuel for greater range.  \
@@ -1331,7 +1549,7 @@ build_cost    = 30
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 12
+hitpoints     = 15
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 4
@@ -1342,7 +1560,8 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+bonuses       = BOMB
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "FieldRepair"
 helptext      = _("\
 Slightly faster and more rugged, the biplane light bombers of \
 the 1920s are but an incremental improvement.  \
@@ -1366,7 +1585,7 @@ build_cost    = 40
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 16
+hitpoints     = 20
 firepower     = 1
 move_rate     = 10
 vision_radius_sq = 5
@@ -1377,7 +1596,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround"
+bonuses       = BOMB
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround"
 helptext      = _("\
 Built along similar lines to the Early Monoplane Fighter, \
 these monoplane light bombers are faster than older models \
@@ -1399,11 +1619,11 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 50
 pop_cost      = 0
 attack        = 4
 defense       = 4
-hitpoints     = 16
+hitpoints     = 20
 firepower     = 1
 move_rate     = 11
 vision_radius_sq = 5
@@ -1412,6 +1632,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB, ASW
 flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
 helptext      = _("\
 Twin engines allow near-fighter speed while carrying the \
@@ -1438,7 +1659,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
 attack        = 5
-defense       = 4
+defense       = 6
 hitpoints     = 20
 firepower     = 1
 move_rate     = 13
@@ -1450,7 +1671,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+bonuses       = BOMB, ASW
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Pillage"
 helptext      = _("\
 High performance twin-engined bomber, based on the same \
 airframe as the Heavy Fighter (to which it can be \
@@ -1476,7 +1698,7 @@ build_cost    = 75
 pop_cost      = 0
 attack        = 0
 defense       = 14
-hitpoints     = 8
+hitpoints     = 12
 firepower     = 0
 move_rate     = 16
 vision_radius_sq = 5
@@ -1485,7 +1707,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "NonMil", "HasNoZOC"
+flags         = "Recon", "NonMil", "HasNoZOC", "Jet", "BadAirDefender"
 roles         = "Explorer"
 helptext      = _("\
 High-altitude jet for reconnaissance.  Can overfly \
@@ -1509,7 +1731,7 @@ build_cost    = 90
 pop_cost      = 0
 attack        = 0
 defense       = 14
-hitpoints     = 8
+hitpoints     = 12
 firepower     = 0
 move_rate     = 36
 vision_radius_sq = 5
@@ -1518,7 +1740,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "NonMil", "HasNoZOC"
+flags         = "Recon", "NonMil", "HasNoZOC", "Jet"
 roles         = "Explorer"
 helptext      = _("\
 High-altitude supersonic reconnaissance jet.  Can overfly \
@@ -1542,7 +1764,7 @@ build_cost    = 20
 pop_cost      = 0
 attack        = 1
 defense       = 1
-hitpoints     = 4
+hitpoints     = 6
 firepower     = 1
 move_rate     = 8
 vision_radius_sq = 2
@@ -1551,7 +1773,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Rifles pivoted to the fuselage side, firing at an angle to \
@@ -1585,7 +1807,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 The first fighters to be equipped with an interrupter gear \
@@ -1620,7 +1842,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Pusher configuration biplanes can mount a forward-firing gun \
@@ -1653,7 +1875,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 A narrow-chord lower wing gives these scouts some of the \
@@ -1688,7 +1910,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 The triplane wing configuration gives great climb rate and \
@@ -1722,7 +1944,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 The classic First World War fighter layout is a single-bay \
@@ -1755,7 +1977,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Though faster and stronger than the Biplane Scout, to the \
@@ -1789,7 +2011,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Continued evolutionary development of biplane scouts pushes \
@@ -1823,7 +2045,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Trading off manoeuvrability for increased speed and armament, \
@@ -1858,7 +2080,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Stressed aluminium skins and improved aerodynamics allowed \
@@ -1893,7 +2115,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Heavier armament was found necessary to take down bombers as \
@@ -1927,7 +2149,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "NoUpgrade", "BadDefender"
 roles         = ""
 helptext      = _("\
 The pinnacle of piston-engined fighter development.  \
@@ -1961,7 +2183,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Twin wing-mounted turbojets allow high top speed but \
@@ -1995,7 +2217,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Single-engined 'light fighters' present a cheap and \
@@ -2029,7 +2251,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Maturing transonic design allows higher performance, while \
@@ -2064,7 +2286,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Point-defence jet fighters attain supersonic speed through the \
@@ -2098,7 +2320,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Air-superiority fighters have the ability to penetrate deep \
@@ -2124,8 +2346,8 @@ build_cost    = 45
 pop_cost      = 0
 attack        = 5
 defense       = 3
-hitpoints     = 13
-firepower     = 5
+hitpoints     = 14
+firepower     = 4
 move_rate     = 25
 vision_radius_sq = 4
 transport_cap = 0
@@ -2133,7 +2355,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Developed light fighters offer Mach 0.95 on the cheap.  \
@@ -2165,7 +2387,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Fighter/interceptor aircraft reaching Mach 2 or so.  \
@@ -2197,7 +2419,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Cost-effective supersonic fighter for cash-strapped airforces.  \
@@ -2221,7 +2443,7 @@ pop_cost      = 0
 attack        = 1
 defense       = 1
 hitpoints     = 6
-firepower     = 1
+firepower     = 2
 move_rate     = 6
 vision_radius_sq = 2
 transport_cap = 0
@@ -2229,7 +2451,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 An observer in front of the pilot operates the pintle-mounted \
@@ -2251,10 +2473,10 @@ sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
 build_cost    = 30
 pop_cost      = 0
-attack        = 3
-defense       = 2
+attack        = 2
+defense       = 1
 hitpoints     = 8
-firepower     = 1
+firepower     = 2
 move_rate     = 6
 vision_radius_sq = 2
 transport_cap = 0
@@ -2262,7 +2484,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Combining a synchronised offensive machine gun with a ring-\
@@ -2295,7 +2517,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 A more manoeuvrable and capable two-seater scout.  \
@@ -2319,7 +2541,7 @@ build_cost    = 36
 pop_cost      = 0
 attack        = 3
 defense       = 2
-hitpoints     = 10
+hitpoints     = 11
 firepower     = 2
 move_rate     = 10
 vision_radius_sq = 2
@@ -2328,7 +2550,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 A conversion of a biplane light bomber into an updated \
@@ -2350,9 +2572,9 @@ sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
 build_cost    = 48
 pop_cost      = 0
-attack        = 3
+attack        = 4
 defense       = 3
-hitpoints     = 12
+hitpoints     = 11
 firepower     = 3
 move_rate     = 12
 vision_radius_sq = 4
@@ -2361,7 +2583,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Applying the Fighter Biplane concept to a modern monoplane, \
@@ -2462,7 +2684,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRtf", "AntiGround"
+flags         = "CRtf", "AntiGround", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Streamlined ground attack aircraft; depending on \
@@ -2510,7 +2732,7 @@ American A-36.\
 name          = _("Superprop Attacker")
 class         = "Air"
 tech_req      = "Fighters 1944"
-obsolete_by   = "First-gen Jet Attacker"
+obsolete_by   = "Attack Jet"
 graphic       = "u.p47"
 graphic_alt   = "u.fighter"
 ;phcode=AP
@@ -2531,7 +2753,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "NoUpgrade"
 roles         = ""
 helptext      = _("\
 Strike fighter armed with armour-piercing rockets.  \
@@ -2564,7 +2786,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 Fighter-bomber using early jet engine.  \
@@ -2596,7 +2818,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 Swept-wing jet fighter-bomber.  \
@@ -2629,7 +2851,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 Fighter-bomber with reheat for supersonic speed.  \
@@ -2650,10 +2872,10 @@ sound_fight   = "f_stealth_bomber"
 sound_fight_alt = "f_generic"
 build_cost    = 80
 pop_cost      = 0
-attack        = 7
+attack        = 8
 defense       = 3
 hitpoints     = 16
-firepower     = 4
+firepower     = 3
 move_rate     = 30
 vision_radius_sq = 5
 transport_cap = 0
@@ -2661,7 +2883,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
+flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir", "Jet"
 roles         = ""
 helptext      = _("\
 Supersonic interceptor and strike aircraft.  \
@@ -2680,11 +2902,11 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
-build_cost    = 55
+build_cost    = 50
 pop_cost      = 0
 attack        = 3
-defense       = 2
-hitpoints     = 8
+defense       = 3
+hitpoints     = 11
 firepower     = 3
 move_rate     = 12
 vision_radius_sq = 4
@@ -2693,7 +2915,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Fanatic", "CRfighter", "AntiAir"
+flags         = "Fanatic", "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Twin-engined bomber-destroyer and/or escort fighter, \
@@ -2706,7 +2928,7 @@ and Bristol Beaufighter.\
 name          = _("Heavy Fighter")
 class         = "Air"
 tech_req      = "Fighters 1942"
-obsolete_by   = "All-Weather Jet Fighter"
+obsolete_by   = "None"
 graphic       = "u.mosquito"
 graphic_alt   = "u.fighter"
 ;phcode=FH
@@ -2716,8 +2938,8 @@ sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
-attack        = 3
-defense       = 3
+attack        = 4
+defense       = 4
 hitpoints     = 10
 firepower     = 4
 move_rate     = 14
@@ -2729,7 +2951,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "CRfighter", "AntiAir"
+flags         = "Recon", "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 High-performance twin-engine fighter.  \
@@ -2753,8 +2975,8 @@ sound_fight_alt = "f_generic"
 build_cost    = 75
 pop_cost      = 0
 attack        = 6
-defense       = 3
-hitpoints     = 14
+defense       = 4
+hitpoints     = 12
 firepower     = 5
 move_rate     = 15
 vision_radius_sq = 5
@@ -2763,7 +2985,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Twin-engined jet fighters with heavy radar equipment can be \
@@ -2773,7 +2995,7 @@ Historical examples include the Gloster Javelin.\
 
 [unit_shipborne_fighter]
 name          = _("Shipboard Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Aircraft Carrier"
 obsolete_by   = "Twenties Naval Fighter"
 graphic       = "u.shipcamel"
@@ -2798,7 +3020,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+bonuses       = SF
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Lightly navalised versions of Biplane Scouts can be operated \
@@ -2808,7 +3031,7 @@ Historical examples include the Sopwith Ship's Camel.\
 
 [unit_20s_naval_fighter]
 name          = _("Twenties Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Twenties Carrier Aviation"
 obsolete_by   = "Thirties Naval Fighter"
 graphic       = "u.flycatcher"
@@ -2833,7 +3056,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+bonuses       = SF
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Lightly navalised Twenties Scout.  \
@@ -2843,7 +3067,7 @@ Curtiss F6C Hawk.\
 
 [unit_30s_naval_fighter]
 name          = _("Thirties Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Thirties Carrier Aviation"
 obsolete_by   = "Monoplane Naval Fighter"
 graphic       = "u.fifi"
@@ -2868,7 +3092,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 Lightly navalised Thirties Scout.  \
@@ -2878,9 +3103,9 @@ Grumman F2F.\
 
 [unit_naval_monofighter]
 name          = _("Monoplane Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1935"
-obsolete_by   = "Naval Strike Fighter"
+obsolete_by   = "Naval Dogfighter"
 graphic       = "u.wildcat"
 graphic_alt   = "u.fighter"
 ;phcode=NM
@@ -2903,7 +3128,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 CATOBAR fighter monoplane.  \
@@ -2913,7 +3139,7 @@ Grumman F4F Wildcat.\
 
 [unit_kamikaze]
 name          = _("Kamikaze")
-class         = "Missile"
+class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1935"
 gov_req       = "Fascism"
 impr_req      = "Yasukuni Shrine"
@@ -2940,7 +3166,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRmedium", "AntiSea"
+flags         = "CRmedium", "Missile", "AntiSea", "BadDefender"
 roles         = ""
 helptext      = _("\
 Dive bomber with integral bomb for suicide attacks. \
@@ -2950,7 +3176,7 @@ Historical examples include the Yokosuka D4Y4 'Judy'.\
 
 [unit_naval_striker]
 name          = _("Naval Strike Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1940"
 obsolete_by   = "Naval Attacker"
 graphic       = "u.firefly"
@@ -2966,7 +3192,7 @@ attack        = 3
 defense       = 2
 hitpoints     = 16
 firepower     = 1
-move_rate     = 10
+move_rate     = 12
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -2975,6 +3201,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = SF
 flags         = "CRfighter", "AntiAir", "AntiGround"
 roles         = ""
 helptext      = _("\
@@ -2985,7 +3212,7 @@ Grumman F6F Hellcat.\
 
 [unit_naval_dog]
 name          = _("Naval Dogfighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1940"
 obsolete_by   = "Naval Cannon Fighter"
 graphic       = "u.seafire"
@@ -3010,7 +3237,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 High-performance CATOBAR fighter monoplane.  \
@@ -3020,7 +3248,7 @@ Vought F4U Corsair.\
 
 [unit_naval_cannon]
 name          = _("Naval Cannon Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1942"
 obsolete_by   = "Naval Superprop"
 graphic       = "u.bearcat"
@@ -3034,7 +3262,7 @@ build_cost    = 40
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 16
+hitpoints     = 12
 firepower     = 4
 move_rate     = 16
 vision_radius_sq = 4
@@ -3045,7 +3273,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Both high-performance and heavily armed.  \
@@ -3055,9 +3284,9 @@ Grumman F8F Bearcat.\
 
 [unit_naval_superprop]
 name          = _("Naval Superprop")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1945"
-obsolete_by   = "Early Naval Jet"
+obsolete_by   = "Swept-wing Naval Fighter"
 graphic       = "u.seafury"
 graphic_alt   = "u.fighter"
 ;phcode=NP
@@ -3080,7 +3309,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "NoUpgrade", "BadDefender"
 roles         = ""
 helptext      = _("\
 Carrier-borne Superprop Fighter.  \
@@ -3091,7 +3321,7 @@ Historical examples include the Hawker Sea Fury.\
 name          = _("Naval Attacker")
 class         = "Carrier-borne"
 tech_req      = "Carrier Aviation 1945"
-obsolete_by   = "Naval Jet Attacker"
+obsolete_by   = "Naval Attack Jet"
 graphic       = "u.skyraider"
 graphic_alt   = "u.stealth_fighter"
 ;phcode=NA
@@ -3114,7 +3344,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "NoUpgrade"
 roles         = ""
 helptext      = _("\
 Carrier-borne ground-attack aircraft.  \
@@ -3146,7 +3376,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "AntiGround", "CityBuster", "CRmedium" ; we'd rather "Bombarder"
+flags         = "AntiGround", "CityBuster", "CRmedium", "Missile" ; we'd rather "Bombarder"
 ;bombard_rate  = 6
 roles         = ""
 helptext      = _("\
@@ -3156,9 +3386,43 @@ Historical examples include the Thiel Aggregat 4, better\
  known as the V2.\
 ")
 
+[unit_mrsam]
+name          = _("Surface-to-Air Missile")
+class         = "Missile"
+tech_req      = "Advanced Missiles"
+obsolete_by   = "None"
+graphic       = "u.seadart"
+graphic_alt   = "u.cruise_missile"
+;phcode=XA
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 8
+defense       = 0
+hitpoints     = 12
+firepower     = 5
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+disembarks    = "Sea"
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRfighter", "AntiAir", "Missile"
+roles         = ""
+helptext      = _("\
+Medium-range surface-to-air missile for point defence.  \
+Historical examples include the Bristol Bloodhound and\
+ S-75 Dvina (aka SA-2 Guideline).\
+")
+
 [unit_naval1jet]
 name          = _("Early Naval Jet")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier-borne Jets"
 obsolete_by   = "Swept-wing Naval Fighter"
 graphic       = "u.panther"
@@ -3183,7 +3447,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 First-generation shipborne jet fighter.  \
@@ -3218,7 +3483,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround"
+flags         = "CRattack", "AntiGround", "Jet"
 roles         = ""
 helptext      = _("\
 First-generation shipborne ground-attack jet.  \
@@ -3227,7 +3492,7 @@ Historical examples include the McDonnell F2H-2 Banshee.\
 
 [unit_naval_swept]
 name          = _("Swept-wing Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1950"
 obsolete_by   = "Supersonic Naval Fighter"
 graphic       = "u.skyray"
@@ -3252,7 +3517,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Transonic shipborne jet fighter.  \
@@ -3287,7 +3553,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRattack", "AntiGround", "AntiSea"
+flags         = "CRattack", "AntiGround", "AntiSea", "Jet"
 roles         = ""
 helptext      = _("\
 Swept-wing shipborne strike aircraft, capable of attacking \
@@ -3298,7 +3564,7 @@ Douglas A-4 Skyhawk, and Blackburn Buccaneer.\
 
 [unit_naval_super]
 name          = _("Supersonic Naval Fighter")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "Carrier Aviation 1957"
 obsolete_by   = "None"
 graphic       = "u.f8crusader"
@@ -3310,9 +3576,9 @@ sound_fight   = "f_stealth_fighter"
 sound_fight_alt = "f_generic"
 build_cost    = 70
 pop_cost      = 0
-attack        = 6
+attack        = 5
 defense       = 3
-hitpoints     = 12
+hitpoints     = 14
 firepower     = 5
 move_rate     = 30
 vision_radius_sq = 5
@@ -3323,7 +3589,8 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
 roles         = ""
 helptext      = _("\
 Supersonic shipborne jet fighter.  \
@@ -3332,7 +3599,7 @@ Historical examples include the Vought F8U Crusader.\
 
 [unit_harrier]
 name          = _("VTOL Attack Jet")
-class         = "Carrier-borne"
+class         = "Naval Fighter"
 tech_req      = "VTOL"
 obsolete_by   = "None"
 graphic       = "u.harrier"
@@ -3345,7 +3612,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 80
 pop_cost      = 0
 attack        = 6
-defense       = 3
+defense       = 4
 hitpoints     = 16
 firepower     = 3
 move_rate     = 20
@@ -3357,6 +3624,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = SF
 flags         = "CRattack", "AntiGround", "AntiSea", "AntiAir"
 roles         = ""
 helptext      = _("\
@@ -3392,7 +3660,7 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "HasNoZOC"
 helptext      = _("\
 The first seaplanes have no combat capability; like the Pioneer, \
 they're only suitable for short-range reconnaissance.  \
@@ -3403,7 +3671,7 @@ Historical examples include the Fabre Hydravion.\
 name          = _("Floatplane Scout")
 class         = "Seaplane"
 tech_req      = "Practical Seaplanes"
-obsolete_by   = "Floatplane Fighter"
+obsolete_by   = "Reconnaissance Floatplane"
 graphic       = "u.schneider"
 graphic_alt   = "u.fighter"
 ;phcode=HS
@@ -3426,11 +3694,13 @@ fuel          = 2
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "HasNoZOC"
+flags         = "Spotter", "HasNoZOC"
 roles         = "Explorer"
 helptext      = _("\
 Slow and barely able to defend itself, the two-seater Floatplane \
 Scout at least has a better range than the old Hydravion.  \
+It can provide gunfire spotting to surface warships, improving \
+their attack strength.  \
 Historical examples include the Short S.41.\
 ")
 
@@ -3438,7 +3708,7 @@ Historical examples include the Short S.41.\
 name          = _("Armed Floatplane")
 class         = "Seaplane"
 tech_req      = "Military Seaplanes"
-obsolete_by   = "Coastal Seaplane"
+obsolete_by   = "Reconnaissance Floatplane"
 graphic       = "u.short81"
 graphic_alt   = "u.fighter"
 ;phcode=HA
@@ -3450,7 +3720,7 @@ build_cost    = 25
 pop_cost      = 0
 attack        = 1
 defense       = 0
-hitpoints     = 7
+hitpoints     = 8
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 2
@@ -3461,7 +3731,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
 The Armed Floatplane can bomb land or sea targets, but isn't \
@@ -3471,7 +3742,7 @@ Historical examples include the Short Type 81.\
 
 [unit_floatfight]
 name          = _("Floatplane Fighter")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Effective Seaplanes"
 obsolete_by   = "Fighter Seaplane"
 graphic       = "u.baby"
@@ -3496,13 +3767,53 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+bonuses       = SF
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 The Floatplane Fighter is a seaplane with offensive guns, \
 allowing it to provide some air cover for seaplane carriers.  \
 Historical examples include the Sopwith Baby and Port \
 Victoria P.V.2bis.\
+")
+
+[unit_float0torp]
+name          = _("Reconnaissance Floatplane")
+class         = "Seaplane"
+tech_req      = "Effective Seaplanes"
+obsolete_by   = "Large Reconnaissance Floatplane"
+graphic       = "u.short184r"
+graphic_alt   = "u.fighter"
+;phcode=HR
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 1
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 5
+convert_to    = "Torpedo Floatplane"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea", "Spotter"
+roles         = ""
+helptext      = _("\
+Floatplane light bomber incorporating the naval gunfire spotting \
+mission.  Can be converted to a torpedo-carrying role at the expense \
+of its other capabilities.  \
+Historical examples include the Short Type 184.\
 ")
 
 [unit_floattorp]
@@ -3521,9 +3832,11 @@ build_cost    = 30
 pop_cost      = 0
 attack        = 2
 defense       = 0
-hitpoints     = 8
+hitpoints     = 10
 firepower     = 1
 move_rate     = 5
+convert_to    = "Reconnaissance Floatplane"
+convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3537,13 +3850,12 @@ roles         = ""
 helptext      = _("\
 With the ability to carry a torpedo, attack floatplanes \
 become far more effective at taking out enemy ships.  \
-However, they're unsuitable for reconnaissance.  \
 Historical examples include the Short Type 184.\
 ")
 
 [unit_seafight]
 name          = _("Fighter Seaplane")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Seaplanes 1917"
 obsolete_by   = "Twenties Floatplane"
 graphic       = "u.albatrosw"
@@ -3568,12 +3880,53 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+bonuses       = SF
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 While inferior to contemporary landplane scouts, the Fighter Seaplane \
 can give seaplane carriers some protection from air attack.  \
 Historical examples include the Albatros W.4 and Loening M-8.\
+")
+
+[unit_float0large]
+name          = _("Large Reconnaissance Floatplane")
+class         = "Seaplane"
+tech_req      = "Seaplanes 1917"
+obsolete_by   = "None"
+graphic       = "u.short320r"
+graphic_alt   = "u.fighter"
+;phcode=HN
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+convert_to    = "Large Torpedo Floatplane"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea", "Spotter"
+roles         = ""
+helptext      = _("\
+Increasing engine power allows this light bomber and naval gunfire \
+spotter to improve its fuel endurance.  \
+Can be converted to a torpedo-carrying role at the expense \
+of its other capabilities.  \
+Historical examples include the Short Type 320.\
 ")
 
 [unit_floatlarge]
@@ -3592,9 +3945,11 @@ build_cost    = 32
 pop_cost      = 0
 attack        = 2
 defense       = 0
-hitpoints     = 5
+hitpoints     = 8
 firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 5
+convert_to    = "Large Reconnaissance Floatplane"
+convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3603,7 +3958,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea"
 roles         = ""
 helptext      = _("\
 Increasing engine power allows a larger (hence more \
@@ -3613,7 +3968,7 @@ Historical examples include the Short Type 320.\
 
 [unit_seafight_20s]
 name          = _("Twenties Floatplane")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Twenties Seaplanes"
 obsolete_by   = "Thirties Floatplane"
 graphic       = "u.floatcatcher"
@@ -3638,7 +3993,8 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRscout", "AntiAir"
+bonuses       = SF
+flags         = "CRscout", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Naval fighter aircraft of the 1920s were readily converted to seaplanes \
@@ -3662,28 +4018,30 @@ build_cost    = 32
 pop_cost      = 0
 attack        = 2
 defense       = 1
-hitpoints     = 6
+hitpoints     = 10
 firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 5
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
 disembarks    = "Sea"
-fuel          = 2
+fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRtb", "AntiSea"
+flags         = "Recon", "Spotter", "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 roles         = ""
 helptext      = _("\
 The post-war torpedo seaplane has a machine gun \
-to defend itself.  It's also capable of recon.  \
+to defend itself.  It's also capable of recon and \
+spotting for naval gunfire, but not bombing land \
+targets.  \
 Historical examples include the Blackburn Velos.\
 ")
 
 [unit_seafight_30s]
 name          = _("Thirties Floatplane")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Thirties Seaplanes"
 obsolete_by   = "Monoplane Float Fighter"
 graphic       = "u.he51w"
@@ -3708,7 +4066,8 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Attaching floats to a Thirties Scout produces a fighter capable\
@@ -3732,9 +4091,9 @@ build_cost    = 40
 pop_cost      = 0
 attack        = 3
 defense       = 1
-hitpoints     = 9
+hitpoints     = 15
 firepower     = 2 ; doubles effective Combat_Rounds
-move_rate     = 6
+move_rate     = 7
 vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
@@ -3743,7 +4102,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRtb", "AntiSea"
+flags         = "Recon", "Spotter", "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 roles         = ""
 helptext      = _("\
 Large, multi-engined monoplane torpedo-bomber \
@@ -3753,7 +4112,7 @@ Historical examples include the CANT Z.506 Airone (Heron).\
 
 [unit_monofloat]
 name          = _("Monoplane Float Fighter")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Seaplanes 1940"
 obsolete_by   = "None"
 graphic       = "u.rufe"
@@ -3778,7 +4137,8 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir"
+bonuses       = SF
+flags         = "CRfighter", "AntiAir", "BadDefender"
 roles         = ""
 helptext      = _("\
 Seaplane similar to the Early Monoplane Fighter.  \
@@ -3801,7 +4161,7 @@ build_cost    = 40
 pop_cost      = 0
 attack        = 2
 defense       = 1
-hitpoints     = 7
+hitpoints     = 9
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 2
@@ -3812,6 +4172,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRlight", "AntiGround"
 roles         = ""
 helptext      = _("\
@@ -3835,7 +4196,7 @@ build_cost    = 45
 pop_cost      = 0
 attack        = 3
 defense       = 1
-hitpoints     = 9
+hitpoints     = 12
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 2
@@ -3846,6 +4207,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 flags         = "OneAttack", "CRlight", "AntiGround", "AntiSea"
 roles         = ""
 helptext      = _("\
@@ -3870,7 +4232,7 @@ build_cost    = 50
 pop_cost      = 0
 attack        = 3
 defense       = 2
-hitpoints     = 10
+hitpoints     = 14
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 4
@@ -3881,6 +4243,7 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -3896,7 +4259,7 @@ name          = _("Thirties Flying Boat")
 class         = "Seaplane"
 tech_req      = "Thirties Seaplanes"
 obsolete_by   = "Heavy Flying Boat"
-graphic       = "u.dornierx"
+graphic       = "u.stranraer"
 graphic_alt   = "u.galleon"
 ;phcode=P3
 sound_move    = "m_bomber"
@@ -3907,7 +4270,7 @@ build_cost    = 60
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 12
+hitpoints     = 18
 firepower     = 1
 move_rate     = 9
 vision_radius_sq = 4
@@ -3918,6 +4281,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -3939,11 +4303,11 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 90
+build_cost    = 80
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 18
+hitpoints     = 25
 firepower     = 1
 move_rate     = 10
 vision_radius_sq = 4
@@ -3954,6 +4318,7 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = BOMB, ASW
 cargo         = "Assault"
 flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
 roles         = ""
@@ -3966,7 +4331,7 @@ and Blohm+Voss BV 238.\
 
 [unit_jet_boat]
 name          = _("Jet Flying Boat")
-class         = "Seaplane"
+class         = "Seaplane Fighter"
 tech_req      = "Jet Flying Boat"
 obsolete_by   = "None"
 graphic       = "u.sra1"
@@ -3991,12 +4356,81 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
+bonuses       = SF
 flags         = "CRattack", "AntiGround", "AntiAir"
 roles         = ""
 helptext      = _("\
 Avoiding the need for propeller clearance allows a \
 lower hull on this strike fighter flying-boat.  \
 Historical examples include the Saunders-Roe SR.A/1.\
+")
+
+[unit_vlr]
+name          = _("Ocean Patrol")
+class         = "Air"
+tech_req      = "A.S.V."
+obsolete_by   = "Maritime Reconnaissance"
+graphic       = "u.liberator"
+graphic_alt   = "u.frigate"
+;phcode=PL
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 11
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 3
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = ASW
+flags         = "OneAttack", "CRmedium", "AntiSea", "Heavy", "BadDefender"
+roles         = ""
+helptext      = _("\
+Very Long Range ocean patrol bomber.  \
+Historical examples include the Consolidated B-24 \
+Liberator in RAF Coastal Command service.\
+")
+
+[unit_shack]
+name          = _("Maritime Reconnaissance")
+class         = "Air"
+tech_req      = "Maritime Reconnaissance"
+obsolete_by   = "None"
+graphic       = "u.shackleton"
+graphic_alt   = "u.frigate"
+;phcode=PS
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = ASW
+flags         = "OneAttack", "CRmedium", "AntiSea", "Recon", "Heavy", "BadDefender"
+roles         = ""
+helptext      = _("\
+Long-endurance aircraft for maritime patrol and \
+anti-submarine warfare.  \
+Historical examples include the Avro Shackleton.\
 ")
 
 [unit_early_torper]
@@ -4011,11 +4445,11 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 30
+build_cost    = 27
 pop_cost      = 0
-attack        = 2
+attack        = 3
 defense       = 1
-hitpoints     = 8
+hitpoints     = 9
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 2
@@ -4026,7 +4460,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "OneAttack", "CRtb", "AntiSea", "BadDefender"
 helptext      = _("\
 Torpedo-carrying landplane capable of operation \
 from an aircraft carrier.  \
@@ -4046,12 +4480,12 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 40
+build_cost    = 32
 pop_cost      = 0
 attack        = 2
 defense       = 1
-hitpoints     = 10
-firepower     = 2
+hitpoints     = 12
+firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 6
 vision_radius_sq = 2
 transport_cap = 0
@@ -4061,7 +4495,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 helptext      = _("\
 Naval counterpart to the Twenties Light Bomber.  \
 Historical examples include the Blackburn Dart, \
@@ -4080,12 +4514,12 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 45
+build_cost    = 36
 pop_cost      = 0
 attack        = 3
 defense       = 1
-hitpoints     = 10
-firepower     = 2
+hitpoints     = 14
+firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 6
 vision_radius_sq = 2
 transport_cap = 0
@@ -4095,7 +4529,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 helptext      = _("\
 The last viable biplane torpedo-bombers.  \
 Historical examples include the Fairey Swordfish \
@@ -4114,12 +4548,12 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 50
+build_cost    = 40
 pop_cost      = 0
 attack        = 4
 defense       = 1
-hitpoints     = 12
-firepower     = 2
+hitpoints     = 15
+firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 7
 vision_radius_sq = 2
 transport_cap = 0
@@ -4129,7 +4563,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea"
+flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea", "BadDefender"
 helptext      = _("\
 Naval counterpart to the Thirties Light Bomber.  \
 Historical examples include the Douglas TBD Devastator \
@@ -4148,12 +4582,12 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 45
 pop_cost      = 0
-attack        = 4
+attack        = 5
 defense       = 2
 hitpoints     = 15
-firepower     = 2
+firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 8
 vision_radius_sq = 2
 transport_cap = 0
@@ -4163,7 +4597,7 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRtb", "AntiSea", "NoUpgrade"
+flags         = "OneAttack", "CRtb", "LongTorp", "AntiSea", "NoUpgrade", "BadDefender"
 helptext      = _("\
 High-performance torpedo bomber.  \
 Historical examples include the Grumman TBF Avenger, \
@@ -4197,7 +4631,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
+bonuses       = BOMB
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber", "Pillage"
 helptext      = _("\
 Dive bombers are effective attackers, but vulnerable to \
 enemy fighters.  They can fly from carriers, but don't \
@@ -4232,7 +4667,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber"
+bonuses       = BOMB
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber", "Pillage"
 helptext      = _("\
 Though more robust, the thirties Dive Bomber is still \
 quite vulnerable.  \
@@ -4267,7 +4703,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "DiveBomber", "NoUpgrade"
+bonuses       = BOMB
+flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "AntiSea", "DiveBomber", "NoUpgrade", "Pillage"
 helptext      = _("\
 A monoplane, the Dive Bomber is faster and more capable \
 — it can attack shipping as well as land targets — but \
@@ -4290,9 +4727,9 @@ sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
-attack        = 4
+attack        = 5
 defense       = 3
-hitpoints     = 15
+hitpoints     = 21
 firepower     = 1
 move_rate     = 8
 vision_radius_sq = 4
@@ -4302,7 +4739,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRmedium", "AntiGround"
+bonuses       = BOMB
+flags         = "OneAttack", "CRmedium", "AntiGround", "BadDefender"
 helptext      = _("\
 A new category opened up between the light and heavy bombers, \
 medium bombers can fight their way through at least some \
@@ -4324,9 +4762,9 @@ sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
 build_cost    = 80
 pop_cost      = 0
-attack        = 4
+attack        = 5
 defense       = 4
-hitpoints     = 16
+hitpoints     = 24
 firepower     = 1
 move_rate     = 10
 vision_radius_sq = 4
@@ -4336,7 +4774,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 Monoplane medium bombers using new construction techniques \
 are more effective fighting machines.  They can also make \
@@ -4358,9 +4797,9 @@ sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
 build_cost    = 90
 pop_cost      = 0
-attack        = 5
+attack        = 6
 defense       = 5
-hitpoints     = 16
+hitpoints     = 25
 firepower     = 1
 move_rate     = 12
 vision_radius_sq = 4
@@ -4370,9 +4809,10 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
-The best propellor-driven medium bombers are rugged and \
+The best propeller-driven medium bombers are rugged and \
 surprisingly fast, with a payload of around two tons.  \
 Historical examples include the Vickers Wellington \
 and Handley Page Hampden.\
@@ -4392,9 +4832,9 @@ sound_fight   = "f_stealth_bomber"
 sound_fight_alt = "f_generic"
 build_cost    = 100
 pop_cost      = 0
-attack        = 5
-defense       = 5
-hitpoints     = 20
+attack        = 7
+defense       = 8
+hitpoints     = 27
 firepower     = 1
 move_rate     = 15
 vision_radius_sq = 4
@@ -4403,7 +4843,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -4425,8 +4866,8 @@ sound_fight_alt = "f_generic"
 build_cost    = 120
 pop_cost      = 0
 attack        = 6
-defense       = 6
-hitpoints     = 24
+defense       = 7
+hitpoints     = 25
 firepower     = 2 ; doubles effective Combat_Rounds
 move_rate     = 16
 vision_radius_sq = 5
@@ -4435,7 +4876,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
@@ -4458,8 +4900,8 @@ sound_fight_alt = "f_generic"
 build_cost    = 135
 pop_cost      = 0
 attack        = 8
-defense       = 7
-hitpoints     = 24
+defense       = 9
+hitpoints     = 27
 firepower     = 2
 move_rate     = 21
 vision_radius_sq = 5
@@ -4468,7 +4910,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
 helptext      = _("\
 Supersonic interdictor-strike bomber to attack high-value targets.  \
 Historical examples include the BAC TSR-2 and General Dynamics F-111 \
@@ -4491,7 +4934,7 @@ build_cost    = 60
 pop_cost      = 0
 attack        = 4
 defense       = 1
-hitpoints     = 10
+hitpoints     = 15
 firepower     = 2
 move_rate     = 4
 vision_radius_sq = 4
@@ -4500,7 +4943,8 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 The first aircraft designed for long-range bombing were \
 slow, lumbering biplanes.  \
@@ -4520,11 +4964,11 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 80
+build_cost    = 72
 pop_cost      = 0
 attack        = 6
 defense       = 1
-hitpoints     = 12
+hitpoints     = 18
 firepower     = 2
 move_rate     = 4
 vision_radius_sq = 4
@@ -4533,7 +4977,8 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 Large triplane bombers carried a heavy payload but \
 at a very slow speed.  \
@@ -4556,7 +5001,7 @@ build_cost    = 75
 pop_cost      = 0
 attack        = 5
 defense       = 2
-hitpoints     = 11
+hitpoints     = 16
 firepower     = 2
 move_rate     = 5
 vision_radius_sq = 4
@@ -4565,7 +5010,8 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 More powerful engines allowed heavier biplane bombers — \
 still not so massive as the triplanes, but big enough.  \
@@ -4589,7 +5035,7 @@ build_cost    = 90
 pop_cost      = 0
 attack        = 6
 defense       = 2
-hitpoints     = 13
+hitpoints     = 18
 firepower     = 2
 move_rate     = 5
 vision_radius_sq = 4
@@ -4599,7 +5045,8 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 Applying post-war engineering to the basic biplane bomber \
 yielded a more robust and powerful aircraft.  Also capable \
@@ -4624,7 +5071,7 @@ build_cost    = 108
 pop_cost      = 0
 attack        = 6
 defense       = 2
-hitpoints     = 15
+hitpoints     = 27
 firepower     = 2
 move_rate     = 6
 vision_radius_sq = 4
@@ -4634,7 +5081,8 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 Metal-framed heavy bombers were faster and stronger.  \
 Depending on national design doctrine, they might be \
@@ -4659,7 +5107,7 @@ build_cost    = 120
 pop_cost      = 0
 attack        = 6
 defense       = 2
-hitpoints     = 15
+hitpoints     = 30
 firepower     = 2
 move_rate     = 7
 vision_radius_sq = 4
@@ -4669,7 +5117,8 @@ fuel          = 4
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender"
 helptext      = _("\
 In the run-up to the Second Great War, twin-engined \
 heavy bombers developed even greater range.  \
@@ -4693,7 +5142,7 @@ build_cost    = 150
 pop_cost      = 0
 attack        = 8
 defense       = 3
-hitpoints     = 16
+hitpoints     = 30
 firepower     = 2
 move_rate     = 10
 vision_radius_sq = 4
@@ -4703,7 +5152,8 @@ fuel          = 3
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
 helptext      = _("\
 Pre-war four-engined heavy.  Increased payload and speed.  \
 Historical examples include the Short Stirling and \
@@ -4726,9 +5176,11 @@ build_cost    = 150
 pop_cost      = 0
 attack        = 8
 defense       = 3
-hitpoints     = 14
+hitpoints     = 24
 firepower     = 3
 move_rate     = 13
+convert_to    = "Modified Heavy Bomber"
+convert_time  = 0
 vision_radius_sq = 4
 transport_cap = 1
 cargo         = "Glider"
@@ -4736,7 +5188,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
 helptext      = _("\
 Four-engined strategic bomber.  Being optimised for the \
 bombing role, it cannot transport troops.  \
@@ -4744,11 +5197,79 @@ Historical examples include the Avro Lancaster and \
 Boeing B-17F.\
 ")
 
+[unit_heavy_bomber_special]
+name          = _("Modified Heavy Bomber")
+class         = "Air"
+tech_req      = "Heavy Bombers"
+obsolete_by   = "Superprop Bomber" ; not Modified Superprop Bomber as that's NoBuild so can't be upgraded to
+graphic       = "u.lancsp"
+graphic_alt   = "u.bomber"
+;phcode=BD
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 20
+firepower     = 3
+move_rate     = 10
+convert_to    = "Heavy Bomber"
+convert_time  = 0
+vision_radius_sq = 4
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "NoBuild", "BadDefender"
+helptext      = _("\
+Four-engined strategic bomber, converted to carry a single \
+heavy bomb.  \
+Historical examples include the Avro Lancaster B.1 (Special).\
+")
+
+[unit_tallboy]
+name          = _("Penetrator Bomb")
+class         = "Bomb"
+tech_req      = "Heavy Bombers"
+obsolete_by   = "None"
+graphic       = "u.tallboy"
+graphic_alt   = "u.cruise_missile"
+;phcode=XT
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 10
+defense       = 0
+hitpoints     = 12
+firepower     = 2
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB, TIRPITZ
+flags         = "AntiGround", "AntiSea", "CRheavy", "Missile"
+no_veteran    = 1
+helptext      = _("\
+Heavy free-fall bomb for precision attacks on hardened targets.  \
+Historical examples include the Vickers Tallboy and Grand Slam.\
+")
+
 [unit_super_bomber]
 name          = _("Superprop Bomber")
 class         = "Air"
 tech_req      = "Bombers 1945"
-obsolete_by   = "Jet Bomber"
+obsolete_by   = "Turboprop Bomber"
 graphic       = "u.b29"
 graphic_alt   = "u.bomber"
 ;phcode=BS
@@ -4760,21 +5281,91 @@ build_cost    = 180
 pop_cost      = 0
 attack        = 10
 defense       = 4
-hitpoints     = 16
+hitpoints     = 30
 firepower     = 3
-move_rate     = 15
+move_rate     = 14
+convert_to    = "Modified Superprop Bomber"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
 Historical examples include the Avro Lincoln and \
 Boeing B-29 Superfortress.\
+")
+
+[unit_super_bomber_special]
+name          = _("Modified Superprop Bomber")
+class         = "Air"
+tech_req      = "Bombers 1945"
+obsolete_by   = "Intercontinental Bomber"
+graphic       = "u.silverplate"
+graphic_alt   = "u.bomber"
+;phcode=BU
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 180
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 25
+firepower     = 3
+move_rate     = 12
+convert_to    = "Superprop Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "NoBuild", "BadDefender"
+helptext      = _("\
+Superprop bomber converted to carry a single large bomb.  \
+Historical examples include the 'Silverplate' \
+Boeing B-29 Superfortress.\
+")
+
+[unit_fat_man]
+name          = _("Atomic Bomb")
+class         = "Bomb"
+tech_req      = "Nuclear Weapons"
+obsolete_by   = "Thermonuclear Bomb"
+graphic       = "u.fatman"
+graphic_alt   = "u.cruise_missile"
+;phcode=X1
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 100
+pop_cost      = 0
+attack        = 99
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRheavy", "Nuclear", "Unique", "Missile"
+no_veteran    = 1
+helptext      = _("\
+Nuclear fission free-fall bomb.  \
+Historical examples include the Little Boy and Fat Man.\
 ")
 
 [unit_early_jet_bomber]
@@ -4789,11 +5380,11 @@ sound_move    = "m_stealth_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_stealth_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 150
+build_cost    = 160
 pop_cost      = 0
 attack        = 8
 defense       = 5
-hitpoints     = 16
+hitpoints     = 30
 firepower     = 3
 move_rate     = 16
 vision_radius_sq = 5
@@ -4802,11 +5393,76 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender"
 helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
 Historical examples include the Vickers Valiant and \
 Boeing B-47 Stratojet.\
+")
+
+[unit_inter_bomber]
+name          = _("Intercontinental Bomber")
+class         = "Air"
+tech_req      = "Bombers 1949"
+obsolete_by   = "Turboprop Bomber"
+graphic       = "u.peacemaker"
+graphic_alt   = "u.bomber"
+;phcode=BP
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 25
+firepower     = 3
+move_rate     = 14
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "BadDefender"
+helptext      = _("\
+Ultra-long-range bomber for strategic nuclear delivery.  \
+Historical examples include the Convair B-36 'Peacemaker'.\
+")
+
+[unit_yellow_sun]
+name          = _("Thermonuclear Bomb")
+class         = "Bomb"
+tech_req      = "Thermonuclear Weapons"
+obsolete_by   = "None"
+graphic       = "u.yellowsun"
+graphic_alt   = "u.cruise_missile"
+;phcode=XN
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 99
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRheavy", "Nuclear", "Missile"
+no_veteran    = 1
+helptext      = _("\
+Thermonuclear or boosted-fission free-fall bomb.  \
+Historical examples include the Yellow Sun / Red Snow.\
 ")
 
 [unit_jet_bomber]
@@ -4825,22 +5481,169 @@ build_cost    = 200
 pop_cost      = 0
 attack        = 12
 defense       = 6
-hitpoints     = 20
+hitpoints     = 32
 firepower     = 3
 move_rate     = 18
+convert_to    = "Jet Bomber (Nuclear)"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender"
 helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
 delivery mechanism for nuclear weapons, though they are \
 also more than capable of conventional bombing.  \
+This variant is equipped for the conventional strike role, \
+but can be converted to a nuke-carrying version.  \
 Historical examples include the Avro Vulcan and \
 Boeing B-52 Stratofortress.\
+")
+
+[unit_jet_bomber_special]
+name          = _("Jet Bomber (Nuclear)")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "Supersonic Bomber"
+graphic       = "u.vulcanwhite"
+graphic_alt   = "u.stealth_bomber"
+;phcode=BN
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 6
+hitpoints     = 32
+firepower     = 3
+move_rate     = 18
+convert_to    = "Jet Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb", "ASM"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Jet", "NoBuild", "BadDefender"
+helptext      = _("\
+Transonic heavy bombers were for a time the preferred \
+delivery mechanism for nuclear weapons, though they are \
+also more than capable of conventional bombing.  \
+This variant is equipped for the nuclear mission.  \
+Historical examples include the Avro Vulcan and \
+Boeing B-52 Stratofortress.\
+")
+
+[unit_blue_steel]
+name          = _("Stand-Off Bomb")
+class         = "ASM"
+tech_req      = "Stand-Off Bombs"
+obsolete_by   = "None"
+graphic       = "u.bluesteel"
+graphic_alt   = "u.nuclear"
+;phcode=XS
+sound_move    = "m_nuclear"
+sound_move_alt = "m_generic"
+sound_fight   = "f_nuclear"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 99
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+disembarks    = "Air"
+fuel          = 1
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRheavy", "Nuclear", "Missile", "Jet"
+no_veteran    = 1
+helptext      = _("\
+Rocket-propelled stand-off thermonuclear bomb.  \
+Historical examples include the Avro Blue Steel.\
+")
+
+[unit_turbo_bomber]
+name          = _("Turboprop Bomber")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.bear"
+graphic_alt   = "u.bomber"
+;phcode=BR
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 11
+defense       = 4
+hitpoints     = 30
+firepower     = 3
+move_rate     = 16
+convert_to    = "Turboprop Bomber (Nuclear)"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
+helptext      = _("\
+Swept wings and turbo-prop engines allow faster heavy bombers \
+without the complexities of operating advanced turbojets.  \
+Historical examples include the Tupolev Tu-95 'Bear'.\
+")
+
+[unit_turbo_bomber_nuke]
+name          = _("Turboprop Bomber (Nuclear)")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.redbear"
+graphic_alt   = "u.bomber"
+;phcode=BQ
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 30
+firepower     = 3
+move_rate     = 16
+convert_to    = "Turboprop Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Heavy", "NoBuild", "BadDefender"
+helptext      = _("\
+Swept wings and turbo-prop engines allow faster heavy bombers \
+without the complexities of operating advanced turbojets.  \
+This variant is equipped for the nuclear mission.  \
+Historical examples include the Tupolev Tu-95 'Bear'.\
 ")
 
 [unit_supersonic_bomber]
@@ -4859,19 +5662,58 @@ build_cost    = 240
 pop_cost      = 0
 attack        = 13
 defense       = 6
-hitpoints     = 21
+hitpoints     = 36
 firepower     = 3
 move_rate     = 24
+convert_to    = "Supersonic Bomber (Nuclear)"
+convert_time  = 0
 vision_radius_sq = 5
 transport_cap = 0
 fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea"
+bonuses       = BOMB
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender"
 helptext      = _("\
 Mach 2 capable heavy bombers competed with ballistic missiles for \
 the strategic deterrent role.  \
+Historical examples include the Convair B-58 Hustler.\
+")
+
+[unit_supersonic_bomber_nuke]
+name          = _("Supersonic Bomber (Nuclear)")
+class         = "Air"
+tech_req      = "Sixties Bombers"
+obsolete_by   = "None"
+graphic       = "u.hustlred"
+graphic_alt   = "u.stealth_bomber"
+;phcode=BY
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 240
+pop_cost      = 0
+attack        = 0
+defense       = 6
+hitpoints     = 36
+firepower     = 3
+move_rate     = 24
+convert_to    = "Supersonic Bomber"
+convert_time  = 0
+vision_radius_sq = 5
+transport_cap = 1
+cargo         = "Bomb", "ASM"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+flags         = "Provoking", "Jet", "NoBuild", "BadDefender"
+helptext      = _("\
+Mach 2 capable heavy bombers competed with ballistic missiles for \
+the strategic deterrent role.  \
+This variant is equipped for the nuclear mission.  \
 Historical examples include the Convair B-58 Hustler.\
 ")
 
@@ -4880,7 +5722,7 @@ name          = _("Zeppelin Liner")
 class         = "Air"
 tech_req      = "Effective Airships"
 impr_req      = "Mooring Mast"
-obsolete_by   = "Monoplane Transport"
+obsolete_by   = "Monoplane Airliner"
 graphic       = "u.zeppeliner"
 graphic_alt   = "u.caravan"
 ;phcode=LZ
@@ -4931,10 +5773,55 @@ name          = _("Airliner")
 class         = "Air"
 tech_req      = "Twenties Airlift"
 impr_req      = "Commercial Airstrip"
-obsolete_by   = "Jet Airliner"
+obsolete_by   = "Monoplane Airliner"
 graphic       = "u.airliner"
 graphic_alt   = "u.caravan"
 ;phcode=LL
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 45
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 10
+firepower     = 0
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 3
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+An Airliner carries goods or material for trading with distant cities\
+ and foreign countries.  It can only be built in a city with a\
+ Commercial Airstrip.\
+Historical examples include the Handley Page HP42.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
+[unit_monoliner]
+name          = _("Monoplane Airliner")
+class         = "Air"
+tech_req      = "Airlift 1935"
+impr_req      = "Commercial Airstrip"
+obsolete_by   = "Turboprop Airliner"
+graphic       = "u.dc3"
+graphic_alt   = "u.caravan"
+;phcode=LD
 sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
@@ -4943,7 +5830,7 @@ build_cost    = 50
 pop_cost      = 0
 attack        = 0
 defense       = 1
-hitpoints     = 10
+hitpoints     = 12
 firepower     = 0
 move_rate     = 9
 vision_radius_sq = 2
@@ -4957,6 +5844,58 @@ helptext      = _("\
 An Airliner carries goods or material for trading with distant cities\
  and foreign countries.  It can only be built in a city with a\
  Commercial Airstrip.\
+"), _("\
+Metal-skinned monoplane airliners like the Douglas DC-3 can fly slightly\
+ longer stages than the old, slow biplanes.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
+[unit_turboliner]
+name          = _("Turboprop Airliner")
+class         = "Air"
+tech_req      = "Fifties Airlift"
+impr_req      = "Commercial Airstrip"
+obsolete_by   = "None"
+graphic       = "u.viscount"
+graphic_alt   = "u.caravan"
+;phcode=LV
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 55
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 12
+firepower     = 0
+move_rate     = 11
+vision_radius_sq = 5
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+An Airliner carries goods or material for trading with distant cities\
+ and foreign countries.  It can only be built in a city with a\
+ Commercial Airstrip.\
+"), _("\
+Turbo-prop feeder liners are a useful adjunct to air travel networks,\
+ allowing short- and medium-haul routes to operate without needing the\
+ huge runways of the jetliners.\
+Historical examples include the Vickers Viscount.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
  nations (even enemies) by traveling to them.  A route's ongoing revenue\
@@ -4974,7 +5913,7 @@ Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
 name          = _("Jet Airliner")
 class         = "Air"
 tech_req      = "Fifties Airlift"
-impr_req      = "Commercial Airstrip"
+impr_req      = "Int'l Airport"
 obsolete_by   = "None"
 graphic       = "u.b707"
 graphic_alt   = "u.freight"
@@ -4983,14 +5922,14 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 50
+build_cost    = 75
 pop_cost      = 0
 attack        = 0
 defense       = 2
 hitpoints     = 12
 firepower     = 0
 move_rate     = 12
-vision_radius_sq = 2
+vision_radius_sq = 5
 transport_cap = 0
 fuel          = 3
 uk_happy      = 0
@@ -5000,7 +5939,7 @@ flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
 helptext      = _("\
 A Jet Airliner carries goods or material long distances at high speed,\
  for trading with distant cities and foreign countries.  It can only be\
- built in a city with a Commercial Airstrip.\
+ built in a city with an International Airport.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
  nations (even enemies) by traveling to them.  A route's ongoing revenue\
@@ -5037,9 +5976,10 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 4
 uk_happy      = 0
-uk_base       = 0
+uk_shield     = 0
+uk_gold       = 1
 uk_food       = 0
-flags         = "Diplomat", "IgZOC", "NonMil", "HasNoZOC"
+flags         = "Embassy", "IgZOC", "NonMil", "HasNoZOC"
 roles         = "DiplomatStartUnit"
 helptext      = _("\
 An Ambassador (not to be confused with the Airspeed AS.57 airliner!)\
@@ -5061,13 +6001,13 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 50
+build_cost    = 36
 pop_cost      = 0
 attack        = 0
 defense       = 1
 hitpoints     = 10
 firepower     = 0
-move_rate     = 9
+move_rate     = 6
 vision_radius_sq = 4
 transport_cap = 2
 fuel          = 2
@@ -5093,13 +6033,13 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 60
+build_cost    = 40
 pop_cost      = 0
 attack        = 0
 defense       = 1
 hitpoints     = 12
 firepower     = 0
-move_rate     = 10
+move_rate     = 8
 vision_radius_sq = 4
 transport_cap = 2
 fuel          = 2
@@ -5125,13 +6065,13 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 75
+build_cost    = 50
 pop_cost      = 0
 attack        = 0
 defense       = 2
 hitpoints     = 12
 firepower     = 0
-move_rate     = 12
+move_rate     = 10
 vision_radius_sq = 4
 transport_cap = 2
 fuel          = 2
@@ -5159,7 +6099,7 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 100
+build_cost    = 80
 pop_cost      = 0
 attack        = 0
 defense       = 2
@@ -5172,8 +6112,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "HasNoZOC", "Provoking"
-cargo         = "Assault"
+flags         = "HasNoZOC", "Provoking", "NoUpgrade", "Heavy"
+cargo         = "Assault", "Heavy Assault"
 helptext      = _("\
 This large four-prop transport aircraft, though expensive, \
 can carry a large cargo over a long range.  \
@@ -5193,7 +6133,7 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 80
+build_cost    = 60
 pop_cost      = 0
 attack        = 0
 defense       = 3
@@ -5226,7 +6166,7 @@ sound_move    = "m_stealth_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_generic"
 sound_fight_alt = "-"
-build_cost    = 120
+build_cost    = 100
 pop_cost      = 0
 attack        = 0
 defense       = 4
@@ -5239,8 +6179,8 @@ fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "HasNoZOC", "Provoking"
-cargo         = "Assault"
+flags         = "HasNoZOC", "Provoking", "Jet"
+cargo         = "Assault", "Heavy Assault"
 helptext      = _("\
 This massive strategic jet airlifter can transport even more \
 cargo, at a high speed.  \
@@ -5306,13 +6246,114 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 0
 uk_food       = 0
-cargo         = "Assault"
+cargo         = "Assault", "Heavy Assault"
 disembarks    = "Air"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 helptext      = _("\
 Large wooden glider for airlanding infantry.  Must be towed \
 to the Drop Zone by a suitable bomber aircraft.  \
 Historical examples include the General Aircraft Hamilcar.\
+")
+
+[unit_k3]
+name          = _("Tanker Biplane")
+class         = "Air"
+tech_req      = "Aerial Refuelling"
+obsolete_by   = "None"
+graphic       = "u.virgtank"
+graphic_alt   = "u.bomber"
+;phcode=K3
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 20
+firepower     = 0
+move_rate     = 5 ; 4 once stacking is supported
+vision_radius_sq = 4
+transport_cap = 1
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
+flags         = "BadDefender", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+Flight-refuelling tanker developed from a bomber airframe.  \
+Historical examples include experimental conversions of Handley Page Harrows \
+and Vickers Virginias.\
+")
+
+[unit_km]
+name          = _("Tanker Monoplane")
+class         = "Air"
+tech_req      = "Tankers 1944"
+obsolete_by   = "None"
+graphic       = "u.halitank"
+graphic_alt   = "u.bomber"
+;phcode=KM
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 0
+defense       = 3
+hitpoints     = 24
+firepower     = 0
+move_rate     = 7 ; 6 once stacking is supported
+vision_radius_sq = 4
+transport_cap = 1
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
+flags         = "BadDefender", "HasNoZOC", "Heavy"
+roles         = ""
+helptext      = _("\
+Large flight-refuelling tanker developed from a four-engine bomber airframe.  \
+Historical examples include the Boeing KB-29 Superfortress, and Handley Page \
+Halifax conversions planned for use by Tiger Force.\
+")
+
+[unit_kj]
+name          = _("Tanker Jet")
+class         = "Air"
+tech_req      = "Fifties Bombers"
+obsolete_by   = "None"
+graphic       = "u.victor"
+graphic_alt   = "u.stealth_bomber"
+;phcode=KJ
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 0
+defense       = 4
+hitpoints     = 30
+firepower     = 0
+move_rate     = 11 ; 9 once stacking is supported
+vision_radius_sq = 5
+transport_cap = 1
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Air", "Seaplane", "Seaplane Fighter", "Carrier-borne", "Naval Fighter"
+flags         = "BadDefender", "HasNoZOC", "Jet"
+roles         = ""
+helptext      = _("\
+Large flight-refuelling tanker developed from a jet bomber airframe.  \
+Historical examples include the Handley Page Victor K.2.\
 ")
 
 [unit_lpd]
@@ -5340,13 +6381,47 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Assault"
+cargo         = "Assault", "Heavy Assault"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = "Ferryboat"
 helptext      = _("\
 Landing Craft can be used to transport assault troops (or \
 settlers) across water, albeit much more slowly than by air.\
+")
+
+[unit_ship]
+name          = _("Troop Ship")
+class         = "Ship"
+tech_req      = "Steam Turbines"
+obsolete_by   = "None"
+graphic       = "u.troopship"
+graphic_alt   = "u.transport"
+;phcode=ts
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 20
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 2
+fuel          = 0
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+cargo         = "Land", "Assault", "Heavy Assault"
+flags         = "BadCityDefender", "HasNoZOC", "Provoking"
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+Troop Ships can be used to transport ground troops across \
+water, albeit much more slowly than by air; unlike Landing \
+Craft, they can only unload while in a city.\
 ")
 
 [unit_merchie]
@@ -5372,9 +6447,9 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_base       = 0
+uk_base       = 1
 uk_food       = 0
-flags         = "Merchant", "NonMil", "HasNoZOC"
+flags         = "BadCityDefender", "Merchant", "NonMil", "HasNoZOC", "Capturable"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 A Merchant ship carries goods or material for trading with distant cities\
@@ -5408,13 +6483,10 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_base       = 0
+uk_base       = 1
 uk_food       = 0
-bonuses       =
-   { "flag", "type", "value"
-     "AirAttacker", "DefenseMultiplier", 2
-   }
-flags         = "Merchant", "NonMil", "HasNoZOC"
+bonuses       = CAM
+flags         = "BadCityDefender", "Merchant", "NonMil", "HasNoZOC", "Capturable"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 A Merchant ship carries goods or material for trading with distant cities\
@@ -5452,7 +6524,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Seaplane"
+cargo         = "Seaplane", "Seaplane Fighter"
 flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = "FerryStartUnit"
@@ -5466,7 +6538,7 @@ it's hard to get in position for a strike.\
 name          = _("Submersible")
 class         = "Sea"
 tech_req      = "None"
-obsolete_by   = "None"
+obsolete_by   = "U-Boat"
 graphic       = "u.submerged"
 graphic_alt   = "u.submarine"
 ;phcode=su
@@ -5485,26 +6557,33 @@ convert_to    = "Submersible (surfaced)"
 convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
-fuel          = 0
+fuel          = 2
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-targets       = "Sea"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb"
-vision_layer  = "Subsurface" ; relates to "vision_subs_sq"
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
+vision_layer  = "Subsurface" ; relates to "Sonar" flag
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 Submersible torpedo boats can use their stealthiness to ambush \
 enemy shipping, but they're extremely vulnerable to attack from \
 the air — blimps and patrol boats are ideal sub hunters.  \
 A submerged boat is slow — you can surface it to move faster.\
+"), _("\
+You can only remain submerged for a limited time before the air \
+supply is exhausted and the batteries discharged — make sure to \
+surface in time!  \
+While in port, the sub is hooked up to pierside equipment that \
+keeps it fully charged.\
 ")
 
 [unit_subsurface]
 name          = _("Submersible (surfaced)")
 class         = "Sea"
 tech_req      = "None"
-obsolete_by   = "None"
+obsolete_by   = "U-Boat"
 graphic       = "u.submarine"
 ;phcode=ss
 sound_move    = "m_submarine"
@@ -5526,14 +6605,142 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-targets       = "Sea"
-flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild"
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub", "Capturer"
 slow_veteran  = 1 ; ships don't get acespeed
 helptext      = _("\
 When on the surface, a Submersible is much less stealthy, but can \
 move more quickly to get into position for an attack (and, after \
 the discovery of Autogyro, has a longer vision range).  \
 You can then submerge it again to attack more effectively.\
+"), _("\
+Subs also need to be surfaced to take prizes (capture merchant \
+ships), but beware that this uses up all their remaining move.\
+")
+
+[unit_uboot]
+name          = _("U-Boat")
+class         = "Sea"
+tech_req      = "Marine Diesels"
+obsolete_by   = "SSN"
+graphic       = "u.uboot"
+graphic_alt   = "u.submarine"
+;phcode=uu
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 33
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 2
+convert_to    = "U-Boat (surfaced)"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 4
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub"
+vision_layer  = "Subsurface" ; relates to "Sonar" flag
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+Inter-war submersibles are only slightly more robust than older \
+models; their main advantages are increased surface speed and \
+underwater endurance.  \
+A submerged boat is slow — you can surface it to move faster \
+and recharge its batteries.\
+")
+
+[unit_usurface]
+name          = _("U-Boat (surfaced)")
+class         = "Sea"
+tech_req      = "Marine Diesels"
+obsolete_by   = "SSN"
+graphic       = "u.usurf"
+graphic_alt   = "u.submarine"
+;phcode=us
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 33
+pop_cost      = 0
+attack        = 2
+defense       = 1
+hitpoints     = 9
+firepower     = 1
+move_rate     = 5
+convert_to    = "U-Boat"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "NoBuild", "Sub", "Capturer"
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+When on the surface, a U-Boat is much less stealthy, but can \
+move more quickly to get into position for an attack (and, after \
+the discovery of Autogyro, has a longer vision range).  \
+You can then submerge it again to attack more effectively.\
+"), _("\
+U-Boats also need to be surfaced to take prizes (capture merchant \
+ships), but beware that this uses up all their remaining move.\
+")
+
+[unit_ssn]
+name          = _("SSN")
+class         = "Sea"
+tech_req      = "Submarine Reactors"
+obsolete_by   = "None"
+graphic       = "u.swiftsure"
+graphic_alt   = "u.submarine"
+;phcode=nu
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 42
+pop_cost      = 0
+attack        = 6
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 5
+transport_cap = 1
+fuel          = 0
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+cargo         = "Missile"
+bonuses       = SUB, SUB2
+targets       = "Sea", "Ship"
+; being quiet ourselves is good for sonar
+flags         = "BadCityDefender", "HasNoZOC", "CRtb", "Sub", "Sonar"
+vision_layer  = "Subsurface" ; relates to "Sonar" flag
+slow_veteran  = 1 ; ships don't get acespeed
+helptext      = _("\
+Nuclear-powered attack submarines are designed to remain \
+submerged at all times, improving their ability to evade \
+detection.  Teardrop hulls allow them to be as fast underwater \
+as older diesel-electric boats were when surfaced, while \
+improved hydrophones stretch their vision range.\
+"), _("\
+As they never surface, SSNs cannot take prizes.  However, \
+they can carry a single surface-to-air missile for defence.\
 ")
 
 [unit_lph]
@@ -5571,6 +6778,82 @@ across water; the helicopters can in turn be carrying assault \
 troops, and deploy them quickly inshore.\
 ")
 
+[unit_predread]
+name          = _("Line-of-Battle Ship")
+class         = "Sea"
+tech_req      = "Battleship"
+obsolete_by   = "Dreadnought"
+graphic       = "u.predread"
+graphic_alt   = "u.cruiser" ; placeholder
+;phcode=b0
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 150
+pop_cost      = 0
+attack        = 4
+defense       = 6
+hitpoints     = 15
+firepower     = 2
+move_rate     = 3
+convert_to    = "Light Aircraft Carrier"
+convert_time  = 9
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 0
+uk_base       = 2
+uk_food       = 0
+cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRheavy", "FatShip", "Capturer", "AntiSea"
+slow_veteran  = 1 ; ships don't get acespeed
+bombard_rate  = 10
+roles         = ""
+helptext      = _("\
+Pre-dread battleships are the earliest capital ships, able to \
+control the seas and provide fire-support to operations inshore \
+with their large-calibre guns and heavy armour.\
+"), _("\
+They may be converted to Light Aircraft Carriers after the latter \
+have been developed.\
+")
+
+[unit_dread]
+name          = _("Dreadnought")
+class         = "Sea"
+tech_req      = "Dreadnought"
+obsolete_by   = "None"
+graphic       = "u.dread"
+graphic_alt   = "u.battleship" ; placeholder
+;phcode=bd
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 6
+defense       = 8
+hitpoints     = 18
+firepower     = 2
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 0
+uk_base       = 2
+uk_food       = 0
+cargo         = "Seaplane", "Seaplane Fighter", "Helicopter"
+flags         = "BadCityDefender", "Provoking", "Bombarder 2", "CRmedium", "FatShip", "Capturer", "AntiSea"
+slow_veteran  = 1 ; ships don't get acespeed
+bombard_rate  = 10
+roles         = ""
+helptext      = _("\
+All-big-gun battleships, such as HMS Dreadnought, reset the naval \
+arms race, outranging and outrunning their predecessors.\
+")
+
 [unit_cvl]
 name          = _("Light Aircraft Carrier")
 class         = "Sea"
@@ -5583,7 +6866,7 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 120
+build_cost    = 90
 pop_cost      = 0
 attack        = 0
 defense       = 2
@@ -5596,7 +6879,7 @@ fuel          = 0
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""
@@ -5617,20 +6900,20 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 200
+build_cost    = 150
 pop_cost      = 0
 attack        = 0
 defense       = 3
 hitpoints     = 40
 firepower     = 1
-move_rate     = 6
+move_rate     = 5
 vision_radius_sq = 2
 transport_cap = 6
 fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""
@@ -5651,7 +6934,7 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 30
+build_cost    = 27
 pop_cost      = 0
 attack        = 0
 defense       = 1
@@ -5664,7 +6947,7 @@ fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""
@@ -5684,20 +6967,20 @@ sound_move    = "m_transport"
 sound_move_alt = "m_generic"
 sound_fight   = "f_transport"
 sound_fight_alt = "f_generic"
-build_cost    = 320
+build_cost    = 270
 pop_cost      = 0
 attack        = 0
 defense       = 4
 hitpoints     = 60
 firepower     = 1
-move_rate     = 8
+move_rate     = 6
 vision_radius_sq = 2
 transport_cap = 12
 fuel          = 0
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-cargo         = "Carrier-borne", "Missile", "Helicopter"
+cargo         = "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags         = "BadCityDefender", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = ""

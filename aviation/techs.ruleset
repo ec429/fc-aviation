@@ -104,6 +104,53 @@ helptext = _("Though their first heavier-than-air machines could\
  dream of human flight. \
  Orville & Wilbur Wright, 1903.")
 
+[advance_steam_turbines]
+name     = _("Steam Turbines")
+req1     = "None"
+req2     = "None"
+cost     = 60
+graphic     = "a.steam_engine"
+graphic_alt = "-"
+helptext = _("Far more efficient than old reciprocating steam\
+ engines, steam turbines have many applications on land and at\
+ sea.  However, they're too heavy to power aeroplanes. \
+ Charles Parsons, 1884.")
+
+[advance_big_guns]
+name     = _("Big Guns")
+req1     = "None"
+req2     = "None"
+cost     = 100
+graphic     = "a.metallurgy"
+graphic_alt = "-"
+helptext = _("Large rifled breech-loading cannon, using either\
+ the Welin interrupted screw or the Krupp sliding block and\
+ cartridge, kicked off an arms race in both terrestrial and\
+ naval artillery.")
+
+[advance_battleship]
+name     = _("Battleship")
+req1     = "Steam Turbines"
+req2     = "Big Guns"
+cost     = 150
+graphic     = "a.battleship"
+graphic_alt = "a.steel" ; placeholder
+helptext = _("Combining a main battery of around 12 inch calibre\
+ with turbine-driven screws for speed and endurance, battleships\
+ finally replaced the old sail-driven 'tall ships' in the fleets\
+ of the world's Great Powers.")
+
+[advance_dreadnought]
+name     = _("Dreadnought")
+req1     = "Battleship"
+req2     = "None"
+cost     = 240
+graphic     = "a.battleship"
+graphic_alt = "a.steel" ; placeholder
+helptext = _("Inventions like superfiring and the fire-control\
+ director made the all-big-gun battleship the new Queen of the\
+ Seas.")
+
 [advance_passenger_carrying]
 name     = _("Passenger Carrying")
 req1     = "Powered Flight"
@@ -135,7 +182,8 @@ graphic     = "a.practical_aviation"
 graphic_alt = "a.flight" ; placeholder
 helptext = _("The ability to carry a useful load, and fly in\
  imperfect weather conditions, made flying more than just a\
- stunt.  1912.")
+ stunt.  1912."),
+_("Allows the construction of airfields in open territory.")
 
 [advance_practical_seaplanes]
 name     = _("Practical Seaplanes")
@@ -146,7 +194,9 @@ graphic     = "a.practical_seaplanes"
 graphic_alt = "a.flight" ; placeholder
 helptext = _("The first floatplanes were unreliable freaks. \
  Once they were developed to practicality, the world's navies\
- began to take an interest in the possibilities.  1912.")
+ began to take an interest in the possibilities.  1912."),
+_("Allows the construction of buoys (seaplane bases) on\
+ coastal ocean tiles.")
 
 [advance_aerial_weapons]
 name     = _("Aerial Weapons")
@@ -273,7 +323,7 @@ helptext = _("Large, multi-engined bombers with the ability\
 [advance_anti_air_artillery]
 name     = _("Anti-Air Artillery")
 req1     = "Bombers 1916"
-req2     = "None"
+req2     = "Big Guns"
 cost     = 240
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
@@ -334,6 +384,19 @@ helptext = _("Taking the structural advantages of the biplane one\
  step further, triplane fighters proved highly agile, although\
  involving compromises in other areas.  Early 1917.")
 
+[advance_escape_parachute]
+name     = _("Escape Parachute")
+req1     = "Early Blimp"
+req2     = "None"
+cost     = 180
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+; /* xgettext:no-c-format */
+helptext = _("First used by the crews of kite balloons, parachutes\
+ allowed aircrews to bale out of stricken craft.  Circa 1917."),
+_("By reducing the loss rate of trained crewmembers, this tech\
+ increases the chance for air units to gain veteran levels by 10%.")
+
 [advance_engines_1917]
 name     = _("Engines 1917")
 req1     = "Engines 1916"
@@ -357,7 +420,7 @@ helptext = _("Biplane bombers increased in load-carrying ability,\
 [advance_aircraft_carrier]
 name     = _("Aircraft Carrier")
 req1     = "Engines 1917"
-req2     = "None"
+req2     = "Battleship"
 cost     = 300
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
@@ -410,7 +473,7 @@ helptext = _("The flying-boat developed into a useful maritime\
 [advance_streamlining]
 name     = _("Streamlining")
 req1     = "Scouts 1916"
-req2     = "None"
+req2     = "Aircraft Industry"
 cost     = 280
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
@@ -427,6 +490,16 @@ graphic_alt = "-"
 helptext = _("Postwar engines were reliable enough that flight\
  began to lose its 'daredevil' image, and ordinary people took\
  seriously the idea of civilian air travel.")
+
+[advance_marine_diesels]
+name     = _("Marine Diesels")
+req1     = "Twenties Engines"
+req2     = "None"
+cost     = 160
+graphic     = "a.combustion" ; placeholder
+graphic_alt = "-"
+helptext = _("Purpose-designed diesel engines for naval use\
+ enabled a new generation of submarine machinery.")
 
 [advance_twenties_airships]
 name     = _("Twenties Airships")
@@ -517,7 +590,7 @@ _("Also, airliners (which are technologically similar) are\
 [advance_parachute_dropping]
 name     = _("Parachute Dropping")
 req1     = "Twenties Airlift"
-req2     = "None"
+req2     = "Escape Parachute"
 cost     = 640
 graphic     = "a.combined_arms"
 graphic_alt = "-"
@@ -558,7 +631,9 @@ graphic     = "a.radio"
 graphic_alt = "-"
 helptext = _("Miniaturising radios sufficiently to routinely\
  carry them aboard aircraft increased the utility of both\
- devices.")
+ devices."), _("\
+Spotting targets for artillery no longer ends an aircraft's\
+ turn.")
 
 [advance_twenties_fighters]
 name     = _("Twenties Fighters")
@@ -708,6 +783,17 @@ graphic_alt = "-"
 helptext = _("Supercharging finally became a mature technology, enabling\
  aero-engines to develop over 1,000hp in a compact package and opening\
  the way to further improvements in aeroplanes of all types.")
+
+[advance_aerial_refuelling]
+name     = _("Aerial Refuelling")
+req1     = "Thirties Airlift"
+req2     = "None"
+cost     = 800
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Sir Alan Cobham's looped-hose system allowed aircraft to be\
+ refuelled in flight, creating new possibilities for extended range or\
+ operational flexibility.")
 
 [advance_large_monoplanes]
 name     = _("Large Monoplanes")
@@ -967,6 +1053,27 @@ helptext = _("With the benefit of wartime experience, Allied aircraft\
  Bomber Command and the US Eighth Army Air Force, flattened Germany\
  and destroyed her warmaking capability.")
 
+[advance_asv]
+name     = _("A.S.V.")
+req1     = "Heavy Bombers"
+req2     = "Airborne Radar"
+cost     = 800
+graphic     = "a.stealth" ; placeholder
+graphic_alt = "-"
+helptext = _("Developed from terrain radars like H2S, centimetric\
+ Air to Surface Vessel radar improved the spotting ability of\
+ ocean patrol aircraft.")
+
+[advance_tankers_1944]
+name     = _("Tankers 1944")
+req1     = "Heavy Bombers"
+req2     = "Aerial Refuelling"
+cost     = 1200
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Combining flight-refuelling technology with surplus heavy\
+ bomber airframes enabled a new generation of air-to-air tankers.")
+
 [advance_heavy_gliders]
 name     = _("Heavy Gliders")
 req1     = "Glider Assault"
@@ -1010,6 +1117,16 @@ graphic_alt = "-"
 helptext = _("Bigger and heavier piston engines began to top 2,000hp\
  in the latter years of World War Two.")
 
+[advance_nuclear_weapons]
+name     = _("Nuclear Weapons")
+req1     = "Heavy Bombers"
+req2     = "Electronics 1935"
+cost     = 2600
+graphic     = "a.nuclear_fission"
+graphic_alt = "-"
+helptext = _("The ability to split the atom allowed for the creation\
+ of nuclear explosives of unprecedented destructive power.")
+
 [advance_bombers_1945]
 name     = _("Bombers 1945")
 req1     = "Heavy Bombers"
@@ -1021,6 +1138,18 @@ helptext = _("The apogee of piston-engined bomber design produced\
  heavies that could range over an entire continent, and deliver payloads\
  up to and including the first nuclear bombs.")
 
+[advance_maricon]
+name     = _("Maritime Reconnaissance")
+req1     = "Bombers 1945"
+req2     = "A.S.V."
+cost     = 1200
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("New purpose-designed long-endurance aircraft,\
+ incorporating technologies developed for the heavy bombers,\
+ yielded greater effectiveness at scouring the oceans for\
+ threats above and below the waves.")
+
 [advance_fighters_1944]
 name     = _("Fighters 1944")
 req1     = "Fighters 1942"
@@ -1030,7 +1159,7 @@ graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
 helptext = _("Further increases in engine power gave so-called\
  'super-prop' fighters an edge over their adversaries, but ran\
- into Mach effects that meant the propellor-driven fighter was\
+ into Mach effects that meant the propeller-driven fighter was\
  reaching its limit.")
 
 [advance_carrier_aviation_1945]
@@ -1077,6 +1206,18 @@ helptext = _("While not without their downsides, the new jet engines\
  gave unmatched speed to the first fighters designed around them. \
  Designers experimented with different concepts to make the best \
  use of the new powerplant's capabilities.")
+
+[advance_ejector_seat]
+name     = _("Ejector Seat")
+req1     = "Jet Fighter Prototypes"
+req2     = "Parachute Dropping"
+cost     = 750
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Baling out of the new high-speed jets required a\
+ rocket-assisted escape system."),
+_("Extends the veterancy bonus from Escape Parachute to cover\
+ Jet aircraft, which do not otherwise get it.")
 
 [advance_carrier_borne_jets]
 name     = _("Carrier-borne Jets")
@@ -1156,7 +1297,7 @@ helptext = _("With the lessons learned from operating the earliest\
 
 [advance_swept_wing]
 name     = _("Swept Wing")
-req1     = "Aerodynamics Research"
+req1     = "Higher Speed"
 req2     = "None"
 cost     = 615
 graphic     = "a.flight" ; placeholder
@@ -1238,6 +1379,18 @@ helptext = _("Flying high and fast to escape fighter interception,\
  carry the nuclear deterrent, but their combat service continued\
  to be with conventional bombs.")
 
+[advance_thermonuclear_weapons]
+name     = _("Thermonuclear Weapons")
+req1     = "Nuclear Weapons"
+req2     = "None"
+cost     = 4000
+graphic     = "a.nuclear_fission" ; placeholder
+graphic_alt = "-"
+helptext = _("Improvements in nuclear engineering such as the\
+ Teller-Ulam thermonuclear device and the boosted-fission warhead\
+ reduced the bottlenecks in production of fissile material for\
+ nuclear weapons.")
+
 [advance_fifties_engines]
 name     = _("Fifties Engines")
 req1     = "Engines 1949"
@@ -1250,10 +1403,21 @@ helptext = _("Reheat (also known as afterburning) achieved thrusts\
 efficient turboprop and turbofan were economical enough for use in\
  airliners and transports.")
 
+[advance_submarine_reactors]
+name     = _("Submarine Reactors")
+req1     = "Fifties Engines"
+req2     = "Thermonuclear Weapons"
+cost     = 1800
+graphic     = "a.nuclear_power" ; placeholder
+graphic_alt = "-"
+helptext = _("A spin-off of the nuclear weapons program, compact\
+ pressurised water reactors allowed submarines to remain\
+ underwater indefinitely.")
+
 [advance_supersonic_aerodynamics]
 name     = _("Supersonic Aerodynamics")
 req1     = "Swept Wing"
-req2     = "None"
+req2     = "Gas Turbine"
 cost     = 900
 graphic     = "a.iron_working"
 graphic_alt = "-"
@@ -1318,6 +1482,17 @@ graphic_alt = "-"
 helptext = _("A new generation of strategic jet bombers produced\
  some of the most iconic aircraft since the War.")
 
+[advance_fifties_tankers]
+name     = _("Fifties Tankers")
+req1     = "Fifties Bombers"
+req2     = "Tankers 1944"
+cost     = 2000
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Converted jet bombers equipped with the new\
+ probe-and-drogue refuelling system stretched mission ranges\
+ further than ever.")
+
 [advance_fifties_airlift]
 name     = _("Fifties Airlift")
 req1     = "Heavy Airlift"
@@ -1328,6 +1503,17 @@ graphic_alt = "-"
 helptext = _("With the more economical cruise of the turbofan\
  airliner, air travel became accessible to the common man."), _("\
 Decreases one-time revenue from new trade routes.")
+
+[advance_advanced_missiles]
+name     = _("Advanced Missiles")
+req1     = "Early Missiles"
+req2     = "Supersonic Flight"
+cost     = 1200
+graphic     = "a.rocketry" ; placeholder
+graphic_alt = "-"
+helptext = _("Inertial guidance allowed long-range missiles for\
+ strategic bombardment, while the range of surface-to-air missiles\
+ was also increased by improved engines and aerodynamics.")
 
 [advance_sixties_engines]
 name     = _("Sixties Engines")
@@ -1383,3 +1569,35 @@ graphic_alt = "-"
 helptext = _("Great technical challenges had to be overcome in\
  order to develop heavy bombers that were supersonic by a large\
  margin.")
+
+[advance_standoff_bombs]
+name     = _("Stand-Off Bombs")
+req1     = "Advanced Missiles"
+req2     = "Thermonuclear Weapons"
+cost     = 1600
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Rocket-propelled air-launched missiles with inertial\
+ guidance enabled nuclear attacks to be launched from distances of\
+ up to around 100 miles, keeping the carrier plane further from the\
+ defences.")
+
+[advance_sixties_airlift]
+name     = _("Sixties Airlift")
+req1     = "Fifties Airlift"
+req2     = "Sixties Engines"
+cost     = 1500
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Wide-body jetliners allowed greatly increased\
+ passenger and cargo air traffic along trunk routes.")
+
+[advance_sixties_helicopters]
+name     = _("Sixties Helicopters")
+req1     = "Turbine Helicopters"
+req2     = "Sixties Engines"
+cost     = 1600
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("A new generation of heavy-lift cargo helicopter\
+ revolutionised military logistics.")

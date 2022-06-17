@@ -3,7 +3,8 @@ import sys
 import re
 
 getvs = re.compile(r'_?\(?"([^"]+)"\)?')
-air_classes = ['"Air"', '"Carrier-borne"', '"Missile"', '"Seaplane"', '"Glider"', '"Helicopter"']
+air_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"')
+refuel_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Seaplane"', '"Seaplane Fighter"')
 
 class Unit(object):
     def __init__(self, key):
@@ -11,6 +12,7 @@ class Unit(object):
         self.tech = None
         self.flags = None
         self.ph = None
+        self.bonus = None
         self.rest = dict()
     def __getitem__(self, key):
         return self.rest[key]
@@ -42,15 +44,59 @@ class Unit(object):
         if '"AntiGround"' in self.flags:
             targets.add('"Land"')
             targets.add('"Assault"')
+            targets.add('"Heavy Assault"')
+            targets.add('"Installation"')
         if '"AntiSea"' in self.flags:
             targets.add('"Sea"')
+            targets.add('"Ship"')
             if self['class'] in air_classes:
                 self.flags += ', "AirAttacker"'
+                targets.add('"Naval Fighter"')
+                targets.add('"Seaplane Fighter"')
         if '"AntiAir"' in self.flags:
             targets |= set(air_classes)
+        if self['class'] in air_classes and '"AntiAir"' not in self.flags and self['fuel'] != '1':
+            self.flags += ', "BadAirDefender"'
         targets.discard('')
         if targets:
             self['targets'] = ', '.join(list(targets))
+        embarks = set(str.split(self.get('embarks', ''), ','))
+        if self['class'] in refuel_classes and '"Air"' not in self.get('cargo', ''):
+            embarks.add('"Air"')
+            embarks.discard('')
+            self['embarks'] = ', '.join(embarks)
+        disembarks = set(str.split(self.get('disembarks', ''), ','))
+        if self['class'] in refuel_classes:
+            disembarks.add('"Air"')
+            disembarks.discard('')
+            self['disembarks'] = ', '.join(disembarks)
+        bonuses = self.get('bonuses', '')
+        if '\n' not in bonuses:
+            bkeys = map(str.strip, str.split(bonuses, ','))
+            if (self['class'] in ('"Naval Fighter"', '"Seaplane Fighter"')) != ('SF' in bkeys):
+                raise Exception("Wrong SF bonus for unit", self.get('name'), self['class'], bkeys)
+            # everyone gets this one
+            bkeys.append('LTRP')
+            bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 2',
+                    'SF': '"LongTorp", "DefenseMultiplier", 1',
+                    'BOMB': '"BadAirDefender", "DefenseDivider", 2',
+                    'TROOP': '"BadDefender", "DefenseDivider", 3',
+                    'SUB': '"FatShip", "FirePower1", 1',
+                    'SUB2': '"FatShip", "DefenseDividerPct", 25',
+                    'TIRPITZ': '"FatShip", "DefenseDivider", 2',
+                    'ASW': '"Sub", "DefenseDivider", 1',
+                    'LTRP': '"LongTorp", "FirePower1", 1',
+                    }
+            bvals = set(bmap[bk] for bk in bkeys if bk != '')
+            if bvals:
+                self.bonus = ', '.join(bkeys)
+                self['bonuses'] = '\n   { "flag", "type", "value"\n     ' + '\n     '.join(bvals) + '\n   }'
+        if '"Jet"' in self.flags:
+            if self.get('impr_req') is None:
+                self['impr_req'] = '"Air Base"'
+        if '"NoUpgrade"' in self.flags:
+            # Temporary hack to work around https://osdn.net/projects/freeciv/ticket/43251
+            self['obsolete_by'] = '"None"'
         if 'uk_base' in self.rest:
             upkeep = self['uk_base']
             del self['uk_base']
@@ -66,6 +112,8 @@ class Unit(object):
         self.writekey(f, 'flags', self.flags)
         if self.ph is not None:
             f.write(';phcode=%s\n' % (self.ph,))
+        if self.bonus is not None:
+            f.write(';bonus=%s\n' % (self.bonus,))
         for k in sorted(self.rest):
             self.writekey(f, k, self.rest[k])
 

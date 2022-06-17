@@ -57,7 +57,7 @@ food_cost        = 2
 ;   if city_size > num_inis;
 ;     city_granary_size = (granary_food_ini[num_inis] +
 ;        granary_food_inc * (city_size - num_inis)) * foodbox / 100
-granary_food_ini = 12, 12, 16, 22, 30
+granary_food_ini = 12, 12, 15, 18, 22, 26, 30, 36, 42, 48, 56, 64, 72, 80
 granary_food_inc = 10
 
 ; City center minimum outputs
@@ -193,6 +193,15 @@ name = _("Goods")
 ; enter the marketplace of a city if it can establish a trade route to it
 ; in stead.
 force_trade_route = TRUE
+; If force_explode_nuclear is set to TRUE it is illegal for an actor unit
+; to perform a regular attack against a tile if it can do explode nuclear
+; in stead.
+force_explode_nuclear = TRUE
+
+explode_nuclear_max_range = 0
+nuke_city_max_range = 1
+targeted_sabotage_city_max_range = 1
+bombard_2_max_range = 2
 
 ; What each action should be called when showing them to the player.
 ; The first %s should be before the mnemonic of the action. A Freeciv client
@@ -212,8 +221,14 @@ ui_name_bribe_unit = _("%sBribe Enemy Unit%s")
 ; /* TRANS: _Sabotage City (3% chance of success). */
 ui_name_sabotage_city = _("%sSabotage City%s")
 
-; /* TRANS: Industrial _Sabotage (3% chance of success). */
-ui_name_targeted_sabotage_city = _("Industrial %sSabotage%s")
+; /* TRANS: Precision _Strike (3% chance of success). */
+ui_name_targeted_sabotage_city = _("Precision %sStrike%s")
+
+; /* TRANS: Explode _Nuclear In Place (100% chance of success). */
+ui_name_explode_nuclear = _("Explode %sNuclear In Place%s")
+
+; /* TRANS: _Nuke City (100% chance of success). */
+ui_name_nuke_city = _("%sNuke City%s")
 
 ; /* TRANS: Incite a _Revolt (3% chance of success). */
 ui_name_incite_city = _("Incite a %sRevolt%s")
@@ -239,11 +254,33 @@ ui_name_enter_marketplace = _("Sell %sGoods%s")
 ; /* TRANS: Help _build Wonder (100% chance of success). */
 ui_name_help_wonder = _("Help %sbuild Wonder%s")
 
+; /* TRANS: Take Pri_ze (100% chance of success). */
+ui_name_capture_units = _("Take Pri%sze%s")
+
+; Blank ruleset defined user actions.
+; See the section "Ruleset defined actions" is doc/README.actions
+
+; /* TRANS: Spot for _Artillery (100% chance of success). */
+ui_name_user_action_1                = _("Spot for %sArtillery%s")
+user_action_1_target_kind            = "individual units"
+user_action_1_min_range              = 1
+user_action_1_max_range              = 1
+user_action_1_actor_consuming_always = FALSE
+
+; /* TRANS: Spot for _Naval Gunfire (100% chance of success). */
+ui_name_user_action_2                = _("Spot for %sNaval Gunfire%s")
+user_action_2_target_kind            = "individual units"
+user_action_2_min_range              = 1
+user_action_2_max_range              = 1
+user_action_2_actor_consuming_always = FALSE
+
 ui_name_found_city = _("%sBuild City%s")
 ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
+ui_name_bombard_2 = _("%sBombard%s")
 ui_name_attack = _("%sAttack%s")
 ui_name_conquer_city = _("%sConquer City%s")
+ui_name_conquer_city_2 = _("%sConquer City%s")
 ui_name_home_city = _("Set %sHome City%s")
 ui_name_upgrade_unit = _("%sUpgrade Unit%s")
 
@@ -252,6 +289,39 @@ ui_name_upgrade_unit = _("%sUpgrade Unit%s")
 ;
 ; Can make the help text less redundant when you document it your self.
 ;quiet_actions = "Targeted Sabotage City", "Targeted Steal Tech"
+
+[actionenabler_spot_for_artillery]
+action = "User Action 1"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Spotter",     "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+    }
+target_reqs  =
+    { "type",          "name",        "range", "present"
+      "UnitClassFlag", "Ground",      "Local", TRUE
+      "UnitState",     "Transported", "Local", FALSE
+      "CityTile",      "Center",      "Local", FALSE
+    }
+
+[actionenabler_spot_for_naval]
+action = "User Action 2"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Spotter",     "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+    }
+target_reqs  =
+    { "type",          "name",        "range", "present"
+      "UnitClassFlag", "Seaborne",    "Local", TRUE
+      "TerrainClass",  "Oceanic",     "Local", TRUE
+      "UnitState",     "Transported", "Local", FALSE
+      "CityTile",      "Center",      "Local", FALSE
+    }
 
 [actionenabler_investigate_city]
 action       = "Investigate City" ; unit is not spent
@@ -267,7 +337,7 @@ actor_reqs    =
 action       = "Establish Embassy Stay"
 actor_reqs    =
     { "type",         "name",          "range", "present"
-      "UnitFlag",     "Diplomat",      "Local", TRUE
+      "UnitFlag",     "Embassy",       "Local", TRUE
       "MinMoveFrags", "1",             "Local", TRUE
       "DiplRel",      "Foreign",       "Local", TRUE
       "DiplRel",      "Has real embassy", "Local", FALSE
@@ -401,9 +471,52 @@ action = "Bombard"
 actor_reqs    =
     { "type",         "name",        "range", "present"
       "UnitFlag",     "Bombarder",   "Local", TRUE
+      "UnitFlag",     "Missile",     "Local", FALSE
       "UnitState",    "Transported", "Local", FALSE
       "MinMoveFrags", "1",           "Local", TRUE
       "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",          "name", "range"
+      "TerrainClass",  "Land", "Local"
+    }
+
+; Battleships' targets only includes Sea units, meaning that
+; if they try to bombard a stack of ground troops outside of
+; a city or native base they'll not actually be able to hit
+; any of them.
+; To save the user confusion, only allow bombarding cities
+; and fortresses.
+[actionenabler_bombard2]
+action = "Bombard 2"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Bombarder 2", "Local", TRUE
+      "UnitFlag",     "Missile",     "Local", FALSE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",         "name",   "range"
+      "TerrainClass", "Land",   "Local"
+      "CityTile",     "Center", "Local"
+    }
+
+[actionenabler_bombard2_fortress]
+action = "Bombard 2"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Bombarder 2", "Local", TRUE
+      "UnitFlag",     "Missile",     "Local", FALSE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",         "name",     "range"
+      "TerrainClass", "Land",     "Local"
+      "Extra",        "Fortress", "Tile"
     }
 
 ; Attack actionenablers: these are intended to prevent the "destroy air units
@@ -415,6 +528,9 @@ actor_reqs    =
 ;actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -431,6 +547,9 @@ actor_reqs    =
 ;actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -438,8 +557,27 @@ actor_reqs    =
 ;    }
 ;target_reqs   =
 ;    { "type",          "name",   "range"
-;      "TerrainClass",  "Land",   "City"
+;      "CityTile",      "Center", "Local"
 ;      "UnitClass",     "Sea",    "Local"
+;    }
+;[actionenabler_attack_in_harbour_2]
+;; allow AntiGround units to attack ships in port
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiGround",   "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "CityTile",      "Center", "Local"
+;      "UnitClass",     "Ship",    "Local"
 ;    }
 ;
 ;[actionenabler_attack_sea]
@@ -447,6 +585,8 @@ actor_reqs    =
 ;actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -457,11 +597,57 @@ actor_reqs    =
 ;      "UnitClass",     "Sea",    "Local"
 ;    }
 ;
+;[actionenabler_attack_sea_2]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",         "name",         "range", "present"
+;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
+;      "MinMoveFrags", "1",            "Local", TRUE
+;      "DiplRel",      "War",          "Local", TRUE
+;      "UnitState",    "Transported",  "Local", FALSE
+;      "UnitFlag",     "AntiSea",      "Local", TRUE
+;    }
+;target_reqs   =
+;    { "type",          "name",   "range"
+;      "UnitClass",     "Ship",    "Local"
+;    }
+;
+;; AntiSea units other than torpers can face scrambling fighters
+;; when they attack a carrier transporting them
+;[actionenabler_attack_carrier_scramble]
+;action = "Attack"
+;actor_reqs    =
+;    { "type",          "name",         "range", "present"
+;      "UnitFlag",      "NonMil",       "Local", FALSE
+;      "UnitFlag",      "Bombarder",    "Local", FALSE
+;      "UnitFlag",      "Bombarder 2",  "Local", FALSE
+;      "UnitFlag",      "Missile",      "Local", FALSE
+;      "UnitClassFlag", "Flying",       "Local", TRUE
+;      "MinMoveFrags",  "1",            "Local", TRUE
+;      "UnitState",     "OnNativeTile", "Local", TRUE
+;      "UnitState",     "Transported",  "Local", FALSE
+;      "DiplRel",       "War",          "Local", TRUE
+;      "UnitFlag",      "AntiSea",      "Local", TRUE
+;      "UnitFlag",      "CRtb",         "Local", FALSE
+;    }
+;target_reqs   =
+;    { "type",          "name",         "range", "present"
+;      "CityTile",      "Center",       "Local", FALSE
+;      "UnitState",     "Transported",  "Local", TRUE
+;      "UnitClassFlag", "Flying",       "Local", TRUE
+;      "UnitFlag",      "AntiAir",      "Local", TRUE
+;    }
+;
 ;[actionenabler_attack_air]
 ;action = "Attack"
 ;actor_reqs    =
 ;    { "type",         "name",         "range", "present"
 ;      "UnitFlag",     "NonMil",       "Local", FALSE
+;      "UnitFlag",     "Bombarder",    "Local", FALSE
+;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
+;      "UnitFlag",     "Missile",      "Local", FALSE
 ;      "MinMoveFrags", "1",            "Local", TRUE
 ;      "DiplRel",      "War",          "Local", TRUE
 ;      "UnitState",    "Transported",  "Local", FALSE
@@ -479,6 +665,7 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -498,6 +685,8 @@ actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Bombarder 2",  "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -519,6 +708,8 @@ actor_reqs    =
     { "type",         "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Bombarder 2",  "Local", FALSE
+      "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE
       "UnitState",     "Transported",  "Local", FALSE
@@ -529,15 +720,95 @@ target_reqs   =
     { "type",          "name",   "range"
       "TerrainClass",  "Oceanic","Local"
     }
+    
+; Artillery has the option to Attack against tiles that have
+; been Spotted, as an alternative to Bombarding.
+[actionenabler_attack_spotted]
+action = "Attack"
+actor_reqs    =
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "NonMil",       "Local", FALSE
+      "UnitFlag",      "Bombarder",    "Local", TRUE
+      "UnitFlag",      "Missile",      "Local", FALSE
+      "MinMoveFrags",  "1",            "Local", TRUE
+      "UnitState",     "OnNativeTile", "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
+      "DiplRel",       "War",          "Local", TRUE
+      "UnitFlag",      "CRtb",         "Local", FALSE
+    }
+target_reqs   =
+    { "type",          "name",    "range", "present"
+; Can't attack into cities without AntiGround (no fighter strafing)
+      "CityTile",      "Center",  "Local", FALSE
+      "Extra",         "Spotted", "Tile", TRUE
+    }
 
 [actionenabler_explode_missile]
 action = "Suicide Attack"
 actor_reqs    =
     { "type",          "name",    "range", "present"
       "UnitFlag",      "NonMil",  "Local", FALSE
-      "UnitClassFlag", "Missile", "Local", TRUE
+      "UnitFlag",      "Nuclear", "Local", FALSE
+      "UnitFlag",      "Missile", "Local", TRUE
       "MinMoveFrags",  "1",       "Local", TRUE
       "DiplRel",       "War",     "Local", TRUE
+    }
+
+[actionenabler_explode_bomb]
+action = "Suicide Attack"
+actor_reqs    =
+    { "type",      "name",            "range", "present"
+      "UnitFlag",  "NonMil",          "Local", FALSE
+      "UnitType",  "Penetrator Bomb", "Local", TRUE
+      "UnitState", "Transported",     "Local", TRUE
+      "DiplRel",   "War",             "Local", TRUE
+    }
+
+[actionenabler_bomb_building]
+action = "Targeted Sabotage City"
+actor_reqs    =
+    { "type",         "name",            "range"
+      "UnitType",     "Penetrator Bomb", "Local"
+      "UnitState",    "Transported",     "Local"
+      "DiplRel",      "War",             "Local"
+    }
+
+[actionenabler_nuke]
+action = "Explode Nuclear"
+actor_reqs    =
+    { "type",         "name",    "range", "present"
+      "UnitFlag",     "Nuclear", "Local", TRUE
+      "UnitClass",    "Bomb",    "Local", FALSE
+      "MinMoveFrags", "1",       "Local", TRUE
+    }
+
+[actionenabler_drop_nuke]
+action = "Explode Nuclear"
+actor_reqs    =
+    { "type",      "name",        "range"
+      "UnitFlag",  "Nuclear",     "Local"
+      "UnitClass", "Bomb",        "Local"
+      "UnitState", "Transported", "Local"
+    }
+
+[actionenabler_nuke_city]
+action="Nuke City"
+actor_reqs=
+    { "type",         "name",    "range", "present"
+      "UnitFlag",     "Nuclear", "Local", TRUE
+      "UnitClass",    "Bomb",    "Local", FALSE
+      "MinMoveFrags", "1",       "Local", TRUE
+      "DiplRel",      "War",     "Local", TRUE
+    }
+
+[actionenabler_drop_nuke_city]
+action="Nuke City"
+actor_reqs=
+    { "type",      "name",        "range"
+      "UnitFlag",  "Nuclear",     "Local"
+      "UnitClass", "Bomb",        "Local"
+      "UnitState", "Transported", "Local"
+      "DiplRel",   "War",         "Local"
     }
 
 [actionenabler_conquer_city_native]
@@ -555,18 +826,36 @@ target_reqs    =
       "MaxUnitsOnTile", "0",             "Local", TRUE
     }
 
+; Invading from transport.  Will consume all mp (see effect_action_success_conquer_cost_from_non_native)
+[actionenabler_conquer_city_non_native]
+action = "Conquer City 2"
+actor_reqs    =
+    { "type",           "name",          "range", "present"
+      "UnitClassFlag",  "CanOccupyCity", "Local", TRUE
+      "UnitFlag",       "NonMil",        "Local", FALSE
+      "DiplRel",        "War",           "Local", TRUE
+      "MinMoveFrags",   "1",             "Local", TRUE
+      "UnitState",      "OnLivableTile", "Local", FALSE
+    }
+target_reqs    =
+    { "type",           "name",          "range", "present"
+      "MaxUnitsOnTile", "0",             "Local", TRUE
+    }
+
 [actionenabler_pillage]
 action        = "Pillage"
 actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitClassFlag", "CanPillage",   "Local"
+    { "type",          "name",         "range", "present"
+      "UnitClassFlag", "CanPillage",   "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_pillage_by_unit]
 action        = "Pillage"
 actor_reqs    =
-    { "type",          "name",         "range"
-      "UnitFlag",      "Pillage",      "Local"
+    { "type",          "name",         "range", "present"
+      "UnitFlag",      "Pillage",      "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_clean_pollution]
@@ -574,6 +863,7 @@ action        = "Clean Pollution"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "Settlers",     "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
 [actionenabler_clean_fallout]
@@ -581,13 +871,46 @@ action        = "Clean Fallout"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "Settlers",     "Local", TRUE
+      "UnitState",     "Transported",  "Local", FALSE
     }
 
+; Land conversions (Radar Van to Radar Tower),
+; and Sub conversions (surface/submerge),
+; may occur in the field
+; and if we ever get subs that can carry units,
+; they'll be permitted to convert while loaded
 [actionenabler_convert_unit]
 action = "Convert Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitState", "Transported", "Local", FALSE
+      "UnitClassFlag", "Flying", "Local", FALSE
+      "UnitType", "Line-of-Battle Ship", "Local", FALSE
+    }
+
+; can't convert a BD (etc.) with a bomb on board
+; and need to be in a city
+[actionenabler_convert_air]
+action = "Convert Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitState", "Transported", "Local", FALSE
+      "UnitState", "Transporting", "Local", FALSE
+      "UnitClassFlag", "Flying", "Local", TRUE
+      "CityTile", "Center", "Local", TRUE
+    }
+
+; Safe to convert a loaded b0 to cl, since the latter's
+; cargotypes are a superset
+; But we do need to be in a city, and have the tech for cl
+[actionenabler_carrier_conversion]
+action = "Convert Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitState", "Transported", "Local", FALSE
+      "UnitType", "Line-of-Battle Ship", "Local", TRUE
+      "CityTile", "Center", "Local", TRUE
+      "Tech", "Aircraft Carrier", "Player", TRUE
     }
 
 [actionenabler_disband_unit]
@@ -595,6 +918,23 @@ action = "Disband Unit"
 actor_reqs    =
     { "type",   "name", "range", "present"
       "UnitFlag", "EvacuateFirst", "Local", FALSE
+    }
+
+[actionenabler_capture]
+action = "Capture Units"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Capturer", "Local", TRUE
+      "DiplRel", "War", "Local", TRUE
+      "MinMoveFrags", "1", "Local", TRUE
+      "DiplRel", "Foreign", "Local", TRUE
+    }
+target_reqs    =
+    { "type",           "name",         "range", "present"
+      "UnitFlag",       "Capturable",   "Local", TRUE
+      "UnitState",      "Transporting", "Local", FALSE
+      "CityTile",       "Center",       "Local", FALSE
+      "MaxUnitsOnTile", "1",            "Local", TRUE
     }
 
 [actionenabler_fortify_terrain]
@@ -716,7 +1056,22 @@ actor_reqs    =
     { "type",      "name",        "range", "present"
       "UnitFlag",  "NoHome",      "Local", FALSE
       "UnitState", "HasHomeCity", "Local", TRUE
-      "DiplRel",   "Foreign",  "Local", FALSE
+      "DiplRel",   "Foreign",     "Local", FALSE
+      "UnitFlag",  "Jet",         "Local", FALSE
+    }
+
+[actionenabler_change_home_city_jet]
+action = "Home City"
+actor_reqs    =
+    { "type",      "name",        "range", "present"
+      "UnitFlag",  "NoHome",      "Local", FALSE
+      "UnitState", "HasHomeCity", "Local", TRUE
+      "DiplRel",   "Foreign",     "Local", FALSE
+      "UnitFlag",  "Jet",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",     "name",     "range"
+      "Building", "Air Base", "City"
     }
 
 [actionenabler_upgrade_unit]
@@ -736,7 +1091,7 @@ actor_reqs    =
 ;   if_attacker    - this requirement vector must be true before a unit even
 ;                    considers to auto attack.
 
-attack_actions= "Capture Units", "Bombard", "Attack", "Suicide Attack"
+attack_actions= "Capture Units", "Bombard", "Bombard 2", "Attack", "Suicide Attack"
 
 if_attacker =
     { "type",         "name",    "range", "present"
@@ -837,20 +1192,18 @@ skip_year_0 = TRUE
 
 ; How many fragments each year has. Value 0 disables year advancement by fragment
 ; accumulation.
-fragments = 6
+fragments = 3
 
 ; Calendar fragment names. If name is missing, only a fragment number +1 (so human readable
 ; numbers begin from 1 and not 0) is shown.
-fragment_name0 = _("Feb")
-fragment_name1 = _("Apr")
-fragment_name2 = _("Jun")
-fragment_name3 = _("Aug")
-fragment_name4 = _("Oct")
-fragment_name5 = _("Dec")
+fragment_name0 = _("Spring")
+fragment_name1 = _("Summer")
+fragment_name2 = _("Autumn")
 
 ; What labels are used for positive and negative years.
+; Since the game starts in modern times, there's no point in displaying the "CE"
 ; /* TRANS: year label (Common Era) */
-positive_label = _("CE")
+positive_label = _("")
 ; /* TRANS: year label (Before Common Era) */
 negative_label = _("BCE")
 
@@ -989,4 +1342,5 @@ set =
       "sciencebox", 90, FALSE ; fudge factor to speed up tech progression
       "dispersion", 2, FALSE ; spread out initial settlers a bit
       "unreachableprotects", "disabled", FALSE ; we don't want, say, an arty+ZS stack to be untouchable
+      "caravan_bonus_style", "DISTANCE", FALSE ; work around the tile trade shenanigans
     }

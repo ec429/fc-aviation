@@ -35,6 +35,7 @@ tiles = { "row", "column", "tag"
   0, 10, "u.southampton" ; P2 Twenties Flying Boat (Supermarine Southampton)
 ; 0, 11, "u.airliner"    ; old version of LL Airliner (Handley Page H.P.42)
   1, 12, "u.airliner"    ; LL Airliner (Handley Page H.P.42)
+  1, 13, "u.viscount"    ; LV Turboprop Airliner (Vickers Viscount)
   0, 13, "u.sra1"        ; PJ Jet Flying Boat (Saunders-Roe SR.A/1).  Hull partially inspired by XYZ's MiG fuselage.
   0, 14, "u.hamilcar"    ; GH Heavy Glider (General Aircraft Hamilcar)
   0, 15, "u.tsr2"        ; MS Tactical Strike Jet (BAC TSR-2)
@@ -43,6 +44,11 @@ tiles = { "row", "column", "tag"
   0, 18, "u.zeppelin"    ; ZB.  Based on Zeppelin from XYZ's collection
   0, 19, "u.cblimp"      ; ZC.  Based on Zeppelin from XYZ's collection
   1,  0, "u.old_settlers"; os Old Settlers.  Based on Captain Nemo's amplio2 u.settlers, with golden glow
+  1,  1, "u.tallboy"     ; XT Penetrator Bomb (Vickers Tallboy)
+  1,  2, "u.hustlred"    ; BY Supersonic Bomber (Nuclear) (Convair B-58 Hustler)
+  1,  3, "u.yellowsun"   ; XN Thermonuclear Bomb (Yellow Sun).  Nuclear symbol from amplio2 u.nuclear (Captain Nemo & Curt Sibling)
+  1,  4, "u.bluesteel"   ; XS Stand-Off Bomb (Avro Blue Steel).  Nuclear symbol from amplio2 u.nuclear (Captain Nemo & Curt Sibling)
+  1,  5, "u.stranraer"   ; P3 Thirties Flying Boat (Supermarine Stranraer).  Hull partially inspired by Fairline's Catalina
   1,  6, "u.lph"         ; Helicopter assault carrier.  Based on Captain Nemo's amplio2 u.transport, with Chinook from XYZ's collection
 ; 2,  5, "u.2pdr"        ; assault gun.  Based on Captain Nemo's amplio2 u.howitzer
 }

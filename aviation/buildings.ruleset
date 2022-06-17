@@ -243,6 +243,29 @@ helptext	= _("\
 Increases the science output in a city by 35%.\
 ")
 
+[building_tech_college]
+name		= _("Technical College")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Aircraft Industry", "Player"
+    }
+graphic	= "b.tech_college"
+graphic_alt	= "b.university"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 1
+sabotage	= 100
+sound		= "b_university"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the science output in a city by 35%\
+ (cumulative with Aeronautical Library).\
+")
+
 [building_wind_tunnel]
 name		= _("Wind Tunnel")
 genus		= "Improvement"
@@ -263,7 +286,8 @@ sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Increases the science output in a city by 35%\
- (cumulative with Aeronautical Library).\
+ (cumulative with Aeronautical Library and\
+ Technical College).\
 ")
 
 ; **Revenue**
@@ -319,7 +343,7 @@ Increases the tax output in a city by 50%. \
 ")
 
 [building_airport]
-name		= _("Hub Airport")
+name		= _("Int'l Airport")
 genus		= "Improvement"
 reqs =
     { "type", "name", "range"
@@ -341,7 +365,9 @@ helptext	= _("\
 Increases the tax output in a city by 50% (cumulative with\
  Commercial Airstrip).\
 "), _("\
-Also, allows the city to have one additional trade route.\
+Also, allows the construction of Jet Airliners\
+ (for creating trade routes), and allows the\
+ city to have one additional trade route.\
 ")
 
 [building_export]
@@ -457,6 +483,30 @@ helptext	= _("\
 Increases the luxury output in a city by 50%.\
 ")
 
+[building_agent]
+name		= _("Travel Agent")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Airlift 1935", "Player"
+      "Building", "Air Tours", "City"
+    }
+graphic	= "b.stock_exchange"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 80
+upkeep		= 1
+sabotage	= 100
+sound		= "b_marketplace"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the luxury output in a city by 50%, cumulative with\
+ Air Tours.\
+")
+
 [building_races]
 name		= _("Air Races")
 genus		= "Improvement"
@@ -558,8 +608,8 @@ reqs =
     { "type", "name", "range"
       "Tech", "Passenger Carrying", "Player"
     }
-graphic	= "b.library"
-graphic_alt	= "-"
+graphic	= "b.school"
+graphic_alt	= "b.library"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -591,8 +641,9 @@ sabotage	= 100
 sound		= "b_port_facility"
 sound_alt	= "b_generic"
 helptext	= _("\
-Air and Carrier-borne units spending their turn in the city\
- will be restored to full health.\
+Air, Carrier-borne, Helicopter and Missile units spending their turn in\
+ the city will be restored to full health (if they are repairable at all;\
+ see Concrete Runway and Air Base).\
 ")
 
 [building_slipway]
@@ -616,6 +667,58 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Seaplane units spending their turn in the city\
  will be restored to full health.\
+")
+
+[building_concrete]
+name		= _("Concrete Runway")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Large Monoplanes", "Player"
+    }
+graphic	= "-"
+graphic_alt	= "b.super_highways"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 45
+upkeep		= 1
+sabotage	= 100
+sound		= "b_super_highways"
+sound_alt	= "b_generic"
+helptext	= _("\
+Required to repair four-engined heavy bombers and strategic\
+ transports in the city.\
+"), _("\
+Also, other units will repair 1/2 (rather than 1/3) of their\
+ hit points per turn.\
+")
+
+[building_runway]
+name		= _("Air Base")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Gas Turbine", "Player"
+      "Building", "Concrete Runway", "City"
+    }
+graphic	= "-"
+graphic_alt	= "b.super_highways"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 90
+upkeep		= 2
+sabotage	= 100
+sound		= "b_super_highways"
+sound_alt	= "b_generic"
+helptext	= _("\
+Required to build or repair (most) jet-powered military aircraft\
+ in the city.  The exceptions are light-fighters, VTOLs,\
+ and flying-boats.\
+"), _("\
+Also, other units will repair 1/2 (rather than 1/3) of their\
+ hit points per turn.\
 ")
 
 ; **Tile-working**
@@ -656,7 +759,7 @@ graphic_alt	= "-"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 50
+build_cost	= 80
 upkeep		= 1
 sabotage	= 100
 sound		= "b_hydro_plant"
@@ -705,7 +808,7 @@ obsolete_by	=
       "Building", "Engine Factory", "City"
       "Building", "Aircraft Factory", "City"
     }
-build_cost	= 60
+build_cost	= 40
 upkeep		= 1
 sabotage	= 100
 sound		= "b_power_plant"
@@ -714,6 +817,30 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the shield production in a city by 25%.  This increase may\
  also contribute to pollution.\
+")
+
+[building_power_station]
+name		= _("Power Station")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Steam Turbines", "Player"
+    }
+graphic	= "b.power_plant"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_power_plant"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the shield production in a city by 25%, cumulative with\
+ any bonus from Lumber Yard, Engine Factory or Aircraft Factory. \
+ This increase may also contribute to pollution.\
 ")
 
 [building_engine_factory]
@@ -788,6 +915,29 @@ Electrification of a city's industry reduces the amount of pollution\
 ")
 
 ; **Defensive**
+
+[building_concrete_bunker]
+name		= _("Concrete Bunker")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Big Guns", "Player"
+    }
+graphic	= "b.bunker"
+graphic_alt	= "b.city_walls"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 75
+upkeep		= 2
+sabotage	= 100
+sound		= "b_city_walls"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Ground units inside the city will only be reduced to 50% health\
+ by artillery, instead of 20%.\
+")
 
 [building_barrage_balloons]
 name		= _("Barrage Balloons")
@@ -877,9 +1027,13 @@ sound		= "b_research_lab"
 sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
-Should give an attack bonus to aircraft, but Freeciv 2.6 doesn't\
- support that.  Thus, this building does nothing.\
+Gives a 30% bonus to fighters (and Naval Strike Fighter) defending\
+ the city.\
 ")
+; want but can't implement:
+;  Also gives a 30% bonus to fighters (but not NS) attacking\
+; while in the city.\
+;")
 
 ; *Wonders*
 
@@ -902,9 +1056,7 @@ sabotage	= 0
 sound		= "w_colossus"
 sound_alt	= "w_generic"
 helptext	= _("\
-Acts as a Sector Control in every city on the same continent. \
- Unfortunately, the Sector Control doesn't do anything, so\
- neither does this.\
+Acts as a Sector Control in every city on the same continent.\
 ")
 
 [building_chain_home]
@@ -1067,14 +1219,14 @@ The world's first 'air academy', the Royal Air Force college at\
 
 [building_yasukuni]
 name		= _("Yasukuni Shrine")
-genus		= "GreatWonder"
+genus		= "SmallWonder"
 reqs	=
     { "type", "name", "range"
       "Gov", "Fascism", "Player"
     }
 graphic	= "b.mausoleum"
 graphic_alt	= "b.oracle"
-build_cost	= 200
+build_cost	= 120
 upkeep		= 1
 sabotage	= 0
 sound		= "w_oracle"
@@ -1093,6 +1245,32 @@ A Shinto shrine commemorating those who died in service of\
  of war criminals.\
 ")
 
+[building_manhattan_project]
+name		= _("Manhattan Project")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Nuclear Weapons", "Player"
+    }
+graphic	= "b.manhattan_project"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 600
+upkeep		= 0
+sabotage	= 0
+sound		= "w_manhattan_project"
+sound_alt	= "w_generic"
+helptext	= _("\
+The Manhattan Project will make it possible to build nuclear weapons. \
+ After it is built, anyone with the necessary technological advances\
+ can build nuclear weapons. The Nuclear Weapons advance is required to\
+ build the early Atomic Bomb, which is unique to a nation: each nation\
+ can have only one at a time.  The Thermonuclear Weapons advance is required\
+ to build the later Thermonuclear Bomb units, which are not limited in number.\
+")
+
 ; **Economic**
 
 [building_lloyds]
@@ -1104,17 +1282,22 @@ reqs	=
 graphic	= "b.lloyds"
 graphic_alt	= "b.bank"
 obsolete_by	=
-    { "type", "name", "range", "survives"
-      "Tech", "Twenties Airlift", "Player", FALSE
+    { "type", "name", "range"
     }
 build_cost	= 90
 upkeep		= 1
 sabotage	= 0
 sound		= "w_asmiths_trading_co"
 sound_alt	= "w_generic"
+; This helptext isn't perfectly accurate; actually, it applies not
+; just to Merchant Ships but to all Enter Marketplace actions,
+; including those performed by airliners.
 ; /* xgettext:no-c-format */
 helptext	= _("\
-Increases the tax output in a city by 60%.\
+Increases the revenue from Merchant Ships by 12.5%.\
+"), _("\
+Also, until the discovery of Twenties Airlift, increases the\
+ tax output in the containing city by 60%.\
 "), _("\
 Lloyd's was for a long time the centre of marine insurance.\
 ")
@@ -1203,6 +1386,65 @@ Doubles the effect of all your Commercial Airstrips. \
 As both a prestige symbol and an economic accelerant, national airlines\
  such as Lufthansa, British Airways and Air France have long been major\
  brands of the countries which sponsor them.\
+")
+
+[building_hub]
+name		= _("Hub Airport")
+genus		= "SmallWonder"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Sixties Airlift", "Player"
+      "Building", "Int'l Airport", "City"
+      "Building", "National Airline", "Player"
+    }
+graphic	= "b.airport"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 150
+upkeep		= 2
+sabotage	= 100
+sound		= "b_airport"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Increases the tax output in a city by 100% (cumulative with\
+ Commercial Airstrip and Int'l Airport).\
+"), _("\
+Also, allows the city to have two additional trade routes. \
+ (Note, however, that the game has a hard-coded limit of\
+ 5 trade routes per city; a Hub Airport can hit this cap\
+ if the ICAO greatwonder exists.)\
+")
+
+; Renamed after each LT-Avi game to glorify the winner
+[building_statue_of_the_generals]
+name		= _("Statue of Louis94")
+rule_name       = "Statue of the Generals"
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Dirigible Balloons", "Player"
+    }
+graphic	= "b.colossus"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+      "Tech", "Bombers 1917", "World", TRUE
+    }
+build_cost	= 90
+upkeep		= 1
+sabotage	= 0
+sound		= "w_colossus"
+sound_alt	= "w_generic"
+helptext	= _("\
+Makes three unhappy citizens content in the city.\
+"), _("\
+This statue commemorating Louis94's victory in LTEx24Avi\
+ inspires the citizens to support the nation's efforts,\
+ either as a reminder of past greatness or as a source\
+ of determination to beat them *this* time around.\
 ")
 
 [building_display]
@@ -1377,6 +1619,32 @@ Since 1909, the publication founded by Fred T. Jane has\
  airlines around the world.\
 ")
 
+[building_kgb]
+name		= _("KGB Headquarters")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Gov", "Communism", "Player"
+    }
+graphic	= "b.ecclesiastical_palace"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range", "survives"
+    }
+build_cost	= 160
+upkeep		= 2
+sabotage	= 0
+sound		= "w_great_library"
+sound_alt	= "w_generic"
+helptext	= _("\
+As long as government is Communist, get every advance\
+ that at least two other teams have achieved.\
+"), _("\
+If the civilization also controls Jane's All The World's\
+ Aircraft, get every advance that one other team has\
+ achieved.\
+")
+
 [building_schneider]
 name		= _("Schneider Trophy")
 genus		= "GreatWonder"
@@ -1459,4 +1727,28 @@ Gives contact with every player in the game, allowing diplomacy\
 Also, improves your reputation and goodwill with AI players.\
 "), _("\
 As the BBC's motto says, 'Nation shall speak peace unto Nation'.\
+")
+
+[building_forecast]
+name		= _("Shipping Forecast")
+genus		= "SmallWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Radio", "Player"
+    }
+graphic	= "b.shipping_forecast"
+graphic_alt	= "b.lighthouse"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 120
+upkeep		= 1
+sabotage	= 0
+sound		= "w_lighthouse"
+sound_alt	= "w_generic"
+helptext	= _("\
+Increases by 1 the movement of all Sea units.\
+"), _("\
+The ability to receive updates on the weather at sea provides\
+ a great boon to both military and merchant shipping.\
 ")

@@ -20,7 +20,7 @@ options = "Freeciv-3.0-spec Freeciv-spec-Devel-2019-Jul-03"
 artists = "
     Fairline [GB]
     Tanelorn [T]
-    Broken Erika
+    Broken Erika [BE]
     Wyrmshadow [WS]
     typhoon353 [TY]
     Captain Nemo [Nemo]
@@ -137,7 +137,7 @@ tiles = { "row", "column", "tag"
   4, 15, "u.virginia"    ; B2 Twenties Bomber (Vickers Virginia) [EC]: kitbashed from Vickers Vimy [GB]
   4, 16, "u.judy"        ; KA Kamikaze (Yokosuka D4Y4 Suisei/"Judy") [GB]
   4, 17, "u.aggregat"    ; V2 Artillery Rocket (Thiel A4 Aggregat) [GB]
-  4, 18, "u.truck"       ; Radar Van (Bedford QLT 3t) [GB]
+  4, 18, "u.truck"       ; rv Radar Van (Bedford QLT 3t) [GB]
   4, 19, "u.short81"     ; HA Armed Floatplane (Short Type 81 Folder) [EC]: kitbashed from Sopwith Schneider [GB]
   5,  0, "u.short184"    ; HT Torpedo Floatplane (Short Type 184 Folder) [EC]: derived from u.short81
   5,  1, "u.baby"        ; HF Floatplane Fighter (Hanriot D.1) [T], floats added by [EC]
@@ -152,5 +152,28 @@ tiles = { "row", "column", "tag"
   5, 10, "u.skyray"      ; NF Swept-wing Naval Fighter (Douglas F4D Skyray) [GB]
   5, 11, "u.u2"          ; RJ Recon Jet (Lockheed U-2) [EC]: kitbashed from F-7F Tigercat [GB]
   5, 12, "u.sr71"        ; RS Spy Plane (Lockheed SR-71 Blackbird) [GB]
-  5, 13, "u.radar"       ; Radar Station [Nemo] (towers repositioned by [EC])
+  5, 13, "u.radar"       ; rt Radar Station [Nemo] (towers repositioned by [EC])
+  5, 14, "u.morris"      ; mt Merchant Truck (Morris 15cwt) [GB]
+  5, 15, "u.dc3"         ; LD Monoplane Airliner (Douglas DC-3) [EC]: repaint of C-47 Skytrain by [GB]
+  5, 16, "u.bear"        ; BR Turboprop Bomber (Tupolev Tu-95 "Bear") [T][WS]
+  5, 17, "u.lancsp"      ; BD Modified Heavy Bomber (Avro Lancaster B.1 (Special)) [GB], repainted and turrets removed by [EC]
+  5, 18, "u.silverplate" ; BU Modified Superprop Bomber (Boeing B-29 Superfortress "Silverplate") [GB], repainted and turrets removed by [EC]
+  5, 19, "u.vulcanwhite" ; BN Jet Bomber (Nuclear) (Avro Vulcan in anti-flash white) [GB]
+  6,  0, "u.redbear"     ; BP Turboprop Bomber (Nuclear) (Tupolev Tu-95 "Bear") [T][WS], red markings painted by [EC]
+  6,  1, "u.seadart"     ; XA Surface-to-Air Missile (Hawker Siddeley Sea Dart) [GB]
+  6,  2, "u.victor"      ; KJ Jet Tanker (Handley Page Victor K.2) [GB]
+  6,  3, "u.peacemaker"  ; BP Intercontinental Bomber (Convair B-36 "Peacemaker") [BE][GB]
+  6,  4, "u.troopship"   ; ts Troop Ship (1912 transport/liner) [GB]
+  6,  5, "u.predread"    ; b0 Line-of-Battle Ship (HMS Formidable) [GB]
+  6,  6, "u.dread"       ; bd Dreadnought (HMS King George V) [GB]
+  6,  7, "u.usurf"       ; us U-Boat (Surfaced) (U-Boot Typ VII) [GB]
+  6,  8, "u.uboot"       ; uu U-Boat (U-Boot Typ VII) [GB], converted to submerged by [EC]
+  6,  9, "u.liberator"   ; PL Ocean Patrol (Consolidated Liberator in Coastal Command livery) [GB]
+  6, 10, "u.shackleton"  ; PS Maritime Reconnaissance (Avro Shackleton) [EC]: loosely based on Lancaster [GB]
+  6, 11, "u.short184r"   ; HR Reconnaissance Floatplane (Short Type 184 Folder) [EC]: u.short184 with torpedo removed
+  6, 12, "u.short320r"   ; HN Large Reconnaissance Floatplane (Short Type 320 Folder) [EC]: u.short320 with torpedo removed
+  6, 13, "u.swiftsure"   ; nu SSN (HMS Swiftsure) [T] (ideally we should submerge it but this'll do for now)
+  6, 14, "u.tetrarch"    ; ac Light Tank (A17 Light Tank Mk VII "Tetrarch") [GB]
+  6, 15, "u.virgtank"    ; K3 Tanker Biplane (Vickers Virginia RAE) [EC]: repaint of Valentia transport, originally from Vickers Vimy [GB]
+  6, 16, "u.halitank"    ; KM Tanker Monoplane (Handley Page Halifax K) [GB], repainted and turrets removed by [EC]
 }

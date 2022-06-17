@@ -59,7 +59,7 @@ min_start_native_area = 0
 move_fragments = 2
 
 ; How many move_fragments IgTer unit movement costs
-igter_cost = 1
+igter_cost = 2
 
 ; Whether diagonal movement has increased cost (no effect with hex topology)
 ; The cost increase is more accurate with larger values for move_fragments
@@ -273,7 +273,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "Swamp"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Tundra"
-native_to            = "Sea", "Air", "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+native_to            = "Sea", "Ship", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags                = "NoCities", "NoBarbs", "NoPollution", "FreshWater", "NoZoc", "NoFortify"
 property_ocean_depth = 0
 color.r              = 46
@@ -318,7 +318,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "Swamp"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Glacier"
-native_to            = "Sea", "Air", "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+native_to            = "Sea", "Ship", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags                = "NoCities", "NoPollution", "UnsafeCoast", "NoZoc", "NoFortify"
 property_ocean_depth = 32
 color.r              = 0
@@ -364,7 +364,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "no"
 cooler_wetter_result = "no"
 cooler_drier_result  = "no"
-native_to            = "Sea", "Air", "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+native_to            = "Sea", "Ship", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags                = "NoCities", "NoPollution", "UnsafeCoast", "NoZoc", "NoFortify"
 property_ocean_depth = 87
 color.r              = 0
@@ -410,7 +410,7 @@ warmer_wetter_result = "Tundra"
 warmer_drier_result  = "Tundra"
 cooler_wetter_result = "no"
 cooler_drier_result  = "no"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "NoBarbs", "NoCities", "CanHaveRiver", "Oil", "Frozen"
 property_frozen      = 100
 color.r              = 232
@@ -459,7 +459,7 @@ warmer_wetter_result = "Grassland"
 warmer_drier_result  = "no"
 cooler_wetter_result = "Plains"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "CanHaveRiver", "Oil"
 property_dry         = 100
 property_tropical    = 50
@@ -509,7 +509,7 @@ warmer_wetter_result = "Jungle"
 warmer_drier_result  = "Plains"
 cooler_wetter_result = "Swamp"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags                = "Starter", "CanHaveRiver"
 property_cold        = 20
 property_wet         = 20
@@ -558,7 +558,7 @@ warmer_wetter_result = "Lake"
 warmer_drier_result  = "Desert"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "Starter", "CanHaveRiver"
 property_green       = 50
 property_temperate   = 50
@@ -604,7 +604,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "no"
 cooler_wetter_result = "no"
 cooler_drier_result  = "no"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "Starter", "CanHaveRiver"
 property_green       = 50
 property_mountainous = 30
@@ -651,7 +651,7 @@ warmer_wetter_result = "Lake"
 warmer_drier_result  = "Desert"
 cooler_wetter_result = "Swamp"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags                = "CanHaveRiver"
 property_foliage     = 50
 property_tropical    = 50
@@ -679,8 +679,8 @@ resources            = "Gold", "Iron"
 road_food_incr_pct   = 0
 road_shield_incr_pct = 0
 road_trade_incr_pct  = 0
-base_time            = 1
-road_time            = 3
+base_time            = 0
+road_time            = 0
 cultivate_time       = 0
 plant_time           = 0
 irrigation_result    = "no"
@@ -699,7 +699,7 @@ warmer_wetter_result = "no"
 warmer_drier_result  = "no"
 cooler_wetter_result = "no"
 cooler_drier_result  = "no"
-native_to            = "Air", "Carrier-borne", "Missile", "Seaplane", "Helicopter"
+native_to            = "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Helicopter"
 flags                = "CanHaveRiver", "NoPollution"
 property_mountainous = 70
 color.r              = 129
@@ -747,7 +747,7 @@ warmer_wetter_result = "Lake"
 warmer_drier_result  = "Desert"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "Starter", "CanHaveRiver"
 property_green       = 50
 property_temperate   = 50
@@ -794,7 +794,7 @@ warmer_wetter_result = "Lake"
 warmer_drier_result  = "Desert"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "Tundra"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "CanHaveRiver"
 property_wet         = 100
 property_tropical    = 10
@@ -843,7 +843,7 @@ warmer_wetter_result = "Lake"
 warmer_drier_result  = "Desert"
 cooler_wetter_result = "Glacier"
 cooler_drier_result  = "no"
-native_to            = "Land", "Assault", "Air", "Carrier-borne", "Missile", "Seaplane", "Glider", "Helicopter"
+native_to            = "Land", "Assault", "Heavy Assault", "Installation", "Air", "Carrier-borne", "Naval Fighter", "Missile", "Bomb", "ASM", "Seaplane", "Seaplane Fighter", "Glider", "Helicopter"
 flags                = "Starter", "NoBarbs", "CanHaveRiver"
 property_cold        = 50
 color.r              = 188
@@ -1018,7 +1018,7 @@ shield      = 3 ; glacier used to have 4
 
 ; Player visible names of the base gui types.
 ui_name_base_fortress = _("?gui_type:Build Fortress")
-ui_name_base_airbase = _("?gui_type:Build Airbase/Buoy")
+ui_name_base_airbase = _("?gui_type:Build Airfield/Buoy")
 
 ; /* <-- avoid gettext warnings
 ;
@@ -1116,7 +1116,7 @@ ui_name_base_airbase = _("?gui_type:Build Airbase/Buoy")
 name           = _("Irrigation")
 category       = "Infra"
 causes         = "Irrigation"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.irrigation"
 graphic_alt    = "-"
 activity_gfx   = "unit.irrigation"
@@ -1150,7 +1150,7 @@ further bonus.\
 name           = _("Mine")
 category       = "Infra"
 causes         = "Mine"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.mine"
 graphic_alt    = "-"
 activity_gfx   = "unit.mine"
@@ -1178,7 +1178,7 @@ Building a mine on an irrigated tile will destroy the irrigation.\
 name           = _("Oil Well")
 category       = "Infra"
 causes         = "Mine"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.oil_mine"
 graphic_alt    = "tx.mine"
 activity_gfx   = "unit.oil_mine"
@@ -1293,7 +1293,7 @@ by other aircraft will cause the villagers to take fright and disband.\
 name           = _("Farmland")
 category       = "Infra"
 causes         = "Irrigation"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "tx.farmland"
 graphic_alt    = "-"
 activity_gfx   = "unit.farmland"
@@ -1351,7 +1351,7 @@ Settlers can clean up nuclear fallout.\
 name           = _("Fortress")
 category       = "Infra"
 causes         = "Base"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "base.fortress"
 graphic_alt    = "-"
 activity_gfx   = "unit.fortress"
@@ -1368,7 +1368,7 @@ reqs           =
 build_time     = 2
 removal_time   = 0
 defense_bonus  = 100
-native_to      = "Land", "Assault"
+native_to      = "Land", "Assault", "Heavy Assault"
 flags          = "NoStackDeath"
 helptext       = _("\
 Fortresses improve defense for land units outside cities. Among other \
@@ -1377,7 +1377,8 @@ moving recovers a quarter of its hit points.\
 ")
 
 [extra_airbase]
-name           = _("Airbase")
+name           = _("Airfield")
+rule_name      = "Airbase"
 category       = "Infra"
 causes         = "Base"
 rmcauses       = "Pillage"
@@ -1390,18 +1391,18 @@ rmact_gfx      = "None"
 rmact_gfx_alt  = "-"
 reqs           =
     { "type", "name", "range", "present", "quiet"
-      "Tech", "Practical Aviation", "Player", TRUE, FALSE ; TODO change this
+      "Tech", "Practical Aviation", "Player", TRUE, FALSE
       "TerrainClass", "Land", "Local", TRUE, FALSE
       "UnitFlag", "Airbase", "Local", TRUE, FALSE
       "CityTile", "Center", "Local", FALSE, TRUE
     }
 build_time     = 2
 removal_time   = 0
-native_to      = "Air", "Carrier-borne", "Missile", "Glider", "Helicopter"
+native_to      = "Air", "Carrier-borne", "Naval Fighter", "Missile", "Helicopter"
 flags          = "Refuel", "NoStackDeath"
 helptext       = _("\
-Airbases allow your air units to land and refuel outside cities. \
-Air units in an airbase may be attacked by land units.\
+Airfields allow your air units to land and refuel outside cities. \
+Air units in an airfield may be attacked by land units.\
 ")
 
 [extra_buoy]
@@ -1426,19 +1427,19 @@ reqs           =
     }
 build_time     = 1
 removal_time   = 0
-native_to      = "Seaplane"
+native_to      = "Seaplane", "Seaplane Fighter"
 flags          = "Refuel"
 helptext       = _("\
 Buoys may be built on the coast (by units on a sea-going vessel).  \
 They allow your seaplanes to land and refuel outside cities.  \
-Unlike Airbases, they do not prevent stack death.\
+Unlike Airfields, they do not prevent stack death.\
 ")
 
 [extra_ruins]
 name           = _("Ruins")
 category       = "Bonus"
 causes         = "Base"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "extra.ruins"
 graphic_alt    = "base.ruins"
 activity_gfx   = "None"
@@ -1459,11 +1460,61 @@ Ruins mark the former site of a city that was destroyed or abandoned. \
 They have no effect on gameplay.\
 ")
 
+[extra_spot]
+name           = _("Spotted")
+category       = "Bonus"
+causes         = "Base"
+;rmcauses       = ""
+graphic        = "extra.spot"
+graphic_alt    = "extra.ruins"
+activity_gfx   = "None"
+act_gfx_alt    = "-"
+act_gfx_alt2   = "-"
+rmact_gfx      = "None"
+rmact_gfx_alt  = "-"
+reqs           =
+    { "type", "name", "range", "present", "quiet"
+      "TerrainClass", "Land", "Local", TRUE, FALSE
+      "CityTile", "Center", "Local", FALSE, TRUE
+    }
+buildable      = FALSE
+removal_time   = 0
+helptext       = _("\
+Marks a tile that has been Spotted for artillery by a reconnaissance \
+plane.  Until the end of the turn, units on the tile can be Attacked \
+by artillery units as an alternative to Bombardment.\
+")
+
+[extra_spotw]
+name           = _("Spotted (Sea)")
+category       = "Bonus"
+causes         = "Base"
+;rmcauses       = ""
+graphic        = "extra.spotw"
+graphic_alt    = "extra.ruins"
+activity_gfx   = "None"
+act_gfx_alt    = "-"
+act_gfx_alt2   = "-"
+rmact_gfx      = "None"
+rmact_gfx_alt  = "-"
+reqs           =
+    { "type", "name", "range", "present", "quiet"
+      "TerrainClass", "Oceanic", "Local", TRUE, FALSE
+      "CityTile", "Center", "Local", FALSE, TRUE
+    }
+buildable      = FALSE
+removal_time   = 0
+helptext       = _("\
+Marks a tile that has been Spotted for naval gunfire by a reconnaissance \
+plane.  Until the end of the turn, units on the tile will suffer a defence \
+penalty against surface warships.\
+")
+
 [extra_road]
 name           = _("Road")
 category       = "Infra"
 causes         = "Road"
-rmcauses       = "Pillage"
+;rmcauses       = ""
 graphic        = "road.road"
 graphic_alt    = "-"
 activity_gfx   = "unit.road"
@@ -1478,7 +1529,7 @@ reqs           =
     }
 build_time     = 0
 removal_time   = 0
-native_to      = "Land", "Assault"
+native_to      = "Land", "Assault", "Heavy Assault"
 hidden_by      = "Railroad"
 flags          = "AutoOnCityCenter"
 helptext       = _("\
@@ -1487,7 +1538,7 @@ Roads provide a trade bonus on some terrain.\
 
 [extra_railway]
 name           = _("Railway")
-rule_name      = _("Railroad")
+rule_name      = "Railroad"
 category       = "Infra"
 causes         = "Road"
 rmcauses       = "Pillage"
@@ -1506,7 +1557,7 @@ reqs           =
     }
 build_time     = 2
 removal_time   = 0
-native_to      = "Land", "Assault"
+native_to      = "Land", "Assault", "Heavy Assault"
 flags          = "AutoOnCityCenter"
 helptext       = _("\
 You may upgrade your roads to railways.  Ground units expend only\
@@ -1533,13 +1584,12 @@ rmact_gfx      = "None"
 rmact_gfx_alt  = "-"
 buildable      = FALSE
 defense_bonus  = 50
-native_to      = "Land", "Assault"
+native_to      = "Land", "Assault", "Heavy Assault"
 ; /* xgettext:no-c-format */
 helptext       = _("\
 Any land terrain type may have a River on it.  A River adds 1\
  trade to the resources produced by that tile.  It also increases a tile's\
- defense factor by 50%.  Finally, land units may move along a River (but\
- not diagonally) for fast travel.\
+ defense factor by 50%.\
 ")
 
 [extra_gold]
@@ -1844,6 +1894,14 @@ gui_type       = "Airbase"
 
 [base_ruins]
 extra          = "Ruins"
+gui_type       = "Other"
+
+[base_spot]
+extra          = "Spotted"
+gui_type       = "Other"
+
+[base_spotw]
+extra          = "Spotted (Sea)"
 gui_type       = "Other"
 
 ; /* <-- avoid gettext warnings
