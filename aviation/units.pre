@@ -6326,7 +6326,7 @@ Halifax conversions planned for use by Tiger Force.\
 [unit_kj]
 name          = _("Tanker Jet")
 class         = "Air"
-tech_req      = "Fifties Bombers"
+tech_req      = "Fifties Tankers"
 obsolete_by   = "None"
 graphic       = "u.victor"
 graphic_alt   = "u.stealth_bomber"
