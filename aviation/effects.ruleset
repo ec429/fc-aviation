@@ -2217,6 +2217,23 @@ reqs    =
 type    = "City_Build_Slots"
 value   = 1
 
+; factories grant additional build slots
+[effect_city_build_slots_factory]
+type    = "City_Build_Slots"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Engine Factory", "City"
+    }
+
+[effect_city_build_slots_factory2]
+type    = "City_Build_Slots"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aircraft Factory", "City"
+    }
+
 [effect_city_image_1]
 type    = "City_Image"
 value   = 1
