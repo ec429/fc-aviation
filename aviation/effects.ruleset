@@ -1434,6 +1434,16 @@ reqs	=
       "OutputType", "Trade", "Local"
     }
 
+[effect_coastguard]
+type	= "Output_Add_Tile"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "TerrainClass", "Oceanic", "Local"
+      "Building", "Coast Guard", "City"
+      "OutputType", "Trade", "Local"
+    }
+
 [effect_marshalling]
 type    = "Output_Add_Tile"
 value	= 1

@@ -770,6 +770,29 @@ Each forest tile being worked by the city produces one\
  additional Trade and Shield.\
 ")
 
+[building_coastguard]
+name		= _("Coast Guard")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Helicopters", "Player"
+    }
+graphic	= "b.harbour"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 55
+upkeep		= 1
+sabotage	= 100
+sound		= "b_harbour"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Each sea tile being worked by the city produces one\
+ additional Trade.\
+")
+
 [building_marshalling]
 name		= _("Marshalling Yard")
 genus		= "Improvement"
