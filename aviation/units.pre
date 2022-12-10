@@ -5747,7 +5747,7 @@ flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC", "NoUpgrade"
 helptext      = _("\
 Zeppelin Liners carry goods or material for trading with distant\
  cities and foreign countries.  They can only be built in a city with a\
- Mooring Mast.\
+ Mooring Mast.  \
 Historical examples include the LZ 120 Bodensee and R33.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
@@ -5798,7 +5798,7 @@ flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
 helptext      = _("\
 An Airliner carries goods or material for trading with distant cities\
  and foreign countries.  It can only be built in a city with a\
- Commercial Airstrip.\
+ Commercial Airstrip.  \
 Historical examples include the Handley Page HP42.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
