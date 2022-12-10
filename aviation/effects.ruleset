@@ -1143,6 +1143,17 @@ reqs	=
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_shipyard_a]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Shipyard", "City", TRUE
+      "UnitClass", "Ship", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
 [effect_shipyard_1]
 type    = "HP_Regen"
 value	= 100
@@ -1150,6 +1161,15 @@ reqs	=
     { "type", "name", "range"
       "Building", "Shipyard", "City"
       "UnitClass", "Sea", "Local"
+    }
+
+[effect_shipyard_1a]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Shipyard", "City"
+      "UnitClass", "Ship", "Local"
     }
 
 [effect_harbour]
@@ -1761,6 +1781,17 @@ reqs    =
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_nas_college_ship]
+type    = "Veteran_Combat"
+value   = 50
+reqs    =
+    { "type", "name", "range", "present"
+      "Building", "Naval College", "Player", TRUE
+      "UnitClass", "Ship", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
 [effect_nas_college_seaplane]
 type    = "Veteran_Combat"
 value   = 50
@@ -2011,6 +2042,15 @@ reqs    =
     { "type", "name", "range"
       "Building", "Shipping Forecast", "Player"
       "UnitClass", "Sea", "Local"
+    }
+
+[effect_forecast_move_ship]
+type    = "Move_Bonus"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Building", "Shipping Forecast", "Player"
+      "UnitClass", "Ship", "Local"
     }
 
 [effect_beam_bombing_1]
