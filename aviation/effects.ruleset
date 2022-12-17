@@ -2477,6 +2477,24 @@ reqs    =
       "Tech",   "Radio",         "Player", TRUE
     }
 
+[effect_action_success_move_cost_firebomb]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 65536
+reqs    =
+    { "type", "name", "range", "present"
+      "Action", "User Action 3", "Local", TRUE
+    }
+
+; Fire reduces city's production
+[effect_burn_the_workers_homes]
+type    = "Output_Bonus_2"
+value	= -50
+reqs	=
+    { "type", "name", "range"
+      "Extra", "Fire", "City"
+      "OutputType", "Shield", "Local"
+    }
+
 ; Battleships get a bonus attacking units on a Spotted tile
 [effect_naval_spot_bonus]
 type    = "Attack_Bonus"

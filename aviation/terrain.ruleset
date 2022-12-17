@@ -1510,6 +1510,28 @@ plane.  Until the end of the turn, units on the tile will suffer a defence \
 penalty against surface warships.\
 ")
 
+[extra_burn]
+name           = _("Fire")
+category       = "Bonus"
+causes         = "Base"
+;rmcauses       = ""
+graphic        = "extra.burn"
+graphic_alt    = "extra.ruins"
+activity_gfx   = "None"
+act_gfx_alt    = "-"
+act_gfx_alt2   = "-"
+rmact_gfx      = "None"
+rmact_gfx_alt  = "-"
+reqs           =
+    { "type", "name", "range", "present", "quiet"
+      "CityTile", "Center", "Local", TRUE, TRUE
+    }
+buildable      = FALSE
+removal_time   = 0
+helptext       = _("\
+City is burning and will lose production this turn.\
+")
+
 [extra_road]
 name           = _("Road")
 category       = "Infra"
@@ -1902,6 +1924,10 @@ gui_type       = "Other"
 
 [base_spotw]
 extra          = "Spotted (Sea)"
+gui_type       = "Other"
+
+[base_fire]
+extra          = "Fire"
 gui_type       = "Other"
 
 ; /* <-- avoid gettext warnings

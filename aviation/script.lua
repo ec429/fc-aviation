@@ -134,7 +134,16 @@ function action_started_unit_unit_callback(action, actor, target)
   end
 end
 
+-- Handle city targeted unit action start
+function action_started_unit_city_callback(action, actor, target)
+  if action:rule_name() == "User Action 3" then
+    -- Firebomb City
+    target.tile:create_extra("Fire", NIL)
+  end
+end
+
 signal.connect("action_started_unit_unit", "action_started_unit_unit_callback")
+signal.connect("action_started_unit_city", "action_started_unit_city_callback")
 
 function scrub_spot_info(place)
   if place:has_extra("Spotted") then
@@ -142,6 +151,12 @@ function scrub_spot_info(place)
     end
   if place:has_extra("Spotted (Sea)") then
       place:remove_extra("Spotted (Sea)")
+    end
+end
+
+function extinguish(place)
+  if place:has_extra("Fire") then
+      place:remove_extra("Fire")
     end
 end
 
@@ -164,6 +179,7 @@ signal.connect("unit_lost", "unit_lost_callback")
 function out_damned_spot(turn, year)
   for place in whole_map_iterate() do
     scrub_spot_info(place)
+    extinguish(place)
   end
 end
 

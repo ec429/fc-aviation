@@ -72,6 +72,7 @@ flags =
     _("Capturer"),   _("Can capture enemy merchant ships (prizes).")
     _("Capturable"), _("Can be captured by some enemy units.")
     _("Spotter"), _("Can Spot targets for artillery or naval gunfire.")
+    _("Firestarter"), _("Can drop incendiary bombs on cities to destroy production.")
   }
 
 ; Names for custom unit class flags. There can be up to 8 of these.
@@ -1128,7 +1129,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade", "BadDefender"
+flags         = "OneAttack", "CRlight", "AntiGround", "NoUpgrade", "BadDefender", "Firestarter"
 cargo         = "Assault"
 roles         = ""
 helptext      = _("\
@@ -4740,7 +4741,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRmedium", "AntiGround", "BadDefender"
+flags         = "OneAttack", "CRmedium", "AntiGround", "BadDefender", "Firestarter"
 helptext      = _("\
 A new category opened up between the light and heavy bombers, \
 medium bombers can fight their way through at least some \
@@ -4775,7 +4776,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 Monoplane medium bombers using new construction techniques \
 are more effective fighting machines.  They can also make \
@@ -4810,7 +4811,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 The best propeller-driven medium bombers are rugged and \
 surprisingly fast, with a payload of around two tons.  \
@@ -4844,7 +4845,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage", "Firestarter"
 helptext      = _("\
 Early jet-engine technology applied to tactical bomber \
 design produces a useful interim aircraft.  \
@@ -4877,7 +4878,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage", "Firestarter"
 helptext      = _("\
 The first truly practical jet-powered medium bombers \
 are effective tactical interdictor strike aircraft.  \
@@ -4911,7 +4912,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage"
+flags         = "Recon", "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Jet", "BadDefender", "Pillage", "Firestarter"
 helptext      = _("\
 Supersonic interdictor-strike bomber to attack high-value targets.  \
 Historical examples include the BAC TSR-2 and General Dynamics F-111 \
@@ -4944,7 +4945,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 The first aircraft designed for long-range bombing were \
 slow, lumbering biplanes.  \
@@ -4978,7 +4979,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 Large triplane bombers carried a heavy payload but \
 at a very slow speed.  \
@@ -5011,7 +5012,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 More powerful engines allowed heavier biplane bombers — \
 still not so massive as the triplanes, but big enough.  \
@@ -5046,7 +5047,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 Applying post-war engineering to the basic biplane bomber \
 yielded a more robust and powerful aircraft.  Also capable \
@@ -5082,7 +5083,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 Metal-framed heavy bombers were faster and stronger.  \
 Depending on national design doctrine, they might be \
@@ -5118,7 +5119,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "BadDefender", "Firestarter"
 helptext      = _("\
 In the run-up to the Second Great War, twin-engined \
 heavy bombers developed even greater range.  \
@@ -5153,7 +5154,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender", "Firestarter"
 helptext      = _("\
 Pre-war four-engined heavy.  Increased payload and speed.  \
 Historical examples include the Short Stirling and \
@@ -5189,7 +5190,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender", "Firestarter"
 helptext      = _("\
 Four-engined strategic bomber.  Being optimised for the \
 bombing role, it cannot transport troops.  \
@@ -5293,7 +5294,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender", "Firestarter"
 helptext      = _("\
 Highly supercharged engines and high aspect ratio wings \
 made heavy bombers faster and stronger.  \
@@ -5394,7 +5395,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender", "Firestarter"
 helptext      = _("\
 Turbojet-powered strategic bomber with swept wing.  \
 Historical examples include the Vickers Valiant and \
@@ -5493,7 +5494,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender", "Firestarter"
 helptext      = _("\
 Transonic heavy bombers were for a time the preferred \
 delivery mechanism for nuclear weapons, though they are \
@@ -5603,7 +5604,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Heavy", "BadDefender", "Firestarter"
 helptext      = _("\
 Swept wings and turbo-prop engines allow faster heavy bombers \
 without the complexities of operating advanced turbojets.  \
@@ -5674,7 +5675,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender"
+flags         = "OneAttack", "CRheavy", "Provoking", "AntiGround", "AntiSea", "Jet", "BadDefender", "Firestarter"
 helptext      = _("\
 Mach 2 capable heavy bombers competed with ballistic missiles for \
 the strategic deterrent role.  \

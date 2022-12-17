@@ -274,6 +274,13 @@ user_action_2_min_range              = 1
 user_action_2_max_range              = 1
 user_action_2_actor_consuming_always = FALSE
 
+; /* TRANS: _Firebomb City (100% chance of success). */
+ui_name_user_action_3 = _("%sFirebomb City%s")
+user_action_3_target_kind            = "individual cities"
+user_action_3_min_range              = 1
+user_action_3_max_range              = 1
+user_action_3_actor_consuming_always = FALSE
+
 ui_name_found_city = _("%sBuild City%s")
 ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
@@ -771,6 +778,21 @@ actor_reqs    =
       "UnitType",     "Penetrator Bomb", "Local"
       "UnitState",    "Transported",     "Local"
       "DiplRel",      "War",             "Local"
+    }
+
+[actionenabler_firebomb]
+action = "User Action 3"
+actor_reqs    =
+    { "type",         "name",            "range"
+      "UnitFlag",     "Firestarter",     "Local"
+      "MinMoveFrags", "1",               "Local"
+      "Tech",         "Incendiary Bomb", "Player"
+      "DiplRel",      "War",             "Local"
+    }
+target_reqs   =
+    { "type",          "name",   "range", "present"
+;     "CityTile",      "Center", "Local", TRUE
+      "Extra",         "Fire",   "City", FALSE
     }
 
 [actionenabler_nuke]

@@ -277,6 +277,19 @@ helptext = _("With engine power enough to make headway even in\
  severe weather, rigid airships became the first long-range\
  bombers.  1914-17.")
 
+[advance_incendiary_bomb]
+name     = _("Incendiary Bomb")
+req1     = "Zeppelin"
+req2     = "None"
+cost     = 180
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Dropping incendiary devices from the air enabled\
+ economic warfare against the civilians producing war materiel.\
+  1915."),
+_("Allows certain bombers to Firebomb a city, reducing its\
+ production by half for one turn.")
+
 [advance_effective_scouts]
 name     = _("Effective Scouts")
 req1     = "Interrupter Gear"
