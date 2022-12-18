@@ -730,6 +730,20 @@ helptext = _("A new generation of bombers, many of them monoplanes,\
  nations began to fear mutually assured destruction by bomber fleets\
  would be the inevitable consequence of any European war.")
 
+[advance_r_d_f_]
+name     = _("R.D.F.")
+req1     = "Radio"
+req2     = "Thirties Bombers"
+cost     = 680
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Radio Direction Finding, also known as radar (from RAdio\
+ Detection And Ranging), is the technique of reflecting radio waves\
+ off a distant object (such as an aeroplane) and observing it by the\
+ returned signal.  Its development swung the pendulum in favour of\
+ defence by allowing fighters to be 'scrambled' to face an air raid\
+ before it arrived.")
+
 [advance_thirties_carrier_aviation]
 name     = _("Thirties Carrier Aviation")
 req1     = "Twenties Carrier Aviation"
@@ -862,20 +876,6 @@ graphic_alt = "-"
 helptext = _("When monoplane fighters and torpedo-bombers finally became\
  rugged enough for shipboard use, naval air forces around the world leapt\
  at the chance for an upgrade.")
-
-[advance_r_d_f_]
-name     = _("R.D.F.")
-req1     = "Radio"
-req2     = "Bombers 1935"
-cost     = 720
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
-helptext = _("Radio Direction Finding, also known as radar (from RAdio\
- Detection And Ranging), is the technique of reflecting radio waves\
- off a distant object (such as an aeroplane) and observing it by the\
- returned signal.  Its development swung the pendulum in favour of\
- defence by allowing fighters to be 'scrambled' to face an air raid\
- before it arrived.")
 
 [advance_electronics_1935]
 name     = _("Electronics 1935")
