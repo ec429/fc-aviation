@@ -687,7 +687,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 45
-upkeep		= 2
+upkeep		= 1
 sabotage	= 100
 sound		= "b_port_facility"
 sound_alt	= "b_generic"
