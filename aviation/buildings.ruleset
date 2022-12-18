@@ -201,7 +201,7 @@ graphic_alt	= "-"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 50
+build_cost	= 40
 upkeep		= 1
 sabotage	= 100
 sound		= "b_police_station"
@@ -217,6 +217,33 @@ By encouraging citizens to volunteer for military service through\
  manpower.  During times of war, propaganda is also effective at\
  exhorting civilians to greater production of materiel in support\
  of the war effort.\
+")
+
+[building_uas]
+name		= _("University Air Squadron")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Streamlining", "Player"
+      "Building", "Technical College", "City"
+    }
+graphic	= "b.police_station"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 1
+sabotage	= 100
+sound		= "b_police_station"
+sound_alt	= "b_generic"
+helptext	= _("\
+For Democracies, saves up to two shields of unit upkeep per turn. \
+ This improvement has no effect during a Revolution, or under\
+ other governments.\
+"), _("\
+The opportunity to learn to fly in gliders entices many students to\
+ consider joining the air cadets.\
 ")
 
 ; **Research**

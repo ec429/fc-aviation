@@ -931,6 +931,16 @@ reqs   =
       "OutputType", "Shield", "Local", TRUE
     }
 
+[effect_uas]
+type    = "Unit_Upkeep_Free_Per_City"
+value	= 2
+reqs   =
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+      "Building", "University Air Squadron", "City"
+      "OutputType", "Shield", "Local"
+    }
+
 [effect_aero_lib]
 type    = "Output_Bonus"
 value	= 35
