@@ -95,7 +95,7 @@ class_flags =
 veteran_names = _("green"), _("veteran"), _("ace"), _("elite")
 
 ; The percentage chance of increasing level through combat
-veteran_base_raise_chance = 30, 15, 10, 0
+veteran_base_raise_chance = 30, 15, 6, 0
 
 ; The percentage chance of a settler/engineer increasing level through
 ; performing useful work (per turn)
