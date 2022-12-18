@@ -755,7 +755,7 @@ name		= _("Crop Dusting")
 genus		= "Improvement"
 reqs =
     { "type", "name", "range"
-      "Tech", "General Aviation", "Player"
+      "Tech", "Aerial Application", "Player"
     }
 graphic	= "b.supermarket"
 graphic_alt	= "-"

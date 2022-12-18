@@ -556,6 +556,15 @@ graphic_alt = "-"
 helptext = _("The post-war barnstormers began to find economic\
  niches for small aircraft operated by small businesses.  1921.")
 
+[advance_aerial_application]
+name     = _("Aerial Application")
+req1     = "General Aviation"
+req2     = "None"
+cost     = 240
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Putting aircraft to work in agriculture.")
+
 [advance_autogyro]
 name     = _("Autogyro")
 req1     = "General Aviation"
