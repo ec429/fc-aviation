@@ -478,8 +478,7 @@ helptext = _("Gliders are a cheap but one-shot way to deploy Assault\
 ; "Only_Native_Attack" = cannot attack targets on non-native tiles even if
 ;                 unit class can
 ; "Cant_Fortify" =  cannot fortify even if unit class has "CanFortify" flag
-; "Fanatic"	= can only be built by governments that allow them
-;		  (see civ2/governments.ruleset, Fundamentalism government)
+; "Fanatic"	= free upkeep for Fascism government
 ; "Unique"	= a player can only have one of these units in the game at
 ;		  the same time; barbarians cannot use this at present
 ; "GameLoss"	= losing one of these units means you lose the game, but it
@@ -2252,7 +2251,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "Jet", "BadDefender"
+flags         = "CRfighter", "AntiAir", "Jet", "BadDefender", "Fanatic"
 roles         = ""
 helptext      = _("\
 Maturing transonic design allows higher performance, while \
@@ -3377,7 +3376,7 @@ fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "AntiGround", "CityBuster", "CRmedium", "Missile" ; we'd rather "Bombarder"
+flags         = "AntiGround", "CityBuster", "CRmedium", "Fanatic", "Missile" ; we'd rather "Bombarder"
 ;bombard_rate  = 6
 roles         = ""
 helptext      = _("\
@@ -3413,7 +3412,7 @@ fuel          = 1
 uk_happy      = 0
 uk_base       = 1
 uk_food       = 0
-flags         = "CRfighter", "AntiAir", "Missile"
+flags         = "CRfighter", "AntiAir", "Missile", "Fanatic"
 roles         = ""
 helptext      = _("\
 Medium-range surface-to-air missile for point defence.  \
