@@ -130,6 +130,18 @@ reqs    =
       "UnitFlag",      "Cant_Fortify", "Local", FALSE
     }
 
+; Submarines in pens get the bonus even though they can't fortify
+[effect_upens_fortified]
+type    = "Fortify_Defense_Bonus"
+value   = 50
+reqs    =
+    { "type",     "name",           "range", "present"
+      "CityTile", "Center",         "Local", TRUE
+      "Activity", "Fortified",      "Local", FALSE
+      "UnitFlag", "Sub",            "Local", TRUE
+      "Building", "Submarine Pens", "City", TRUE
+    }
+
 [effect_bombard_limit_base]
 type    = "Bombard_Limit_Pct"
 value   = 1
@@ -175,6 +187,17 @@ reqs    =
       "CityTile",      "Center",          "Local"
       "Building",      "Concrete Bunker", "City"
       "UnitClassFlag", "CanFortify",      "Local"
+    }
+
+; 1 + 19(city) + 80 = 100
+[effect_bombard_limit_upens]
+type    = "Bombard_Limit_Pct"
+value   = 80
+reqs    =
+    { "type",     "name",           "range"
+      "CityTile", "Center",         "Local"
+      "Building", "Submarine Pens", "City"
+      "UnitFlag", "Sub",            "Local"
     }
 
 ; basic free tech upkeep
