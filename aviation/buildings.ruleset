@@ -914,6 +914,10 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the shield production in a city by 50%.  This increase may\
  also contribute significantly to pollution.\
+"), _("\
+With sufficient shield production, cities with an Engine Factory\
+ can produce up to two units each turn (but only single units of types\
+ which cost population).\
 ")
 
 [building_aircraft_factory]
@@ -939,6 +943,11 @@ helptext	= _("\
 Together with an Engine Factory, an Aircraft Factory increases the\
  shield production in a city by 100%. An Aircraft Factory on its\
  own increases shield production by 50%.\
+"), _("\
+With sufficient shield production, cities with an Aircraft Factory\
+ in addition to an Engine Factory\
+ can produce up to three units each turn (but only single units of\
+ types which cost population).\
 ")
 
 [building_electrification]
