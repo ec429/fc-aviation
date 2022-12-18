@@ -1164,11 +1164,11 @@ vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
 disembarks    = "Sea"
-fuel          = 4
+fuel          = 5
 uk_happy      = 1
 uk_base       = 0
 uk_food       = 0
-flags         = "Recon", "HasNoZOC", "CRtf", "AntiSea"
+flags         = "Recon", "HasNoZOC", "CRtf", "AntiSea", "Spotter"
 roles         = "Explorer"
 helptext      = _("\
 Blimps are a cheaper alternative to the rigid Zeppelin, but \
@@ -1200,11 +1200,11 @@ vision_radius_sq = 2
 transport_cap = 0
 embarks       = "Sea"
 disembarks    = "Sea"
-fuel          = 4
+fuel          = 5
 uk_happy      = 1
 uk_base       = 0
 uk_food       = 0
-flags         = "Recon", "HasNoZOC", "CRtf", "AntiSea"
+flags         = "Recon", "HasNoZOC", "CRtf", "AntiSea", "Spotter"
 roles         = "Explorer"
 helptext      = _("\
 Faster, more capable non-rigid airships are an effective \
