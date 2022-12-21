@@ -4173,7 +4173,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = BOMB
-flags         = "OneAttack", "CRlight", "AntiGround"
+flags         = "OneAttack", "CRlight", "AntiSea"
 roles         = ""
 helptext      = _("\
 Bomb-carrying flying-boat; long range but vulnerable.  \
