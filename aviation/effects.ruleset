@@ -113,8 +113,11 @@ reqs    =
 type    = "Fortify_Defense_Bonus"
 value   = 50
 reqs    =
-    { "type", "name", "range"
-      "Activity", "Fortified", "Local"
+    { "type", "name", "range", "present"
+      "Activity", "Fortified", "Local", TRUE
+; Digging trenches inside a fort is pointless, don't give a bonus for it
+; (the fort already gives troops a 100% terrain defence bonus)
+      "Extra", "Fortress", "Tile", FALSE
     }
 
 ; Units that can fortify get the bonus while in a city, even if they haven't
