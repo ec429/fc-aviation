@@ -718,7 +718,7 @@ actor_reqs    =
       "UnitFlag",      "Bombarder 2",  "Local", FALSE
       "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
-      "UnitState",     "OnNativeTile", "Local", TRUE
+;     "UnitState",     "OnNativeTile", "Local", TRUE ; this would prevent subs in cities torping :(
       "UnitState",     "Transported",  "Local", FALSE
       "DiplRel",       "War",          "Local", TRUE
       "UnitFlag",      "CRtb",         "Local", TRUE
