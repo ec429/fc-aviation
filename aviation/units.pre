@@ -4948,8 +4948,8 @@ flags         = "OneAttack", "CRheavy", "AntiGround", "AntiSea", "BadDefender", 
 helptext      = _("\
 The first aircraft designed for long-range bombing were \
 slow, lumbering biplanes.  \
-Historical examples include the Caproni Ca.3 and \
-Handley Page O/100.\
+Historical examples include the Caproni Ca.3, \
+Handley Page O/100 and Gotha G.II.\
 ")
 
 [unit_triplane_bomber]
