@@ -507,7 +507,7 @@ helptext = _("Postwar engines were reliable enough that flight\
 [advance_marine_diesels]
 name     = _("Marine Diesels")
 req1     = "Twenties Engines"
-req2     = "None"
+req2     = "Steam Turbines"
 cost     = 160
 graphic     = "a.combustion" ; placeholder
 graphic_alt = "-"
