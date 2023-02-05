@@ -1,4 +1,5 @@
 #!/usr/bin/python2
+# encoding: utf8
 import sys
 import re
 
@@ -103,6 +104,14 @@ class Unit(object):
             self['uk_shield'] = upkeep
             self['uk_gold'] = '0'
             self.flags += ', "Shield2Gold"'
+        # work around text rendering bug in game (it cuts off non-ASCII text too early)
+        self['helptext'] = self['helptext'].replace('—', '--').replace('œ', 'oe')
+        if any(ord(c) > 127 for c in self['helptext']):
+            sys.stderr.write("Warning: non-ASCII characters in helptext for %s\n%s\n" %
+                             (self.key if self.ph is None else self.ph,
+                              self['helptext']))
+            # stick some spaces on the end for it to eat
+            self['helptext'] = self['helptext'].replace('")\n', '"), "   "')
     def writekey(self, f, k, v):
         f.write('%s = %s\n' % (k.ljust(16), v))
     def write(self, f):
@@ -224,4 +233,8 @@ def main(f):
         units[u].write(sys.stdout)
 
 if __name__ == '__main__':
-    main(sys.stdin)
+    if len(sys.argv) == 2:
+        with open(sys.argv[1], 'r') as f:
+            main(f)
+    else:
+        main(sys.stdin)
