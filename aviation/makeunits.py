@@ -4,7 +4,7 @@ import sys
 import re
 
 getvs = re.compile(r'_?\(?"([^"]+)"\)?')
-air_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"')
+air_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"', '"Bomb"')
 refuel_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Seaplane"', '"Seaplane Fighter"')
 
 class Unit(object):
