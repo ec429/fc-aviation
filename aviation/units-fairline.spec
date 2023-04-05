@@ -176,4 +176,5 @@ tiles = { "row", "column", "tag"
   6, 14, "u.tetrarch"    ; ac Light Tank (A17 Light Tank Mk VII "Tetrarch") [GB]
   6, 15, "u.virgtank"    ; K3 Tanker Biplane (Vickers Virginia RAE) [EC]: repaint of Valentia transport, originally from Vickers Vimy [GB]
   6, 16, "u.halitank"    ; KM Tanker Monoplane (Handley Page Halifax K) [GB], repainted and turrets removed by [EC]
+  6, 17, "u.gritfire"    ; FF Superprop Fighter (Supermarine Spitfire Mk 24) [GB]
 }
