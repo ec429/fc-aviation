@@ -177,4 +177,6 @@ tiles = { "row", "column", "tag"
   6, 15, "u.virgtank"    ; K3 Tanker Biplane (Vickers Virginia RAE) [EC]: repaint of Valentia transport, originally from Vickers Vimy [GB]
   6, 16, "u.halitank"    ; KM Tanker Monoplane (Handley Page Halifax K) [GB], repainted and turrets removed by [EC]
   6, 17, "u.gritfire"    ; FF Superprop Fighter (Supermarine Spitfire Mk 24) [GB]
+  6, 18, "u.tigercat"    ; NH Naval Heavy Fighter (Grumman F-7F Tigercat) [GB]
+  6, 19, "u.fulmar"      ; NE Naval Escort Fighter (Fairey Fulmar) [GB]
 }
