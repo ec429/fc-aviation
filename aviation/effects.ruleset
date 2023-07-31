@@ -107,6 +107,7 @@ reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "tile"
       "UnitClass", "Heavy Assault", "Local"
+      "VisionLayer", "Main", "Local"
     }
 
 [effect_fortified]
@@ -937,6 +938,7 @@ reqs	=
     { "type", "name", "range", "present"
       "Building", "Radar Station", "City", TRUE
       "Building", "Chain Home", "Continent", FALSE
+      "VisionLayer", "Main", "Local", TRUE
     }
 
 [effect_tramways]
