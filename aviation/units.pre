@@ -2464,7 +2464,7 @@ name          = _("Two-seat Scout")
 class         = "Air"
 tech_req      = "Effective Scouts"
 obsolete_by   = "Fighter Biplane"
-graphic       = "u.strutter"
+graphic       = "u.strutter2"
 graphic_alt   = "u.fighter"
 ;phcode=FS
 sound_move    = "m_fighter"
@@ -2478,6 +2478,8 @@ defense       = 1
 hitpoints     = 8
 firepower     = 2
 move_rate     = 6
+convert_to    = "Escort Scout"
+convert_time  = 0
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 1
@@ -2489,6 +2491,42 @@ roles         = ""
 helptext      = _("\
 Combining a synchronised offensive machine gun with a ring-\
 mounted defensive gun.  \
+Historical examples include the Sopwith 1½ Strutter.\
+")
+
+[unit_twoescort]
+name          = _("Escort Scout")
+class         = "Air"
+tech_req      = "Effective Scouts"
+obsolete_by   = "Escort Biplane"
+graphic       = "u.strutter"
+graphic_alt   = "u.fighter"
+;phcode=ES
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 1
+defense       = 1
+hitpoints     = 7
+firepower     = 2
+move_rate     = 4
+convert_to    = "Two-seat Scout"
+convert_time  = 0
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRscout", "AntiAir", "BadDefender"
+roles         = ""
+helptext      = _("\
+Combining a synchronised offensive machine gun with a ring-\
+mounted defensive gun.  \
+Modified with extra fuel tanks for the escort rôle.  \
 Historical examples include the Sopwith 1½ Strutter.\
 ")
 
@@ -2521,6 +2559,40 @@ flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
 roles         = ""
 helptext      = _("\
 A more manoeuvrable and capable two-seater scout.  \
+Historical examples include the Bristol F.2 Fighter and \
+Hannover CL.II.\
+")
+
+[unit_biescort]
+name          = _("Escort Biplane")
+class         = "Air"
+tech_req      = "Scouts 1916"
+obsolete_by   = "Thirties Fighter"
+graphic       = "u.brisfit2"
+graphic_alt   = "u.fighter"
+;phcode=EB
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 7
+firepower     = 2
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "CRscout", "AntiAir", "BadDefender", "FieldRepair"
+roles         = ""
+helptext      = _("\
+A more manoeuvrable and capable two-seater scout.  \
+Modified with extra fuel tanks for the escort rôle.  \
 Historical examples include the Bristol F.2 Fighter and \
 Hannover CL.II.\
 ")

@@ -63,7 +63,7 @@ tiles = { "row", "column", "tag"
   1,  1, "u.lightning"   ; FI Supersonic Interceptor (English Electric Lightning) [GB]
   1,  2, "u.f100"        ; FA Supersonic Fighter (North American F-100 Super Sabre) [GB]
   1,  3, "u.gunbus"      ; FP Pusher Fighter (RAF F.E.2b) [GB]
-  1,  4, "u.strutter"    ; FS Two-seat Scout (Sopwith 1½ Strutter) [EC]: kitbashed brisfit [GB]
+  1,  4, "u.strutter"    ; ES Escort Scout (Sopwith 1½ Strutter) [EC]: kitbashed brisfit [GB]
   1,  5, "u.brisfit"     ; FB Fighter Biplane (Bristol F.2 Fighter) [GB]
 ; 1,  6, "u.demon"       ; F3 Thirties Fighter (Hawker Demon) [EC]: kitbashed hart [GB]
   1,  7, "u.defiant"     ; FT Turret Fighter (Boulton Paul Defiant) [T] & [GB]
@@ -179,4 +179,6 @@ tiles = { "row", "column", "tag"
   6, 17, "u.gritfire"    ; FF Superprop Fighter (Supermarine Spitfire Mk 24) [GB]
   6, 18, "u.tigercat"    ; NH Naval Heavy Fighter (Grumman F-7F Tigercat) [GB]
   6, 19, "u.fulmar"      ; NE Naval Escort Fighter (Fairey Fulmar) [GB]
+  7,  0, "u.strutter2"   ; FS Two-seat Scout (Sopwith 1½ Strutter) [GB]
+  7,  1, "u.brisfit2"    ; EB Escort Biplane (Bristol F.2 Fighter) [GB], blue wing stripes added by [EC]
 }
