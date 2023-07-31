@@ -78,7 +78,7 @@ class Unit(object):
                 raise Exception("Wrong SF bonus for unit", self.get('name'), self['class'], bkeys)
             # everyone gets this one
             bkeys.append('LTRP')
-            bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 2',
+            bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 4',
                     'SF': '"LongTorp", "DefenseMultiplier", 1',
                     'BOMB': '"BadAirDefender", "DefenseDivider", 2',
                     'TROOP': '"BadDefender", "DefenseDivider", 3',

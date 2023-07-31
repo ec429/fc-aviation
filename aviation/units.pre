@@ -6497,7 +6497,7 @@ Merchants can earn gold and science, trading with your own cities or those\
  airliners, they cannot create persistent trade routes with ongoing revenue.\
 "), _("\
 Adding a catapult-launched Early Monoplane Fighter to a merchant ship\
- triples its defence against aircraft.")
+ quintuples its defence against aircraft.")
 
 [unit_seatend]
 name          = _("Seaplane Tender")
