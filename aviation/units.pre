@@ -4497,7 +4497,7 @@ uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
 bonuses       = ASW
-flags         = "OneAttack", "CRmedium", "AntiSea", "Recon", "Heavy", "BadDefender"
+flags         = "OneAttack", "CRmedium", "AntiGround", "AntiSea", "Recon", "Heavy", "BadDefender"
 roles         = ""
 helptext      = _("\
 Long-endurance aircraft for maritime patrol and \
