@@ -1113,7 +1113,7 @@ actor_reqs    =
 ;   if_attacker    - this requirement vector must be true before a unit even
 ;                    considers to auto attack.
 
-attack_actions= "Capture Units", "Bombard", "Bombard 2", "Attack", "Suicide Attack"
+attack_actions= "Capture Units", "Attack", "Suicide Attack"
 
 if_attacker =
     { "type",         "name",    "range", "present"
