@@ -578,7 +578,8 @@ _("Increases the vision range of submersibles when surfaced, by\
  means of towed gyrokites (Bachstelze).")
 
 [advance_twenties_carrier_aviation]
-name     = _("Twenties Carrier Aviation")
+name     = _("Catapult Launch")
+rule_name= "Twenties Carrier Aviation"
 req1     = "Aircraft Carrier"
 req2     = "General Aviation"
 cost     = 600
