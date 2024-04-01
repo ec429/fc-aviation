@@ -182,4 +182,8 @@ tiles = { "row", "column", "tag"
   7,  0, "u.strutter2"   ; FS Two-seat Scout (Sopwith 1½ Strutter) [GB]
   7,  1, "u.brisfit2"    ; EB Escort Biplane (Bristol F.2 Fighter) [GB], blue wing stripes added by [EC]
   7,  2, "u.empire"      ; LP Empire Boat (Short S.23 Empire) [EC]: repaint of Sunderland by [GB]
+; 7,  3, "u.voisin"      ; BV Pusher Bomber (Voisin III) [EC]: repaint of RAF F.E.2b by [GB]
+  7,  4, "u.cargo"       ; sc Cargo Ship [GB]
+  7,  5, "u.voisin"      ; BV Pusher Bomber (Voisin III) [GB]
+  7,  6, "u.muromets"    ; BI Very Early Bomber (Sikorsky Ilya Muromets) [GB], crappily downscaled by [EC]
 }
