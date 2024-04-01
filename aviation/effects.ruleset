@@ -901,6 +901,14 @@ reqs	=
       "Building", "HQ", "City"
     }
 
+[effect_hq_content]
+type    = "Make_Content"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Building", "HQ", "City"
+    }
+
 [effect_faa_1]
 type    = "Output_Waste_Pct"
 value	= 50
