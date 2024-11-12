@@ -1066,6 +1066,9 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the defense of all units inside the city by 20% (after\
  Proximity Fuse, 50%) when attacked by aircraft.\
+"), _("\
+Also, shoots at enemy firebombers for up to 4 damage (after\
+ Proximity Fuse, up to 10 damage) before they drop their incendiaries.\
 ")
 
 [building_sam_battery]
