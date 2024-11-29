@@ -2523,9 +2523,10 @@ reqs    =
       "Tech",   "Radio",         "Player", TRUE
     }
 
+; Dropping firebombs only costs one move
 [effect_action_success_move_cost_firebomb]
 type    = "Action_Success_Actor_Move_Cost"
-value   = 65536
+value   = 2
 reqs    =
     { "type", "name", "range", "present"
       "Action", "User Action 3", "Local", TRUE
