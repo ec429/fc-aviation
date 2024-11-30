@@ -177,8 +177,14 @@ def sortunits(units):
 
 class Tech(object):
     def __init__(self):
-        self.name = None
+        self.display_name = None
+        self.rule_name = None
         self.preqs = []
+    @property
+    def name(self):
+        if self.rule_name is None:
+            return self.display_name
+        return self.rule_name
     @property
     def allreqs(self):
         r = []
@@ -207,7 +213,9 @@ def gettechs(f):
         m = getvs.match(value)
         vs = m.group(1) if m else None
         if key == 'name':
-            curr.name = vs
+            curr.display_name = vs
+        elif key == 'rule_name':
+            curr.rule_name = vs
         elif key in ('req1', 'req2'):
             if vs != 'None':
                 curr.preqs.append(techs[vs])
