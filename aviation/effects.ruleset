@@ -332,6 +332,27 @@ reqs    =
       "UnitClass", "Heavy Assault", "Local"
     }
 
+; Divers are strong against fortresses
+; note that this malus would also apply to any aircraft on a
+; fortress tile; typically no DB will be able to attack them,
+; but if you build an airfield there then they can, in which
+; case this malus serves you right for trying to cheese
+[effect_fortress_weak_spot]
+type    = "Defend_Bonus"
+value   = -40
+reqs    = {
+      "UnitFlag", "DiveBomber", "Local"
+      "Extra", "Fortress", "Tile"
+}
+; So are Tallboys
+[effect_fortress_weak_spot_1]
+type    = "Defend_Bonus"
+value   = -40
+reqs    = {
+      "UnitType", "Penetrator Bomb", "Local"
+      "Extra", "Fortress", "Tile"
+}
+
 ; Base vision range - radius of vision is sqrt(5) = 2.24
 [effect_city_vision]
 type    = "City_Vision_Radius_Sq"
