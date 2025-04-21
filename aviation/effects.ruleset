@@ -170,6 +170,24 @@ reqs    =
       "CityTile", "Center", "Local"
     }
 
+; 1 + 19(city) + 20 = 40
+[effect_bombard_limit_fighters]
+type    = "Bombard_Limit_Pct"
+value   = 20
+reqs    =
+    { "type",     "name",    "range"
+      "CityTile", "Center",  "Local"
+      "UnitFlag", "CRscout", "Local"
+    }
+[effect_bombard_limit_fighters_1]
+type    = "Bombard_Limit_Pct"
+value   = 20
+reqs    =
+    { "type",     "name",    "range"
+      "CityTile", "Center",  "Local"
+      "UnitFlag", "CRfighter", "Local"
+    }
+
 ; ground units in forts get the bonus even if they're Cant_Fortify
 ; 1 + 29 = 30
 [effect_bombard_limit_fortress]
