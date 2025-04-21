@@ -1270,6 +1270,18 @@ reqs	=
       "UnitType", "Pioneer", "Local", FALSE
     }
 
+; the Dicta gives all fighters (including the mixed fighter-attackers
+; NS, AV, and AF) an extra veteran level.
+[effect_boelcke]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Dicta Boelcke", "Player"
+      "UnitClassFlag", "Flying", "Local"
+      "UnitFlag", "AntiAir", "Local"
+    }
+
 [effect_repair_1]
 type    = "HP_Regen"
 value	= 100
