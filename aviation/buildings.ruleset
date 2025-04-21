@@ -67,8 +67,8 @@ name		= _("HQ")
 genus		= "SmallWonder"
 flags		= "SaveSmallWonder"
 ; No reqs
-graphic	= "b.palace"
-graphic_alt	= "-"
+graphic	= "b.city_hall"
+graphic_alt	= "b.palace"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -228,8 +228,8 @@ reqs	=
       "Tech", "Streamlining", "Player"
       "Building", "Technical College", "City"
     }
-graphic	= "b.police_station"
-graphic_alt	= "-"
+graphic	= "b.academy"
+graphic_alt	= "b.police_station"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -852,8 +852,8 @@ genus		= "Improvement"
 reqs =
     { "type", "name", "range"
     }
-graphic	= "b.power_plant"
-graphic_alt	= "-"
+graphic	= "b.workshop"
+graphic_alt	= "b.power_plant"
 obsolete_by	=
     { "type", "name", "range"
       "Building", "Engine Factory", "City"
