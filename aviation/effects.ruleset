@@ -340,7 +340,8 @@ reqs    =
 [effect_fortress_weak_spot]
 type    = "Defend_Bonus"
 value   = -40
-reqs    = {
+reqs    =
+    { "type", "name", "range"
       "UnitFlag", "DiveBomber", "Local"
       "Extra", "Fortress", "Tile"
 }
@@ -348,7 +349,8 @@ reqs    = {
 [effect_fortress_weak_spot_1]
 type    = "Defend_Bonus"
 value   = -40
-reqs    = {
+reqs    =
+    { "type", "name", "range"
       "UnitType", "Penetrator Bomb", "Local"
       "Extra", "Fortress", "Tile"
 }
