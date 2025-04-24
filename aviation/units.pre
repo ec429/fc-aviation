@@ -4710,8 +4710,10 @@ uk_food       = 0
 bonuses       = BOMB
 flags         = "OneAttack", "Fanatic", "CRmedium", "AntiGround", "DiveBomber", "Pillage"
 helptext      = _("\
-Dive bombers are effective attackers, but vulnerable to \
-enemy fighters.  They can fly from carriers, but don't \
+Dive bombers are powerful attackers, but vulnerable to \
+enemy fighters.  They are particularly effective against \
+units in Fortresses.  \
+They can fly from carriers, but don't \
 have the ability to strike shipping.  \
 Historical examples include the Curtiss F8C Falcon.\
 ")
