@@ -1315,7 +1315,7 @@ sabotage	= 0
 sound		= "w_great_library"
 sound_alt	= "w_generic"
 helptext	= _("\
-Scout and fighter units produced in the city\
+Scout and fighter units produced by the player\
  will have an additional Veteran level.\
 "), _("\
 Oswald Boelcke, one of the first 'flying aces' on the then-new\
