@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # encoding: utf8
 import sys
 import re
@@ -73,7 +73,7 @@ class Unit(object):
             self['disembarks'] = ', '.join(disembarks)
         bonuses = self.get('bonuses', '')
         if '\n' not in bonuses:
-            bkeys = map(str.strip, str.split(bonuses, ','))
+            bkeys = list(map(str.strip, str.split(bonuses, ',')))
             if (self['class'] in ('"Naval Fighter"', '"Seaplane Fighter"')) != ('SF' in bkeys):
                 raise Exception("Wrong SF bonus for unit", self.get('name'), self['class'], bkeys)
             # everyone gets this one
@@ -228,7 +228,7 @@ def main(f):
     units, raw = getunits(f, techs)
     procunits(units)
     for r in raw:
-        print r
+        print(r)
     for u in sortunits(units):
         units[u].write(sys.stdout)
 
