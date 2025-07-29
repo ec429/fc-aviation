@@ -6464,8 +6464,8 @@ flags         = "BadCityDefender", "HasNoZOC", "Provoking"
 slow_veteran  = 1 ; ships don't get acespeed
 roles         = "Ferryboat"
 helptext      = _("\
-Landing Craft can be used to transport assault troops (or \
-settlers) across water, albeit much more slowly than by air.\
+Landing Craft can be used to transport assault units such as marines \
+(or settlers) across water, albeit much more slowly than by air.\
 ")
 
 [unit_ship]
