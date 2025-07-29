@@ -307,3 +307,8 @@ styles =
       "ts.horses",     "Single1"
       "ts.seals",      "Single1"
     }
+
+[option_highvis_pollution]
+name = "highvis_pollution"
+description = _("Highly-visible Pollution")
+default = FALSE
