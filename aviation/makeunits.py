@@ -1,9 +1,10 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
+# encoding: utf8
 import sys
 import re
 
 getvs = re.compile(r'_?\(?"([^"]+)"\)?')
-air_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"')
+air_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Missile"', '"Seaplane"', '"Seaplane Fighter"', '"Glider"', '"Helicopter"', '"Bomb"')
 refuel_classes = ('"Air"', '"Carrier-borne"', '"Naval Fighter"', '"Seaplane"', '"Seaplane Fighter"')
 
 class Unit(object):
@@ -72,12 +73,12 @@ class Unit(object):
             self['disembarks'] = ', '.join(disembarks)
         bonuses = self.get('bonuses', '')
         if '\n' not in bonuses:
-            bkeys = map(str.strip, str.split(bonuses, ','))
+            bkeys = list(map(str.strip, str.split(bonuses, ',')))
             if (self['class'] in ('"Naval Fighter"', '"Seaplane Fighter"')) != ('SF' in bkeys):
                 raise Exception("Wrong SF bonus for unit", self.get('name'), self['class'], bkeys)
             # everyone gets this one
             bkeys.append('LTRP')
-            bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 2',
+            bmap = {'CAM': '"AirAttacker", "DefenseMultiplier", 4',
                     'SF': '"LongTorp", "DefenseMultiplier", 1',
                     'BOMB': '"BadAirDefender", "DefenseDivider", 2',
                     'TROOP': '"BadDefender", "DefenseDivider", 3',
@@ -176,8 +177,14 @@ def sortunits(units):
 
 class Tech(object):
     def __init__(self):
-        self.name = None
+        self.display_name = None
+        self.rule_name = None
         self.preqs = []
+    @property
+    def name(self):
+        if self.rule_name is None:
+            return self.display_name
+        return self.rule_name
     @property
     def allreqs(self):
         r = []
@@ -206,7 +213,9 @@ def gettechs(f):
         m = getvs.match(value)
         vs = m.group(1) if m else None
         if key == 'name':
-            curr.name = vs
+            curr.display_name = vs
+        elif key == 'rule_name':
+            curr.rule_name = vs
         elif key in ('req1', 'req2'):
             if vs != 'None':
                 curr.preqs.append(techs[vs])
@@ -219,9 +228,13 @@ def main(f):
     units, raw = getunits(f, techs)
     procunits(units)
     for r in raw:
-        print r
+        print(r)
     for u in sortunits(units):
         units[u].write(sys.stdout)
 
 if __name__ == '__main__':
-    main(sys.stdin)
+    if len(sys.argv) == 2:
+        with open(sys.argv[1], 'r') as f:
+            main(f)
+    else:
+        main(sys.stdin)

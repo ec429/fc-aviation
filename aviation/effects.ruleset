@@ -107,14 +107,18 @@ reqs    =
     { "type", "name", "range"
       "Extra", "Fortress", "tile"
       "UnitClass", "Heavy Assault", "Local"
+      "VisionLayer", "Main", "Local"
     }
 
 [effect_fortified]
 type    = "Fortify_Defense_Bonus"
 value   = 50
 reqs    =
-    { "type", "name", "range"
-      "Activity", "Fortified", "Local"
+    { "type", "name", "range", "present"
+      "Activity", "Fortified", "Local", TRUE
+; Digging trenches inside a fort is pointless, don't give a bonus for it
+; (the fort already gives troops a 100% terrain defence bonus)
+      "Extra", "Fortress", "Tile", FALSE
     }
 
 ; Units that can fortify get the bonus while in a city, even if they haven't
@@ -128,6 +132,18 @@ reqs    =
       "Activity",      "Fortified",    "Local", FALSE
       "UnitClassFlag", "CanFortify",   "Local", TRUE
       "UnitFlag",      "Cant_Fortify", "Local", FALSE
+    }
+
+; Submarines in pens get the bonus even though they can't fortify
+[effect_upens_fortified]
+type    = "Fortify_Defense_Bonus"
+value   = 50
+reqs    =
+    { "type",     "name",           "range", "present"
+      "CityTile", "Center",         "Local", TRUE
+      "Activity", "Fortified",      "Local", FALSE
+      "UnitFlag", "Sub",            "Local", TRUE
+      "Building", "Submarine Pens", "City", TRUE
     }
 
 [effect_bombard_limit_base]
@@ -154,6 +170,24 @@ reqs    =
       "CityTile", "Center", "Local"
     }
 
+; 1 + 19(city) + 20 = 40
+[effect_bombard_limit_fighters]
+type    = "Bombard_Limit_Pct"
+value   = 20
+reqs    =
+    { "type",     "name",    "range"
+      "CityTile", "Center",  "Local"
+      "UnitFlag", "CRscout", "Local"
+    }
+[effect_bombard_limit_fighters_1]
+type    = "Bombard_Limit_Pct"
+value   = 20
+reqs    =
+    { "type",     "name",    "range"
+      "CityTile", "Center",  "Local"
+      "UnitFlag", "CRfighter", "Local"
+    }
+
 ; ground units in forts get the bonus even if they're Cant_Fortify
 ; 1 + 29 = 30
 [effect_bombard_limit_fortress]
@@ -175,6 +209,17 @@ reqs    =
       "CityTile",      "Center",          "Local"
       "Building",      "Concrete Bunker", "City"
       "UnitClassFlag", "CanFortify",      "Local"
+    }
+
+; 1 + 19(city) + 80 = 100
+[effect_bombard_limit_upens]
+type    = "Bombard_Limit_Pct"
+value   = 80
+reqs    =
+    { "type",     "name",           "range"
+      "CityTile", "Center",         "Local"
+      "Building", "Submarine Pens", "City"
+      "UnitFlag", "Sub",            "Local"
     }
 
 ; basic free tech upkeep
@@ -286,6 +331,29 @@ reqs    =
       "Extra", "Fortress", "Tile"
       "UnitClass", "Heavy Assault", "Local"
     }
+
+; Divers are strong against fortresses
+; note that this malus would also apply to any aircraft on a
+; fortress tile; typically no DB will be able to attack them,
+; but if you build an airfield there then they can, in which
+; case this malus serves you right for trying to cheese
+[effect_fortress_weak_spot]
+type    = "Defend_Bonus"
+value   = -40
+reqs    =
+    { "type", "name", "range"
+      "UnitFlag", "DiveBomber", "Local"
+      "Extra", "Fortress", "Tile"
+}
+; So are Tallboys
+[effect_fortress_weak_spot_1]
+type    = "Defend_Bonus"
+value   = -40
+reqs    =
+    { "type", "name", "range"
+      "UnitType", "Penetrator Bomb", "Local"
+      "Extra", "Fortress", "Tile"
+}
 
 ; Base vision range - radius of vision is sqrt(5) = 2.24
 [effect_city_vision]
@@ -874,6 +942,14 @@ reqs	=
       "Building", "HQ", "City"
     }
 
+[effect_hq_content]
+type    = "Make_Content"
+value	= 2
+reqs	=
+    { "type", "name", "range"
+      "Building", "HQ", "City"
+    }
+
 [effect_faa_1]
 type    = "Output_Waste_Pct"
 value	= 50
@@ -911,6 +987,7 @@ reqs	=
     { "type", "name", "range", "present"
       "Building", "Radar Station", "City", TRUE
       "Building", "Chain Home", "Continent", FALSE
+      "VisionLayer", "Main", "Local", TRUE
     }
 
 [effect_tramways]
@@ -929,6 +1006,16 @@ reqs   =
       "Gov", "Revolution", "Player", FALSE
       "Building", "Recruiting Office", "City", TRUE
       "OutputType", "Shield", "Local", TRUE
+    }
+
+[effect_uas]
+type    = "Unit_Upkeep_Free_Per_City"
+value	= 2
+reqs   =
+    { "type", "name", "range"
+      "Gov", "Democracy", "Player"
+      "Building", "University Air Squadron", "City"
+      "OutputType", "Shield", "Local"
     }
 
 [effect_aero_lib]
@@ -1143,6 +1230,17 @@ reqs	=
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_shipyard_a]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Shipyard", "City", TRUE
+      "UnitClass", "Ship", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
 [effect_shipyard_1]
 type    = "HP_Regen"
 value	= 100
@@ -1150,6 +1248,15 @@ reqs	=
     { "type", "name", "range"
       "Building", "Shipyard", "City"
       "UnitClass", "Sea", "Local"
+    }
+
+[effect_shipyard_1a]
+type    = "HP_Regen"
+value	= 100
+reqs	=
+    { "type", "name", "range"
+      "Building", "Shipyard", "City"
+      "UnitClass", "Ship", "Local"
     }
 
 [effect_harbour]
@@ -1184,6 +1291,18 @@ reqs	=
       "UnitFlag", "NonMil", "Local", FALSE
       "UnitFlag", "NoVeteran", "Local", FALSE
       "UnitType", "Pioneer", "Local", FALSE
+    }
+
+; the Dicta gives all fighters (including the mixed fighter-attackers
+; NS, AV, and AF) an extra veteran level.
+[effect_boelcke]
+type    = "Veteran_Build"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Dicta Boelcke", "Player"
+      "UnitClassFlag", "Flying", "Local"
+      "UnitFlag", "AntiAir", "Local"
     }
 
 [effect_repair_1]
@@ -1411,6 +1530,16 @@ reqs	=
     { "type", "name", "range"
       "Terrain", "Forest", "Local"
       "Building", "Waterbombers", "City"
+      "OutputType", "Trade", "Local"
+    }
+
+[effect_coastguard]
+type	= "Output_Add_Tile"
+value	= 1
+reqs	=
+    { "type", "name", "range"
+      "TerrainClass", "Oceanic", "Local"
+      "Building", "Coast Guard", "City"
       "OutputType", "Trade", "Local"
     }
 
@@ -1761,6 +1890,17 @@ reqs    =
       "UnitFlag", "NoVeteran", "Local", FALSE
     }
 
+[effect_nas_college_ship]
+type    = "Veteran_Combat"
+value   = 50
+reqs    =
+    { "type", "name", "range", "present"
+      "Building", "Naval College", "Player", TRUE
+      "UnitClass", "Ship", "Local", TRUE
+      "UnitFlag", "NonMil", "Local", FALSE
+      "UnitFlag", "NoVeteran", "Local", FALSE
+    }
+
 [effect_nas_college_seaplane]
 type    = "Veteran_Combat"
 value   = 50
@@ -2013,6 +2153,15 @@ reqs    =
       "UnitClass", "Sea", "Local"
     }
 
+[effect_forecast_move_ship]
+type    = "Move_Bonus"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "Building", "Shipping Forecast", "Player"
+      "UnitClass", "Ship", "Local"
+    }
+
 [effect_beam_bombing_1]
 type    = "Attack_Bonus"
 value   = 20
@@ -2176,6 +2325,23 @@ reqs    =
 [effect_city_build_slots_basic]
 type    = "City_Build_Slots"
 value   = 1
+
+; factories grant additional build slots
+[effect_city_build_slots_factory]
+type    = "City_Build_Slots"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Engine Factory", "City"
+    }
+
+[effect_city_build_slots_factory2]
+type    = "City_Build_Slots"
+value   = 1
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aircraft Factory", "City"
+    }
 
 [effect_city_image_1]
 type    = "City_Image"
@@ -2408,6 +2574,25 @@ reqs    =
     { "type",   "name",          "range",  "present"
       "Action", "User Action 2", "Local",  TRUE
       "Tech",   "Radio",         "Player", TRUE
+    }
+
+; Dropping firebombs only costs one move
+[effect_action_success_move_cost_firebomb]
+type    = "Action_Success_Actor_Move_Cost"
+value   = 2
+reqs    =
+    { "type", "name", "range", "present"
+      "Action", "User Action 3", "Local", TRUE
+    }
+
+; Fire reduces city's production
+[effect_burn_the_workers_homes]
+type    = "Output_Bonus_2"
+value	= -50
+reqs	=
+    { "type", "name", "range"
+      "Extra", "Fire", "City"
+      "OutputType", "Shield", "Local"
     }
 
 ; Battleships get a bonus attacking units on a Spotted tile

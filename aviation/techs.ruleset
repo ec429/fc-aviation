@@ -277,6 +277,19 @@ helptext = _("With engine power enough to make headway even in\
  severe weather, rigid airships became the first long-range\
  bombers.  1914-17.")
 
+[advance_incendiary_bomb]
+name     = _("Incendiary Bomb")
+req1     = "Zeppelin"
+req2     = "None"
+cost     = 180
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Dropping incendiary devices from the air enabled\
+ economic warfare against the civilians producing war materiel.\
+  1915."),
+_("Allows certain bombers to Firebomb a city, reducing its\
+ production by half for one turn.")
+
 [advance_effective_scouts]
 name     = _("Effective Scouts")
 req1     = "Interrupter Gear"
@@ -494,7 +507,7 @@ helptext = _("Postwar engines were reliable enough that flight\
 [advance_marine_diesels]
 name     = _("Marine Diesels")
 req1     = "Twenties Engines"
-req2     = "None"
+req2     = "Steam Turbines"
 cost     = 160
 graphic     = "a.combustion" ; placeholder
 graphic_alt = "-"
@@ -543,6 +556,15 @@ graphic_alt = "-"
 helptext = _("The post-war barnstormers began to find economic\
  niches for small aircraft operated by small businesses.  1921.")
 
+[advance_aerial_application]
+name     = _("Aerial Application")
+req1     = "General Aviation"
+req2     = "None"
+cost     = 240
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Putting aircraft to work in agriculture.")
+
 [advance_autogyro]
 name     = _("Autogyro")
 req1     = "General Aviation"
@@ -556,7 +578,8 @@ _("Increases the vision range of submersibles when surfaced, by\
  means of towed gyrokites (Bachstelze).")
 
 [advance_twenties_carrier_aviation]
-name     = _("Twenties Carrier Aviation")
+name     = _("Catapult Launch")
+rule_name= "Twenties Carrier Aviation"
 req1     = "Aircraft Carrier"
 req2     = "General Aviation"
 cost     = 600
@@ -708,6 +731,20 @@ helptext = _("A new generation of bombers, many of them monoplanes,\
  nations began to fear mutually assured destruction by bomber fleets\
  would be the inevitable consequence of any European war.")
 
+[advance_r_d_f_]
+name     = _("R.D.F.")
+req1     = "Radio"
+req2     = "Thirties Bombers"
+cost     = 680
+graphic     = "a.flight" ; placeholder
+graphic_alt = "-"
+helptext = _("Radio Direction Finding, also known as radar (from RAdio\
+ Detection And Ranging), is the technique of reflecting radio waves\
+ off a distant object (such as an aeroplane) and observing it by the\
+ returned signal.  Its development swung the pendulum in favour of\
+ defence by allowing fighters to be 'scrambled' to face an air raid\
+ before it arrived.")
+
 [advance_thirties_carrier_aviation]
 name     = _("Thirties Carrier Aviation")
 req1     = "Twenties Carrier Aviation"
@@ -840,20 +877,6 @@ graphic_alt = "-"
 helptext = _("When monoplane fighters and torpedo-bombers finally became\
  rugged enough for shipboard use, naval air forces around the world leapt\
  at the chance for an upgrade.")
-
-[advance_r_d_f_]
-name     = _("R.D.F.")
-req1     = "Radio"
-req2     = "Bombers 1935"
-cost     = 720
-graphic     = "a.flight" ; placeholder
-graphic_alt = "-"
-helptext = _("Radio Direction Finding, also known as radar (from RAdio\
- Detection And Ranging), is the technique of reflecting radio waves\
- off a distant object (such as an aeroplane) and observing it by the\
- returned signal.  Its development swung the pendulum in favour of\
- defence by allowing fighters to be 'scrambled' to face an air raid\
- before it arrived.")
 
 [advance_electronics_1935]
 name     = _("Electronics 1935")

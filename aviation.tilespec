@@ -117,7 +117,6 @@ files =
   "amplio2/veterancy.spec",
   "misc/flags-large.spec",
   "misc/buildings-large.spec",
-  "misc/wonders-large.spec",
   "misc/space.spec",
   "misc/techs.spec",
   "misc/treaty.spec",
@@ -308,3 +307,8 @@ styles =
       "ts.horses",     "Single1"
       "ts.seals",      "Single1"
     }
+
+[option_highvis_pollution]
+name = "highvis_pollution"
+description = _("Highly-visible Pollution")
+default = FALSE

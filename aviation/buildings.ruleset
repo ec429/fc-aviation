@@ -67,8 +67,8 @@ name		= _("HQ")
 genus		= "SmallWonder"
 flags		= "SaveSmallWonder"
 ; No reqs
-graphic	= "b.palace"
-graphic_alt	= "-"
+graphic	= "b.city_hall"
+graphic_alt	= "b.palace"
 obsolete_by	=
     { "type", "name", "range"
     }
@@ -82,7 +82,8 @@ Makes a city the capital and the center of your government.\
  Corruption in other cities is related to how far away from the\
  capital they are, except when the government is Democracy. \
  On top of this, corruption in your capital itself is\
- half of what it would otherwise be (as if it had an FAA Branch).\
+ half of what it would otherwise be (as if it had an FAA Branch). \
+ Moreover, the capital gets two additional content citizens.\
 "), _("\
 Take good care of your capital, as its loss may result in your\
  empire plunging into civil war.\
@@ -201,7 +202,7 @@ graphic_alt	= "-"
 obsolete_by	=
     { "type", "name", "range"
     }
-build_cost	= 50
+build_cost	= 40
 upkeep		= 1
 sabotage	= 100
 sound		= "b_police_station"
@@ -217,6 +218,33 @@ By encouraging citizens to volunteer for military service through\
  manpower.  During times of war, propaganda is also effective at\
  exhorting civilians to greater production of materiel in support\
  of the war effort.\
+")
+
+[building_uas]
+name		= _("University Air Squadron")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Streamlining", "Player"
+      "Building", "Technical College", "City"
+    }
+graphic	= "b.academy"
+graphic_alt	= "b.police_station"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 1
+sabotage	= 100
+sound		= "b_police_station"
+sound_alt	= "b_generic"
+helptext	= _("\
+For Democracies, saves up to two shields of unit upkeep per turn. \
+ This improvement has no effect during a Revolution, or under\
+ other governments.\
+"), _("\
+The opportunity to learn to fly in gliders entices many students to\
+ consider joining the air cadets.\
 ")
 
 ; **Research**
@@ -660,7 +688,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 45
-upkeep		= 2
+upkeep		= 1
 sabotage	= 100
 sound		= "b_port_facility"
 sound_alt	= "b_generic"
@@ -728,7 +756,7 @@ name		= _("Crop Dusting")
 genus		= "Improvement"
 reqs =
     { "type", "name", "range"
-      "Tech", "General Aviation", "Player"
+      "Tech", "Aerial Application", "Player"
     }
 graphic	= "b.supermarket"
 graphic_alt	= "-"
@@ -770,6 +798,29 @@ Each forest tile being worked by the city produces one\
  additional Trade and Shield.\
 ")
 
+[building_coastguard]
+name		= _("Coast Guard")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Helicopters", "Player"
+    }
+graphic	= "b.harbour"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 55
+upkeep		= 1
+sabotage	= 100
+sound		= "b_harbour"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Each sea tile being worked by the city produces one\
+ additional Trade.\
+")
+
 [building_marshalling]
 name		= _("Marshalling Yard")
 genus		= "Improvement"
@@ -801,8 +852,8 @@ genus		= "Improvement"
 reqs =
     { "type", "name", "range"
     }
-graphic	= "b.power_plant"
-graphic_alt	= "-"
+graphic	= "b.workshop"
+graphic_alt	= "b.power_plant"
 obsolete_by	=
     { "type", "name", "range"
       "Building", "Engine Factory", "City"
@@ -864,6 +915,10 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the shield production in a city by 50%.  This increase may\
  also contribute significantly to pollution.\
+"), _("\
+With sufficient shield production, cities with an Engine Factory\
+ can produce up to two units each turn (but only single units of types\
+ which cost population).\
 ")
 
 [building_aircraft_factory]
@@ -889,6 +944,11 @@ helptext	= _("\
 Together with an Engine Factory, an Aircraft Factory increases the\
  shield production in a city by 100%. An Aircraft Factory on its\
  own increases shield production by 50%.\
+"), _("\
+With sufficient shield production, cities with an Aircraft Factory\
+ in addition to an Engine Factory\
+ can produce up to three units each turn (but only single units of\
+ types which cost population).\
 ")
 
 [building_electrification]
@@ -937,6 +997,29 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Ground units inside the city will only be reduced to 50% health\
  by artillery, instead of 20%.\
+")
+
+[building_upens]
+name		= _("Submarine Pens")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Big Guns", "Player"
+    }
+graphic	= "b.upens"
+graphic_alt	= "b.city_walls"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_city_walls"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+Completely protects submarine units inside the city from artillery\
+ and gives them a 50% defence bonus.\
 ")
 
 [building_barrage_balloons]
@@ -1072,7 +1155,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 200
-upkeep		= 3
+upkeep		= 0
 sabotage	= 0
 sound		= "w_eiffel_tower"
 sound_alt	= "w_generic"
@@ -1098,7 +1181,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 150
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_united_nations"
 sound_alt	= "w_generic"
@@ -1128,7 +1211,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 300
-upkeep		= 2
+upkeep		= 0
 sabotage	= 0
 sound		= "b_space_component"
 sound_alt	= "w_generic"
@@ -1155,7 +1238,7 @@ genus		= "GreatWonder"
 graphic	= "b.king_richards_crusade"
 graphic_alt	= "-"
 build_cost	= 200
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_king_richards_crusade"
 sound_alt	= "w_generic"
@@ -1180,7 +1263,7 @@ reqs	=
 graphic	= "b.lighthouse"
 graphic_alt	= "-"
 build_cost	= 200
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_lighthouse"
 sound_alt	= "w_generic"
@@ -1203,7 +1286,7 @@ reqs	=
 graphic	= "b.raf_college"
 graphic_alt	= "b.isaac_newtons_college"
 build_cost	= 200
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_isaac_newtons_college"
 sound_alt	= "w_generic"
@@ -1217,6 +1300,29 @@ The world's first 'air academy', the Royal Air Force college at\
  of the service'.\
 ")
 
+[building_dicta]
+name		= _("Dicta Boelcke")
+genus		= "GreatWonder"
+reqs	=
+    { "type", "name", "range"
+      "Tech", "Interrupter Gear", "Player"
+    }
+graphic	= "b.great_library"
+graphic_alt	= "b.isaac_newtons_college"
+build_cost	= 200
+upkeep		= 0
+sabotage	= 0
+sound		= "w_great_library"
+sound_alt	= "w_generic"
+helptext	= _("\
+Scout and fighter units produced by the player\
+ will have an additional Veteran level.\
+"), _("\
+Oswald Boelcke, one of the first 'flying aces' on the then-new\
+ Fokker Eindecker scouts, wrote the first tactical manual for\
+ fighter pilots, the Dicta Boelcke ('Boelcke's maxims'), in 1916.\
+")
+
 [building_yasukuni]
 name		= _("Yasukuni Shrine")
 genus		= "SmallWonder"
@@ -1227,7 +1333,7 @@ reqs	=
 graphic	= "b.mausoleum"
 graphic_alt	= "b.oracle"
 build_cost	= 120
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_oracle"
 sound_alt	= "w_generic"
@@ -1285,7 +1391,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 90
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_asmiths_trading_co"
 sound_alt	= "w_generic"
@@ -1316,7 +1422,7 @@ obsolete_by	=
       "Tech", "General Aviation", "Player", FALSE
     }
 build_cost	= 50
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_statue_of_liberty"
 sound_alt	= "w_generic"
@@ -1343,7 +1449,7 @@ obsolete_by	=
       "Tech", "Heavy Airlift", "Player", FALSE
     }
 build_cost	= 160
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_colossus"
 sound_alt	= "w_generic"
@@ -1375,7 +1481,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 200
-upkeep		= 2
+upkeep		= 0
 sabotage	= 0
 sound		= "w_asmiths_trading_co"
 sound_alt	= "w_generic"
@@ -1403,7 +1509,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 150
-upkeep		= 2
+upkeep		= 0
 sabotage	= 100
 sound		= "b_airport"
 sound_alt	= "b_generic"
@@ -1420,7 +1526,7 @@ Also, allows the city to have two additional trade routes. \
 
 ; Renamed after each LT-Avi game to glorify the winner
 [building_statue_of_the_generals]
-name		= _("Statue of Louis94")
+name		= _("Statue of tedfroehlich")
 rule_name       = "Statue of the Generals"
 genus		= "SmallWonder"
 reqs	=
@@ -1434,14 +1540,15 @@ obsolete_by	=
       "Tech", "Bombers 1917", "World", TRUE
     }
 build_cost	= 90
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_colossus"
 sound_alt	= "w_generic"
 helptext	= _("\
 Makes three unhappy citizens content in the city.\
 "), _("\
-This statue commemorating Louis94's victory in LTEx24Avi\
+This statue commemorating tedfroehlich and soundnfury's\
+ victory in LT73Avi\
  inspires the citizens to support the nation's efforts,\
  either as a reminder of past greatness or as a source\
  of determination to beat them *this* time around.\
@@ -1460,7 +1567,7 @@ obsolete_by	=
     { "type", "name", "range", "survives"
     }
 build_cost	= 200
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_hanging_gardens"
 sound_alt	= "w_generic"
@@ -1491,7 +1598,7 @@ obsolete_by	=
       "Tech", "Aerodynamics Research", "Player"
     }
 build_cost	= 80
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_copernicus_observatory"
 sound_alt	= "w_generic"
@@ -1521,7 +1628,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 300
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_copernicus_observatory"
 sound_alt	= "w_generic"
@@ -1549,7 +1656,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 250
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_leonardos_workshop"
 sound_alt	= "w_generic"
@@ -1605,7 +1712,7 @@ obsolete_by	=
     { "type", "name", "range", "survives"
     }
 build_cost	= 200
-upkeep		= 2
+upkeep		= 0
 sabotage	= 0
 sound		= "w_great_library"
 sound_alt	= "w_generic"
@@ -1632,7 +1739,7 @@ obsolete_by	=
     { "type", "name", "range", "survives"
     }
 build_cost	= 160
-upkeep		= 2
+upkeep		= 0
 sabotage	= 0
 sound		= "w_great_library"
 sound_alt	= "w_generic"
@@ -1716,7 +1823,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 200
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_marco_polos_embassy"
 sound_alt	= "w_generic"
@@ -1742,7 +1849,7 @@ obsolete_by	=
     { "type", "name", "range"
     }
 build_cost	= 120
-upkeep		= 1
+upkeep		= 0
 sabotage	= 0
 sound		= "w_lighthouse"
 sound_alt	= "w_generic"

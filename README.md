@@ -56,8 +56,8 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
   - Also, combat-capable air units have a limited number of Combat Rounds; for example, an attacking medium bomber will only get 12 combat rounds, while a Monoplane Fighter gets just 5 (though attacking doesn't end the fighter's turn, so if it has fuel to spare it can engage again).  The number of Combat Rounds in any engagement is determined by the attacking unit.
     + Scout: CR 3.  Scouts and fighters up to the 1920s.
     + Fighter: CR 5.  Scouts, fighters, and heavy fighters from the 1930s onwards (including the Naval Strike Fighter).
-    + Trench Fighter: CR 4.  Attack aircraft up to the early 1930s.
-    + Attacker: CR 6.  Attack aircraft from the late 1930s onwards (including naval attackers and the Jet Flying Boat).
+    + Trench Fighter: CR 4.  Ground-attack aircraft up to the early 1930s.
+    + Attacker: CR 6.  Ground-attack aircraft from the late 1930s onwards (including naval attackers and the Jet Flying Boat).
     + Light: CR 8.  Light bombers, dive bombers, airships, Armed Floatplane, Early Flying Boat and Patrol Boat.
     + Medium: CR 12.  Medium bombers, and flying boats from the 1920s to the Heavy Flying Boat.
     + Heavy: CR 10.  Heavy bombers (the names usually omit "Heavy", it's implicit).  Generally one step higher FirePower than other bombers, allowing them to do more damage than a (CR 12) medium.
@@ -107,6 +107,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
   - 15% for fortified units;
   - 20% for units in a city;
   - 30% for ground units in a Fortress;
+  - 40% for scout (CR 3) or fighter (CR 5) units in a city;
   - 50% for units in a city with the Concrete Bunker improvement.
 * If you've already bombarded a target down to its limit, and you've got artillery that still hasn't fired, _and the target isn't in a city_, you can use a reconnaissance plane or light bomber (Two-Seat Pioneer through to Thirties Light Bomber) to "spot" the target.  Artillery units can Attack (rather than Bombard) "spotted" targets, allowing the unit to be killed.
   - However, Attack only targets a single unit, rather than all the units on a tile; moreover, your Artillery can take damage in return.
@@ -133,6 +134,8 @@ Four-engined heavy bombers require Concrete Runways to repair.  From the 1940s, 
 ### Dive Bombers
 
 These also attack ground units (and the Dive Bomber can attack ships), but are powerful for their size — dealing damage comparable to medium bombers.  However, they're short-ranged and _very_ vulnerable — even a Biplane Scout has a decent chance to shoot down a Dive Bomber.  If you have air superiority, though, dive-bombing can throw the enemy's ground forces into total disarray.
+
+Dive-bombers get a 67% attack bonus against units in fortresses.
 
 Like light bombers, dive-bombers do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
@@ -212,6 +215,10 @@ Heavy surface warships (the Line-of-Battle Ship and the Dreadnought) can carry a
 
 However, beware that the defence of these ships is lowered by 15% while the aircraft is embarked.  This is because, unlike dedicated carriers, they do not have proper provision for safely storing the highly-flammable aviation fuel.
 
+### Tankers
+
+In-flight refuelling tanker aircraft can carry other air units, extending their range or endurance.  They're defenceless and tend to be slower than contemporary types.
+
 ### Jets
 
 Towards the end of the tech tree, many aircraft have the 'Jet' flag, which means they can only be built by (or homed to) a city with the 'Air Base' improvement.  This represents the complex ground-support infrastructure needed to operate such technologically advanced aircraft.  Consequently, on entering the jet age you may need to divert a considerable amount of production into building these Air Bases, so that you can get the benefit of your newly-developed aircraft.
@@ -231,7 +238,7 @@ A few heavy bombers can be converted into Modified or Nuclear versions.  These c
 
 To deploy a free-fall bomb, fly the carrier aircraft adjacent to the target, then select the bomb unit and use the "Do" menu to act against the target tile (usually a city) and select "Precision Strike", "Suicide Attack" or "Nuke City".  (Nuclear bombs can also "Do" against their own tile to "Explode Nuclear in Place".)
 
-The Penetrator Bomb can be deployed against units, but does less damage than an unconverted Heavy Bomber; its real use is the Precision Strike, which destroys a selected building in the target city.  (It's implemented with the Sabotage action, rather than Surgical Strike, because the latter doesn't consume the unit; this could probably be fixed with judicious application of Lua.)  It's also extra-effective against battleships and dreadnoughts.
+The Penetrator Bomb can be deployed against units, but does less damage than an unconverted Heavy Bomber; its real use is the Precision Strike, which destroys a selected building in the target city.  (It's implemented with the Sabotage action, rather than Surgical Strike, because the latter doesn't consume the unit; this could probably be fixed with judicious application of Lua.)  It's also extra-effective against battleships and dreadnoughts, and units in fortresses.
 
 The Atomic Bomb, Thermonuclear Bomb and Stand-Off Bomb produce extremely devastating nuclear explosions that kill all units within 1 tile of ground zero.  (They can only be built if the Manhattan Project great wonder has been completed.)  Atomic Bomb is a unique unit, and can only be detonated while carried in an aircraft (targeting either its own tile, or an adjacent city), thus destroying the carrier plane.  Thermonuclear Bomb also destroys its carrier, but is no longer unique — you can build a nuclear stockpile.  Stand-Off Bomb has a range of 4 tiles, enabling survival of the launch plane, but can only be carried by certain aircraft (the nuclear conversions of the Jet Bomber and Supersonic Bomber).
 
@@ -250,3 +257,5 @@ So what about using this trick to land assault troops on an enemy island?  You c
 Because of how bombers work (OneAttack), they are highly susceptible to double-move shenanigans across TC (in and out before fighters can get the shot at them they're supposed to).  Use of unitwaittime in game settings is recommended in timed-turn games.  (This is not applicable to attackers, which under normal circumstances _never_ come under fighter attack while outside their bases.)
 
 The Penetrator Bomb can be used to make conventional bombing attacks without ending the bomber's turn, potentially allowing it to run away out of reach of fighters.  But since it costs 40 shields to build, it's not _that_ different from missiles like the V2 Artillery Rocket.  Bombers carrying the nuclear Stand-Off Bomb are even more likely to get away (that's kind of the point), but that costs 120 shields (though for a nuke that's still good value).
+
+A tanker can pick up a bomber after bombing and tow it home, out of reach of fighters.

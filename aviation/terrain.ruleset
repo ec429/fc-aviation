@@ -576,7 +576,7 @@ graphic_alt          = "-"
 identifier           = "h"
 class                = "Land"
 movement_cost        = 2
-defense_bonus        = 100
+defense_bonus        = 70
 food                 = 1
 shield               = 0
 trade                = 0
@@ -766,7 +766,7 @@ graphic_alt          = "-"
 identifier           = "s"
 class                = "Land"
 movement_cost        = 2
-defense_bonus        = 50
+defense_bonus        = 30
 food                 = 1
 shield               = 0
 trade                = 0
@@ -1510,6 +1510,28 @@ plane.  Until the end of the turn, units on the tile will suffer a defence \
 penalty against surface warships.\
 ")
 
+[extra_burn]
+name           = _("Fire")
+category       = "Bonus"
+causes         = "Base"
+;rmcauses       = ""
+graphic        = "extra.burn"
+graphic_alt    = "extra.ruins"
+activity_gfx   = "None"
+act_gfx_alt    = "-"
+act_gfx_alt2   = "-"
+rmact_gfx      = "None"
+rmact_gfx_alt  = "-"
+reqs           =
+    { "type", "name", "range", "present", "quiet"
+      "CityTile", "Center", "Local", TRUE, TRUE
+    }
+buildable      = FALSE
+removal_time   = 0
+helptext       = _("\
+City is burning and will lose production this turn.\
+")
+
 [extra_road]
 name           = _("Road")
 category       = "Infra"
@@ -1583,13 +1605,13 @@ act_gfx_alt2   = "-"
 rmact_gfx      = "None"
 rmact_gfx_alt  = "-"
 buildable      = FALSE
-defense_bonus  = 50
+defense_bonus  = 20
 native_to      = "Land", "Assault", "Heavy Assault"
 ; /* xgettext:no-c-format */
 helptext       = _("\
 Any land terrain type may have a River on it.  A River adds 1\
  trade to the resources produced by that tile.  It also increases a tile's\
- defense factor by 50%.\
+ defense factor by 20%.\
 ")
 
 [extra_gold]
@@ -1902,6 +1924,10 @@ gui_type       = "Other"
 
 [base_spotw]
 extra          = "Spotted (Sea)"
+gui_type       = "Other"
+
+[base_fire]
+extra          = "Fire"
 gui_type       = "Other"
 
 ; /* <-- avoid gettext warnings
