@@ -24,7 +24,7 @@ The main thing that's missing is tiles (and other art).  Making art takes a long
     + Assault units can load and unload from transport aircraft at cities and airbases, or from helicopters anywhere.
     + Paratroops can unload from transport aircraft while in flight.
     + Some heavy bombers and flying-boats also have a small transport capacity.
-  - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.
+  - Marines, as an Assault-class unit with no tech requirement, allow invasions by landing-craft before the development of airlanding or paratroop units.  However, they're much weaker in combat, so are really only useful to prevent players from leaving their cities _completely_ undefended.  Moreover, they can't attack directly from their boat (because allowing that would also allow them to attack from inside a transport plane), so they have to land at an undefended beach and then attack.  (They can, however, unload directly into an undefended city to conquer it.)
   - Units of the Heavy Assault class (currently containing only the Light Tank) are too large to fit in some of the smaller transport aircraft, but can still be carried by strategic transports, heavy gliders and twin-rotor helicopters.  They can also use Landing Craft.
   - The Troop Ship can be used to transport Land units across the ocean, but (unlike landing-craft) it can only unload in a city.  So it's useful for logistics within your empire, but not invasions or expansion into new continents or islands.
 * Ground units cannot cross Mountain tiles.
@@ -117,7 +117,7 @@ Mostly because the game starts in 1900, so quite a few things that would be reas
     + the turn ends.
   - Until the development of Radio, spotting ends the aircraft's turn, which is particularly hazardous for the early defenceless recon planes.
 * Targets at sea can also be "spotted" for naval gunfire, which gives battleships and dreadnoughts a 25% attack bonus against them.
-  - Floatplane scouts and reconnaissance floatplanes are particularly useful for this, as they can be transported by the battleship.
+  - Floatplanes and blimps are particularly useful for this, as they can be transported by the battleship.
 
 ## Aircraft category usage
 
@@ -153,7 +153,7 @@ After TBs become obsolete, the Naval Attack Jet can take on the same role (it ca
 
 ### Flying Boats
 
-The Early Flying Boat operates like a slightly longer-ranged light bomber, but the Patrol Boat and the Twenties, Thirties and Heavy Flying Boat can all attack ships.  Combined with their long endurance, this makes them great sub-hunters (especially Heavy Flying Boat, which gets doubled Attack against subs).  And (like all seaplanes) they can use Buoys and Seaplane Tenders as refuelling bases.
+These (apart from the Jet Flying Boat) can all attack ships.  Combined with their long endurance, this makes them great sub-hunters (especially Heavy Flying Boat, which gets doubled Attack against subs).  And (like all seaplanes) they can use Buoys and Seaplane Tenders as refuelling bases.  Apart from the earliest model, they can also bomb land targets, although not very powerfully.
 
 They do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
