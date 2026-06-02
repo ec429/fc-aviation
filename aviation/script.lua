@@ -172,6 +172,7 @@ function notify_unit_city(action, actor, target)
 end
 
 flak_building = find.building_type("Flak Battery")
+sam_building = find.building_type("SAM Battery")
 prox_tech = find.tech_type("Proximity Fuse")
 
 -- Handle city targeted unit action start
@@ -179,7 +180,12 @@ function action_started_unit_city_callback(action, actor, target)
   if action:rule_name() == "User Action 3" then
     -- Firebomb City
     -- first, flak may fire
-    if target:has_building(flak_building) then
+    if target:has_building(sam_building) then
+      local shots = 20
+      local damage = random(1, shots)
+      notify_flak_damage(actor, target, sam_building, damage)
+      actor:damage_hp(damage, "killed", target.owner)
+    elseif target:has_building(flak_building) then
       local shots = 4
       if target.owner:knows_tech(prox_tech) then
         shots = 10

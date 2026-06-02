@@ -1090,8 +1090,8 @@ sound		= "b_sam_battery"
 sound_alt	= "b_generic"
 helptext	= _("\
 Doubles the defense of all units inside the city when attacked by\
- aircraft.  Overrides the effects of Flak Battery and Barrage\
- Balloons.\
+ aircraft, and shoots at enemy firebombers for up to 20 damage. \
+ Overrides the effects of Flak Battery and Barrage Balloons.\
 ")
 
 [building_sector_control]
