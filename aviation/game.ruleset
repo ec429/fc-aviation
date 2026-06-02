@@ -473,6 +473,8 @@ actor_reqs    =
       "UnitFlag",      "Settlers",     "Local", TRUE
     }
 
+; Note that you can bombard a tile even if the only units on it are
+; unreachable to you (e.g. planes flying overhead), which will waste your mp
 [actionenabler_bombard]
 action = "Bombard"
 actor_reqs    =
@@ -488,12 +490,6 @@ target_reqs   =
       "TerrainClass",  "Land", "Local"
     }
 
-; Battleships' targets only includes Sea units, meaning that
-; if they try to bombard a stack of ground troops outside of
-; a city or native base they'll not actually be able to hit
-; any of them.
-; To save the user confusion, only allow bombarding cities
-; and fortresses.
 [actionenabler_bombard2]
 action = "Bombard 2"
 actor_reqs    =
@@ -507,165 +503,8 @@ actor_reqs    =
 target_reqs   =
     { "type",         "name",   "range"
       "TerrainClass", "Land",   "Local"
-      "CityTile",     "Center", "Local"
     }
 
-[actionenabler_bombard2_fortress]
-action = "Bombard 2"
-actor_reqs    =
-    { "type",         "name",        "range", "present"
-      "UnitFlag",     "Bombarder 2", "Local", TRUE
-      "UnitFlag",     "Missile",     "Local", FALSE
-      "UnitState",    "Transported", "Local", FALSE
-      "MinMoveFrags", "1",           "Local", TRUE
-      "DiplRel",      "War",         "Local", TRUE
-    }
-target_reqs   =
-    { "type",         "name",     "range"
-      "TerrainClass", "Land",     "Local"
-      "Extra",        "Fortress", "Tile"
-    }
-
-; Attack actionenablers: these are intended to prevent the "destroy air units
-; on the ground" 'feature' of cities/bases, but we can't use them in 3.0
-; because of overzealous stackprotect; for details see
-; http://www.hostedredmine.com/issues/873418
-;[actionenabler_attack_ground]
-;action = "Attack"
-;actor_reqs    =
-;    { "type",         "name",         "range", "present"
-;      "UnitFlag",     "NonMil",       "Local", FALSE
-;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitFlag",     "Missile",      "Local", FALSE
-;      "MinMoveFrags", "1",            "Local", TRUE
-;      "DiplRel",      "War",          "Local", TRUE
-;      "UnitState",    "Transported",  "Local", FALSE
-;      "UnitFlag",     "AntiGround",   "Local", TRUE
-;    }
-;target_reqs   =
-;    { "type",          "name",   "range"
-;      "UnitClassFlag", "Ground", "Local"
-;    }
-;
-;[actionenabler_attack_in_harbour]
-;; allow AntiGround units to attack ships in port
-;action = "Attack"
-;actor_reqs    =
-;    { "type",         "name",         "range", "present"
-;      "UnitFlag",     "NonMil",       "Local", FALSE
-;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitFlag",     "Missile",      "Local", FALSE
-;      "MinMoveFrags", "1",            "Local", TRUE
-;      "DiplRel",      "War",          "Local", TRUE
-;      "UnitState",    "Transported",  "Local", FALSE
-;      "UnitFlag",     "AntiGround",   "Local", TRUE
-;    }
-;target_reqs   =
-;    { "type",          "name",   "range"
-;      "CityTile",      "Center", "Local"
-;      "UnitClass",     "Sea",    "Local"
-;    }
-;[actionenabler_attack_in_harbour_2]
-;; allow AntiGround units to attack ships in port
-;action = "Attack"
-;actor_reqs    =
-;    { "type",         "name",         "range", "present"
-;      "UnitFlag",     "NonMil",       "Local", FALSE
-;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitFlag",     "Missile",      "Local", FALSE
-;      "MinMoveFrags", "1",            "Local", TRUE
-;      "DiplRel",      "War",          "Local", TRUE
-;      "UnitState",    "Transported",  "Local", FALSE
-;      "UnitFlag",     "AntiGround",   "Local", TRUE
-;    }
-;target_reqs   =
-;    { "type",          "name",   "range"
-;      "CityTile",      "Center", "Local"
-;      "UnitClass",     "Ship",    "Local"
-;    }
-;
-;[actionenabler_attack_sea]
-;action = "Attack"
-;actor_reqs    =
-;    { "type",         "name",         "range", "present"
-;      "UnitFlag",     "NonMil",       "Local", FALSE
-;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Missile",      "Local", FALSE
-;      "MinMoveFrags", "1",            "Local", TRUE
-;      "DiplRel",      "War",          "Local", TRUE
-;      "UnitState",    "Transported",  "Local", FALSE
-;      "UnitFlag",     "AntiSea",      "Local", TRUE
-;    }
-;target_reqs   =
-;    { "type",          "name",   "range"
-;      "UnitClass",     "Sea",    "Local"
-;    }
-;
-;[actionenabler_attack_sea_2]
-;action = "Attack"
-;actor_reqs    =
-;    { "type",         "name",         "range", "present"
-;      "UnitFlag",     "NonMil",       "Local", FALSE
-;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Missile",      "Local", FALSE
-;      "MinMoveFrags", "1",            "Local", TRUE
-;      "DiplRel",      "War",          "Local", TRUE
-;      "UnitState",    "Transported",  "Local", FALSE
-;      "UnitFlag",     "AntiSea",      "Local", TRUE
-;    }
-;target_reqs   =
-;    { "type",          "name",   "range"
-;      "UnitClass",     "Ship",    "Local"
-;    }
-;
-;; AntiSea units other than torpers can face scrambling fighters
-;; when they attack a carrier transporting them
-;[actionenabler_attack_carrier_scramble]
-;action = "Attack"
-;actor_reqs    =
-;    { "type",          "name",         "range", "present"
-;      "UnitFlag",      "NonMil",       "Local", FALSE
-;      "UnitFlag",      "Bombarder",    "Local", FALSE
-;      "UnitFlag",      "Bombarder 2",  "Local", FALSE
-;      "UnitFlag",      "Missile",      "Local", FALSE
-;      "UnitClassFlag", "Flying",       "Local", TRUE
-;      "MinMoveFrags",  "1",            "Local", TRUE
-;      "UnitState",     "OnNativeTile", "Local", TRUE
-;      "UnitState",     "Transported",  "Local", FALSE
-;      "DiplRel",       "War",          "Local", TRUE
-;      "UnitFlag",      "AntiSea",      "Local", TRUE
-;      "UnitFlag",      "CRtb",         "Local", FALSE
-;    }
-;target_reqs   =
-;    { "type",          "name",         "range", "present"
-;      "CityTile",      "Center",       "Local", FALSE
-;      "UnitState",     "Transported",  "Local", TRUE
-;      "UnitClassFlag", "Flying",       "Local", TRUE
-;      "UnitFlag",      "AntiAir",      "Local", TRUE
-;    }
-;
-;[actionenabler_attack_air]
-;action = "Attack"
-;actor_reqs    =
-;    { "type",         "name",         "range", "present"
-;      "UnitFlag",     "NonMil",       "Local", FALSE
-;      "UnitFlag",     "Bombarder",    "Local", FALSE
-;      "UnitFlag",     "Bombarder 2",  "Local", FALSE
-;      "UnitFlag",     "Missile",      "Local", FALSE
-;      "MinMoveFrags", "1",            "Local", TRUE
-;      "DiplRel",      "War",          "Local", TRUE
-;      "UnitState",    "Transported",  "Local", FALSE
-;      "UnitFlag",     "AntiAir",      "Local", TRUE
-;    }
-;target_reqs   =
-;    { "type",          "name",   "range"
-;      "UnitClassFlag", "Flying", "Local"
-;    }
-;
-;; Default attack actionenabler instead
 [actionenabler_attack_native]
 action = "Attack"
 actor_reqs    =
@@ -674,7 +513,7 @@ actor_reqs    =
       "UnitFlag",      "Bombarder",    "Local", FALSE
       "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
-      "UnitState",     "OnNativeTile", "Local", TRUE
+;     "UnitState",     "OnNativeTile", "Local", TRUE ; this would prevent dreads in cities shooting
       "UnitState",     "Transported",  "Local", FALSE
       "DiplRel",       "War",          "Local", TRUE
 ; TBs can only attack ships at sea
@@ -695,20 +534,25 @@ actor_reqs    =
       "UnitFlag",      "Bombarder 2",  "Local", FALSE
       "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
-      "UnitState",     "OnNativeTile", "Local", TRUE
+      "UnitState",     "OnNativeTile", "Local", TRUE ; probably only relevant if citymindist=0?
       "UnitState",     "Transported",  "Local", FALSE
       "DiplRel",       "War",          "Local", TRUE
       "UnitFlag",      "AntiGround",   "Local", TRUE
+; TBs can only attack ships at sea, not in port
+      "UnitFlag",      "CRtb",         "Local", FALSE
     }
 target_reqs   =
     { "type",          "name",   "range", "present"
-; Can't attack into cities without AntiGround (no fighter strafing)
+; AntiGround allows attacking into cities
       "CityTile",      "Center", "Local", TRUE
     }
 
 ; TB's target tile must be Oceanic.
 ; We don't require target units to be Sea, because I'm not sure
 ; what effect transported units might have on that.
+; We can't allow TBs/subs to attack ships in port, because all the units
+; in the city would be Reachable to them, including ground & flying units,
+; neither of which are realistic things to kill with a torpedo.
 [actionenabler_attack_torp]
 action = "Attack"
 actor_reqs    =
@@ -745,7 +589,7 @@ actor_reqs    =
     }
 target_reqs   =
     { "type",          "name",    "range", "present"
-; Can't attack into cities without AntiGround (no fighter strafing)
+; Can't attack into cities
       "CityTile",      "Center",  "Local", FALSE
       "Extra",         "Spotted", "Tile", TRUE
     }
