@@ -157,6 +157,8 @@ These (apart from the Jet Flying Boat) can all attack ships.  Combined with thei
 
 They do not suffer the usual 75% defence penalty for aircraft on the ground attacked by ground troops.
 
+The Empire Boat is a flying-boat Airliner — slower and more expensive than landplanes but with the potential to create long-distance trade routes.
+
 #### Maritime Patrol
 
 In the WWII era, heavy flying-boats are replaced in the long-range ASW rôle by large landplanes developed from heavy bombers.  Their range is longer and their attacks more powerful, but they require the same Concrete Runways as the big bombers, and their defence is slightly weaker.
