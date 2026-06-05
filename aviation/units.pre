@@ -3969,7 +3969,7 @@ Historical examples include the Albatros W.4 and Loening M-8.\
 name          = _("Large Reconnaissance Floatplane")
 class         = "Seaplane"
 tech_req      = "Seaplanes 1917"
-obsolete_by   = "None"
+obsolete_by   = "Thirties Reconnaissance Floatplane"
 graphic       = "u.short320r"
 graphic_alt   = "u.fighter"
 ;phcode=HN
@@ -4149,6 +4149,42 @@ helptext      = _("\
 Attaching floats to a Thirties Scout produces a fighter capable\
  of operating from buoys to defend scattered islands.  \
 Historical examples include the Heinkel He 51W.\
+")
+
+[unit_float30]
+name          = _("Thirties Reconnaissance Floatplane")
+class         = "Seaplane"
+tech_req      = "Thirties Seaplanes"
+obsolete_by   = "None"
+graphic       = "u.ar196"
+graphic_alt   = "u.fighter"
+;phcode=HU
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 14
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea", "Spotter"
+roles         = ""
+helptext      = _("\
+Lightweight catapult-launchable monoplane on floats, suitable for \
+naval reconnaissance, spotting, and light bombing duties.  \
+Historical examples include the Arado Ar 196.\
 ")
 
 [unit_floatbomb]
