@@ -1592,6 +1592,16 @@ reqs	=
       "OutputType", "Shield", "Local"
     }
 
+[effect_aircraft_factory_with_engine]
+type    = "Output_Bonus"
+value	= 25
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aircraft Factory", "City"
+      "Building", "Engine Factory", "City"
+      "OutputType", "Shield", "Local"
+    }
+
 [effect_electrification]
 type    = "Pollu_Prod_Pct"
 value	= -50

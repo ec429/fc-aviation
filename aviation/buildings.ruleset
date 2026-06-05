@@ -942,7 +942,7 @@ sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Together with an Engine Factory, an Aircraft Factory increases the\
- shield production in a city by 100%. An Aircraft Factory on its\
+ shield production in a city by 75%. An Aircraft Factory on its\
  own increases shield production by 50%.\
 "), _("\
 With sufficient shield production, cities with an Aircraft Factory\
