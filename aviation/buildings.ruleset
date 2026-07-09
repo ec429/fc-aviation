@@ -942,7 +942,7 @@ sound_alt	= "b_generic"
 ; /* xgettext:no-c-format */
 helptext	= _("\
 Together with an Engine Factory, an Aircraft Factory increases the\
- shield production in a city by 100%. An Aircraft Factory on its\
+ shield production in a city by 75%. An Aircraft Factory on its\
  own increases shield production by 50%.\
 "), _("\
 With sufficient shield production, cities with an Aircraft Factory\
@@ -1066,6 +1066,9 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Increases the defense of all units inside the city by 20% (after\
  Proximity Fuse, 50%) when attacked by aircraft.\
+"), _("\
+Also, shoots at enemy firebombers for up to 4 damage (after\
+ Proximity Fuse, up to 10 damage) before they drop their incendiaries.\
 ")
 
 [building_sam_battery]
@@ -1087,8 +1090,8 @@ sound		= "b_sam_battery"
 sound_alt	= "b_generic"
 helptext	= _("\
 Doubles the defense of all units inside the city when attacked by\
- aircraft.  Overrides the effects of Flak Battery and Barrage\
- Balloons.\
+ aircraft, and shoots at enemy firebombers for up to 20 damage. \
+ Overrides the effects of Flak Battery and Barrage Balloons.\
 ")
 
 [building_sector_control]

@@ -8,7 +8,7 @@
 
 [datafile]
 description="Aviation effects data for Freeciv"
-options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min +Bombard_Limit_Pct +Vision_Layer"
+options="+Freeciv-ruleset-Devel-2017.Jan.02 +HP_Regen_Min +Bombard_Limit_Pct +Vision_Layer +Unit_Reachable"
 format_version=20
 
 ; /* <-- avoid gettext warnings
@@ -108,6 +108,86 @@ reqs    =
       "Extra", "Fortress", "tile"
       "UnitClass", "Heavy Assault", "Local"
       "VisionLayer", "Main", "Local"
+    }
+
+; Air units are reachable when landed at an Airfield
+[effect_airbase_reachable]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Air", "Local"
+      "Extra", "Airbase", "Tile"
+    }
+[effect_airbase_reachable_2]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Carrier-borne", "Local"
+      "Extra", "Airbase", "Tile"
+    }
+[effect_airbase_reachable_3]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Naval Fighter", "Local"
+      "Extra", "Airbase", "Tile"
+    }
+[effect_airbase_reachable_4]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Missile", "Local"
+      "Extra", "Airbase", "Tile"
+    }
+[effect_airbase_reachable_5]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Helicopter", "Local"
+      "Extra", "Airbase", "Tile"
+    }
+
+; Seaplane units are reachable when landed at a Buoy
+[effect_buoy_reachable]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Seaplane", "Local"
+      "Extra", "Buoy", "Tile"
+    }
+[effect_buoy_reachable_2]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClass", "Seaplane Fighter", "Local"
+      "Extra", "Buoy", "Tile"
+    }
+
+; Ground units are reachable to bombardment by battleships/dreads,
+; which cannot reach them for regular attacks
+[effect_bombard_reachable]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "UnitClassFlag", "Ground", "Local"
+      "Action", "Bombard 2", "Local"
+    }
+
+; Cities are always reachable (we use actionenablers to restrict to AntiGround)
+[effect_city_reachable]
+type    = "Unit_Reachable"
+value   = 1
+reqs    =
+    { "type", "name", "range"
+      "CityTile", "Center", "Local"
     }
 
 [effect_fortified]
@@ -1589,6 +1669,16 @@ value	= 50
 reqs	=
     { "type", "name", "range"
       "Building", "Aircraft Factory", "City"
+      "OutputType", "Shield", "Local"
+    }
+
+[effect_aircraft_factory_with_engine]
+type    = "Output_Bonus"
+value	= 25
+reqs	=
+    { "type", "name", "range"
+      "Building", "Aircraft Factory", "City"
+      "Building", "Engine Factory", "City"
       "OutputType", "Shield", "Local"
     }
 

@@ -39,7 +39,7 @@ class Unit(object):
             self['veteran_names'] = '_("green"), _("veteran"), _("ace"), _("elite")'
             self['veteran_base_raise_chance'] = '30, 15, 10, 0'
             self['veteran_work_raise_chance'] = '0, 0, 0, 0'
-            self['veteran_power_fact'] = '100, 150, 160, 200'
+            self['veteran_power_fact'] = '100, 150, 190, 240'
             self['veteran_move_bonus'] = '0, 0, 0, 0'
         targets = set(str.split(self.get('targets', ''), ','))
         if '"AntiGround"' in self.flags:

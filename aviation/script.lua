@@ -134,11 +134,70 @@ function action_started_unit_unit_callback(action, actor, target)
   end
 end
 
+-- actor is bomber, target is city
+function notify_flak_damage(actor, target, impr, damage)
+  -- Notify actor
+  notify.event(actor.owner, target.tile,
+               E.UNIT_ACTION_TARGET_HOSTILE,
+               -- /* TRANS: Your Biplane Bomber loses 5hp (10 remaining) to American Flak Battery. */
+               _("Your %s loses %d HP (%d remaining) to %s %s."),
+               actor.utype:name_translation(),
+               damage,
+               actor.hp - damage,
+               target.owner.nation:name_translation(),
+               impr:name_translation())
+
+  -- Notify target
+  notify.event(target.owner, actor.tile,
+               E.UNIT_ACTION_TARGET_HOSTILE,
+               -- /* TRANS: German Paratroopers loses 5hp (10 remaining) to your Flak Battery. */
+               _("%s %s loses %d HP (%d remaining) to your %s."),
+               actor.owner.nation:name_translation(),
+               actor.utype:name_translation(),
+               damage,
+               actor.hp - damage,
+               impr:name_translation())
+end
+
+function notify_unit_city(action, actor, target)
+  -- Notify target
+  notify.event(target.owner, actor.tile,
+               E.UNIT_ACTION_TARGET_HOSTILE,
+               -- /* TRANS: German Paratroopers does Disrupt Supply Lines to Baltimore. */
+               _("%s %s does %s to %s."),
+               actor.owner.nation:name_translation(),
+               actor.utype:name_translation(),
+               action:name_translation(),
+               target.name)
+end
+
+flak_building = find.building_type("Flak Battery")
+sam_building = find.building_type("SAM Battery")
+prox_tech = find.tech_type("Proximity Fuse")
+
 -- Handle city targeted unit action start
 function action_started_unit_city_callback(action, actor, target)
   if action:rule_name() == "User Action 3" then
     -- Firebomb City
-    target.tile:create_extra("Fire", NIL)
+    -- first, flak may fire
+    if target:has_building(sam_building) then
+      local shots = 20
+      local damage = random(1, shots)
+      notify_flak_damage(actor, target, sam_building, damage)
+      actor:damage_hp(damage, "killed", target.owner)
+    elseif target:has_building(flak_building) then
+      local shots = 4
+      if target.owner:knows_tech(prox_tech) then
+        shots = 10
+      end
+      local damage = random(1, shots)
+      notify_flak_damage(actor, target, flak_building, damage)
+      actor:damage_hp(damage, "killed", target.owner)
+    end
+    if actor:exists() then
+      target.tile:create_extra("Fire", NIL)
+      notify_unit_city(action, actor, target)
+    end
   end
 end
 

@@ -92,23 +92,23 @@ class_flags =
 
 [veteran_system]
 ; What are the names of the levels?
-veteran_names = _("green"), _("veteran"), _("ace"), _("elite")
+veteran_names = _("green"), _("veteran"), _("ace"), _("elite"), _("superior")
 
 ; The percentage chance of increasing level through combat
-veteran_base_raise_chance = 30, 15, 6, 0
+veteran_base_raise_chance = 30, 15, 6, 4, 0
 
 ; The percentage chance of a settler/engineer increasing level through
 ; performing useful work (per turn)
-veteran_work_raise_chance = 0, 0, 0, 0
+veteran_work_raise_chance = 0, 0, 0, 0, 0
 
 ; Power factors are as a percentage.
 ; +50% is represented by 150
-veteran_power_fact = 100, 150, 160, 200
+veteran_power_fact = 100, 150, 160, 200, 240
 
 ; The additional number of movement points granted for different veteran
 ; levels. These are fractional move points as defined by move_fragments in
 ; terrain.ruleset.
-veteran_move_bonus = 0, 0, 2, 2
+veteran_move_bonus = 0, 0, 2, 2, 2
 
 ; /* <-- avoid gettext warnings
 ;
@@ -3969,7 +3969,7 @@ Historical examples include the Albatros W.4 and Loening M-8.\
 name          = _("Large Reconnaissance Floatplane")
 class         = "Seaplane"
 tech_req      = "Seaplanes 1917"
-obsolete_by   = "None"
+obsolete_by   = "Thirties Reconnaissance Floatplane"
 graphic       = "u.short320r"
 graphic_alt   = "u.fighter"
 ;phcode=HN
@@ -4149,6 +4149,42 @@ helptext      = _("\
 Attaching floats to a Thirties Scout produces a fighter capable\
  of operating from buoys to defend scattered islands.  \
 Historical examples include the Heinkel He 51W.\
+")
+
+[unit_float30]
+name          = _("Thirties Reconnaissance Floatplane")
+class         = "Seaplane"
+tech_req      = "Thirties Seaplanes"
+obsolete_by   = "None"
+graphic       = "u.ar196"
+graphic_alt   = "u.fighter"
+;phcode=HU
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 32
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 14
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "Recon", "OneAttack", "CRlight", "AntiGround", "AntiSea", "Spotter"
+roles         = ""
+helptext      = _("\
+Lightweight catapult-launchable monoplane on floats, suitable for \
+naval reconnaissance, spotting, and light bombing duties.  \
+Historical examples include the Arado Ar 196.\
 ")
 
 [unit_floatbomb]
@@ -5925,6 +5961,53 @@ An Airliner carries goods or material for trading with distant cities\
 "), _("\
 Metal-skinned monoplane airliners like the Douglas DC-3 can fly slightly\
  longer stages than the old, slow biplanes.\
+"), _("\
+Airliners can establish trade routes with your own cities or those of other\
+ nations (even enemies) by traveling to them.  A route's ongoing revenue\
+ is doubled if the two cities involved are on different continents, and\
+ doubled again if the cities are from different civilizations.  This last\
+ condition means the net benefit to your civilization of a trade route\
+ is the same regardless of whether you own both cities or only one of\
+ them; if you only own one city, trade in each city is doubled, but you\
+ only get the benefit from one end of the route.\
+"), _("\
+Unlike Caravans and Freight in the classic ruleset, Airliners cannot be\
+ used to build Wonders.")
+
+[unit_empire]
+name          = _("Empire Boat")
+class         = "Seaplane"
+tech_req      = "Heavy Flying Boat"
+obsolete_by   = "None"
+graphic       = "u.empire"
+graphic_alt   = "u.caravan"
+;phcode=LP
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_generic"
+sound_fight_alt = "-"
+build_cost    = 80
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 12
+firepower     = 0
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 3
+uk_happy      = 0
+uk_base       = 1
+uk_food       = 0
+flags         = "TradeRoute", "IgZOC", "NonMil", "HasNoZOC"
+helptext      = _("\
+An Airliner carries goods or material for trading with distant cities\
+ and foreign countries.\
+"), _("\
+Long-range flying-boat airliners like the Short C-class 'Empire' can\
+ fly very long stages, if slightly slower than landplanes.\
 "), _("\
 Airliners can establish trade routes with your own cities or those of other\
  nations (even enemies) by traveling to them.  A route's ongoing revenue\
