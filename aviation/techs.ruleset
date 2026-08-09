@@ -288,7 +288,8 @@ helptext = _("Dropping incendiary devices from the air enabled\
  economic warfare against the civilians producing war materiel.\
   1915."),
 _("Allows certain bombers to Firebomb a city, reducing its\
- production by half for one turn.")
+ production by half for one turn.  Beware: city defences, including\
+ flak and fighters, may react and damage or destroy the bomber.")
 
 [advance_effective_scouts]
 name     = _("Effective Scouts")
