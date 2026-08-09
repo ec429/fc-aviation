@@ -174,7 +174,7 @@ end
 function notify_unit_scramble(fighter, bomber)
   -- Notify actor
   notify.event(fighter.owner, fighter.tile,
-               E.UNIT_ACTION_TARGET_HOSTILE,
+               E.UNIT_ACTION_ACTOR_SUCCESS,
                -- /* TRANS: Your Sesquiplane Fighter scrambles to intercept German Biplane Bomber. */
                _("Your %s scrambles to intercept %s %s."),
                fighter.utype:name_translation(),
@@ -182,12 +182,12 @@ function notify_unit_scramble(fighter, bomber)
                bomber.utype:name_translation())
 end
 
-function scramble_one(place, against)
+function scramble_one(place, against, already)
   local best = nil
   local bap = 0
   for u in place:units_iterate() do
     local t = u.utype
-    if t:has_flag("AntiAir") and u.moves_left > 0 then
+    if t:has_flag("AntiAir") and u.moves_left > 0 and not already[u] then
       local ap = t.attack * t.firepower * u.hp * u:veteran_power_bonus()
       if ap > bap then
         best = u
@@ -204,12 +204,28 @@ function scramble_one(place, against)
     end
     notify_unit_scramble(best, against)
     best:perform_action(act, against.tile, nil)
+    already[best] = true
   end
 end
 
 flak_building = find.building_type("Flak Battery")
 sam_building = find.building_type("SAM Battery")
 prox_tech = find.tech_type("Proximity Fuse")
+radar_building = find.building_type("Radar Station")
+chome_wonder = find.building_type("Chain Home")
+sector_building = find.building_type("Sector Control")
+dowding_wonder = find.building_type("Dowding System")
+
+function wonder_on_continent(our_city, wonder)
+  for c in our_city.owner:cities_iterate() do
+    if c.tile.continent == our_city.tile.continent then
+      if c:has_building(wonder) then
+        return true
+      end
+    end
+  end
+  return false
+end
 
 -- Handle city targeted unit action start
 function action_started_unit_city_callback(action, actor, target)
@@ -230,13 +246,29 @@ function action_started_unit_city_callback(action, actor, target)
       notify_flak_damage(actor, target, flak_building, damage)
       actor:damage_hp(damage, "killed", target.owner)
     end
+    local radars = 0
+    if target:has_building(radar_building) or
+       wonder_on_continent(target, chome_wonder) then
+      radars = 1
+    end
+    if target:has_building(sector_building) or
+       wonder_on_continent(target, dowding_wonder) then
+      radars = radars + 1
+    end
+    -- scramble fighter(s) to shoot (before bombs dropped)
+    local already = {}
+    for r=1,radars do
+      if actor:exists() then
+        scramble_one(target.tile, actor, already)
+      end
+    end
     if actor:exists() then
       target.tile:create_extra("Fire", NIL)
       notify_unit_city(action, actor, target)
     end
     -- scramble a fighter to shoot (after bombs dropped)
-    if actor:exists() then
-      scramble_one(target.tile, actor)
+    if actor:exists() and radars < 1 then
+      scramble_one(target.tile, actor, already)
     end
   end
 end

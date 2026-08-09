@@ -154,6 +154,10 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Extends city view distance to 4 tiles.\
 "), _("\
+Also, fighters scrambling to protect the city from firebombers\
+ will attack the bomber before it drops its incendiaries,\
+ instead of afterwards.\
+"), _("\
 Early warning radar installations allow air defence systems to\
  detect the approach, and track the progress, of enemy aircraft,\
  allowing their interception by friendly air assets.  Among the\
@@ -1115,6 +1119,9 @@ sound_alt	= "b_generic"
 helptext	= _("\
 Gives a 30% bonus to fighters (and Naval Strike Fighter) defending\
  the city.\
+"), _("\
+Also, with Radar Station, allows two fighters, rather than just one,\
+ to protect the city from firebombers.\
 ")
 ; want but can't implement:
 ;  Also gives a 30% bonus to fighters (but not NS) attacking\
