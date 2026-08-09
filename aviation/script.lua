@@ -171,6 +171,42 @@ function notify_unit_city(action, actor, target)
                target.name)
 end
 
+function notify_unit_scramble(fighter, bomber)
+  -- Notify actor
+  notify.event(fighter.owner, fighter.tile,
+               E.UNIT_ACTION_TARGET_HOSTILE,
+               -- /* TRANS: Your Sesquiplane Fighter scrambles to intercept German Biplane Bomber. */
+               _("Your %s scrambles to intercept %s %s."),
+               fighter.utype:name_translation(),
+               bomber.owner.nation:name_translation(),
+               bomber.utype:name_translation())
+end
+
+function scramble_one(place, against)
+  local best = nil
+  local bap = 0
+  for u in place:units_iterate() do
+    local t = u.utype
+    if t:has_flag("AntiAir") and u.moves_left > 0 then
+      local ap = t.attack * t.firepower * u.hp * u:veteran_power_bonus()
+      if ap > bap then
+        best = u
+        bap = ap
+      end
+    end
+  end
+  if best ~= nil then
+    local act
+    if best.utype:has_flag("Missile") then
+      act = find.action("Suicide Attack")
+    else
+      act = find.action("Attack")
+    end
+    notify_unit_scramble(best, against)
+    best:perform_action(act, against.tile, nil)
+  end
+end
+
 flak_building = find.building_type("Flak Battery")
 sam_building = find.building_type("SAM Battery")
 prox_tech = find.tech_type("Proximity Fuse")
@@ -197,6 +233,10 @@ function action_started_unit_city_callback(action, actor, target)
     if actor:exists() then
       target.tile:create_extra("Fire", NIL)
       notify_unit_city(action, actor, target)
+    end
+    -- scramble a fighter to shoot (after bombs dropped)
+    if actor:exists() then
+      scramble_one(target.tile, actor)
     end
   end
 end
