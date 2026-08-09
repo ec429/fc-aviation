@@ -227,34 +227,43 @@ function wonder_on_continent(our_city, wonder)
   return false
 end
 
+function flak_vs_bomber(our_city, actor)
+  if our_city:has_building(sam_building) then
+    local shots = 20
+    local damage = random(1, shots)
+    notify_flak_damage(actor, our_city, sam_building, damage)
+    actor:damage_hp(damage, "killed", our_city.owner)
+  elseif our_city:has_building(flak_building) then
+    local shots = 4
+    if our_city.owner:knows_tech(prox_tech) then
+      shots = 10
+    end
+    local damage = random(1, shots)
+    notify_flak_damage(actor, our_city, flak_building, damage)
+    actor:damage_hp(damage, "killed", our_city.owner)
+  end
+end
+
+function radar_level(our_city)
+  local radars = 0
+  if our_city:has_building(radar_building) or
+     wonder_on_continent(our_city, chome_wonder) then
+    radars = 1
+  end
+  if our_city:has_building(sector_building) or
+     wonder_on_continent(our_city, dowding_wonder) then
+    radars = radars + 1
+  end
+  return radars
+end
+
 -- Handle city targeted unit action start
 function action_started_unit_city_callback(action, actor, target)
   if action:rule_name() == "User Action 3" then
     -- Firebomb City
     -- first, flak may fire
-    if target:has_building(sam_building) then
-      local shots = 20
-      local damage = random(1, shots)
-      notify_flak_damage(actor, target, sam_building, damage)
-      actor:damage_hp(damage, "killed", target.owner)
-    elseif target:has_building(flak_building) then
-      local shots = 4
-      if target.owner:knows_tech(prox_tech) then
-        shots = 10
-      end
-      local damage = random(1, shots)
-      notify_flak_damage(actor, target, flak_building, damage)
-      actor:damage_hp(damage, "killed", target.owner)
-    end
-    local radars = 0
-    if target:has_building(radar_building) or
-       wonder_on_continent(target, chome_wonder) then
-      radars = 1
-    end
-    if target:has_building(sector_building) or
-       wonder_on_continent(target, dowding_wonder) then
-      radars = radars + 1
-    end
+    flak_vs_bomber(target, actor)
+    radars = radar_level(target)
     -- scramble fighter(s) to shoot (before bombs dropped)
     local already = {}
     for r=1,radars do
@@ -270,11 +279,54 @@ function action_started_unit_city_callback(action, actor, target)
     if actor:exists() and radars < 1 then
       scramble_one(target.tile, actor, already)
     end
+  elseif action:rule_name() == "Targeted Sabotage City" or -- Precision Strike
+         action:rule_name() == "Suicide Attack" or
+         action:rule_name() == "Nuke City" then
+    -- Tallboy or nuke dropped on city
+    local car = actor:transporter() -- carrying the bomb
+    if car ~= nil then
+      flak_vs_bomber(target, car)
+      radars = radar_level(target)
+      -- scramble fighter(s) to shoot (before bombs dropped)
+      local already = {}
+      for r=1,radars do
+        if car:exists() then
+          scramble_one(target.tile, car, already)
+        end
+      end
+      -- without radar, can't intercept these high-flying raids
+    end
+  end
+end
+
+-- Handle tile targeted unit action start
+function action_started_unit_tile_callback(action, actor, target)
+  if action:rule_name() == "Explode Nuclear" then
+    for place in target:square_iterate(1) do
+      our_city = place:city()
+      if our_city ~= nil then
+        -- nuke dropped adjacent to city
+        local car = actor:transporter() -- carrying the nuke
+        if car ~= nil then
+          flak_vs_bomber(our_city, car)
+          radars = radar_level(our_city)
+          -- scramble fighter(s) to shoot (before bombs dropped)
+          local already = {}
+          for r=1,radars do
+            if car:exists() then
+              scramble_one(place, car, already)
+            end
+          end
+          -- without radar, can't intercept these high-flying raids
+        end
+      end
+    end
   end
 end
 
 signal.connect("action_started_unit_unit", "action_started_unit_unit_callback")
 signal.connect("action_started_unit_city", "action_started_unit_city_callback")
+signal.connect("action_started_unit_tile", "action_started_unit_tile_callback")
 
 function scrub_spot_info(place)
   if place:has_extra("Spotted") then
