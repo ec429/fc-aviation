@@ -948,8 +948,7 @@ req2     = "None"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("Ignore this tech; it's for a building that doesn't\
- work yet."), _("\
+helptext = _("\
 Beyond merely detecting approaching raids, advanced radars like\
  the German Wurzburg or the British PPI could be used to guide\
  friendly fighters to an interception.")
