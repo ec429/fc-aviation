@@ -265,6 +265,22 @@ function radar_level(our_city)
   return radars
 end
 
+-- poke the game engine to refresh a city, recalculating its outputs
+function trigger_city_refresh(target)
+  -- it doesn't really matter which building we use
+  local b = find.building_type("Concrete Runway")
+  -- toggle building existence and then toggle it back again
+  if target:has_building(b) then
+    -- use unmake and built_turn_set rather than destroy and construct so that
+    -- the player is not spammed with notification messages
+    target:building_unmake(b)
+    target:building_built_turn_set(b, game.current_turn())
+  else
+    target:building_built_turn_set(b, game.current_turn())
+    target:building_unmake(b)
+  end
+end
+
 -- Handle city targeted unit action start
 function action_started_unit_city_callback(action, actor, target)
   if action:rule_name() == "User Action 3" then
@@ -282,6 +298,7 @@ function action_started_unit_city_callback(action, actor, target)
     if actor:exists() then
       target.tile:create_extra("Fire", NIL)
       notify_unit_city(action, actor, target)
+      trigger_city_refresh(target)
     end
     -- scramble a fighter to shoot (after bombs dropped)
     if actor:exists() and radars == 1 then
