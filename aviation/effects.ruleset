@@ -1843,6 +1843,17 @@ reqs	=
       "UnitClass", "Seaplane Fighter", "Local"
     }
 
+; do-nothing effect designed to stop the UI crossing out Dawn Patrol
+; (unless you've built radar, in which case Dawn really is obsolete)
+[effect_dawn_fake]
+type    = "Fortify_Defense_Bonus"
+value	= 0
+reqs	=
+    { "type", "name", "range", "present"
+      "Building", "Dawn Patrol", "City", TRUE
+      "Building", "Radar Station", "City", FALSE
+      "Building", "Sector Control", "City", FALSE
+    }
 ; Sector Control bonus is only for scouts/fighters, not (e.g.) AF or AV
 ; But NS does get it, despite not having BadDefender flag
 [effect_sector_control]

@@ -211,6 +211,7 @@ end
 flak_building = find.building_type("Flak Battery")
 sam_building = find.building_type("SAM Battery")
 prox_tech = find.tech_type("Proximity Fuse")
+dawn_building = find.building_type("Dawn Patrol")
 radar_building = find.building_type("Radar Station")
 chome_wonder = find.building_type("Chain Home")
 sector_building = find.building_type("Sector Control")
@@ -246,13 +247,20 @@ end
 
 function radar_level(our_city)
   local radars = 0
+  if our_city:has_building(dawn_building) then
+    radars = 1
+  end
   if our_city:has_building(radar_building) or
      wonder_on_continent(our_city, chome_wonder) then
-    radars = 1
+    radars = 2
   end
   if our_city:has_building(sector_building) or
      wonder_on_continent(our_city, dowding_wonder) then
-    radars = radars + 1
+    if radars == 2 then
+      radars = 3
+    else
+      radars = 2
+    end
   end
   return radars
 end
@@ -266,7 +274,7 @@ function action_started_unit_city_callback(action, actor, target)
     radars = radar_level(target)
     -- scramble fighter(s) to shoot (before bombs dropped)
     local already = {}
-    for r=1,radars do
+    for r=2,radars do
       if actor:exists() then
         scramble_one(target.tile, actor, already)
       end
@@ -276,7 +284,7 @@ function action_started_unit_city_callback(action, actor, target)
       notify_unit_city(action, actor, target)
     end
     -- scramble a fighter to shoot (after bombs dropped)
-    if actor:exists() and radars < 1 then
+    if actor:exists() and radars == 1 then
       scramble_one(target.tile, actor, already)
     end
   elseif action:rule_name() == "Targeted Sabotage City" or -- Precision Strike
@@ -289,7 +297,7 @@ function action_started_unit_city_callback(action, actor, target)
       radars = radar_level(target)
       -- scramble fighter(s) to shoot (before bombs dropped)
       local already = {}
-      for r=1,radars do
+      for r=2,radars do
         if car:exists() then
           scramble_one(target.tile, car, already)
         end
@@ -312,7 +320,7 @@ function action_started_unit_tile_callback(action, actor, target)
           radars = radar_level(our_city)
           -- scramble fighter(s) to shoot (before bombs dropped)
           local already = {}
-          for r=1,radars do
+          for r=2,radars do
             if car:exists() then
               scramble_one(place, car, already)
             end

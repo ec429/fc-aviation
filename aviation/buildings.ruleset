@@ -134,37 +134,6 @@ Regulatory agencies such as the Federal Aviation Administration (US)\
  aviation industry in each locality.\
 ")
 
-[building_radar]
-name		= _("Radar Station")
-genus		= "Improvement"
-reqs =
-    { "type", "name", "range"
-      "Tech", "R.D.F.", "Player"
-    }
-graphic	= "b.radar"
-graphic_alt	= "b.eiffel_tower"
-obsolete_by	=
-    { "type", "name", "range"
-    }
-build_cost	= 60
-upkeep		= 1
-sabotage	= 100
-sound		= "b_sdi_defense"
-sound_alt	= "b_generic"
-helptext	= _("\
-Extends city view distance to 4 tiles.\
-"), _("\
-Also, fighters scrambling to protect the city from firebombers\
- will attack the bomber before it drops its incendiaries,\
- instead of afterwards.\
-"), _("\
-Early warning radar installations allow air defence systems to\
- detect the approach, and track the progress, of enemy aircraft,\
- allowing their interception by friendly air assets.  Among the\
- first such stations were the British AMES Type 1 and the German\
- Freya.\
-")
-
 [building_tramways]
 name		= _("Tramways")
 genus		= "Improvement"
@@ -1096,6 +1065,64 @@ helptext	= _("\
 Doubles the defense of all units inside the city when attacked by\
  aircraft, and shoots at enemy firebombers for up to 20 damage. \
  Overrides the effects of Flak Battery and Barrage Balloons.\
+")
+
+[building_dawn]
+name		= _("Dawn Patrol")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "Aerial Weapons", "Player"
+    }
+graphic	= "b.dawn"
+graphic_alt	= "b.coastal_defense"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 40
+upkeep		= 1
+sabotage	= 100
+sound		= "b_sdi_defense"
+sound_alt	= "b_generic"
+helptext	= _("\
+When the city is firebombed, one fighter unit (if present in the city)\
+ will scramble to attack the bomber.  However, the interception will\
+ occur after bombs are dropped, so even if the bomber is killed, the\
+ city will still be subjected to the effect of its incendiaries.\
+"), _("\
+Armed scout aircraft, taking off at first light, patrolled the skies\
+ in World War I to intercept enemy bombing missions.\
+")
+
+[building_radar]
+name		= _("Radar Station")
+genus		= "Improvement"
+reqs =
+    { "type", "name", "range"
+      "Tech", "R.D.F.", "Player"
+    }
+graphic	= "b.radar"
+graphic_alt	= "b.eiffel_tower"
+obsolete_by	=
+    { "type", "name", "range"
+    }
+build_cost	= 60
+upkeep		= 1
+sabotage	= 100
+sound		= "b_sdi_defense"
+sound_alt	= "b_generic"
+helptext	= _("\
+Extends city view distance to 4 tiles.\
+"), _("\
+Also, fighters scrambling to protect the city from firebombers\
+ will attack the bomber before it drops its incendiaries,\
+ instead of afterwards.\
+"), _("\
+Early warning radar installations allow air defence systems to\
+ detect the approach, and track the progress, of enemy aircraft,\
+ allowing their interception by friendly air assets.  Among the\
+ first such stations were the British AMES Type 1 and the German\
+ Freya.\
 ")
 
 [building_sector_control]
