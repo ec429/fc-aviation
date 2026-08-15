@@ -187,4 +187,5 @@ tiles = { "row", "column", "tag"
   7,  5, "u.voisin"      ; BV Pusher Bomber (Voisin III) [GB]
   7,  6, "u.muromets"    ; BI Very Early Bomber (Sikorsky Ilya Muromets) [GB], crappily downscaled by [EC]
   7,  7, "u.ar196"       ; HU Thirties Reconnaissance Floatplane (Arado Ar 196) [T][GB]
+  7,  8, "u.dauntless"   ; L4 Scout Bomber (Douglas SBD Dauntless) [GB]
 }
