@@ -351,13 +351,19 @@ end
 
 -- Handle stack targeted action start
 function action_started_unit_units_callback(action, actor, tile)
-  for def in tile:units_iterate() do
-    -- one MRSAM on an SSN or CV launches to defend it
-    if def.utype:rule_name() == "Surface-to-Air Missile" and
-       def:transporter() ~= nil then
-      notify_unit_scramble(def, actor)
-      def:perform_action(find.action("Suicide Attack"), actor.tile, nil)
-      break
+  if actor.utype.unit_class:has_flag("Flying") then
+    for def in tile:units_iterate() do
+      -- one MRSAM on an SSN or CV launches to defend it when attacked by a
+      -- flying unit.  (Don't launch against non-flying units as those are
+      -- not reachable, even though if there happened to be a flying unit on
+      -- the same tile we could coincidentally attack that, as that would be
+      -- silly thematically.)
+      if def.utype:rule_name() == "Surface-to-Air Missile" and
+         def:transporter() ~= nil then
+        notify_unit_scramble(def, actor)
+        def:perform_action(find.action("Suicide Attack"), actor.tile, nil)
+        break
+      end
     end
   end
 end
