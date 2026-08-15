@@ -261,3 +261,7 @@ Because of how bombers work (OneAttack), they are highly susceptible to double-m
 The Penetrator Bomb can be used to make conventional bombing attacks without ending the bomber's turn, potentially allowing it to run away out of reach of fighters.  But since it costs 40 shields to build, it's not _that_ different from missiles like the V2 Artillery Rocket.  Bombers carrying the nuclear Stand-Off Bomb are even more likely to get away (that's kind of the point), but that costs 120 shields (though for a nuke that's still good value).
 
 A tanker can pick up a bomber after bombing and tow it home, out of reach of fighters.
+
+An XA in a city will not normally launch against a regular attack (only against other actions like firebombing or dropping special bombs).  But an XA that's transported by another unit (carrier or SSN) _will_ launch, and this still works even if the carrier is in port, allowing you to give the city an extra layer of defence.
+
+On the other hand, a transported XA will launch against _any_ attacking air unit, even something feeble like a blimp or helicopter (heck, it'd even launch against an HA if one somehow showed up), so you can use the enemy XAs up on cheap and worthless targets, leaving them with none left when your real force arrives.
