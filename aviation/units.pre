@@ -32,7 +32,7 @@ flags =
     _("Cities")
     _("AddToCity")
     _("Bombarder"), _("Can bombard adjacent tiles.")
-    _("Bombarder 2"), _("Can bombard cities and fortresses up to 2 tiles away.")
+    _("Bombarder 2"), _("Can bombard up to 2 tiles away.")
     _("Bombarder 3"), _("Can bombard up to 8 tiles away (unit is expended).")
     _("Pillage")
     _("Cant_Fortify")
