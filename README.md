@@ -248,7 +248,7 @@ Note that deploying nuclear weapons may have diplomatic consequences, particular
 
 ### Missiles
 
-The V2 Artillery Rocket is a long-range bombardment missile, striking up to 12 tiles from home but not doing a huge amount of damage.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking, and have no defence strength.
+The V2 Artillery Rocket is a long-range bombardment missile, striking up to 8 tiles from home; it is more effective against cities.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking, and have no defence strength.
 
 ## Known cheesy tricks
 

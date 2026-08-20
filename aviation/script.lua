@@ -349,8 +349,18 @@ function action_started_unit_tile_callback(action, actor, target)
   end
 end
 
+bombarding = {}
+
 -- Handle stack targeted action start
 function action_started_unit_units_callback(action, actor, tile)
+  if action:rule_name() == "Bombard 3" and not bombarding[actor] then
+    -- Suicide bombard: do Bombard 3 for real, then die
+    bombarding[actor] = true
+    actor:perform_action(find.action("Bombard 3"), tile, nil)
+    actor:kill("missile", actor.owner)
+    bombarding[actor] = nil
+    return
+  end
   if actor.utype.unit_class:has_flag("Flying") then
     for def in tile:units_iterate() do
       -- one MRSAM on an SSN or CV launches to defend it when attacked by a

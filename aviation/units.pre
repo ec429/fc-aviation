@@ -33,6 +33,7 @@ flags =
     _("AddToCity")
     _("Bombarder"), _("Can bombard adjacent tiles.")
     _("Bombarder 2"), _("Can bombard cities and fortresses up to 2 tiles away.")
+    _("Bombarder 3"), _("Can bombard up to 8 tiles away (unit is expended).")
     _("Pillage")
     _("Cant_Fortify")
     _("CRscout")
@@ -3476,25 +3477,29 @@ sound_fight   = "f_cruise_missile"
 sound_fight_alt = "f_generic"
 build_cost    = 20
 pop_cost      = 0
-attack        = 8
+attack        = 6
 defense       = 0
 hitpoints     = 6
 firepower     = 1
-move_rate     = 12
+move_rate     = 1
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "AntiGround", "CityBuster", "CRmedium", "Fanatic", "Missile" ; we'd rather "Bombarder"
-;bombard_rate  = 6
+flags         = "AntiGround", "CityBuster", "Fanatic", "Missile", "Bombarder 3"
+bombard_rate  = 6
 roles         = ""
 helptext      = _("\
 Long-range bombardment rocket.  Can be transported on, but\
  not launched from, aircraft carriers.  \
 Historical examples include the Thiel Aggregat 4, better\
  known as the V2.\
+"), _("\
+Note that the game will allow you to fire at a stack even if\
+ none of the units in it are reachable (e.g. Air units), and\
+ this wastes the unit.\
 ")
 
 [unit_mrsam]
