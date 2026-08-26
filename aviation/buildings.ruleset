@@ -1078,6 +1078,8 @@ graphic	= "b.dawn"
 graphic_alt	= "b.coastal_defense"
 obsolete_by	=
     { "type", "name", "range"
+      "Building", "Radar Station", "City"
+      "Building", "Sector Control", "City"
     }
 build_cost	= 40
 upkeep		= 1
