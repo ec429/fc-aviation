@@ -27,6 +27,9 @@ death"), while the chance that the bomber will be shot down is Pk; the
 sum of these is at most 100% but may be less owing to CR limits.  I also
 have matchup tables showing two numbers: expected number of bombers to
 kill, and expected damage to each; I don't have snappy names for those.
+The majority of Pk and Pd figures given in this document ignore terrain
+defence, which can worsen bomber/attacker performance against ground
+units.
 Some of these terms conflict with ph-codes: FirePower clashes with FP
 Pusher Fighter, while Attack Power collides with AP Superprop Attacker
 and Bombing Power with BP Intercontinental Bomber.
@@ -81,7 +84,7 @@ for home.  Don't forget that Ace or Elite aircraft have an additional
 movement point, which can allow them to strike at longer range, or (for
 multiattack) get in more hits per turn, than you might be counting on.
 This is a big deal early on, when for instance the difference between a
-Veteran ST (6 move) and an Ace (7 move) could be 50% more combat rounds
+Veteran FS (6 move) and an Ace (7 move) could be 50% more combat rounds
 in an interception; it's less likely to matter for jets with 20+ move.
 
 Airbases and buoys can increase the area over which your aircraft can
@@ -95,9 +98,11 @@ within range.
 "Interception" refers to a fighter attacking a bomber (or other slow
 aircraft), whereas a "scramble" is when a fighter (or potentially any
 other aircraft with nonzero defence) in a city (or base) defends against
-a bomber.  When a fighter attacks a fighter in a city, technically
+a bomber.  When a fighter attacks a fighter in a city or base, technically
 that's both an interception and a scramble, but we generally call it a
-"fighter duel".
+"fighter duel".  Auto-interception (see Dawn Patrol, Radar Station etc.)
+can also lead to fighter duels even between two 'fast' fighters, which
+normally is only possible at bases (airfields).
 While bombers and other non-fighter aircraft can scramble against bomber
 attack, they suffer a penalty that reduces their defence by a factor of 3.
 In this guide, we do not discuss their performance in such scrambles, as
@@ -128,6 +133,12 @@ There is some benefit to building P0, though, in that it's Veteran, which
 while totally irrelevant for the powerless Pioneer, can be handy once it
 gets upgraded (so maybe you'd want to build a corps of P0s ready to turn
 them into light bombers in 1915).
+If your border cities are squashed right up against your neighbours,
+P0 might just have range enough to Investigate City, letting you know what
+the enemy are building.
+And it's absolutely the cheapest way to get a 'martial law' unit —
+thematically, it's not so much 'suppressing dissent' as
+'distracting the populace with flying-meetings'.
 PP and then R1 are just about sufficient to let you scout out ahead of
 your Settlers, but not much else; they take at least _slightly_ longer to
 shoot down since they have 1 defence (but 0 firepower; they don't shoot
@@ -153,6 +164,7 @@ On the other hand, it's rather slow, as the tender can't make its full
 speed without shortening the seaplane's reach.  This is particularly
 bad for HV, which can only just keep up with a tender at full steam;
 realistically HV should be treated much like P0, as a stepping stone.
+It doesn't even get the P0's veteran build bonus.
 (On the other hand, the infrastructure — a tender, possibly several
 — will be useful later.)  HS has nonzero defence, which could matter
 if you run into some very primitive fighters, and it can Spot for
@@ -195,6 +207,10 @@ surface for this, but at this point in time that's not really a problem.
 There's no ASW aircraft to spot and sink you, and if you're capturing
 instead of attacking, the surfaced sub's lower Attack strength isn't
 relevant either.
+In sub-vs-sub warfare, initiative is everything, so scouting with either
+a flock of expendable merchies or some unarmed aircraft like HS or R1
+can help you get into a winning position;
+this may be the main use of tenders in this era.
 
 It might be possible to threaten undefended cities with Marines from
 lcmboats, but typically they'll see you coming and have time to buy
@@ -204,39 +220,65 @@ On the other hand, fire support from a Line-of-Battle Ship (which has a
 two-tile bombardment range and plenty of firepower) may tip the balance.
 Dreadnoughts (circa 1910) bring increased mobility, but the additional
 combat power is overkill against anything but another battlefleet and the
-cost rises by a third.
+cost rises by a third.  (And watch out for subs.)
 
 If you find yourself with a land border, and want to invade, neither
 Troops nor Marines will be much use on attack; you will need plenty
 of Artillery to reduce the defenders.  Each volley will knock about
 6HP off each defender, so three arty units should suffice to fatally
 weaken them; with a fourth you'll be less susceptible to bad die rolls.
+One complication is that arty reduces population, which makes it harder to
+capture the city rather than just wiping it; but you can still take the
+territory or just shrink the enemy cities to weaken their economy.
+Or you can use battleships to bombard, since those don't reduce pop.
 Troops have 40 AP for 30 shields; Marines have 24 AP for 24 shields; so
 even ignoring the defence power, Troops are preferable for administering
 the coup de grace.  The lowest you can reduce units in a city with arty
 is 20% health, in which case Troops will have 4 HP and thus 24 DP; Marines
-get 54% Pk whereas Troops get 86%.  (And you can't Spot units in a city.)
+get 54% Pk whereas Troops get 86%.  (And you can't Spot units in a city,
+so arty can't do it.)
 Either can clean up CBs in the field, but Marines
 will struggle with Settlers (20 DP), with about a ⅓ chance of losing.
 The best defence against an arty-and-troops stack at this point is to
 put arty of your own in the city, allowing you to weaken the troops that
-are defending the arty.  Then, attack them with Troops or Marines —
-spread out across multiple tiles, so they can't arty the whole stack.
+are defending the arty.
+Then, attack them with spotted arty of your own, riding in on rails from
+a tile out of arty range.
 And since fortifying gives the troops a 15% bombard limit (so 3HP / 18DP
 Troops or 2HP / 3DP Marines), it's easy to end up in trench warfare.
-Fortresses double this to 30%; Troops will be reduced to 6 HP (36 DP if
-fortified) which is probably proof against Marines (77% WR) but not Troops
-(38% WR) and definitely not spotted Artillery (25% WR), while Marines at
+Fortresses double this to 30%, and provide a 100% terrain defence bonus in
+place of the 50% fortify bonus;
+Troops will be reduced to 6 HP (36 DP if
+fortified) which is probably proof against Marines (11% Pd) but not Troops
+(38% Pd) and definitely not spotted Artillery (58% Pd), while Marines at
 4 HP (6 DP) won't fight off anything.
+Defensible terrain further changes the calculus; in a fortress on hills,
+Troops at 6 HP have only a 24% Pd to spotted arty.  (With forests or other
+50% terrains it's 31%.)  You need a 1.5:1 force superiority to have a
+reasonable chance of victory, and that's not counting the arties to do the
+actual bombardment; between approximate peer powers, trench warfare is a
+game everyone loses.
 If the city has a Concrete Bunker, the limit is 50%, meaning Troops can
 retain 10 HP and thus 60 DP, at which point attacking Troops have only a
 1-in-6 win chance; it will likely take two units (at least one of them
 Troops) to kill each defender.
 The slow movement of ground units means that the defender can probably
 be ready in time to repel the invasion, especially if they have enough
-recon to see the attack forming up before it crosses the border.  Spotted
+recon to see the attack forming up before it crosses the border.  The most
+important thing is to build fortresses at key points (on good terrain) as
+they are far harder to breach than cities; do not let the enemy build or
+capture a strong fortress on your land or you might never shift it.
+If terrain creates natural chokepoints (e.g. an isthmus or mountain pass),
+fortresses built now are likely to be the focus of battle through at least
+a WW1 time frame, with potentially large numbers of units being expended
+to capture a single tile.
+Naval gunfire support can be useful here as well,
+but the b0 Line-of-Battle Ship is a bit weak for this; the extra attack
+and move (hence rounds) of the bd Dreadnought are actually useful.
+Spotted
 artillery is an effective attacker, but is susceptible to bombardment
-itself, and your reach is limited by the short range of the spotters.
+itself (though rails can help to get around this),
+and your reach is limited by the short range of the spotters.
 
 The Troop Ship can be useful for deploying defensive troops or artillery
 between your existing cities, allowing you to quickly reinforce an island
@@ -248,7 +290,14 @@ Perhaps the most important fruit of the early tech tree is not a unit
 but a building, the Flying Club.  Keeping your cities happy as they
 grow is always a challenge for Democracies, and it rarely takes long
 for the additional content citizen to pay for the 30 shield build cost
-with their economic and material output.  As for the other buildings,
+with their economic and material output.
+Monarchies can grow a little further as their first two military units
+each keep one citizen content, and Troops cost the same (30 shields to
+build and 1 gold/turn upkeep) as the Flying Club; but the Club will get
+a big bonus later in the tech tree and if you flip to Demo all those
+Troops will suddenly cost shield upkeep, so you might sometimes choose
+the Club even before hitting the 2 unit martial law cap.
+As for the other buildings,
 you are not likely to be in any hurry to build Flying Schools, as
 there are at this stage few or no military aircraft to benefit from
 the veterancy they provide.  Veteran PP or R1 have slightly more chance
@@ -280,12 +329,17 @@ Single-turn repair for land or sea units
 could also have its uses in front-line cities.  I suppose it's possible
 you might want to move your HQ around, but in Democracy there's little
 reason to (corruption doesn't vary with distance).
+Monarchies on the other hand might have a use for it if their original
+capital ends up at one end of a long thin empire.  And the +2 content
+citizens might need moving to somewhere with more food, but usually most
+original capitals will have the capacity to grow to whatever the current
+happiness-imposed limits are.
 
 The Lumber Yard will take a long time to pay for itself; like the later
 factories (with which its effect doesn't stack) it's a rare city that'll
 find it worthwhile.  Power Station (Steam Turbines) is a little more
 expensive to build for the same 25% gain, but stacks with factories, so
-has more enduring value.
+has more enduring value.  It also stacks with Lumber Yard.
 On the other hand, the Aeronautical Library is
 useful for research.  Balloon Rides create 3 lux, helping to keep a
 growing city happy, but will become obsolete shortly after WWI.
@@ -296,13 +350,22 @@ someone's trying a ground invasion, but also can prove valuable later
 against swarms of gliderborne artillery which might otherwise cause you a
 lot of trouble.  (Basically, arty enough to hit the cap is a 5× force
 multiplier, and the Bunker reduces this to 2×.)
+Submarine Pens are particularly useful if battleships are bombarding your
+cities, since they completely protect submarines in the city from all
+forms of artillery bombardment, allowing them to retaliate from a position
+of full health.
+In this era, a stack of penned subs is by far the most effective counter
+to an enemy battleship — if they can reach it!
+But if it sits out of range, nipping in and out of range to fire its guns,
+the subs may be unable to do much about it.
 
 There are a small number of Wonders available in this period.  War
 College, with no tech prereq, will give an edge to the ground units
 of its builder in a long war, as they will more rapidly rise up the
 veterancy scale; unless you anticipate early war you don't want to tie
 up resources by building it _now_, but having been the first to build
-it will be advantageous later when war _does_ arrive.  Then again, later
+it will be advantageous later when war _does_ arrive.
+Then again, beyond WW1
 wars will probably be decided by air battles, and too quickly for ground
 troops to level up; attackers in particular will mostly be marching
 into cities whose defenders have already been bombed into oblivion.
@@ -325,7 +388,9 @@ citizens; but beware that its effect expires when anyone on the planet
 discovers Bombers 1917, which might leave you struggling to keep that
 city functioning until you can unlock General Aviation.
 Kitty Hawk Monument is a _very_ small smallwonder, just producing a
-constant 4 gold per turn until General Aviation.  Aeronautical Institute
+constant 4 gold per turn until General Aviation.  Smart players will put
+it in the same city as Lloyd's.
+Aeronautical Institute
 roughly trebles the effect of one city's Aeronautical Library, but is
 obsoleted by Aerodynamics Research.  In a large game, Jane's All The
 World's Aircraft can be a real prize, allowing you to cut back on science
@@ -359,14 +424,18 @@ they will cause unhappiness when outside your borders.  Still, a PE
 Early Flying Boat in a Seaplane Tender can see a **lot** further than an
 HS Floatplane Scout (though it can't spot for gunfire like HS can).
 And as a battleship's sub-spotter it's longer-legged than an HS or even
-the new HA/HT, though unlike those two it cannot attack the subs itself.
+the new HA/HT.
 The ZB's gain over ZS is much less, and probably not worth the unhappies
 (although it _does_ have the ability to transport units around, which
 might be useful for logistics, along with its primary bombing rôle);
-ZC Coastal Blimp actually has a _shorter_ range, although a higher
-speed and a lower build cost (and *no shield upkeep*, though it does
-cause unhappiness).  On the other hand, it can moor at a battleship,
+ZC Coastal Blimp has a higher speed and a lower build cost than ZS
+(and *no shield upkeep*, though it does cause unhappiness).
+Plus, it can moor at a battleship or a tender,
 which ZS can't, making it an interesting option.
+Being moored keeps it out of reach of fighters,
+which are much more of a threat to it than anything is to a tender.
+Its endurance is slightly less than ZB, but ZB can't do special recon
+tasks like Investigate City or Spotting.
 However,
 your old recon aircraft are now in danger from fighters, since neither ZS
 nor R1 can shoot back.  HS has a little defence, but at only 6 DP,
@@ -376,15 +445,18 @@ increased), and LE Early Light Bomber only has 18 — likely to fall to
 even 1915 fighters.  The 1917-vintage L1 Biplane Light Bomber is rather
 better, with 24 DP, but while likely enough to survive against a single
 SM or SP, an FS or SS will probably beat it;
-against FB, ST or its contemporary SB it stands little chance.
+against FB or its contemporary SB it stands little chance.
 On the other hand, its 5M3F range may come in handy.
 
 In summary: there aren't really any good options for contested recon, so
 try to just keep your old ZS or HS exploring empty or friendly regions
 of the map, and maybe re-equip your tender with a PE to do the same.
-Artillery-spotting light bombers are likely to become 'Fokker fodder'.
+Artillery-spotting light bombers are likely to become 'Fokker fodder'
+unless heavily escorted.
 Other aircraft should treat recon as very much a secondary rôle, rather
 than their reason for being built.
+For scouting, single-seaters like SA and its upgrades can use their speed
+(8 move) to look four tiles from home without any exposure to fighters.
 
 ### Anti-Ground
 
@@ -409,6 +481,13 @@ an impressive 98% Pk.  While the ZB costs
 more than the Troops you might otherwise use, the Troops are more likely
 to have their own hitpoints attrited on their way to the battle than the
 swifter-moving zeppelin.
+If you research Incendiary Bomb, the ZB also gains the capability to
+firebomb enemy cities, reducing their production by 50% for the next turn;
+this can be an effective form of strategic warfare, but zeppelins are an
+expensively vulnerable way to do it unless you can be confident of
+avoiding the fighters; also, flak (if the enemy city has it) will gradually
+wear you down until you have to park up for repairs,
+as may scouts on Dawn Patrol.
 As a tactical light bomber, R2 doesn't have the BadDefender flag, and thus
 (unlike most aircraft) stands at least a little chance against ground unit
 attack, getting 1% WR against Troops and 18% against Marines.  It's
@@ -426,15 +505,13 @@ Investigate City.
 It's 20% more expensive than R2 or HA, mainly justified by the greater
 offensive strength of its HT alter ago.
 
-1916 options are the LE, PE and BE.  LE and PE are similar, with 8 BP,
-18 AP, and 18 (resp 9) DP; PE is more expensive, and really
-shouldn't be deployed in the core theatre — it's meant for causing
-trouble in far-flung outposts where only seaplanes can reach.  A swarm
+1916 options are the LE, BE, and BT.
+LE is pretty weaksauce, with 8 BP, 18 AP, and 18 DP; a swarm
 of LE might be useful for taking out cbs, Marines or even Settlers;
 but since on average it takes a single SP to bring an LE down,
 they're probably only suitable for use within your own territory,
 where enemy scouts will be short on fuel (killing a single LE will take
-an SM 5 combats, and an SP 6.  Even an SS or ST will take about three).
+an SM 5 combats, and an SP 6.  Even an SS will take about three).
 So if the enemy comes a-marching with Troops and Artillery, LEs might be
 good for finishing them off after a barrage from your arty weakens them.
 If you use them in conjunction with arty against an enemy city, against a
@@ -447,11 +524,13 @@ against Marines).
 BE Early Bomber is the first of the big boys, with 120 AP and 20 BP; it
 can kill cbs and Marines without breaking a sweat, and even has an 11%
 chance to knock out Settlers (more likely it'll just heavily damage
-them, and you'll want something like an LE or PE to finish the job).
+them, and you'll want something like an LE to finish the job).
 Against Troops in the open, both sides can expect to lose about half their
 HP; so it accomplishes about as much as four LEs, at a much lower price.
 Even in a city with a Concrete Bunker, artillery-reduced Troops (10 HP)
 will fall to its bombs 37% of the time.
+It can also deliver incendiary bombs, like the old Zeppelin, restricting
+enemy materiel production.
 The downside is that it only has 30 DP; an SS will kill it 47% of the time
 (and FB gets 71%),
 though it does have a significant edge over an SM or SP.  An FS has the
@@ -459,9 +538,18 @@ same 47% Pk, but it would take about four combats to do it,
 which is basically all its fuel.  One situation in which the BE _can_
 win is if it catches the scouts on the ground (i.e. if it bombs a city
 with only scouts, and no Troops, inside); there, it will expect to win
-handily against anything up to at least SB (it even ought to beat S2 or S3
+handily against anything up to at least SB (it even ought to beat S2
 more often than not).  But that's a very situational capability, so most
 of the time it may just not make sense to try to bomb cities at this stage.
+From the triplane branch, there's the alternative heavy bomber, the BT
+Triplane Bomber, which can actually be researched before Bombers 1916.
+It has a massive 216 AP (20 BP), but it's vulnerable at only 36 DP,
+and it's slow (with the same 4M4F as the BE), not upgrading until the B2.
+If you don't
+have to worry about enemy fighters, it's the most cost-effective of the
+WWI bombers; but if a single SS shows up it's in trouble (39% Pk), and against
+an FB it's probably dead (65% Pk).  And there's rarely enough justification
+to research the triplane dead-end anyway.
 
 In 1917 you get a wide variety of choices.  The LE upgrades to L1, with
 36 AP and 24 DP (but still only 8 BP) as well as an extra point of fuel
@@ -470,7 +558,8 @@ it still needs to operate in swarms to accomplish much of anything, but
 is at least that little bit better at picking off damaged units.  (Its
 offensive capabilities are equivalent to the old ZB, at ¾ the cost and with
 double the survivability, as well as a slightly higher speed, though of
-course it still can't match the Zeppelin's long range.)  It now gets 50% WR
+course it still can't match the Zeppelin's long range or carry firebombs.)
+It now gets 50% WR
 defending against Marines, and still has the FieldRepair flag.  It is
 also carrier-capable, which might be helpful for going after undefended
 islands or mounting a surprise attack against the soft underbelly.  But to
@@ -489,14 +578,12 @@ modest at 160 AP and still 20 BP.  Still, as a bomber with the edge over a
 single contemporary fighter (SB=40 AP), it just might be able to win you
 a city if you can build enough; following up arty against a bunkered Troops
 (10 HP), it gets 51% Pk.  It's actually more defensible (per shield) than
-the light bomber, which is unusual.  Just watch out for FBs and STs (48 AP).
-And speaking of triplanes, there's the alternative heavy bomber, the BT
-Triplane Bomber.  It's arguable whether this should even be listed under
-1917, since you can get to it _before_ even the 1916 bombers.  It has a
-record 216 AP (20 BP), but it's vulnerable at only 36 DP.  If you don't
-have to worry about enemy fighters, it's the most cost-effective of the
-WWI bombers; but if a single SS shows up it's in trouble (39% Pk), and against
-an ST or FB it's probably dead (65% Pk).  But there's also something
+the light bomber, which is unusual.  Just watch out for FBs (48 AP).
+Also, it's the first incendiary-capable bomber to have a speed of 5, which
+means it can flambé a city three tiles away (the default citymindist) and
+still get back home to base without having to sit in the air for a turn
+exposed to fighters.
+But there's also something
 completely new: the TF Trench Fighter is the first _attacker_ in the tree.
 Its 30 AP might not look that exciting, but it has multiattack, so it
 can strafe a target until its HP is low and then turn for home, without
@@ -513,6 +600,12 @@ three attacks against an arty-reduced fortified Troops (3 HP), it can get
 82% Pk, which is better than Marines and almost as good as Troops, while
 its 25-shield build cost lies between the two (and it has the advantage of
 reach, and the ability to disengage if it's losing).
+Another possible use for TF is to reduce fortress Troops past the 6 HP
+bombard limit, getting them to a point where spotted arty is much more
+likely to survive attacking them.
+This can be quite an effective tactic in a fortress-hopping land war,
+but much less so for taking cities (which can't be Spotted and may have
+fighters to scramble against you, against which TF is quite poor).
 
 The overall picture is that ground invasions are even harder than
 they were in the pre-war era, because TFs do more for defence against
@@ -528,10 +621,11 @@ And if you _do_ manage to get some artillery in position at the enemy's
 gates, bombers can deploy quickly to capitalise on that force-multiplier,
 instead of you needing to guess at the size of a Troops stack sufficient
 to both defend the arty and kill their victims when the ground force
-first sets off.
+first sets off.  So there can be a window of opportunity if you can build
+a large bomber force while your enemy is behind in AntiAir development.
 Against a coastal city a battleship is a highly effective if expensive way
-to deliver the artillery barrage, and at this stage isn't at great risk
-from the air.
+to deliver the artillery barrage, as long as it doesn't get caught by subs
+or heavy bombers (both of which air support can help against).
 
 ### Anti-Sea
 
@@ -567,11 +661,16 @@ up and attacks, you can retaliate with the HT.  He would need a large
 and expensive wolfpack (three subs) to sink you first.  One important
 thing to note about torpedo bombers (including the carrier-borne ones
 when those come along) is that they **cannot** attack ships in port;
-any aircraft with CR 9 or 18 may only attack into oceanic tiles.
+any aircraft with CR 9 may only attack into oceanic tiles.
+Another point in the HT's favour is that if it can be recovered by the
+tender on the turn it attacks (the tender will have to steam directly
+under it to do this, thus getting close to the target) then it is never
+exposed to the fighters —
+making it an effective option for ASW in contested skies.
 Against battleships, torpedo floatplanes get shredded — they're simply
 too flimsy and vulnerable to face the wall of flak a large warship can
-put up to stop them.  Even a veteran HT will deal a mere 2.4 hitpoints on
-average to a b0 Line-of-Battle Ship, with only a ⅐ chance to survive.
+put up to stop them.  Even a veteran HT will deal a mere 2.8 hitpoints on
+average to a b0 Line-of-Battle Ship, with only a ⅕ chance to survive.
 
 The first heavy bomber, 1916's BE Early Bomber, also has the ability
 to attack ships at sea.  With 120 AP and 20 BP, it can easily take out
@@ -589,14 +688,23 @@ which is the same as the light bombers (r²≤4), helping you to find
 targets even if your position reports are a bit stale; one effect of this
 is that subs now have reason to submerge even when not mounting an attack,
 in order to hide from a bomber passing two tiles away.
-Heavy bombers have some capability against battleships, with 1% Pk-17% Pd
+Heavy bombers have some capability against battleships, with 2½% Pk-11% Pd
 against the old Line-of-Battle Ship (the same attack performance, in
 fact, as another battleship); on average two BEs (costing 120 shields)
 are enough to sink a 150-shield b0, assuming they can get there without
 being caught by fighters.
 The bd Dreadnought is a tougher nut, but three bombers will do the job
-(albeit with a 30% Pd) and still come out slightly ahead economically
+(albeit with a 23% Pd) and still come out slightly ahead economically
 (180 shields to 200).
+A cheaper option for ASW is the PE Early Flying Boat; it's faster than the
+BE but slightly shorter-ranged at 5M3F, although its ability to use buoys
+and tenders to refuel means it can operate far from home.  Its 8 BP are
+rarely enough to sink a sub outright (4% Pk), but the heavy damage it can
+inflict will typically be a mission-kill and leave the sub limping slowly
+home to repair (with a good chance of bombing it again next turn for a
+95% WR).  Its slight defence (9 DP) is an advantage over the old HT, but
+only gives 20% WR against even an HF, and PE costs ⅓ more than HT did, so
+really the range is the only selling-point.
 Also arriving
 in 1916 is the ZC Coastal Blimp, which is a fairly cheap airship
 with a reasonable loiter capability and an ability to attack ships.
@@ -614,15 +722,20 @@ other craft, allowing you to employ your planes or subs more efficiently.
 One good thing about the ZC is that it has no shield upkeep (although
 it does still cause unhappiness when outside your borders), making it
 cheaper in the long run than other ocean patrol options.  Beware its
-zero defence, though; and note that unlike some other seaplane options it
-can't Spot for naval gunfire.
+zero defence, though.
+Curiously, the ZC can still be used for martial law, providing an upkeep-
+free way to keep a city happy (if actual military capacity isn't needed).
 
 At 1917 tech, a few more options appear.  The HT's upgrade is the HL
 Large Torpedo Floatplane, now able handily to sink both merchies and subs
-with its 32 AP and 18 BP.  It can sink an lcmboat (14% Pk-<1% Pd);
+with its 32 AP and 18 BP.  It can sink an lcmboat (14% Pk-`<`1% Pd);
 a pair will handily dispatch a tender or troopship.  Sadly, it still has
 zero defence, and (like all FP2 torpers) scrambling fighters get double
 defence against it (so e.g. 14% Pk-14% Pd vs HW, or 17%-83% vs H2).
+It's also still far too flimsy to take on battleships; it has 98% Pd, and
+likely takes five aircraft (costing 160 shields) to sink the 150-shield
+b0 — not a good trade.  Handy as a flexible option in an emergency, though,
+to prevent a damaged battleship from escaping to repair.
 Its light-bomber conversion, HN Large Reconnaissance Floatplane, is much
 weaker at 20 AP and 8 BP (although its 10 DP _might_ serve some purpose),
 but can Spot for your battleships' guns, and its 3 fuel gives it a loiter
@@ -630,8 +743,11 @@ capability, spending more time on-task and less time flying home to refuel
 than the old HR.  When bombing a sub it gets 4% Pk, though if it attacks
 again on the next turn it achieves 95% with only 1½% Pd.  Against a
 merchie Pk is 47% on the first turn, 99% (1% Pd) on the second.
-The other seaplane option is the PB Patrol Boat, which
-unlike PE can now attack ships; it has 36 AP but only 8 BP, meaning it
+HN is strictly better than the old PE, with one more hitpoint, the same
+range, and a price ⅕ lower.
+But flying-boats have an upgrade of their own, with the PB Patrol Boat,
+which unlike PE can now attack targets on land too;
+it has 36 AP but only 8 BP, meaning it
 can just about one-shot merchies (68% chance) and maybe subs (10% Pk).
 Against a scrambling HW it will draw but with the advantage in damage
 dealt; if the HW then attacks with its remaining hitpoints there's a
@@ -655,7 +771,7 @@ aren't cheap, but if you're building a force of them anyway (perhaps for
 some usage against land targets...) they can be very effective in any
 anti-sea opportunities that may arise.
 And they're both quite effective against battleships, where BT's Attack
-actually matters and gives it 5½% Pk-1% Pd on b0 (BB gets 3%-9½%).
+actually matters and gives it 9½% Pk-½% Pd on b0 (BB gets 5½%-5½%).
 There is one other new type, the
 TE Early Torpedo Bomber, which is basically a landplane equivalent of the
 old HT, with a similar 9 BP.  Its advantages are 27 AP, slightly longer
@@ -665,9 +781,11 @@ against an HF it does at least have a 20% chance.)  On the other hand,
 the TE is carrier-capable, and its upgrade path will get a _lot_ better,
 so it's a stepping-stone.  It's slightly cheaper than the seaplanes, at
 27 shields, but it doesn't have the hard-hitting capability of the HL; it
-would take ten of them on average to sink a dreadnought, each standing
-only a 7% chance of surviving the bombing run.  And it can't convert to a
+would take nine of them on average to sink a dreadnought, each standing
+only a 10% chance of surviving the bombing run.  And it can't convert to a
 spotter like HL can.
+Against a pre-dread battleship it's _just_ economical, taking an average
+of 5⅓ planes (144 shields) to sink the 150-shield ship, with a 22% Pd.
 
 The summary here is that apart from BE/BB in your home waters (perhaps
 to sink an invasion fleet of lcmboats?), none of this is much good if
@@ -676,7 +794,7 @@ sub-hunters and HT/HL can interdict merchant shipping or troopships.
 Meanwhile battleships and dreadnoughts remain 'queen of the seas', at
 least as long as the submarine threat is suppressed, and HR/HN provide
 them with a useful force-multiplier (e.g. raising a dreadnought's WR in
-pitched battle with another dread from 27% to 45%).
+pitched battle with another dread from 37% to 56%).
 
 ### Anti-Air
 
@@ -686,26 +804,50 @@ These are almost completely useless against anything that can defend
 itself (the best figures are FP's 86% winrate against HS), but are of
 course entirely adequate for destroying defenceless R1/R2, ZS/ZC, am,
 LZ, or even HL.  So if your enemy's spotters are _really_ annoying you,
-or a swarm of ZBs are giving your cbs headaches, you might want to build
+or a swarm of ZBs are starting annoying fires, you might want to build
 one; but apart from that rather improbable scenario, the only use for
 either is as a stepping-stone to upgrade to something decent ASAP.
 (And FP has quite a while to wait for its upgrade.)
+The same tech also allows you to build the Dawn Patrol building, which
+gives a partial counter to firebombers: if an enemy bomber flambés your
+city, and you have both Dawn Patrol and at least one Anti-Air unit in the
+city, the game will pick the unit with the most AP (accounting for veteran
+bonuses) and automatically attack the bomber (or to be precise, the stack
+on the tile the bomber's on; a different unit might do the defending).
+It only attacks once, though, disengaging after its standard combat rounds
+(3, in this era), meaning that even FP can only do at most 6 damage in
+this automatic interception even with perfect die rolls.
+This attack happens _after_ the bombs are dropped, so even in the highly
+unlikely case that you shoot the bomber down, your city still gets burned.
+Conversely, even the earliest fighters can be useful to protect _your_
+incendiary bombers from Dawn Patrol interception; despite only having one
+fuel they can be on the same tile as the bomber, escorting it, when the
+retaliation hits.  However, if that retaliation has FirePower 2, then it
+has the chance to shoot down your fighter, as both SA and FP only have 6
+hitpoints.  (But then, if your escort is an FP, it has that same chance —
+12.5% — to shoot down the interceptor.)
 
 1915 brings a spread of choices.  SM Monoplane Scout and SP Pusher Scout
 are very similar — SM has 16 AP and 16 DP, while SP has 18 AP and 9 DP.
 So you'd think SP is slightly stronger on attack; but SM having 2 FP gives
 it effectively double the CR, so when operating at range, SP might not
-have enough fuel to make full use of its extra hitpoint.  Also, of course,
+have enough fuel to make full use of its extra hitpoint (particularly as
+SP has one fewer move).
+Also, of course,
 in a scramble (scout on base defending against bomber) SM will be nearly
 twice as strong.  So SM is better in most cases, but SP has a slight edge
 when shooting at a bomber parked just outside the city (e.g. on its way
 home after bombing) which in some cases _is_ the most likely scenario.
+However, in a Dawn Patrol interception the SM is likely to deal more
+damage in the single combat (it just also _takes_ more damage).
+Both have enough hitpoints to be sure of surviving a one-combat fighter
+duel.
 SP's FieldRepair flag may help if it's defending an airbase from bombers.
 And Engines 1915 (for SP) is quicker to research than Interrupter Gear
 (for SM).  At the end of the day, it doesn't make that much difference
 which one you choose, because they both have the same upgrade path (to
 SS, which requires both of those techs to reach); if you are in a hurry
-to get any of the things that depends on Engines 1915 (HF, HT, ZB, R2)
+to get any of the things that depends on Engines 1915 (HF, HT, R2, BE)
 then you may as well take that route and get the SP, whereas if you're
 under heavy bombardment and need the best scramble scout immediately
 then you'll prefer SM.  Once you have both techs, you can then research
@@ -713,8 +855,20 @@ Effective Scouts, which unlocks the FS Two-seat Scout.  This costs 50%
 more to build, but with 32 AP and 16 DP (and a mere 6 move) it's a strong
 if situational interceptor.  One advantage is that you save on upkeep, so if
 all you need is AP then FS might be better.  (Also, its upgrade is good,
-at least for a little while.)  In a scramble, FS merely matches the
-performance of the cheaper SM.
+at least for a little while.)
+Another factor that can favour two-seaters in general is if you have lots
+of shield production but your cities are limited by build slots —
+if you need an air defence force in a hurry,
+but can only pop out one unit per turn,
+it may as well be the more powerful two-seater.
+In a scramble, FS merely matches the performance of the cheaper SM.
+FS can also convert to the ES Escort Scout; its combat stats are weaker
+than SM (14 AP and 14 DP), and its 4 move is slow, but having 2 fuel
+means it can stay with a recon or bomber stack across turn-change.
+It probably doesn't make sense to build purely for escort duties, since
+its DP are less than the cheaper R2 (although having a FirePower 2 unit
+in a stack can scare off damaged scouts), but if you have a use for the
+FS then having the ES option makes it more valuable.
 We must also consider the HF Floatplane Fighter, which in
 itself (14 AP, 6 DP, 7 move) is inferior to the SP that precedes it,
 but as a seaplane can be deployed on a tender to protect shipping, or on
@@ -724,12 +878,19 @@ floatplane bombers (zero defence up to HL, and even HC will fall 74%
 of the time) and flying-boats (HF has an 80% win against PE and a 61%
 against PB).  Against the scouts it wins 93% vs HS, 80% vs HR and 74% vs
 HN, all entirely adequate to interdict enemy spotters.
-In a scramble it has 38% Pd against HT and 6% Pk-94% Pd
-against HL; PB will kill it 37% of the time.  Against HA it will likely
-draw in the scramble, with <1% Pk-3½% Pd.
+However, if it comes up against heavy bombers, it only gets 10% WR on BE,
+and it takes nearly all its move (six rounds) even to do that.  (Though a
+pair of HFs is enough to bring down a single BE 54% of the time, and costs
+less than the BE, it takes up a lot of tender space.)
+In a scramble it has 38% Pd against HT and 6% Pk-94% Pd against HL;
+19½% Pd vs PE, while PB will kill it 37% of the time.
+Against HA it will likely
+draw in the scramble, with `<`1% Pk-3½% Pd.  BE will destroy it (>99% Pd).
 If it's the only fighter you can get into the theatre, it's better than
 nothing; but its weak defence means a concerted assault on the tender can
 chew it up cheaply.
+(And note that fighters will almost never scramble from a battleship,
+since the ship gets picked to defend unless it's already on very low HP.)
 
 The breadth of choices continues in 1916, as the main Scouts tech gives
 the option of SS Sesquiplane Scout or FB Fighter Biplane.  With 32 AP
@@ -743,26 +904,37 @@ deal 25% damage to a
 BE; by comparison, an SS has only 9% chance to down LE or PE and will
 scarcely scratch a BE.  FB also has the FieldRepair flag, which SS
 doesn't.
+And it's a better Dawn Patrol interceptor; if you only get the one shot at
+a fast firebomber (perhaps a BB, or an ace ZB/BE), FB will do more with
+that opportunity than even S2, so it's worth keeping at least one in the
+city.
 Set against that are its 50% extra cost and its 7 move (one
-less than the SS), and its lack of an upgrade path (until the ’30s);
-building FBs only makes sense if you need the _best_ scramble defence
-_right now_.  There is also another option, through the Triplanes tech
-which unlocks ST Triplane Scout.  This has 48 AP (same as the FB) but 16
-DP (same as the SS), with a price tag equal to the SS.  That makes for an
-effective interceptor, but there are two downsides: it only has 6 move
-(so may not have enough fuel to finish off the target) and it doesn't
-upgrade until the Twenties, which can leave you with a scramble gap.
-Its FieldRepair flag may help it when forward-based on airfields to catch
-slow heavy bombers on their way in, a tactic that could help make up for
-its short range.
+less than the SS), and its lack of an upgrade path (until the ’30s).
+For protecting your bombers, the FB is convertible to the EB Escort
+Biplane, with 28 AP / 28 DP.  That's enough for 50% WR against SS, or 29%
+against FB (helped in either case by rounding against FirePower 2), and
+providing more DP per shield than any bomber until the Twenties.
+Its 5M2F range is adequate to escort any contemporary except heavies or
+zepps using their additional fuel for long-distance raids.
+If EB has to attack without having time to convert back to FB,
+it hits about as hard as SS (47% WR vs BE), though of course it costs more.
+It's almost as good as FB in a scramble, too.
+There is also another option, through the Triplanes tech
+which unlocks ST Triplane Scout.
+This has only 20 AP (barely more than the SP) but 40 DP (not beaten until
+the Twenties), with a price tag equal to the SS.  That makes for an
+effective scramble defence, but that weak attack makes it hard to bring
+down bombers with it, and it only has 6 move
+(so may not have enough fuel to finish off the target).
+Its FieldRepair flag may help if it's used to defend forward bases.
 One last point about the ST is that Triplanes is a prerequisite for
 Triplane Bombers, so if you want to operate BTs you might well develop
 STs before Scouts 1916 and thus end up using them.
 
 The headline fighter of 1917 is the SB Biplane Scout.  With 40 AP and
-40 DP, it's a solid all-rounder, with interception almost as good as
-FB/ST coupled with better scramble than anything before it (and still
-with the 20-shield price tag).  It pretty much knocks everything before
+40 DP, it's a solid all-rounder, coupling interception almost as good as
+FB with scramble matching the ST, and still with the 20-shield price tag.
+It pretty much knocks everything before
 it into a cocked hat, and once you have it you're unlikely to build
 any other landplane fighters.  Its only slight downside is its lack of
 FieldRepair.
@@ -777,13 +949,16 @@ sense as the air defence for a carrier task force, if all you want is to
 get fighter cover over some ships that don't already include a flattop,
 the seaplane solution is much cheaper overall.  In a scramble, the HW is
 more likely to survive, but the SF will do more damage to the bomber.
+Intercepting a BE, HW gets 19% WR (but takes all 7 of its move), while SF
+gets 47% in just 4 rounds.
 
 To sum up, through most of the era there's a confusing panoply of options
 (should you go single-seat or two-seat?  What about triplanes?) but
 progress is so rapid that whatever you choose will be obsolete
 pretty soon, so unless you're fighting off an air armada and need to
 micro-optimise, the simple SP→SM→SS→SB progression is probably
-the way to go.
+the way to go.  The FB/EB combination might also be useful if your
+bombers are facing serious resistance.
 
 ### Naval Aviation
 
@@ -796,9 +971,12 @@ powerful (on average it will take two of them just to kill a Marines,
 or 1⅔ to kill a cb; an intercepting HW will kill it 33% of the time,
 and SB 85%); SF is good as far as it goes but it's not clear how it
 can justify the cost of a CVL when you could just run HWs and tenders.
-And while L1's decent-ranged Recon capability might be useful in
+And while L1's decent-ranged Recon and Spot capability might be useful in
 conjunction with other forces, it's hard to _bring_ those other forces
 into the kind of battlespace it needs a flattop to reach.
+(Although L1 _can_ do the same trick as seaplanes, of landing on a carrier
+that steams under it after it bombs, preventing it from being exposed to
+fighter interception.)
 So really, operating a carrier at this techlevel makes little sense;
 the only reason to start building one is if you think you will want it
 later when you get better planes for it.  A CVL can be sunk by an average
@@ -812,6 +990,9 @@ A pair of subs each attacking twice will have a solid 54% Pk-22% Pd
 make sure you have decent ASW active.  It would probably take about
 *five* TEs to sink it (120 shields), which further underscores how feeble
 they are.  (4× TE gets 26% Pk, 5× gets 86%, and Pd is just 0.03%.)
+On the other hand, TE is _marginally_ better than HL at attacking
+battleships, although even against predreads it's only just barely
+economical to do so.
 The best excuse I can think of for operating TEs is to earn veteran
 levels that can be carried across an upgrade, which is rather a thin
 justification.
@@ -820,11 +1001,12 @@ Naval fighters scrambling from tenders or carriers are fairly effective,
 particularly against torpers — for instance, an HW scrambling against an
 HL gets 14% Pk-14% Pd; against L1 both will survive (facing two L1s it
 suffers 53% Pd), though a BB will blow it away (96% Pd).  Against TE it
-gets <1% Pk with no Pd.
+gets `<`1% Pk with no Pd.
 SF beats an attacking HL nearly 83% of the time, and gets 5% Pk-1⅔% Pd
-against L1 or 27%-7% against TE, but BB still blasts it (99% Pd, <1% Pk).
+against L1 or 27%-7% against TE, but BB still blasts it (99% Pd, `<`1% Pk).
 Generally this means that you want to use level-bombers to sweep up the
-ship's CAP before sending in the torpers to sink the ship itself.
+ship's CAP before sending in the torpers to sink the ship itself
+(though in practice you probably can't as you don't get to control this).
 
 For battleship aviation, the main choices are to embark air cover in the
 form of HF/HW (highly unlikely to scramble when the ship itself is so
@@ -832,7 +1014,7 @@ powerful, so mostly acting as an interceptor), to bring a ZC or PB for
 ASW (either is adequate, but ZC is probably preferable simply because of
 its cheapness, unless you're in a situation where you need killing power
 against the subs rather than merely locating them), or to get naval
-gunfire spotting from an HR or HN.
+gunfire spotting from an HR or HN (or, again, ZC).
 There's not a lot of
 reason to carry HT/HL on a battleship since the ship's own guns are much
 more effective against other boats, and the ranged strike of a tender or
@@ -860,7 +1042,9 @@ battlefleet than HW, though this gap will narrow post-war).
 It's not all about the fighting, as two new utility aircraft arrive
 in 1917.  The Ambassador is a moderate-ranged (4M4F) unit with the sole
 purpose of establishing embassies in foreign cities, allowing you to keep
-tabs on what your near neighbours are up to.  Slightly shorter-ranged
+tabs on what your near neighbours are up to
+(and particularly useful in games with techleak enabled).
+Slightly shorter-ranged
 (3M4F), and a large investment at 60 shields, the LZ Zeppelin Liner allows
 you to establish trade routes, highly lucrative over the long term.
 Of course both are entirely defenceless should they find themselves
@@ -875,6 +1059,8 @@ build, it thus takes 25 turns to pay for itself at a zero discount rate.
 But if you have nothing better to build, it may be a good long-term
 investment.  Of course, gold-paying governments (which includes the
 starting Constitutional Monarchy) gain nothing from it.
+There's also Dawn Patrol, explained in the Anti-Air section above, which
+makes it take more effort to firebomb you (but only very slightly).
 Technical College (Aircraft Industry) is the next step for
 the science economy, boosting the city's research by another third.
 Repair Sheds (Aircraft Industry) and Aircraft Slipways
@@ -903,6 +1089,12 @@ even terms is possible.
 (but goes obsolete with General Aviation).  Significantly, for civs with
 0% luxrate, Balloon Rides's 3 lux only gives one happy citizen, but
 Airship Company lifts this to 4 lux and thus a second happy citizen.
+Dicta Boelcke (Interrupter Gear) is a greatwonder that gives all
+newly-built fighters an extra veteran level;
+in conjunction with Flying School this allows you to build aces
+for that extra point of speed.
+It increases the temptation to unlock its tech (and SM)
+before Engines 1915 (SP, and prerequisite for everything).
 Early Blimp in 1916 gives
 access to Barrage Balloons, but since those are for defence against
 dive-bombers — which aren't invented until the Twenties — you're
@@ -913,7 +1105,7 @@ different mode of attack (or choose one after noticing you've built
 balloons) it may just be a waste of shields and gold.
 
 There are a couple more buildings that arrive with 1917 techs.  War
-Memorial (Bombers 1917) is useful for a Democracy fighting offensive
+Memorial (Bombers 1917) is useful for a free nation fighting offensive
 or maritime wars where aircraft will often end their turn outside its
 borders; it's less important if your war effort consists chiefly of
 putting up fighters against enemy bombers over your own territory, and
@@ -923,7 +1115,10 @@ given you could build another Troops for the same price (albeit with
 shield instead of gold upkeep), it's probably only worthwhile for a
 city which is going to hold a large stack of units.  It will, however,
 become more useful later when Proximity Fuse is invented, more than
-doubling its effect.  Mooring Mast (Effective Airships) is required
+doubling its effect.  It's also useful if you're being attacked with
+Incendiary Bombs, as it shoots back and damages the bomber in this
+case (although only deals a small 1d4 damage for now).
+Mooring Mast (Effective Airships) is required
 to build Zeppelin Liners, and lets a city access a second trade route
 (without it, a city can only _receive_ one LZ from elsewhere).
 
@@ -952,7 +1147,7 @@ logistics; but there are also new ideas of how to fulfil existing rôles.
 ### Reconnaissance
 
 All the old recon platforms see upgrades in the ’Twenties.  Airships get
-the ZD Twenties Blimp, which has better range (5M4F) than the old ZC,
+the ZD Twenties Blimp, which has better range (5M5F) than the old ZC,
 though remains defenceless.  It still has zero shield upkeep, which
 is nice.
 HC Coastal Seaplane _finally_ brings Recon to the floatplane line, and
@@ -975,10 +1170,14 @@ depending on what you want to achieve — ZD or P2 for ocean patrol,
 L2 for city Recon, or HC for the same if there's no ships around for it
 to AntiSea on.  But note that ZD doesn't have an upgrade path.
 
-In the ’Thirties, only the flying-boats and light bombers see upgrades.
+In the ’Thirties, only the seaplanes and light bombers see upgrades.
 P3 Thirties Flying Boat is faster (9M3F) and better-defended (54 DP) than
 its predecessor, but it's still fairly vulnerable (contemporary fighters,
-even the H3, threaten it cheaply).  The L3 Thirties Light Bomber is
+even the H3, threaten it cheaply).
+Similarly, HU Thirties Reconnaissance Floatplane is faster than HN or HC,
+can Investigate City (which HN can't), and has 28 DP to at least
+inconvenience enemy fighters, while still being cheap at 32 shields.
+The L3 Thirties Light Bomber is
 also fast (10M2F) and defensible (60 DP), as well as having slightly
 longer vision (r²≤5), but doesn't have an upgrade path (which will be
 Bad News once fighters improve).  Still, that speed should allow it to
@@ -1011,7 +1210,11 @@ of steam towards the end.
 ### Anti-Ground
 
 Whole new categories of bomber appear in the ’Twenties.  Dive bombing
-is highly accurate and gives the D2 Twenties Dive Bomber 40 AP (12 BP)
+is highly accurate
+(in particular, it gets a bonus against units in fortresses,
+nearly nullifying their effect, and it can Pillage rails, airfields or
+buoys)
+and gives the D2 Twenties Dive Bomber 40 AP (12 BP)
 in an inexpensive package (especially for Fascist nations, which pay no
 upkeep on any iteration of the dive-bomber line).  It has a 68% chance
 to take out cbs, but it's vulnerable at only 16 DP (WW1 scouts can kill
@@ -1035,7 +1238,12 @@ are quite good — it can go almost as far as a heavy, and can do it
 more often, though its ferry range is actually slightly inferior to
 the L2's (6M3F).  If you're not sure whether you'll be facing strong
 or weak fighter defences, M2 can be a good way to hedge your bets.
-It also has r²≤4 vision.  The new flying-boat, P2, also gets 12 BP,
+Against typical ground targets, it deals just over half as much damage
+as a B2, and takes about 30% more damage, leaving it with about 17% less
+DP, but being cheaper that's about 25% more DP per shield.
+It also has r²≤4 vision, and can fire-bomb; its speed means it might even
+be able to run home again afterwards, keeping it safe.
+The new flying-boat, P2, also gets 12 BP,
 but only 42 AP and 28 DP; land-side bombing is not what it's good at
 (though its 6M4F range is state-of-the-art).  Heavy bomber improvements
 are a minor increment, with the B2 Twenties Bomber having 216 AP, 72
@@ -1059,7 +1267,8 @@ Recon, and whether you need to hitch a ride on a flattop.  In order from
 L2→M2→B2→D2, each has more offensive capability, but less defensive
 resilience, per shield to build; remember though that they all cost the
 same 1 shield per turn of upkeep and 1 unhappiness when deployed outside
-your borders, factors which (for Democracies, at least) favour a smaller
+your borders, factors which (for free governments, at least)
+favour a smaller
 number of heavies over a swarm of lights.  And as always, don't forget to
 consider which types you'll be happiest upgrading to in a few years' time.
 
@@ -1068,20 +1277,24 @@ the abovementioned types.  The L3 Thirties Light Bomber is one of the
 first types to benefit from the monoplane transition, gaining speed
 and radius of action (10M2F), but the growth in its combat capabilities
 (60 AP, 60 DP, still 8 BP) at best matches the higher cost (40 shields)
-of the new metal structures, and it's not upgradeable.  Moreover, it loses
+of the new metal structures.  Moreover, it loses
 the FieldRepair flag, in a knock to its vaunted airfield ground-defence
 capabilities; but at least it can still Spot for artillery.
 Equally fast
 (and with equal cost growth, proportionally, at 80 shields) is the M3
 Thirties Medium Bomber, which sees even more modest offensive gains
 (120 AP, 12 BP) but a distinctly more healthy survivability boost at 96
-DP (giving it 95% WR against intercepting S3, instead of M2's 77% versus
+DP (giving it 88% WR against intercepting S3, instead of M2's 77% versus
 S2).
 It also gains AntiSea as an ancillary capability.
 The new heavy bomber, B3 Thirties Bomber, is still
 slow and lumbering (6M4F, one point faster than the B2) and while it's
-much tougher (108 DP), it's still only the same 20 BP despite the 20%
-rise in build cost.  The D3 Thirties Dive Bomber also gains a point of
+much tougher (96 DP, same as the M3),
+it's still only the same 20 BP despite the 20% rise in build cost.
+After bombing typical Troops, M3 has 8-10% less DP than B3, which is
+about 20-24% more DP per shield, a slightly smaller advantage than the
+previous generation.
+The D3 Thirties Dive Bomber also gains a point of
 speed/range, and its hitpoints increase by slightly more than its cost,
 giving it 50 AP and 20 DP (the BP, of course, stay the same at 12); this
 isn't much of a capability gain as these DP still aren't enough to survive
@@ -1102,6 +1315,10 @@ the A3 pulling ahead relative to the bombers whose progress is frankly
 a little disappointing, unless the geography of the front line happens
 to make the extra range highly relevant to you or the survivability
 boost of the medium and heavy are important.
+There's also the HU Thirties Reconnaissance Floatplane, which is a bit
+faster (7M2F) than the old HN, and stronger in combat at 42 AP and 28 DP
+(the same, in fact, as P2, but with only 8 BP),
+but really not suited to land-side bombing duty.
 
 In the rearmament period (1935-38), the new light bomber is the LT
 Light Bomber Twin; unlike previous lights (which can't upgrade to it)
@@ -1119,11 +1336,12 @@ jump in speed to 12M2F, while the cost sees only a modest increase to 90
 shields.  It continues to be a good balance of attack and defence,
 particularly if lifetimes are long enough for upkeep to be a consideration
 (though sadly its lineage ends here, with no further upgrades).
-Heavy bombers gain little combat power,
-with the BW Early Heavy Bomber having only an extra point of speed and
-a few extra hitpoints to
-show for its 11% cost increase; on the other hand there are some nice
-upgrades coming up which you might want to position yourself for.  DB Dive
+Heavy bombers gain a little combat power,
+with the BW Early Heavy Bomber having an extra point of speed and
+25% more hitpoints to show for its 11% cost increase;
+significantly, there are some nice upgrades coming up which you might want
+to position yourself for.
+DB Dive
 Bomber gains AntiSea capability, a point of move and significant combat
 power, with 72 AP and 36 DP, but at the cost of a 25% price increase.
 It's a cheap source of BP and at least a bit more survivable than previous
@@ -1145,9 +1363,10 @@ blitzkrieg campaign, but lack staying power (loss rates will be heavy)
 which can lead a protracted war to turn against you if you fail to get
 a knockout blow early on.  Medium bombers may seem like the unloved
 middle child, but they have the advantage of being the cheapest glider
-tugs (see the airborne assault section), which may be reason enough to
-include them in your air force.  Heavy bombers start out a strong option,
-but gradually fall behind.  In all cases, there is negligible growth in
+tugs (see the airborne assault section) and firebombers,
+which may be reason enough to include them in your air force.
+Heavy bombers start out a strong option, but gradually fall behind.
+In all cases, there is negligible growth in
 offensive Pks — in fact no growth at all from the ’Twenties to the
 ’Thirties — instead, the improvements are mostly in DP and range.
 The increasing ranges not only deepen the front line but also mean
@@ -1177,14 +1396,21 @@ even behind the apparent front.
 The ’Twenties bring new versions of all your favourite ocean strike
 options.  ZD Twenties Blimp (12 AP) is an effective antisubmarine
 patroller, with about 3-in-4 odds of sinking a Submersible, and a useful
-speed/range increment to 5M4F.  Operating a few of these (perhaps from
+speed/range increment to 5M5F.  Operating a few of these (perhaps from
 tenders) is a cheap and effective way to protect your merchant fleets from
 the underwater menace, unless the enemy brings air cover in which case the
-defenceless blimps will be quickly eradicated.  An HC Coastal Seaplane
+defenceless blimps will be quickly eradicated.
+But if you're able to use the multiattack to ensure they always finish
+their turn in a defended stack (e.g. on a tender, buoy, or battlewagon)
+then blimps become the most cost-effective again if the skies are too hot
+for any of the alternatives to survive.
+An HC Coastal Seaplane
 can deal plenty of damage (40 AP, 18 BP), while taking at least _some_
 effort to shoot down, though its 10 DP isn't safe against anything more
 advanced than 1915 (for instance, the HF, dating back to 1915's Effective
-Seaplanes, has nearly a 74% Pk).  It matches the HN's range of 5M3F, while
+Seaplanes, has nearly a 74% Pk, if it has the fuel for the ~5 turns of
+combat it'll need to chew through the HC's hitpoints).
+It matches the HN's range of 5M3F, while
 carrying torpedoes, whose weight previously reduced HL to 5M2F; though of
 course the third fuel doesn't do much to stretch radius of action.
 P2 Twenties Flying Boat, with its 12 BP, can now more reliably (Pk=84%) kill
@@ -1202,8 +1428,8 @@ give the T2 Twenties Torpedo Bomber the ability to do serious damage to
 ships with its 48 AP and 18 BP.  It can be confident of killing a merchie
 or sub straight off, and if it rolls luckily (14% chance) it can even
 one-shot an lcmboat.  Its performance against battleships is marginal, with
-six T2s (costing 192 shields) having a 52% Pk on a 200-shield dreadnought,
-but a 91% Pd on the initial bombing run.
+five T2s (costing 160 shields) having a 46% Pk on a 200-shield dreadnought,
+but an 88% Pd on the initial bombing run.
 It has 12 DP, little more than the HC.  With the same cost as
 that seaplane, its speed is one notch higher and its upgrade
 prospects are better (but of course a flattop costs more than a tender;
@@ -1234,24 +1460,30 @@ position for an ambush.  It also has significantly more underwater
 endurance than the old Submersible, improving its odds of hiding from the
 new long-vision ASW aircraft.
 
-There are no ’Thirties upgrades of blimps or floatplanes, but there
+There are no ’Thirties upgrades of blimps or torpedo floatplanes, but there
 is the P3 Thirties Flying Boat.  With 9M3F its ferry range is increased
 but its radius and loiter time reduced.  The 20% rise in build cost
 earns a decent HP increase, taking AP to 54, but DP jumps to (also) 54,
 making interception by the fighters of the day almost a fair fight.
 Of course the BP remains stuck at 12, but that's enough for ASW, with a
 65% Pk against U-boats.
+There's also the HU Thirties Reconnaissance Floatplane, an upgrade for HN
+with no increase in build cost and a useful uplift in speed (7M2F), combat
+stats (42 AP, 28 DP), and adding Recon capability, although ferry range is
+one tile shorter than HN or HC.  Against subs it gets 10% Pk (99% on a
+second attack if refuelled in the meantime), though its 8 BP cannot one-
+shot a U-boat.  Pk on merchies is a strong 68%.
 T3 Thirties Torpedo Bomber nearly doubles its AP, to 84, in return
 for its 12½% price increase; against hard targets like carriers (or,
 especially, scrambling fighters) this can make a noticeable difference
 (e.g. 33% Pk-18% Pd against H3, whereas T2 got 35%-65% vs H2),
 and its Pk against lcmboats is up at 30%,
 but it's still vulnerable with a mere 14 DP.
-Significantly, for the first time the T3 has the economic edge against
-dreadnoughts, taking an average of just under 140 shields' worth of
-torpedo-bomber to sink the 200-shield battlewagon, and with only a 54%
-Pd to boot.  A CV full of T3s will get a 94% Pk on the dread, with an
-average of just 73 shields being shot down in the attack, but if there's
+Significantly, the T3 has a much stronger economic edge against
+dreadnoughts, taking an average of just under 125 shields' worth of
+torpedo-bomber to sink the 200-shield battlewagon, and with only a 46%
+Pd to boot.  A CV full of T3s will get a 97½% Pk on the dread, with an
+average of just 57 shields being shot down in the attack, but if there's
 any enemy fighter cover then the rest of the torpers won't be coming home
 either.  (And of course the CV itself ain't free.)
 A new
@@ -1284,7 +1516,7 @@ contemporary NM gets 99.96%).  Still, it's cheap at 40 shields, meaning
 a pair of these, with 37½% Pk on a CVL, costs less than the carrier.
 (But scrambling fighters will hurt it badly, as usual for torpers.)
 It's the first floatplane to pose
-an economically viable counter to battleships; but it's also the _last_
+an economically viable counter to dreadnoughts; but it's also the _last_
 floatplane bomber, with no upgrade path.
 The other seaplane
 option is the PH Heavy Flying Boat; its extra point of range and large
@@ -1305,8 +1537,8 @@ The cost rises only slightly, to 40 shields, while defence is 7% up at
 15 DP (but that's still not enough to fight off anything postwar, with
 the possible exception of the H2 at 91% Pk), and the speed/range extends
 to 7M2F.  Against dreadnoughts it's stronger than ever, deploying an
-average of 121 shields per soaking admiral but with an 86% chance to come
-home in one piece, distinctly better than the T3's 46%.
+average of 110 shields per soaking admiral but with an 89% chance to come
+home in one piece, distinctly better than the T3's 54%.
 But torpers are no longer the only carrier-borne AntiSea units,
 as DB Dive Bomber also has that capability.  With 72 AP but only 12 BP,
 it deals less damage on average than TM but it's more predictable in the
@@ -1317,7 +1549,7 @@ basically 100% vs merchie) is largely adequate.  While its 36 DP is poor
 by landplane standards, compared to the torpers it looks rather robust.
 However, it's slightly less effective than TM against scrambling fighters
 (although there's really very little to choose between them).
-190 shields' worth of DBs sinks a dreadnought, with 79% Pd; this is just
+171 shields' worth of DBs sinks a dreadnought, with 71% Pd; this is just
 economically viable (the dread cost 200), but of course the torpers do
 better in that matchup.
 The real reason to use it, though, is its versatility; a carrier air
@@ -1360,7 +1592,7 @@ KAs are highly deadly with 24 BP and 120 AP, but they act as missile
 units and cost not only 20 shields but also _one population_ to build.
 But when desperate times call for desperate measures, a few kamikazes
 into the enemy's carriers and dreadnoughts can save the day.  (It takes
-an average of 2.5 KAs to kill either a CV or a dread; in shield terms
+an average of 2.5 KAs to kill a CV, or 2.2 for a dread; in shield terms
 that's a bargain, but the economic hit of the lost pop may be severe.)
 Frankly the biggest problem
 for all the bombers in 1935 is that FE and NM are just a lot stronger
@@ -1375,7 +1607,8 @@ is almost nonexistent.  Conventional landplane bombers can hunt subs
 even in the face of enemy fighter cover, but tie up a lot of shields
 that could otherwise be employed elsewhere.  And, as already mentioned,
 everything gets left behind by the jump in fighter performance in 1935
-(a situation that will only get worse in 1939).
+(a situation that will only get worse in 1939).  As a result, ZDs with
+their multiattack can remain relevant throughout the era.
 
 ### Anti-Air
 
@@ -1410,25 +1643,29 @@ by what platforms you choose for other reasons; they're all adequate
 for their respective rôles.
 
 The S3 Thirties Scout is a modest upgrade, gaining only additional speed
-(12 move).  Against the new generation of bombers, it can struggle to
-do the business (3% Pk vs B3, 5% vs M3, 31% vs L3); small wonder that
+(12 move) and hitpoints (15) for 60 AP and 60 DP.
+Against the new generation of bombers, it can struggle to
+do the business (18% Pk vs B3, 12% vs M3, 51% vs L3); small wonder that
 Baldwin believed "the bomber will always get through".  (On the other
 hand, those bombers have risen significantly in price.)  It's still able
-to hack down dive-bombers with ease (96% Pk vs D3).
+to hack down dive-bombers with ease (99% Pk vs D3).
+Its CR 5 may affect the fine detail of combats, and distinctly increases
+damage dealt on Dawn Patrol.  (The game does not take CR into account when
+choosing which fighter to attack with, but at full hitpoints it will still
+choose S3 over the strongest CR 3 fighters, S2 and FB, with only 48 AP.)
 It still has FieldRepair.
 Two-seaters are
 also back, with the F3 Thirties Fighter; it's better at interception
-(66 AP) but weaker in a scramble (44 DP) and has only 10 move, largely
+(78 AP) but weaker in a scramble (52 DP) and has only 10 move, largely
 failing to justify its 36 shield build cost.
 Still, if you have any old FBs lying around it's worth upgrading them; it
-keeps the FieldRepair flag.
-And of course it's upkeep-efficient; after 5 turns of shield upkeep it's
-a slightly cheaper source of AP than the S3.
+keeps the FieldRepair flag, though no longer has an Escort conversion.
+And of course it's upkeep-efficient and good at Dawn Patrol.
 The new seaplane, H3 Thirties Floatplane, is a solid upgrade that closes
 the gap with other fighters, having the same 40 AP/40 DP as the SB or
 N2, and a speed of 11.  This keeps pace with torpers on intercept (98% Pk
 vs T3), but not
-with level bombers (1½% vs B3), nor with flying-boats (26% Pk vs P3);
+with level bombers (4% vs B3), nor with flying-boats (26% Pk vs P3);
 it still struggles in a scramble (18% Pk-33% Pd vs T3, 29% Pd vs M3,
 1½%-8% vs P3), and it has a while to wait for its next upgrade.  On the
 flattops we have the N3 Thirties Naval Fighter, a modest improvement (one
@@ -1447,21 +1684,22 @@ low on HP is that much more risky.
 
 The monoplane transition reaches fighters in 1935, starting a period of
 rapid increase in strength.  Chief among these is the FE Early Monoplane
-Fighter, which at 96 AP / 96 DP is twice as powerful as an S3, yet only
+Fighter, which at 96 AP / 96 DP is twice as powerful as an S2, yet only
 44% more expensive.  It also has 16 move.  The change to 3 FP does mean
 more cases where rounding works against you (e.g. to down a 16 HP bomber
 you need six hits, of which ⅔ of the last is wasted), but that's a
 small detail that doesn't stop your Pks from leaping up — 31% against
 BW, 22% vs MB, 64% vs LT.  Even in a scramble, your Pd against BW is only
-53%, while you have slight Pks against MB (<0.1%) and LT (0.3%).  And its
+53%, while you have slight Pks against MB (`<`0.1%) and LT (0.3%).  And its
 FieldRepair sees favourable rounding, regaining *six* hitpoints per turn
 parked on an airfield.
 There is also a new two-seater, the FT
-Turret Fighter.  It's pricey at 48 shields, but it has 132 AP / 99 DP
+Turret Fighter.  It's pricey at 48 shields, but it has 156 AP / 117 DP
 and 12 move, making it a _slightly_ more cost-effective interceptor than
 the FE, though not so great in a scramble.  Also, it loses FieldRepair
-and has no upgrade path.
-A new concept is the EF Early Heavy Fighter, which has
+and has no upgrade path.  But with Sector Control and proxy-fused flak, a
+pair of FTs actually has a decent chance (16%) to kill a firebombing MB.
+Echoing the concept of the old EB is the EF Early Heavy Fighter, which has
 the distinction of being able to loiter (12M2F), allowing it to escort
 bombers over the target.  With 99 AP for 50 shields, it's inferior as
 an interceptor (it would take over 400 turns of shield upkeep for it to
@@ -1473,7 +1711,11 @@ which the EF makes sense are (a) you really need that extra point of
 escort range, or (b) you aren't sure how many interceptors or escorts
 you need and EF gives you something that can be both.  (Future upgrades
 aren't a concern, because the upgrades FH and LM are the same airframe
-and can be converted to one another.)  At sea, there is no new floatplane,
+and can be converted to one another.)
+Having a unit with three FirePower in a stack is also useful for making
+it risky for a damaged fighter to engage, as lucky rolls by the EF could
+bring down an FE/FM/FC/FF with even a single point of damage.
+At sea, there is no new floatplane,
 but the carriers get the NM Monoplane Naval Fighter.  The speed rises to
 15, but the 64 AP / 64 DP is only about in line with the price increase
 (36 shields, same as the FE).  That does give some solid Pks (7% vs BW,
@@ -1550,7 +1792,7 @@ and can take slightly more hits,
 but is otherwise unchanged and costs 11% more.  M3 is now faster, at
 a pacey 10M2F, allowing gliders to reach further; its DP grows to 96,
 outpacing the rising cost (80 shields).  B3 sees similar
-gains (6M4F, 108 DP for 108 shields).  P3's speed jumps but the radius of
+gains (6M4F, 96 DP for 108 shields).  P3's speed jumps but the radius of
 action isn't up so far as it goes to 9M3F, although if it is operating
 from a moving tender then radius is not necessarily the right metric
 (e.g. in the three turns it takes to go out 18 tiles and back 9, the
@@ -1558,7 +1800,7 @@ tender could cover the remaining 9 and be in position to refuel it);
 also, if you're only dropping paras and not bombing then you don't have
 to end your turn to do so and can thus use all your range.
 Its defence improves considerably, though is still not great, being
-proportionally slightly more vulnerable than a heavy.
+proportionally only slightly less vulnerable than a heavy.
 On the whole it makes amphibious airborne assault reasonably practical,
 if you have a strong carrier-borne force to do the bombing.  Meanwhile,
 mediums are still the best glider tug.
@@ -1575,7 +1817,8 @@ paratroopers jumping from Sunderlands to capture a city is delightfully
 batty, it's not really economical.
 
 Basically, throughout the period, the mainline options are mediums towing
-gliders and C-transports dropping paras.  Other variations are _possible_,
+gliders and B-bombers (or maybe C-transports) dropping paras.
+Other variations are _possible_,
 but only advantageous in unusual circumstances.  Transports get noticeably
 more expensive to build but extend their reach significantly.
 The important part is that wars can now be won from the air, rather than
@@ -1626,8 +1869,11 @@ Battleships probably want to carry a ZD for ASW patrol, or better still
 operate in conjunction with a CV and keep the flammable petrol off their
 own decks; in most cases the battlewagons' job is now to protect the
 carriers from enemy battleships that get too close or from bombers that
-get through the CAP, rather than to sortie on their own.  While they
-could carry an HC to spot for the guns, again a carrier-based L2 or L3 is
+get through the CAP, rather than to sortie on their own.
+(Well, that and coastal bombardment,
+but you only get to do that if you can control the seas.)
+While they could carry an HC or HU to spot for the guns,
+again a carrier-based L2 or L3 is
 noticeably superior and avoids the fire risk.  Come 1935 you _might_ want
 to carry an HB for battleship engagements; if it finds the enemy dread it
 can deal a few damage, maybe slowing them down enough to let your dread
@@ -1645,13 +1891,14 @@ more easily when surfaced.
 
 Catapult Armed Merchantmen, available from 1935, have the chance to
 occasionally survive, or at least inflict a bit of extra damage on their
-assailants, but in most cases it's not a huge difference — even 18
-DP is just too weak to survive much of anything.  And of course they're
-just as vulnerable to subs as regular merchies.  Still, they may be worth
+assailants, but even 30 DP is too weak to survive against more powerful
+foes (72% Pd vs T3/HB/DB/MB; 95% vs BB).
+And of course they're just as vulnerable to subs as regular merchies.
+Still, they may be worth
 the extra 6 shields if the enemy is bombing them a lot (especially if
 he's using LTs, old HCs, or even older HNs — against HN a CAMboat's Pd
-is just 5% in the first round, and if the HN attacks again then CAM gets
-a 40% WR).
+is `<`1% in the first round, and if the HN attacks again then CAM gets
+a 76% WR).
 
 ### Civil Aviation
 
@@ -1684,6 +1931,11 @@ But the stack costs about as much as a pair of M3s, which together deal
 about as much damage as the B3 while being much more resilient against
 fighter attack (and the K3 is especially vulnerable, having 0FP), so the
 benefit is unclear.
+Another dubious possibility is having the tanker support a scout,
+which can defend the stack from enemy fighters.
+But K3+S3 costs as much as M3, has twice the upkeep,
+and only delivers about 60% as much DP (and it can't bomb).
+It's just an extra flexibility option for your existing forces.
 More significant is the K3's ability to stretch civil aviation, letting
 LL reach cities 20 tiles away (or 25 if you expend the tanker) and thus
 expand global trade; it may also help you get Ambassadors into civs you
@@ -1699,17 +1951,26 @@ early buildings.  Air Tours boosts lux, also useful if you're trying
 to grow your cities bigger.  FAA Branch reduces corruption — which
 for Democracies doesn't vary with distance, so you'll want this in big
 trading cities rather than cities far from the capital — and adds
-one more content citizen.  Crop Dusting enables the extra food output
+one more content citizen.
+Finally it brings the de Havilland smallwonder, which
+boosts trade output in the city that has it.
+Following it is the Aerial Application tech, unlocking Crop Dusting, which
+enables the extra food output
 from farmland, which might allow you to grow a city bigger, or might
 just allow you to have more of its citizens on shield-producing tiles
-like coal mines.  Finally it brings the de Havilland smallwonder, which
-boosts trade output in the city that has it.  Mass Production brings
+like coal mines.
+University Air Squadron (Streamlining) is a useful way for Democracies to
+cut down on their unit upkeep (a city with both UAS and Recruiting Office
+can support four units for free), but can only be built in a city with a
+Technical College.
+Mass Production brings
 three more buildings; Tramways are likely to be needed in your bigger
 cities to deal with pollution, despite their two gold per turn upkeep.
 Marshalling Yard brings extra trade in a city with lots of railways around
 it (it should synergise particularly well with de Havilland), but costs
 two upkeep so is only worth it in big cities with lots of land tiles
 to work.  Engine Factory allows you to churn out production much faster,
+not just from the extra shields but also from the additional build slot,
 but three upkeep and a 100-shield build cost make it rarely worth it.
 Display Team (Twenties Fighters) is a smallwonder that gives you a happy
 citizen in _every_ city; for Democracies this is likely to be a must-have
@@ -1750,10 +2011,15 @@ hunting down their ships.
 Aircraft Factory (Military-Industrial Complex) stacks another production
 boost on top of Engine Factory, but it's even more expensive (in both
 shields and upkeep) so even fewer cities are likely to justify it.  (And
-those which do will probably run into serious pollution problems.)
+those which do will probably run into serious pollution problems.  But at
+least they get a third build slot.)
 R.D.F. brings both a building, Radar Station, and a smallwonder,
 Chain Home.  Both give four tiles of vision, Radar Station to the city
-and Chain Home to all cities on the continent.  There's also the Radar
+and Chain Home to all cities on the continent.  They also alter the timing
+of auto-interception; unlike Dawn Patrol, the fighter now attacks _before_
+bombs are dropped, so a lucky fighter could maybe stop an already-damaged
+bomber from delivering its incendiaries.
+There's also the Radar
 Van unit, which after driving out to the desired location can convert to
 a Radar Tower with three tiles of vision.  Radar stations can be
 useful on the extremities of your empire to spot slower-moving forces
@@ -1791,7 +2057,12 @@ latter.
 
 There is not much new recon in 1939.  Blimps have long since ceased to
 develop, and now floatplanes and flying-boats are running out of steam
-as well.  Even light bombers have a gap; so the only fresh arrival is
+as well.
+Light bombers bring the L4 Scout Bomber, an upgrade to the L3 with the
+combat strength (and cost) of the LT.  Unlike LT it's carrier-capable and
+can Spot, but only has the same 10M2F speed of the L3; and with fighters
+continuing to advance, 80 DP isn't that great any more.
+The only other fresh arrival is
 the UE Early Helicopter.  With a short range (6M2F) and the same zero
 defence as the ZD, really its only
 advantages are being able to use more types of carriers, and (crucially)
@@ -1815,8 +2086,7 @@ as much as possible to reduce their risk of being found.
 
 And that's it for the era.  Once you've got FHs, they'll probably meet
 your recon needs quite handily, but contemporary fighters will cause
-trouble if they catch them — e.g. 50-50 odds in a duel with an FM,
-⅓ chance to survive an FC or FF.
+trouble if they catch them — e.g. FM gets 34% WR, FC or FF gets 51%.
 
 ### Anti-Ground
 
@@ -1857,10 +2127,16 @@ major damage dealer, but it should be good at cleaning up targets after
 the bombers have weakened them, and its versatility might be attractive.
 Do be aware, though, that its upgrade path, into pure naval attackers,
 loses the ability to engage air targets.
+The same Carrier Aviation 1940 tech also brings the L4 Scout Bomber, with
+the same 80 AP and 80 DP as the LT, but carrier-capable.  (It's the
+upgrade for L3, and retains its 10M2F speed.)  Unless you need Spotting or
+operation from a flattop, LT is probably better, especially as L4 has no
+upgrade path.
 
 1942 brings a couple of new bombers.  The LM Light-Medium Bomber is
 broadly speaking a cheaper MB, with the same 12 BP and decent combat stats
-of 100 AP and 120 DP, at ⅔ the price.  It also has Recon and r²≤5 vision,
+of 100 AP and 120 DP, at ⅔ the price.  It also has Recon, Pillage,
+and r²≤5 vision,
 and an extra point of move (13M2F).  Its CR 12 fits the 'medium' standard,
 but it upgrades from the LT.  It's also
 convertible to the FH, increasing its versatility (and explaining why
@@ -1889,7 +2165,7 @@ selected building in the target city, can prove very useful.
 weakening the defences against following bombers; or destroy a Concrete
 Runway or Air Base that's maintaining the enemy's units.  Or something
 really expensive like an Aircraft Factory that cost over three times as
-many shields to build.)  Moreover, the BD's turn isn't ended by dropping
+many shields to build.)  Importantly, the BD's turn isn't ended by dropping
 the bomb, so it can run some distance away, perhaps evading the fighters —
 although the BD's move, at 10M2F, is rather less than the plain BH.
 In a way the BH is what the heavy-bomber line has
@@ -1940,8 +2216,12 @@ units, but it still won't be pretty.
 
 ### Anti-Sea
 
-There's no specifically naval bomber that arrives in 1939/40, so the only
-new AntiSea aeroplane at that tech is the B4.  It will very reliably kill
+The only specifically naval bomber that arrives in 1939/40 is the L4 Scout
+Bomber, which matches the LT's combat strength (and cost) but can operate
+from carriers.  On the other hand, it doesn't have the LT's bonus against
+submarines.
+The other
+new AntiSea aeroplane at 1939 tech is the B4.  It will very reliably kill
 a sub (taking no damage ⅝ of the time) and has 91% Pk on an lcmboat;
 but its 20 BP aren't enough to finish off a carrier or even a tender.
 On average it will take three of them to kill a CV.  Its 10M3F range is
@@ -1971,7 +2251,7 @@ When scrambled against, its Pk-Pds are 4%-1% (NM), 17%-61%
 (ND), 17%-83% (NC).
 The cost is 12½% up, at 45 shields, but it's worth it
 for the doubled defence and the improved performance against dreads
-(three planes, or 135 shields, gets 76½% Pk with 8% Pd on the first one).
+(three planes, or 135 shields, gets 85½% Pk with 6% Pd on the first one).
 LM Light-Medium Bomber has a longer
 reach at 13M2F, and a much higher DP (120) along with a decent 100 AP,
 but its 12 BP are lower
@@ -1981,7 +2261,7 @@ or 98% on uu (like LT and helis, it gets double attack against them) or
 better choice in heavily contested skies (or to burn through carried
 fighters); but it's not carrier-capable.  Attacking dreadnoughts it does
 rather less damage than a torper (on average it'll take nearly four LMs,
-which together cost more than the ship), but Pd is only 10%.
+which together cost more than the ship), but Pd is only 7%.
 Last but by no means least, the BH Heavy Bomber can bring its 30 BP
 and 576 AP to the naval theatre, with over a 2 in 3 chance to sink a
 CVL straight off; a pair of BHs together have a 71% Pk against a CV.
@@ -1992,7 +2272,7 @@ group approaches your homeland, it's likely worthwhile sending your
 heavies against them.
 Converted BDs can drop the XT, which has triple attack against
 battleships, dealing more damage on average than a BH but with a slightly
-lower Pk (34% rather than 38%) as it only has 20 BP.  If the battleship
+lower Pk (41% rather than 46%) as it only has 20 BP.  If the battleship
 is even slightly damaged then XT's Pk overtakes BH's.  And it may be
 preferable to expend a 40-shield bomb than to take potentially quite
 heavy damage to a 150-shield bomber.
@@ -2011,8 +2291,8 @@ but the price is up another 20% and it's still at risk if intercepted by
 contemporary fighters (which by now have a much larger radius of action
 — another carrier as far as eight or nine tiles away could send over
 NPs with a useful fuel margin and an 11% Pk).
-It absolutely wallops dreadnoughts, with a 52% Pk and no Pd (in fact it
-takes an average of just 27½% damage), although it does cost almost as
+It absolutely wallops dreadnoughts, with a 60% Pk and no Pd (in fact it
+takes an average of just 25% damage), although it does cost almost as
 much as the ship.
 
 Throughout the era, PH remains largely adequate for hunting submarines,
@@ -2038,20 +2318,20 @@ the floatplanes is the HM Monoplane Float Fighter, which is enough to turn
 the tables against the PH (55% Pk; or 1½% Pk with zero Pd in a scramble),
 but its 84 AP / 84 DP are a bit weak for taking on modern landplanes
 (e.g. 6% Pk intercepting B4, 15% vs MB), especially scrambling from
-its tender (<1% Pk vs MB, 35% Pk vs DB, 50% Pk-9% Pd vs TM, ~0% Pk-88%
+its tender (`<`1% Pk vs MB, 35% Pk vs DB, 50% Pk-9% Pd vs TM, ~0% Pk-88%
 Pd vs B4).  14 move is also sub-par in this era.  At least its 36 shield
 cost is no higher than its land-based brethren.  The main carrier-borne
 fighter, the ND Naval Dogfighter, is a much more capable unit, with 108
 AP / 108 DP and 18 move (the latter being the same as the FM, which it's
 basically a navalised variant of).  It's still a little more fragile than
 the landplanes (intercepting a B4 it gets 15% Pk, while in a scramble it
-has 89% Pd vs B4, 73% Pk-10% Pd against a TM, and 61%-<1% vs DB) and it's
+has 89% Pd vs B4, 73% Pk-10% Pd against a TM, and 61%-`<`1% vs DB) and it's
 a tad more expensive at 40 shields, but it should give pause to anyone
 going after your carriers.  Like the similar FM, it loses FieldRepair,
 but carrier-borne aircraft rarely care about that anyway.
 There's also the NS Naval Strike Fighter,
 which in addition to its attacker rôle can deploy its 48 AP and 32 DP
-as a very limited air-to-air fighter (78% Pk intercepting DB, <1% vs MB,
+as a very limited air-to-air fighter (78% Pk intercepting DB, `<`1% vs MB,
 ~0% vs B4, ~100% vs TM; in a scramble it will draw with DB or MB, but has
 2% Pd against TM, and B4 will kill it over ⅔ of the time).
 Along with
@@ -2083,7 +2363,7 @@ against TB as ND did against the old TM.
 
 Superprops offer only slight improvements.  1944's FF Superprop Fighter
 is faster, at 21 move, but otherwise has identical stats to the FC (thus
-e.g. 14% Pk intercepting BS, <1% Pk-94% Pd in scramble).  Meanwhile,
+e.g. 14% Pk intercepting BS, `<`1% Pk-94% Pd in scramble).  Meanwhile,
 the NP Naval Superprop (Carrier Aviation 1945) gains a little interception
 strength at 192 AP, though defence remains at 144 DP,
 and the price rises to 45 shields; its advantage is the 25% speed
@@ -2091,6 +2371,21 @@ boost to 20 move.  So as an interceptor it's rather good, retaliating
 on bombers across a big chunk of ocean, but in a scramble it's not ideal.
 The importance of superprops, though, is that they let you eke out the
 last gasp of capability without having to build Air Bases to support jets.
+
+With the arrival of nuclear threats, high-power high-cost units such as
+heavy fighters now have an additional advantage beyond upkeep-efficiency,
+as they can deliver more damage in the single set of combat rounds an
+auto-interceptor gets, and thus increase your chances of thwarting the
+attack.  Since you only get at most two auto-intercepts on each bomber,
+using FH maximises your odds, even though it's less powerful _per shield_
+than FF — you could build three FF for the price of two FH, but if you
+only get to use two of those FF before the city and everything in it gets
+nuked, then what good was the third one?
+(On the other hand, if given a choice between an FC/FF and an FH, the game
+will choose to use the single-seater, as it has more AP, even though in a
+single combat it will likely deal less damage.  Then again, this may be a
+sensible choice, as the FH's limited hitpoints may not survive the return
+fire from a FirePower-3 heavy bomber or escorting fighter.)
 
 Overall, fighters gain ground in the early and mid war years, but then
 the superprops are disappointing and may be worth skipping (but then the
@@ -2147,7 +2442,7 @@ mixed-rôle NS; and it's that bit better against battleships (average to
 sink a dreadnought is now 117 shields).
 Both NS and NA are reasonably useful ground-attackers,
 weaker than their land-based equivalents but delivering more effective BP
-at short range than carrier-capable bombers like DB or L3;
+at short range than carrier-capable bombers like DB or L4;
 NS also makes a useful contribution to the defence of the carrier.
 The only carrier-capable aircraft that's actually reasonably effective
 against a scrambling NC/NP is the old KA, with a 47% Pk, but 1 pop is a
@@ -2156,6 +2451,7 @@ Apart from that, only land-based heavies pose a serious threat to a
 carrier with cannon-armed CAP.
 The old DB is alright, with an average of two DBs to kill each NP (both
 units costing 45 shields, so defence still has better economics).
+L4 deals less damage but has fairly good odds of survival.
 
 Seaplanes hang in there with HM, just about strong enough to hunt TBs
 and PHs or PLs but not stunning against anything else.
@@ -2163,6 +2459,7 @@ and PHs or PLs but not stunning against anything else.
 There's no upgrades to the old DB; and while the UE is new it's unclear
 whether its sonobuoys and doubled ASW attack are worth more than the ZD's
 longer loiter.
+On the other hand, it does have an upgrade path ahead of it.
 
 ### Flight Refuelling
 
@@ -2192,12 +2489,18 @@ being that everyone gets an additional trade route per city.  So building
 it first is mostly just for bragging rights, but getting it built at
 all is helpful to a large trading empire.
 
+Coast Guard (Helicopters) gives additional trade from sea tiles, which can
+be quite valuable in a large coastal city with lots of economic multiplier
+buildings.
+
 Tracking Radar unlocks a building (Sector Control) and a greatwonder
 (Dowding System) with the fairly weak effect of increasing fighter
 defence in cities by 30%.  At 80 shields to build and 2 gold upkeep,
 Sector Control costs about the same as a pair of FCs, and even a six-stack
 of fighters with the bonus is weaker than the eight fighters you could get
-otherwise.  Probably not worth bothering with.
+otherwise.  Far more important is their effect on automatic interception;
+when combined with a Radar Station (or Chain Home), *two* fighters in the
+city can now attack a bomber before it drops incendiaries or special bombs.
 
 Proximity Fuse doesn't unlock a new building, but does boost the effect
 of the existing Flak Battery; this can be useful in frontline cities.
@@ -2206,7 +2509,11 @@ Troops, flak alone brings this down to 31%, but proxy-fused flak takes
 it below 20%.  Looked at another way: two Troops and a proxy-fused
 Flak Battery has the same DP as three Troops and no flak, costs the
 same shields to build, but upkeep is 2 shields and 1 gold, rather than
-3 shields.
+3 shields.  And the Flak Battery shoots back at bombers dropping
+incendiaries, XTs, or even nukes, now doing 1d10 damage; in conjunction
+with a couple of interceptors sent by Sector Control, there's now a
+realistic chance of destroying the bomber before it can deliver its deadly
+payload (e.g. two FH and a proxy-flak together get 56% Pk on a BU).
 
 Nuclear Weapons unlocks the Manhattan Project greatwonder, which allows
 **all** civs (with the selfsame tech) to build nukes.  You only want that
@@ -2263,7 +2570,11 @@ however, fighters have improved
 an awful lot since the MB's day, and e.g. an F1 will shoot it down quite
 often (Pk=39%).  Apart from Recon, it's hard to see why you'd bother
 with it when e.g. a BS can do so much more than a pair of M1s (unless
-you're eyeing the upgrades).  There are several attacker options, of
+you're eyeing the upgrades).  It does gain the Pillage ability, though.
+PS Maritime Reconnaissance gets AntiGround, but with combat stats
+slightly weaker than an M2(!) only its massive 10M4F range makes this in
+any way interesting.
+There are several attacker options, of
 which the most obvious is A1 First-gen Jet Attacker.  Unlike previous
 attackers, it has 2 FirePower, giving it 120 AP and 72 DP.  However,
 its AP growth over the AP Superprop Attacker is matched by the rising
@@ -2280,23 +2591,24 @@ hit quite as hard.  Still, it's the best shore strike option the carriers
 have, dealing slightly more damage per shield than the old DB and without
 the risk of fighter interception.  Off on a branch of its own, the V2
 Artillery Rocket (Rocketry) is a missile (i.e. destroyed after attacking)
-with a range of 12 tiles.  It deals slightly more damage than an M1,
-and is pretty cheap at 20 shields, but whether it's worth expending
-missiles rather than using bombers that you can _re_-use is unclear.
-The situation where it makes most sense is if there are enough enemy
-fighters swarming around that you wouldn't get your bombers back _either_.
-(But then, it's quite weak against scrambling fighters since they're
-far more likely than 1-FirePower Troops to burn through its HP before
-it finishes its CRs.)  In such a situation, the other option would be
-attackers, which don't deal as much damage relative to cost, but _do_
-generally come home again.  To be honest, none of 1946's AntiGround
-options are that great, so you might choose to just stick with the old
-BS until the next generation comes along.
+with a range of 8 tiles.
+It gets double firepower against units in a city, dealing the same damage
+as an MB, but instead of attacking one unit it bombards them all, like an
+Artillery or Assault Gun; it's somewhat intermediate in power between
+those two, its 20 shield cost matching the ag and being ⅔ of the ar's.
+Its main advantage is action-at-a-distance (without the glider-faffing
+needed to do the same with ag); its disadvantages are that it's expended
+on use, and can't be moved from the city that builds it (except by loading
+it on an aircraft carrier, which can transport but not launch it).
+It's upkeep-free for Fascists, which might tempt them to use it.
 If you spend the large amount of bulbs to research Thermonuclear Weapons,
 you gain access to the Thermonuclear Bomb, functionally similar to the
 Atomic Bomb but non-unique (so you can build up a nuclear stockpile) and
 slightly cheaper at 90 shields.  A strange game; the only winning move is
 not to play.
+To be honest, none of 1946's new AntiGround
+options are that great, so you might choose to just stick with the old
+BS until the next generation comes along.
 
 That next generation, Bombers 1949, brings something impressive in the
 form of the MJ Small Jet Bomber.  Costing 120 shields (the same as a
@@ -2335,7 +2647,9 @@ first time loses no DP or range compared to its conventional cousin.  As
 well as penetrator bombs and free-fall nukes, it can carry the XS
 Stand-Off Bomb, which while slightly more expensive at 120 shields (and
 requiring an Air Base to build), can fly up to 4 tiles from the bomber,
-thus finally letting you avoid catching your own bomber in the explosion.
+thus finally letting you avoid catching your own bomber in the explosion,
+as well as preventing SAMs (including XA) from stopping you.  There is,
+quite simply, no defence against an XS-tipped nuclear strike force!
 For those who haven't built Air Bases everywhere, the BR Turboprop Bomber
 provides a decent upgrade to the superprops, with 16M2F range, 990 AP and
 360 DP.  (It can carry free-fall bombs but not stand-off missiles.)
@@ -2382,8 +2696,8 @@ twice as many TBs, which would be much more destructive — but the
 MJ's defence is far stronger (only 41% Pd to an intercepting NF, or 53%
 if the fighter has airborne radar).  And unlike TBs, MJ is guaranteed to
 survive
-attacking a dreadnought (if there are any still around), dealing over 10
-HP of damage on average (and with a 2½% chance to sink it outright).
+attacking a dreadnought (if there are any still around), dealing 11
+HP of damage on average (and with a 4% chance to sink it outright).
 There's also the B1 Early Jet Bomber, which can comfortably kill a CVL
 (68% Pk); a pair of them can do the same to a CV (71% Pk) and three can
 even sink a CVN (58% Pk).  It's rather less vulnerable to fighters
@@ -2410,7 +2724,7 @@ takes an average of about two ANs, which is viable (especially since, as
 an attacker, AN is likely to gain veteran levels easily).
 
 The main new AntiSea aircraft in the Fifties is the BJ Jet Bomber;
-it hits slightly harder than the B1 (63% Pk vs dreads; 84% Pk vs CVL;
+it hits slightly harder than the B1 (71% Pk vs dreads; 84% Pk vs CVL;
 99% Pk-0.1% Pd vs scrambling NI where B1 gets 97%-3%)
 and is more likely to survive the fighter response
 (18% Pd vs intercepting NI).
@@ -2421,7 +2735,7 @@ shields to build, a major investment.
 Cities without an Air Base instead get to build the BR Turboprop Bomber,
 which is only fractionally stronger than BS with its 990 AP and the same
 360 DP, but 16M2F extends its reach appreciably.  Against dreadnoughts
-its Pk is up to 58%; on CVL it gets 81%.  But it is vulnerable to the
+its Pk is up to 66%; on CVL it gets 81%.  But it is vulnerable to the
 latest fighters, NI getting 52% on interception, and it costs the same
 200 shields as the BJ.
 
@@ -2440,7 +2754,10 @@ The jet fighters of 1945 are faster, but no stronger, than the props
 they replace.  F1 First-gen Jet Fighter has the same 192 AP as an FC or
 FF, but only 144 DP (same as an FM), and it costs a chunky 50 shields.
 Its main selling-point is its 25 move, allowing it to cover quite a
-wide area.  Alternatively, the FV First-gen Light Fighter is cheap at
+wide area.
+Also, for auto-intercepting nuclear bombers, it matches the previous best
+(FH) at a lower cost.
+Alternatively, the FV First-gen Light Fighter is cheap at
 32 shields, but with only 120 AP and 90 DP it's limited in what it can
 do — although it is quite effective against an M1, and has the same 25
 move as the F1.  The two are pretty closely matched for cost-efficiency,
@@ -2474,7 +2791,8 @@ has 375 AP, well worth its 60 shield cost; intercepting an MJ it has
 61% Pk.  However, things aren't so good in a scramble (it has 225 DP),
 where an MJ will kill it 63% of the time.  Fortunately, its 28 move means
 it can be based a long way back from the front line and still be able to
-make interceptions.  The FL Transonic Light Fighter, though requiring an
+make interceptions.  It's also upkeep-free for Fascist governments.
+The FL Transonic Light Fighter, though requiring an
 extra tech to reach, is equally cost-efficient, having 280 AP and
 168 DP for just 45 shields, though only 25 move; like FV, its ability to
 operate from unprepared bases (FieldRepair flag, no Jet flag) makes up
@@ -2489,9 +2807,12 @@ to justify its 75 shield cost.  Rather, its value comes from its loiter
 cheaper source of DP than either MJ or B1, though of course it can't bomb
 like they can.  It also has r²≤5 vision, the first fighter to do so.  On
 balance it's doubtful whether it'll be worth building escorts (rather than
-just having a bigger stack of bombers), but it's certainly worth upgrading
-any old FH for the 50% DP boost (and more than doubled AP) if you have the
-Air Bases to support it.
+just having a bigger stack of bombers), especially as there's no upgrade.
+Fitting more power into a single unit does make it a marginally better
+auto-interceptor than the FW, giving you the best odds of bringing down a
+bomber before it can nuke you — so it might be a worthwhile defender for
+your second-strike bases (but again, the lack of an upgrade path means
+that very soon it'll be inferior to regular fighters).
 Aircraft carriers get the NF Swept-wing
 Naval Fighter, which is not quite as good as the landlubbers — 300 AP,
 180 DP, 26 move, for 70 shields — but is a major upgrade over the NJ, and
@@ -2501,18 +2822,6 @@ hangar space on the carrier; neglecting that, it's still a worse scrambler
 than the props.
 All four of these fighters are good at what they do; it's just that
 (apart from the FL) they're rather expensive for it.
-Finally, there's the XA Surface-to-Air Missile, which is very powerful for
-its cost at short-range interception, but as a missile is single-use, and
-has no scramble capability; its rôle is to retaliate against a bomber
-force that didn't manage to take the city it's in, but this in many cases
-is better met by fighters in a nearby city.  One potential use for XA is
-to embark it on an aircraft carrier; since units at sea can't repair as
-rapidly as in cities, enemies are more likely to attempt attritional
-bombing when they don't have the forces to take out the carrier-group in
-one turn.  On the other hand, XAs take up a lot of hangar space.
-Interestingly, XA can also launch from the nu SSN, potentially causing a
-loitering PS to have a Very Bad Day (especially as the sub can see the PS
-from further away than vice-versa).
 
 In the Fifties the heavy-fighter concept merges into the main fighter line
 to produce the FA Supersonic Fighter, with 20M2F allowing it to fly escort
@@ -2525,7 +2834,7 @@ Curiously, FW upgrades to it but JA doesn't.
 For scrambling, your best bet is the FI
 Supersonic Interceptor, with 320 DP and the same 480 AP, along with 30
 move, at a price of 64 shields.  This has a tiny chance to beat an
-attacking BJ (<1% Pk-92% Pd), or 56% against an MJ;
+attacking BJ (`<`1% Pk-92% Pd), or 56% against an MJ;
 it is simply the most cost-efficient scrambler yet, finally outperforming
 the props in this rôle even absent considerations of upkeep.  It's also
 the best interceptor, being a smidge cheaper than FA.
@@ -2536,6 +2845,25 @@ these fighters have r²≤5 vision.  Since these fighters (particularly
 FI) are so effective, enemies may be tempted to switch from bombers to
 attackers, forcing you to fight in the scramble; alternatively, they
 may just make heavy use of escorts.
+Finally, there's the XA Surface-to-Air Missile, which is very powerful for
+its cost at short-range interception, but as a missile is single-use, and
+has no scramble capability; its rôle is to make automatic interceptions
+under direction from Radar Station and/or Sector Control, making it much
+more difficult for XTs or non-standoff nuclear bombs to reach your cities.
+Typically in a confrontation between nuclear powers, XAs will (at least)
+be stationed to defend the bases of one's own nuclear strike force, in
+order to (hopefully) assure second-strike capability — two XAs and a SAM
+battery all firing at a single BP get a 99% Pk, while even against the
+more advanced BN and BY they still get 83% and 72% respectively.
+One potential use for XA is to embark it on an aircraft carrier; unlike on
+land, XAs aboard ship will launch at even bombers making conventional
+attacks (so potentially you get two bites at an enemy bomber, the XA auto-
+intercepting and then a CAP fighter scrambling to defend).
+On the other hand, XAs take up a lot of hangar space.
+Fascist governments pay no upkeep for the XA.
+Interestingly, XA can also launch (or auto-launch) from the nu SSN,
+potentially causing a loitering PS to have a Very Bad Day (especially as
+the sub can see the PS from further away than vice-versa).
 
 Jet fighters as a whole are slow to get started, but once equipped with
 missiles they firmly eclipse the old props with impressive interception
@@ -2603,8 +2931,11 @@ for global power projection and bragging rights.  The only thing it
 
 If you have any spare slots on your carriers and can't afford the planes
 to fill them, a handful of XAs may be a good idea to punish any bombers
-that dare to attack your carrier group.  But enemies might well be using
-ANs instead, in which case you don't get a chance to fire the XA at them.
+that dare to attack your carrier group.
+But enemies could send in cheaper units (perhaps even old ZCs if they
+still have them lying around) to soak up the XAs before mounting the real
+attack once the missile boxes are empty; the auto-launch logic has no
+concept of "this guy isn't worth wasting a missile on".
 
 ### Civil Aviation
 
@@ -2655,8 +2986,8 @@ but not units (it's not clear how useful this is), while Human In Orbit
 gives a very useful two happy citizens in every city (which could push
 you into celebration in peacetime, or combat unhappiness from deployed
 units when at war).  SAM Battery (Early Missiles) is a nice upgrade from
-flak, doubling defence, but costs 90 shields to build and 2 gold per
-turn to maintain.
+flak, doubling defence (and dealing 1d20 to fire/special-bomb droppers),
+but costs 90 shields to build and 2 gold per turn to maintain.
 Int'l Airport (Fifties Airlift) adds 50% to tax revenue;
 this alone would struggle to justify its 2 gold upkeep, but it also lets
 the city open an additional trade route, which is much more valuable, as
@@ -2727,7 +3058,7 @@ it to 99½% Pk against a scramble; but its damage dealt to ships is little
 changed ­— it's still only 30 BP, after all, and against a defence of
 3 or 4, having an attack of 13 instead of 12 makes not much difference.
 (There probably aren't still dreadnoughts around, but if there are then
-Pk rises a little to 68%.)
+Pk rises a little to 75%.)
 Meanwhile, carriers are now likely to have more organic interception
 capability by retasking their AVs — which despite a nominally lower AP
 than NI have almost as good a Pk (7%) as NI (19%) suffers from rounding.
@@ -2779,14 +3110,15 @@ it's tempting to load your carriers up with nothing but AVs.  A 12-strong
 wing on a CVN can chew up the enemy army or navy; but the stack costs
 1,230 shields, and if the enemy is likely to find and attack your carrier
 then you might still want to pack a few NIs to beef up the defences.
-An attacking AF can eat through approximately 1⅚ NIs or 2 AVs);
+An attacking AF can eat through approximately 1⅚ NIs or 2 AVs;
 the extra 10% of the NI (and slightly lower build cost)
 may be worth it if it can make the difference
 between the carrier surviving or not, but if the enemy force is strong
 enough that finding you = sinking you then you may as well just carry
 as much attack capability as possible and hope you can stay hidden while
 you wreak havoc.
-And of course neither AV nor NI can do much about a nuclear strike.
+And of course neither AV nor NI can do much about a nuclear strike;
+that's still a job for XA to deal with.
 Two things that we probably ought to have for realism, but currently
 don't, are harrier carriers / Through Deck Cruisers (should AV be coded
 as a helicopter?) and heavy naval strike/patrol aircraft that can only
