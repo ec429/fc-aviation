@@ -32,7 +32,8 @@ flags =
     _("Cities")
     _("AddToCity")
     _("Bombarder"), _("Can bombard adjacent tiles.")
-    _("Bombarder 2"), _("Can bombard cities and fortresses up to 2 tiles away.")
+    _("Bombarder 2"), _("Can bombard up to 2 tiles away.")
+    _("Bombarder 3"), _("Can bombard up to 8 tiles away (unit is expended).")
     _("Pillage")
     _("Cant_Fortify")
     _("CRscout")
@@ -1573,7 +1574,7 @@ Westland Wapiti and Hawker Hart.\
 name          = _("Thirties Light Bomber")
 class         = "Carrier-borne"
 tech_req      = "Thirties Bombers"
-obsolete_by   = "None"
+obsolete_by   = "Scout Bomber"
 graphic       = "u.battle"
 graphic_alt   = "u.fighter"
 ;phcode=L3
@@ -1642,6 +1643,41 @@ By dint of its larger size, the Twin cannot operate from \
 aircraft carriers.  \
 Historical examples include the Dornier Do 17E and \
 Bristol Blenheim.\
+")
+
+[unit_40s_light_bomber]
+name          = _("Scout Bomber")
+class         = "Carrier-borne"
+tech_req      = "Carrier Aviation 1940"
+obsolete_by   = "None"
+graphic       = "u.dauntless"
+graphic_alt   = "u.fighter"
+;phcode=L4
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 5
+transport_cap = 0
+embarks       = "Sea"
+disembarks    = "Sea"
+fuel          = 2
+uk_happy      = 1
+uk_base       = 1
+uk_food       = 0
+bonuses       = BOMB
+flags         = "Recon", "Spotter", "OneAttack", "CRlight", "AntiGround", "AntiSea"
+helptext      = _("\
+A slightly more modern carrier-capable light bomber, with shallow \
+dive bombing capability for improved accuracy.  \
+Historical examples include the Douglas SBD Dauntless.\
 ")
 
 [unit_light_medium_bomber]
@@ -3441,25 +3477,29 @@ sound_fight   = "f_cruise_missile"
 sound_fight_alt = "f_generic"
 build_cost    = 20
 pop_cost      = 0
-attack        = 8
+attack        = 6
 defense       = 0
 hitpoints     = 6
 firepower     = 1
-move_rate     = 12
+move_rate     = 1
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 1
 uk_happy      = 1
 uk_base       = 1
 uk_food       = 0
-flags         = "AntiGround", "CityBuster", "CRmedium", "Fanatic", "Missile" ; we'd rather "Bombarder"
-;bombard_rate  = 6
+flags         = "AntiGround", "CityBuster", "Fanatic", "Missile", "Bombarder 3"
+bombard_rate  = 6
 roles         = ""
 helptext      = _("\
 Long-range bombardment rocket.  Can be transported on, but\
  not launched from, aircraft carriers.  \
 Historical examples include the Thiel Aggregat 4, better\
  known as the V2.\
+"), _("\
+Note that the game will allow you to fire at a stack even if\
+ none of the units in it are reachable (e.g. Air units), and\
+ this wastes the unit.\
 ")
 
 [unit_mrsam]

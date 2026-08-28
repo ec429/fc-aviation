@@ -4,7 +4,7 @@
     "base_url": ".",
     "name": "Aviation",
     "type": "Modpack",
-    "version": "LT91"
+    "version": "3.1-0.6"
   },
   "files": [
     "aviation.serv",
@@ -19,6 +19,7 @@
     "aviation/cenotaph.png",
     "aviation/chain_home.png",
     "aviation/cities.ruleset",
+    "aviation/dawn.png",
     "aviation/delag.png",
     "aviation/dispteam.png",
     "aviation/effects.ruleset",

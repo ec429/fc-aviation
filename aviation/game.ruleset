@@ -202,6 +202,7 @@ explode_nuclear_max_range = 0
 nuke_city_max_range = 1
 targeted_sabotage_city_max_range = 1
 bombard_2_max_range = 2
+bombard_3_max_range = 8
 
 ; What each action should be called when showing them to the player.
 ; The first %s should be before the mnemonic of the action. A Freeciv client
@@ -285,6 +286,7 @@ ui_name_found_city = _("%sBuild City%s")
 ui_name_join_city = _("%sAdd to City%s")
 ui_name_bombard = _("%sBombard%s")
 ui_name_bombard_2 = _("%sBombard%s")
+ui_name_bombard_3 = _("%sBombard%s")
 ui_name_attack = _("%sAttack%s")
 ui_name_conquer_city = _("%sConquer City%s")
 ui_name_conquer_city_2 = _("%sConquer City%s")
@@ -505,12 +507,28 @@ target_reqs   =
       "TerrainClass", "Land",   "Local"
     }
 
+[actionenabler_bombard3]
+action = "Bombard 3"
+actor_reqs    =
+    { "type",         "name",        "range", "present"
+      "UnitFlag",     "Bombarder 3", "Local", TRUE
+      "UnitFlag",     "Missile",     "Local", TRUE
+      "UnitState",    "Transported", "Local", FALSE
+      "MinMoveFrags", "1",           "Local", TRUE
+      "DiplRel",      "War",         "Local", TRUE
+    }
+target_reqs   =
+    { "type",         "name",   "range"
+      "TerrainClass", "Land",   "Local"
+    }
+
 [actionenabler_attack_native]
 action = "Attack"
 actor_reqs    =
     { "type",          "name",         "range", "present"
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
+      "UnitFlag",      "Bombarder 3",  "Local", FALSE
       "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
 ;     "UnitState",     "OnNativeTile", "Local", TRUE ; this would prevent dreads in cities shooting
@@ -532,6 +550,7 @@ actor_reqs    =
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
       "UnitFlag",      "Bombarder 2",  "Local", FALSE
+      "UnitFlag",      "Bombarder 3",  "Local", FALSE
       "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
       "UnitState",     "OnNativeTile", "Local", TRUE ; probably only relevant if citymindist=0?
@@ -560,6 +579,7 @@ actor_reqs    =
       "UnitFlag",      "NonMil",       "Local", FALSE
       "UnitFlag",      "Bombarder",    "Local", FALSE
       "UnitFlag",      "Bombarder 2",  "Local", FALSE
+      "UnitFlag",      "Bombarder 3",  "Local", FALSE
       "UnitFlag",      "Missile",      "Local", FALSE
       "MinMoveFrags",  "1",            "Local", TRUE
 ;     "UnitState",     "OnNativeTile", "Local", TRUE ; this would prevent subs in cities torping :(
@@ -597,12 +617,13 @@ target_reqs   =
 [actionenabler_explode_missile]
 action = "Suicide Attack"
 actor_reqs    =
-    { "type",          "name",    "range", "present"
-      "UnitFlag",      "NonMil",  "Local", FALSE
-      "UnitFlag",      "Nuclear", "Local", FALSE
-      "UnitFlag",      "Missile", "Local", TRUE
-      "MinMoveFrags",  "1",       "Local", TRUE
-      "DiplRel",       "War",     "Local", TRUE
+    { "type",          "name",        "range", "present"
+      "UnitFlag",      "NonMil",      "Local", FALSE
+      "UnitFlag",      "Nuclear",     "Local", FALSE
+      "UnitFlag",      "Missile",     "Local", TRUE
+      "UnitFlag",      "Bombarder 3", "Local", FALSE
+      "MinMoveFrags",  "1",           "Local", TRUE
+      "DiplRel",       "War",         "Local", TRUE
     }
 
 [actionenabler_explode_bomb]

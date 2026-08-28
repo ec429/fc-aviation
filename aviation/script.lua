@@ -171,38 +171,217 @@ function notify_unit_city(action, actor, target)
                target.name)
 end
 
+function notify_unit_scramble(fighter, bomber)
+  -- Notify actor
+  notify.event(fighter.owner, fighter.tile,
+               E.UNIT_ACTION_ACTOR_SUCCESS,
+               -- /* TRANS: Your Sesquiplane Fighter scrambles to intercept German Biplane Bomber. */
+               _("Your %s scrambles to intercept %s %s."),
+               fighter.utype:name_translation(),
+               bomber.owner.nation:name_translation(),
+               bomber.utype:name_translation())
+end
+
+function scramble_one(place, against, already)
+  local best = nil
+  local bap = 0
+  for u in place:units_iterate() do
+    local t = u.utype
+    if t:has_flag("AntiAir") and u.moves_left > 0 and not already[u] then
+      local ap = t.attack * t.firepower * u.hp * u:veteran_power_bonus()
+      if ap > bap then
+        best = u
+        bap = ap
+      end
+    end
+  end
+  if best ~= nil then
+    local act
+    if best.utype:has_flag("Missile") then
+      act = find.action("Suicide Attack")
+    else
+      act = find.action("Attack")
+    end
+    notify_unit_scramble(best, against)
+    best:perform_action(act, against.tile, nil)
+    already[best] = true
+  end
+end
+
 flak_building = find.building_type("Flak Battery")
 sam_building = find.building_type("SAM Battery")
 prox_tech = find.tech_type("Proximity Fuse")
+dawn_building = find.building_type("Dawn Patrol")
+radar_building = find.building_type("Radar Station")
+chome_wonder = find.building_type("Chain Home")
+sector_building = find.building_type("Sector Control")
+dowding_wonder = find.building_type("Dowding System")
+
+function wonder_on_continent(our_city, wonder)
+  for c in our_city.owner:cities_iterate() do
+    if c.tile.continent == our_city.tile.continent then
+      if c:has_building(wonder) then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+function flak_vs_bomber(our_city, actor)
+  if our_city:has_building(sam_building) then
+    local shots = 20
+    local damage = random(1, shots)
+    notify_flak_damage(actor, our_city, sam_building, damage)
+    actor:damage_hp(damage, "killed", our_city.owner)
+  elseif our_city:has_building(flak_building) then
+    local shots = 4
+    if our_city.owner:knows_tech(prox_tech) then
+      shots = 10
+    end
+    local damage = random(1, shots)
+    notify_flak_damage(actor, our_city, flak_building, damage)
+    actor:damage_hp(damage, "killed", our_city.owner)
+  end
+end
+
+function radar_level(our_city)
+  local radars = 0
+  if our_city:has_building(dawn_building) then
+    radars = 1
+  end
+  if our_city:has_building(radar_building) or
+     wonder_on_continent(our_city, chome_wonder) then
+    radars = 2
+  end
+  if our_city:has_building(sector_building) or
+     wonder_on_continent(our_city, dowding_wonder) then
+    if radars == 2 then
+      radars = 3
+    else
+      radars = 2
+    end
+  end
+  return radars
+end
+
+-- poke the game engine to refresh a city, recalculating its outputs
+function trigger_city_refresh(target)
+  -- it doesn't really matter which building we use
+  local b = find.building_type("Concrete Runway")
+  -- toggle building existence and then toggle it back again
+  if target:has_building(b) then
+    -- use unmake and built_turn_set rather than destroy and construct so that
+    -- the player is not spammed with notification messages
+    target:building_unmake(b)
+    target:building_built_turn_set(b, game.current_turn())
+  else
+    target:building_built_turn_set(b, game.current_turn())
+    target:building_unmake(b)
+  end
+end
 
 -- Handle city targeted unit action start
 function action_started_unit_city_callback(action, actor, target)
   if action:rule_name() == "User Action 3" then
     -- Firebomb City
     -- first, flak may fire
-    if target:has_building(sam_building) then
-      local shots = 20
-      local damage = random(1, shots)
-      notify_flak_damage(actor, target, sam_building, damage)
-      actor:damage_hp(damage, "killed", target.owner)
-    elseif target:has_building(flak_building) then
-      local shots = 4
-      if target.owner:knows_tech(prox_tech) then
-        shots = 10
+    flak_vs_bomber(target, actor)
+    radars = radar_level(target)
+    -- scramble fighter(s) to shoot (before bombs dropped)
+    local already = {}
+    for r=2,radars do
+      if actor:exists() then
+        scramble_one(target.tile, actor, already)
       end
-      local damage = random(1, shots)
-      notify_flak_damage(actor, target, flak_building, damage)
-      actor:damage_hp(damage, "killed", target.owner)
     end
     if actor:exists() then
       target.tile:create_extra("Fire", NIL)
       notify_unit_city(action, actor, target)
+      trigger_city_refresh(target)
+    end
+    -- scramble a fighter to shoot (after bombs dropped)
+    if actor:exists() and radars == 1 then
+      scramble_one(target.tile, actor, already)
+    end
+  elseif action:rule_name() == "Targeted Sabotage City" or -- Precision Strike
+         action:rule_name() == "Suicide Attack" or
+         action:rule_name() == "Nuke City" then
+    -- Tallboy or nuke dropped on city
+    local car = actor:transporter() -- carrying the bomb
+    if car ~= nil then
+      flak_vs_bomber(target, car)
+      radars = radar_level(target)
+      -- scramble fighter(s) to shoot (before bombs dropped)
+      local already = {}
+      for r=2,radars do
+        if car:exists() then
+          scramble_one(target.tile, car, already)
+        end
+      end
+      -- without radar, can't intercept these high-flying raids
+    end
+  end
+end
+
+-- Handle tile targeted unit action start
+function action_started_unit_tile_callback(action, actor, target)
+  if action:rule_name() == "Explode Nuclear" then
+    for place in target:square_iterate(1) do
+      our_city = place:city()
+      if our_city ~= nil then
+        -- nuke dropped adjacent to city
+        local car = actor:transporter() -- carrying the nuke
+        if car ~= nil then
+          flak_vs_bomber(our_city, car)
+          radars = radar_level(our_city)
+          -- scramble fighter(s) to shoot (before bombs dropped)
+          local already = {}
+          for r=2,radars do
+            if car:exists() then
+              scramble_one(place, car, already)
+            end
+          end
+          -- without radar, can't intercept these high-flying raids
+        end
+      end
+    end
+  end
+end
+
+bombarding = {}
+
+-- Handle stack targeted action start
+function action_started_unit_units_callback(action, actor, tile)
+  if action:rule_name() == "Bombard 3" and not bombarding[actor] then
+    -- Suicide bombard: do Bombard 3 for real, then die
+    bombarding[actor] = true
+    actor:perform_action(find.action("Bombard 3"), tile, nil)
+    actor:kill("missile", actor.owner)
+    bombarding[actor] = nil
+    return
+  end
+  if actor.utype.unit_class:has_flag("Flying") then
+    for def in tile:units_iterate() do
+      -- one MRSAM on an SSN or CV launches to defend it when attacked by a
+      -- flying unit.  (Don't launch against non-flying units as those are
+      -- not reachable, even though if there happened to be a flying unit on
+      -- the same tile we could coincidentally attack that, as that would be
+      -- silly thematically.)
+      if def.utype:rule_name() == "Surface-to-Air Missile" and
+         def:transporter() ~= nil then
+        notify_unit_scramble(def, actor)
+        def:perform_action(find.action("Suicide Attack"), actor.tile, nil)
+        break
+      end
     end
   end
 end
 
 signal.connect("action_started_unit_unit", "action_started_unit_unit_callback")
 signal.connect("action_started_unit_city", "action_started_unit_city_callback")
+signal.connect("action_started_unit_tile", "action_started_unit_tile_callback")
+signal.connect("action_started_unit_units", "action_started_unit_units_callback")
 
 function scrub_spot_info(place)
   if place:has_extra("Spotted") then

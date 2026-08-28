@@ -238,7 +238,7 @@ There are also alternative units ("superprops" and later "turboprops") which all
 
 A few heavy bombers can be converted into Modified or Nuclear versions.  These can carry large free-fall bombs and in some cases stand-off bombs / air-to-surface missiles; however, they are not capable of regular attacks (otherwise they could drop their big bomb and then bomb some more, since unloading doesn't end their turn).  All Bomb and ASM units are expended when attacking.
 
-To deploy a free-fall bomb, fly the carrier aircraft adjacent to the target, then select the bomb unit and use the "Do" menu to act against the target tile (usually a city) and select "Precision Strike", "Suicide Attack" or "Nuke City".  (Nuclear bombs can also "Do" against their own tile to "Explode Nuclear in Place".)
+To deploy a free-fall bomb, fly the carrier aircraft adjacent to the target, then select the bomb unit and use the "Do" menu to act against the target tile (usually a city) and select "Precision Strike", "Suicide Attack" or "Nuke City".  (Nuclear bombs can also "Do" against their own tile to "Explode Nuclear in Place".)  Note that city defences may react — flak or SAM batteries will fire at the bomber, and fighters in the city may scramble to intercept; if the bomber is destroyed before it can drop its bomb, then it will fail to deliver it.
 
 The Penetrator Bomb can be deployed against units, but does less damage than an unconverted Heavy Bomber; its real use is the Precision Strike, which destroys a selected building in the target city.  (It's implemented with the Sabotage action, rather than Surgical Strike, because the latter doesn't consume the unit; this could probably be fixed with judicious application of Lua.)  It's also extra-effective against battleships and dreadnoughts, and units in fortresses.
 
@@ -248,7 +248,7 @@ Note that deploying nuclear weapons may have diplomatic consequences, particular
 
 ### Missiles
 
-The V2 Artillery Rocket is a long-range bombardment missile, striking up to 12 tiles from home but not doing a huge amount of damage.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking, and have no defence strength.
+The V2 Artillery Rocket is a long-range bombardment missile, striking up to 8 tiles from home; it is more effective against cities.  The XA Surface-to-Air Missile, with a two-tile range, can do significant damage to enemy aircraft.  Both are expended when attacking, and have no defence strength.
 
 ## Known cheesy tricks
 
@@ -261,3 +261,7 @@ Because of how bombers work (OneAttack), they are highly susceptible to double-m
 The Penetrator Bomb can be used to make conventional bombing attacks without ending the bomber's turn, potentially allowing it to run away out of reach of fighters.  But since it costs 40 shields to build, it's not _that_ different from missiles like the V2 Artillery Rocket.  Bombers carrying the nuclear Stand-Off Bomb are even more likely to get away (that's kind of the point), but that costs 120 shields (though for a nuke that's still good value).
 
 A tanker can pick up a bomber after bombing and tow it home, out of reach of fighters.
+
+An XA in a city will not normally launch against a regular attack (only against other actions like firebombing or dropping special bombs).  But an XA that's transported by another unit (carrier or SSN) _will_ launch, and this still works even if the carrier is in port, allowing you to give the city an extra layer of defence.
+
+On the other hand, a transported XA will launch against _any_ attacking air unit, even something feeble like a blimp or helicopter (heck, it'd even launch against an HA if one somehow showed up), so you can use the enemy XAs up on cheap and worthless targets, leaving them with none left when your real force arrives.

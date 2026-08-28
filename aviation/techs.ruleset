@@ -288,7 +288,8 @@ helptext = _("Dropping incendiary devices from the air enabled\
  economic warfare against the civilians producing war materiel.\
   1915."),
 _("Allows certain bombers to Firebomb a city, reducing its\
- production by half for one turn.")
+ production by half for one turn.  Beware: city defences, including\
+ flak and fighters, may react and damage or destroy the bomber.")
 
 [advance_effective_scouts]
 name     = _("Effective Scouts")
@@ -947,8 +948,7 @@ req2     = "None"
 cost     = 900
 graphic     = "a.flight" ; placeholder
 graphic_alt = "-"
-helptext = _("Ignore this tech; it's for a building that doesn't\
- work yet."), _("\
+helptext = _("\
 Beyond merely detecting approaching raids, advanced radars like\
  the German Wurzburg or the British PPI could be used to guide\
  friendly fighters to an interception.")
